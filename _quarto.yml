@@ -14,6 +14,8 @@ book:
   date: today
   chapters:
     - index.qmd
+    - notebooks/what-is-revision-control.qmd
+    - notebooks/about.qmd
   site-url: https://pages.github.sydney.edu.au/mjon7053/starting-git/
   repo-url: https://github.sydney.edu.au/mjon7053/starting-git
   repo-actions: [source, issue]

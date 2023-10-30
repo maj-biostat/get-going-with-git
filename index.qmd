@@ -4,7 +4,7 @@ date: today
 
 ---
 
-Version control is a somewhat large topic and the git, github and github pages technologies can be daunting.
+Version control is a somewhat large topic and the git, github, github cli and github pages technologies can be daunting.
 However, users can go a long way with a minimal set of commands.
 
 It is true that a little knowledge can be a dangerous thing, but it probably isn't quite as bad as complete ignorance.
