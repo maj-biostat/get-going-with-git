@@ -1,0 +1,51 @@
+project:
+  type: book
+  output-dir: site
+  execute-dir: project
+
+book:
+  downloads: [pdf,docx]
+  title: "Starting with git, github and github pages"
+  author:
+  - name: "Mark Jones"
+    affiliations:
+      - name: "University of Sydney"
+        department: "Adaptive Health Intelligence"
+  date: today
+  chapters:
+    - index.qmd
+  site-url: https://pages.github.sydney.edu.au/mjon7053/starting-git/
+  repo-url: https://github.sydney.edu.au/mjon7053/starting-git
+  repo-actions: [source, issue]
+
+format:
+  html:
+    toc: true
+    code-fold: true
+    code-line-numbers: true
+    toc-location: right
+    toc-title: "Contents"
+    toc-depth: 4
+    toc-expand: true
+    fig-width: 6
+    fig-height: 4
+    fig-dpi: 300
+    fig-cap-location: margin
+    tbl-cap-location: margin
+    format-links: true
+    html-math-method: katex
+    theme: journal
+    highlight-style: arrow
+    fontsize: 1em
+  pdf:
+    documentclass: scrreprt
+  docx:
+    reference-doc: template-qmd.docx
+    toc: true
+    toc-title: "Table of contents"
+    number-sections: true
+
+
+editor: source
+
+

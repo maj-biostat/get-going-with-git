@@ -1,0 +1,39 @@
+---
+title: "Introduction"
+date: today
+
+---
+
+Version control is a somewhat large topic and the git, github and github pages technologies can be daunting.
+However, users can go a long way with a minimal set of commands.
+
+It is true that a little knowledge can be a dangerous thing, but it probably isn't quite as bad as complete ignorance.
+
+*Starting with git, github and github pages* aims to provide a minimal knowledge base, sufficient to get you started without having to wade through reams of documentation.
+It can be browsed online or downloaded as a word document for your reference.
+
+
+What is version control?
+Setting up git
+Time to commit: working with a local repository
+Push and pull: working with a remote repository
+Making your first repository on GitHub
+Day 2: Collaborating with Others
+
+Dealing with (git) conflicts
+Branching for sanity
+Creating pull requests
+Collaborating with GitHub tools
+Day 3: Dealing with Complications
+
+Undoing changes
+Learning good repository organization principles
+Ignoring things (in git)
+Working with large files
+Using the README
+Creating GitHub templates
+Extending git and GitHub with other tools
+
+
+
+

@@ -1,0 +1,16 @@
+---
+title: "About"
+editor: source
+---
+
+```{r, echo = FALSE}
+source("./R/init.R")
+log_info("Called about notebook")
+```
+
+## Repository status
+
+```{r, echo = is_html}
+repo <- git2r::repository(path = ".")
+summary(repo)
+```

@@ -1,0 +1,15 @@
+---
+title: "What is (this thing) called revision control"
+editor: source
+---
+
+```{r, echo = FALSE}
+source("./R/init.R")
+log_info("Called what-is-revision-control notebook")
+```
+
+
+## Conceptual view
+
+This is a test.
+
