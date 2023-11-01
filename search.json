@@ -227,7 +227,7 @@
     "objectID": "notebooks/about.html#repository-status",
     "href": "notebooks/about.html#repository-status",
     "title": "12  About",
-    "section": "12.1 Repository status",
-    "text": "12.1 Repository status\nDetails on github repository files, tags, commits follow:\n\n\nCode\nrepo &lt;- git2r::repository(path = \".\")\nsummary(repo)\n\n\nLocal:    main /Users/mark/Documents/project/misc-stats/starting-git\nRemote:   main @ origin (https://github.com/maj-biostat/starting-git.git)\nHead:     [6490dcc] 2023-11-01: More shell\n\nBranches:         2\nTags:             0\nCommits:         18\nContributors:     1\nStashes:          0\nIgnored files:    3\nUntracked files: 19\nUnstaged files:   0\nStaged files:     0\n\nLatest commits:\n[6490dcc] 2023-11-01: More shell\n[4c029b1] 2023-11-01: More shell\n[375253f] 2023-11-01: Added more of shell\n[bde43b4] 2023-11-01: Shell for part 2\n[59bc7d8] 2023-11-01: Temp update"
+    "section": "Repository status",
+    "text": "Repository status\nDetails on github repository files, tags, commits follow:\n\n\nCode\nrepo &lt;- git2r::repository(path = \".\")\nsummary(repo)\n\n\nLocal:    main /Users/mark/Documents/project/misc-stats/starting-git\nRemote:   main @ origin (https://github.com/maj-biostat/starting-git.git)\nHead:     [c5321da] 2023-11-01: extended clean and made about unnumbered\n\nBranches:         2\nTags:             0\nCommits:         19\nContributors:     1\nStashes:          0\nIgnored files:    4\nUntracked files: 18\nUnstaged files:   0\nStaged files:     0\n\nLatest commits:\n[c5321da] 2023-11-01: extended clean and made about unnumbered\n[6490dcc] 2023-11-01: More shell\n[4c029b1] 2023-11-01: More shell\n[375253f] 2023-11-01: Added more of shell\n[bde43b4] 2023-11-01: Shell for part 2"
   }
 ]
