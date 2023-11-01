@@ -9,7 +9,16 @@ log_info("Called what-is-revision-control notebook")
 ```
 
 
-## Conceptual view
+## Introduction
 
-This is a test.
+Again, I cannot sum it up better than this, so please take the time to read it.
+
+[Excuse Me, Do You Have a Moment to Talk About Version Control?](https://www.tandfonline.com/doi/full/10.1080/00031305.2017.1399928?needAccess=true)
+
+
+## Why commandline
+
+Because it is the best way.
+
+
 

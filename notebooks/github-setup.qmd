@@ -1,0 +1,168 @@
+---
+title: "Github setup"
+editor: source
+---
+
+```{r, echo = FALSE}
+source("./R/init.R")
+log_info("Called what-is-revision-control notebook")
+```
+
+
+## The big picture {#sec-github-setup}
+
+First, let's briefly introduce some terminology and context.
+A **repository** is the mechanism that is used to implement version control by git.
+
+::: callout-note
+The repository is implemented by a hidden directory called `.git` that exists within the project directory and contains all the data on the changes that have been made to the files in the project.
+You should never touch this directory nor its contents.
+:::
+
+There are two types of repositories, *local* and *remote*.
+![Big picture](../fig/git-big-pic.jpg)
+The local repositories reside on your machine.
+Remote repositories are hosted by service providers, the most common being GitHub, GitLab and Bitbucket.
+We only deal with GitHub here.
+GitHub comes in a few varieties: 
+
+- GitHub Enterprise is hosted by the company called GitHub, see [github.com](https://github.com/). It is a commercial platform, but parts of it are made freely available.
+- GitHub Enterprise Server is self-hosted; this is what USyd provides via [https://github.sydney.edu.au/](https://github.sydney.edu.au/)
+
+In a nutshell, git provides a set of commands that allow you to manage the files that are retained in these local and remote repositories.
+More detail will come later.
+
+## GitHub account {#sec-github-setup}
+
+As noted in @sec-preamble-github a pre-requisite for using this knowledge base is that you have a GitHub account.
+
+While there are multiple ways to interact with GitHub from your local machine, here we will use the commandline.
+There are two protocols that can be used, HTTPS and SSH.
+We will use HTTPS.
+
+First we need to set up a Personal access token.
+
+### Personal access token
+
+GitHub introduced personal access tokens a short while ago.
+Personal access tokens are basically a password with some bells and whistles.
+
+1. Login to your GitHub account.
+2. Open [Creating a personal access token (classic)](https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/managing-your-personal-access-tokens#creating-a-personal-access-token-classic) in a new tab in your browser and follow the instructions.
+3. Set the expiry to at least several months into the future.
+
+
+## Git Credential manager
+
+The [GCM](https://github.com/git-ecosystem/git-credential-manager/blob/main/README.md) is a platform agnostic credential manager (in English, that translates loosely to a *password manager*).
+Once it's installed and configured, Git Credential Manager is called by git and you shouldn't need to do anything special.
+
+The next time you clone an HTTPS URL that requires authentication, Git will prompt you to log in using a browser window. 
+You may first be asked to authorize an OAuth app. 
+If your account or organization requires two-factor auth, you'll also need to complete the 2FA challenge.
+
+Once you've authenticated successfully, your credentials are stored in the macOS keychain and will be used every time you clone an HTTPS URL. 
+Git will not require you to type your credentials in the command line again unless you change your credentials.
+
+
+### GCM install
+
+For Windows users it can be installed by selecting this option during the installation wizard, see @sec-git-install-win, step 6.
+
+For macOS, use `homebrew` again, specifically:
+
+```
+brew install --cask git-credential-manager
+## ==> Downloading https://formulae.brew.sh/api/cask.jws.json
+## ############################################################################################################################################## 100.0%
+## ==> Downloading https://github.com/git-ecosystem/git-credential-manager/releases/download/v2.3.2/gcm-osx-arm64-2.3.2.pkg
+## ==> Downloading from https://objects.githubusercontent.com/github-production-release-asset-2e65be/158405551/3b89ee5f-5275-4316-a794-6f39e38849c4?X-Am
+## ############################################################################################################################################## 100.0%
+## ==> Installing Cask git-credential-manager
+## ==> Running installer for git-credential-manager with sudo; the password may be necessary.
+## Password:
+## installer: Package name is Git Credential Manager
+## installer: Installing at base path /
+## installer: The install was successful.
+## 🍺  git-credential-manager was successfully installed!
+```
+
+### GCM demo
+
+Below I demo the process by cloning a private repository from my GitHub account.
+
+```
+192-168-1-100:tmp mark$ git clone https://github.com/maj-biostat/wisca_2.git
+Cloning into 'wisca_2'...
+info: please complete authentication in your browser...
+```
+
+at this point the following window is launch by GCM:
+
+![GCM](../fig/gcm-login.png){width=50%}
+
+selecting `Sign in with your browser` the following will launch in your default browser (Chrome, Safari, etc)
+
+![Sign in with browser](../fig/gcm-signin-browser.png){width=50%}
+
+selecting `Authorize git-ecosystem` will result in 
+
+![Sign in with browser](../fig/gcm-auth-code.png){width=50%}
+
+at which point you use the 2-factor authenticator tool (I use google authenticator) to respond with an authentication code.
+
+![Auth success](../fig/gcm-auth-success.png){width=50%}
+
+Looking back at the terminal, the following output can be observed, which details the repository being cloned.
+
+```
+remote: Enumerating objects: 297, done.
+remote: Counting objects: 100% (297/297), done.
+remote: Compressing objects: 100% (156/156), done.
+remote: Total 297 (delta 148), reused 284 (delta 137), pack-reused 0
+Receiving objects: 100% (297/297), 7.85 MiB | 2.13 MiB/s, done.
+Resolving deltas: 100% (148/148), done.
+```
+
+Finally, you will receive an email of this sort:
+
+```
+Hey maj-biostat!
+
+A first-party GitHub OAuth application (Git Credential Manager) with gist, repo, and workflow scopes was recently authorized to access your account.
+Visit https://github.com/settings/connections/applications/0120e057bd645470c1ed for more information.
+
+To see this and other security events for your account, visit https://github.com/settings/security-log
+
+If you run into problems, please contact support by visiting https://github.com/contact
+
+Thanks,
+The GitHub Team
+```
+
+On repeating this process a second time, all the authentication works in the background and there will be no need to go through various authentication handshakes again.
+
+
+### GCM configuration (advanced only)
+
+You can view the current credential manager by running the following commands:
+
+```
+git config --local credential.helper
+git config --global credential.helper
+# /usr/local/share/gcm-core/git-credential-manager
+git config --system credential.helper
+```
+
+Of the local, global and system, the first one checks the local repository config, the second is your ~/.gitconfig, and the third is based on where git is installed. 
+Note that only one credential help is configured in the above example.
+
+In some circumstances you may need to reconfigure things.
+If you have to start from scratch, the following may be useful:
+
+```
+git config --local --unset credential.helper
+git config --global --unset credential.helper
+git config --system --unset credential.helper
+```
+

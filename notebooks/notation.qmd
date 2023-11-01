@@ -1,0 +1,24 @@
+# Notation {.unnumbered}
+
+## Code snippets {.unnumbered}
+
+A lot of the code snippets relate to commands being executed at the terminal/commandline.
+These look like this:
+
+```
+which git
+```
+
+and will print a message of some description to the screen, like this:
+
+```
+/opt/homebrew/bin/git
+```
+
+To differentiate between commands and output, I will prefix the output with a double hash, like this:
+
+```
+## /opt/homebrew/bin/git
+```
+
+

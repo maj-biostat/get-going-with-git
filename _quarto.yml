@@ -14,8 +14,14 @@ book:
   date: today
   chapters:
     - index.qmd
-    - notebooks/what-is-revision-control.qmd
-    - notebooks/about.qmd
+    - notebooks/preamble.qmd
+    - part: Logistical elements
+      chapters:
+        - notebooks/what-is-revision-control.qmd
+        - notebooks/git-install.qmd
+        - notebooks/git-setup.qmd
+        - notebooks/github-setup.qmd
+        - notebooks/about.qmd
   site-url: https://pages.github.sydney.edu.au/mjon7053/starting-git/
   repo-url: https://github.sydney.edu.au/mjon7053/starting-git
   repo-actions: [source, issue]
@@ -39,6 +45,10 @@ format:
     theme: journal
     highlight-style: arrow
     fontsize: 1em
+    link-external-icon: true
+    link-external-newwindow: true
+    link-external-filter: '^(?:http:|https:)\/\/github\.sydney\.edu\.au'
+
   pdf:
     documentclass: scrreprt
   docx:

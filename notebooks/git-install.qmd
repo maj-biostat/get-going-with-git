@@ -1,0 +1,215 @@
+---
+title: "Git install"
+editor: source
+---
+
+
+
+```{r, echo = FALSE}
+source("./R/init.R")
+log_info("Called what-is-revision-control notebook")
+```
+
+Inevitably there are some installation tasks that we need to take care of before we proceed.
+
+::: callout-warning
+The following steps can be a bit of a pain.
+Don't be disheartened, it gets less tiresome.
+:::
+
+
+## RStudio
+
+Developers - is your instance of RStudio up to date?
+If not, update it.
+Ditto for R.
+Keep them both updated.
+
+## Install git 
+
+I am going to break this down into Mac and Windows because they are the two systems that most of AHI seem to use and the installation is somewhat different for each.
+If you are using Linux, you probably have no need to be reading this.
+
+### Mac OSX
+
+First, do you have git installed already?
+Launch the `terminal` app (see the pre-requisites on the landing page if you do not know how to do this).
+In the terminal, type:
+
+```
+which git
+```
+
+which should show the location of the version of git in use:
+
+```
+## /opt/homebrew/bin/git
+```
+
+If you have homebrew (see below) installed, you can just type:
+
+```
+brew install git
+```
+
+and git will be installed, otherwise, follow the instructions below and then come back here.
+
+Once git is installed run the `which git` command again and then run `git --version` which is shown (along with the output) below:
+
+```
+git --version
+## git version 2.42.0
+```
+
+If you got here, then you have git installed.
+You can close down terminal, open it up again and then run the `git --version` command again to make certain that everything is ok.
+
+### Homebrew
+
+In the previous section, you can see that the path output from the `which git` command includes `homebrew`.
+For macOS, `homebrew` is a package manager.
+This basically just lets you install and manage packages (applications) on your mac.
+
+To use homebrew, you need to install it first.
+To do that, go [here](https://brew.sh/), then follow the instructions, which amount to going to the terminal and running the commands listed below.
+
+Please go and read the landing page for homebrew before you proceed any further.
+
+The first command ensures that pre-requisites are met, see [here](https://docs.brew.sh/Installation):
+
+```
+ xcode-select --install
+```
+
+if this has already been doing you will get an error, or be asked to run Software Update.
+Generally, you can just move on to the next command:
+
+```
+/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+```
+
+`curl` is a tool for transferring data from a url.
+It is usually stored under `/usr/bin` but if you are having issues then exporting the following might assist:
+
+```
+export HOMEBREW_FORCE_BREWED_CURL=1
+```
+
+which basically tells homebrew to use its own version of curl.
+After the above is complete, homebrew should be installed.
+Now you can run 
+
+```
+brew install git
+```
+
+to install git for you.
+
+For reference, here are a minimal set of commands for using homebrew (additional information can be found in the homebrew man pages).
+
+Basic information on homebrew:
+
+```
+# Display the version of Homebrew.
+$ brew --version
+# Print Help Information
+$ brew help
+# Print Help Info for a brew command
+$ brew help <sub-command>
+# Check system for potential problems.
+$ brew doctor
+```
+
+Keep your homebrew applications up to date:
+
+```
+# Fetch latest version of homebrew and formula
+$ brew update
+# Show formulae with an updated version available
+$ brew outdated
+# Upgrade all outdated and unpinned brews
+$ brew upgrade
+# Upgrade only the specified brew
+$ brew upgrade <formula>
+# Prevent the specified formulae from being upgraded
+$ brew pin <formula>
+# Allow the specified formulae to be upgraded.
+$ brew unpin <formula>
+```
+
+The core commands for managing commandline applications are:
+
+```
+# List all the installed formulae.
+$ brew list
+# Display all locally available formulae for brewing.
+$ brew search
+# Perform a substring search of formulae names for brewing.
+$ brew search <text>
+# Display information about the formula.
+$ brew info <formula>
+# Install the formula.
+$ brew install <formula>
+# Uninstall the formula.
+$ brew uninstall <formula>
+# Remove older versions of installed formulae.
+$ brew cleanup
+```
+
+Homebrew casks allow you to install GUI applications.
+Unless you are an advanced user, you will rarely need to use these, but for completeness:
+
+```
+# Tap the Cask repository from Github.
+$ brew tap homebrew/cask
+# List all the installed casks .
+$ brew cask list
+# Search all known casks based on the substring text.
+$ brew search <text>
+# Install the given cask.
+$ brew cask install <cask>
+# Reinstalls the given Cask
+$ brew cask reinstall <cask>
+# Uninstall the given cask.
+$ brew cask uninstall <cask>
+```
+
+### Windows {#sec-git-install-win}
+
+The official site for the git windows binary download is [https://git-scm.com/download/win](https://git-scm.com/download/win).
+
+Download the 64-bit standalone installer, run it, agree to the conditions and license, choose the default location.
+
+Ensure that the following install components are chosen:
+
++ windows explorer integration
++ large file support
+
+and accept any other defaults.
+
+With the exception of the following, for any of the other prompts, just accept the defaults. 
+
+1. You will need to nominate a text file editor for editing commit messages and so on.
+Unless, you know what you are doing, I would advise just select the Windows Notepad application, you can reconfigure this later if you want to.
+2. You should select to override the default branch name as `main`.
+The reason to do this is so that git aligns with github (which uses `main` as its default branch).
+3. For adjusting the PATH environment variable, ensure that you select `Git from the command line and also from 3rd-party software` which is the default.
+4. Ensure that line ending conversion is set to `Checkout as-is, commit as-is`. 
+5. For the terminal emulator, select `Use Windows default console window`. 
+This has some limitations but it is ok for an introduction.
+6. Ensure that `Git Credential Manager Core` is selected when prompted.
+
+We will run through this install for someone in the group.
+
+To keep git up to date, you will need to go to the above site and download and reinstall git.
+
+Open the command prompt and type:
+
+```
+git --version
+## git version 2.42.0
+```
+
+
+
+

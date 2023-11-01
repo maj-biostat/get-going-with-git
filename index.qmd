@@ -1,8 +1,4 @@
----
-title: "Introduction"
-date: today
-
----
+# Introduction {.unnumbered}
 
 Version control is a somewhat large topic and the git, github, github cli and github pages technologies can be daunting.
 However, users can go a long way with a minimal set of commands.
@@ -11,7 +7,6 @@ It is true that a little knowledge can be a dangerous thing, but it probably isn
 
 *Starting with git, github and github pages* aims to provide a minimal knowledge base, sufficient to get you started without having to wade through reams of documentation.
 It can be browsed online or downloaded as a word document for your reference.
-
 
 What is version control?
 Setting up git
@@ -33,6 +28,7 @@ Working with large files
 Using the README
 Creating GitHub templates
 Extending git and GitHub with other tools
+
 
 
 

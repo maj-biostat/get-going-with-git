@@ -1,0 +1,72 @@
+# Pre-requisites {.unnumbered}
+
+## Background reading
+
+There is no point reinventing the wheel, Jenny Bryant motivates the use of version control in the following paper: [Excuse Me, Do You Have a Moment to Talk About Version Control?](https://www.tandfonline.com/doi/full/10.1080/00031305.2017.1399928?needAccess=true)
+
+## Command line interface
+
+If you do not know how to operate a terminal, then you need to address that.
+
+### Windows
+
+You can do these tutorials to familiarise yourselves:
+
++ [How to use Windows 10's Command Prompt](https://www.youtube.com/watch?v=AF2q81CxYFI)
++ [Learning Windows Terminal](https://www.linkedin.com/learning/learning-windows-terminal/windows-terminal?u=2196204)
+
+The following link needs admin rights (TKI people probably won't have nor will be able to obtain these rights) and is not strictly necessary here, but it gives a lot of useful commands and an opportunity to gain a bit more familiarity with the commandline.
+
++ [40 Windows Commands you NEED to know ](https://www.youtube.com/watch?v=Jfvg3CS1X3A)
+
+### macOS
+
++ [How To Use Terminal On Your Mac](https://www.youtube.com/watch?v=FfT8OfMpARM)
++ [What Is the Mac Terminal?](https://www.youtube.com/watch?v=31ExRnh2cRs)
++ [Absolute BEGINNER Guide to the Mac OS Terminal](https://www.youtube.com/watch?v=aKRYQsKR46I)
+
+### Extra credit
+
++ [Learn the command line](https://www.codecademy.com/learn/learn-the-command-line)
+
+## System management
+
+You will need to have some minimal technical competence in driving your computer.
+At a minimum, you need to know how to set an environment variable under your operating system of choice.
+If you do not know how to set an environment variable, then you need to address that.
+
+Other items that are important to be familiar with are file and directory concepts.
+For example, if you do not know what the command `tree` does, then it would be useful to find out.
+Similarly, if you do not know what file permissions are then, again, it would be useful to find out.
+
+### Windows
+
+You can do these tutorials to familiarise yourselves:
+
++ [Environment Variables : Windows 10](https://www.youtube.com/watch?v=z84UIZy_qgE)
++ [How to Set Environment Variables in Windows 11](https://www.youtube.com/watch?v=ow2jROvxyH4)
+
+you should be able to set a user variable even if you do not have admin priviledges.
+
+### macOS
+
++ [How to Set Environment Variables in MacOS](https://phoenixnap.com/kb/set-environment-variable-mac)
++ [PATH Variable (Mac)](https://www.youtube.com/watch?v=2J58Pc2ZOAQ)
++ [Use environment variables in Terminal on Mac
+](https://support.apple.com/en-gb/guide/terminal/apd382cc5fa-4f58-4449-b20a-41c53c006f8f/mac)
+
+## GitHub  {#sec-preamble-github}
+
+Follow part 1 of the instructions provided by [Getting started with your GitHub account](https://docs.github.com/en/get-started/onboarding/getting-started-with-your-github-account) to create and configure your account.
+
+::: callout-warning
+The part on **configuring 2-factor authentication** is absolutely mandatory, the rest of the 2-factor content can be skimmed.
+See [Configuring two-factor authentication](https://docs.github.com/en/authentication/securing-your-account-with-two-factor-authentication-2fa/configuring-two-factor-authentication).
+:::
+
+
+To use the USyd GitHub Enterprise Server, you will need a unikey. 
+If you have a unikey, you should have access.
+Go [here](https://github.sydney.edu.au) and confirm that you can login.
+
+
