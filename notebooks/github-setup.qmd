@@ -142,6 +142,12 @@ The GitHub Team
 
 On repeating this process a second time, all the authentication works in the background and there will be no need to go through various authentication handshakes again.
 
+The same process applies irrespective of whether you are using [GitHub.com](https://github.com) or the [USyd GitHub Enterprise Server](https://github.sydney.edu.au).
+However, it is adviseable to get this working in GitHub first and then work on getting it to work in the USyd GitHub Enterprise Server.
+
+The transition from the old authentication approach has (so far) proved completely seemless for macOS.
+It will be interesting to see what happens for the Windows platform.
+
 
 ### GCM configuration (advanced only)
 
@@ -164,5 +170,137 @@ If you have to start from scratch, the following may be useful:
 git config --local --unset credential.helper
 git config --global --unset credential.helper
 git config --system --unset credential.helper
+```
+
+For windows uses check the contents of the credential manager.
+This can be accessed via Control Panel >> All Control Panel Items >> Credential Manager or by simply typing Credential Manager in the Windows task bar.
+Under generic credentials you should see the git entries.
+
+
+## GitHub CLI
+
+In the day to day grind, having to deal with GitHub through its Web interface can be a little cumbersome.
+You can obviate having to interact with GitHub through the browser by using the [GitHub CLI](https://docs.github.com/en/github-cli).
+This tooling allows you to review, create and manage your repositories from the comfort of your commandline.
+You can think of it as an extension of git that allows you to invoke the GitHub specific functionality.
+
+The extremely term gh CLI manual can be found [here](https://cli.github.com/manual/).
+
+For Windows users, you can pick up the latest Signed MSI executables from the [release page](https://github.com/cli/cli/releases/).
+
+For macOS, use `homebrew`:
+
+```
+brew install gh
+## ==> Downloading https://formulae.brew.sh/api/formula.jws.json
+## #################################################################################################################################### 100.0%
+## ==> Downloading https://formulae.brew.sh/api/cask.jws.json
+## #################################################################################################################################### 100.0%
+## ==> Downloading https://ghcr.io/v2/homebrew/core/gh/manifests/2.37.0
+## Already downloaded: /Users/mark/Library/Caches/Homebrew/downloads/331c0b76fd34aa97342efa0e4e41373dbac71c28aeb49346b1284b3450f4105b--gh-2.37.0.bottle_manifest.json
+## ==> Fetching gh
+## ==> Downloading https://ghcr.io/v2/homebrew/core/gh/blobs/sha256:a8c21e08d77963c2d12102aefe38f8c010c573b771ccf729ea438c40dddb7f3a
+## Already downloaded: /Users/mark/Library/Caches/Homebrew/downloads/d0e6a3f8f7a4b138b36484ec9ec8aff26b499381a0b4459f53efc0aefe001ee2--gh--2.37.0.arm64_ventura.bottle.tar.gz
+## ==> Pouring gh--2.37.0.arm64_ventura.bottle.tar.gz
+## ==> Caveats
+## Bash completion has been installed to:
+##   /opt/homebrew/etc/bash_completion.d
+## ==> Summary
+## 🍺  /opt/homebrew/Cellar/gh/2.37.0: 191 files, 44.2MB
+## ==> Running `brew cleanup gh`...
+## Disable this behaviour by setting HOMEBREW_NO_INSTALL_CLEANUP.
+## Hide these hints with HOMEBREW_NO_ENV_HINTS (see `man brew`).
+```
+
+### GitHub CLI authentication
+
+In order to make use of `gh` we need to go through another round of authentication setup.
+To do this, go to the terminal and run:
+
+```
+gh auth login
+## ? What account do you want to log into? GitHub Enterprise Server
+## ? GHE hostname: github.sydney.edu.au
+## ? What is your preferred protocol for Git operations? HTTPS
+## ? Authenticate Git with your GitHub credentials? Yes
+## ? How would you like to authenticate GitHub CLI? Login with a web browser
+```
+
+For additional information, see [gh auth --help](https://cli.github.com/manual/gh_auth).
+
+In order to use `gh` with github.com directly you need to authenticate for that platform too.
+Repeat the above, but now the responses look like this:
+
+```
+gh auth login
+## ? What account do you want to log into? GitHub.com
+## ? What is your preferred protocol for Git operations? HTTPS
+## ? Authenticate Git with your GitHub credentials? Yes
+## ? How would you like to authenticate GitHub CLI? Login with a web browser
+```
+
+You are nearly set.
+You can verify that what you have configured worked via:
+
+```
+gh auth status
+## github.sydney.edu.au
+##   ✓ Logged in to github.sydney.edu.au as mjon7053 (keyring)
+##   ✓ Git operations for github.sydney.edu.au configured to use https protocol.
+##   ✓ Token: gho_************************************
+##   ✓ Token scopes: gist, read:org, repo, workflow
+## 
+## github.com
+##   ✓ Logged in to github.com as maj-biostat (keyring)
+##   ✓ Git operations for github.com configured to use https protocol.
+##   ✓ Token: gho_************************************
+##   ✓ Token scopes: gist, read:org, repo, workflow
+```
+
+However, for `gh` to work with the desired host you need to set an environment variable to tell `gh` which platform to use.
+On macOS, you can set this up easily with:
+
+```
+gh-ent() {
+  export GH_HOST=github.sydney.edu.au
+}
+
+gh-std() {
+  export GH_HOST=github.com
+}
+```
+
+Now when you want to interrogate github.com repositories use:
+
+```
+gh-std
+gh repo list
+
+## Showing 30 of 185 repositories in @maj-biostat
+## 
+## maj-biostat/misc-notes                         info for manjaro/arch linux setup                                public         1d
+## maj-biostat/wisca_2                            Revised approach to antibiogram                                  private        25d
+## maj-biostat/motc.run                                                                                            private        Sep 11, 2023
+## maj-biostat/motc.sim                           Simulation for motivate c trial                                  private        Sep 11, 2023
+## maj-biostat/motc.stan                          Stan models for motc                                             private        Sep  7, 2023
+## maj-biostat/quarto_demos_basic                 Demo using Quarto to render to word documents with custom te...  private        Aug 23, 2023
+## maj-biostat/BayesDRM                           Dose response models in stan                                     public         May 21, 2023
+## maj-biostat/motc.modproto                                                                                       public         May  1, 2023
+```
+
+and for the USyd Enterprise GitHub Server, use:
+
+```
+gh-ent
+gh repo list
+
+Showing 12 of 12 repositories in @mjon7053
+
+mjon7053/motc-mgt            Monitoring statistics for Motivate-C study                       private  1d
+mjon7053/fluvid.analyses     Analyses for fluvid coadministration study (COVID19 + FLU) vacc  private  17d
+mjon7053/motc.sap                                                                             public   Sep 14, 2023
+mjon7053/motc-sim-report     Motivate-C simulation report                                     private  Sep 12, 2023
+mjon7053/roadmap-notes       Notes relating to the ROADMAP project.                           private  Sep  2, 2023
+mjon7053/mjon7053.github.io                                                                   private  Aug 27, 2023
 ```
 

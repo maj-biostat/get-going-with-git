@@ -6,7 +6,17 @@ There is no point reinventing the wheel, Jenny Bryant motivates the use of versi
 
 ## Command line interface
 
-If you do not know how to operate a terminal, then you need to address that.
+A CLI is a software mechanism that you use to interact with your operating system via your keyboard rather than a mouse.
+You enter in commands as text and the system will do something, e.g. delete a file.
+
+CLIs are software that are supplied with the operating system. 
+Software that implements such a text interface is often called a command-line interpreter, command processor or a shell.
+
+Nearly universally, if I use the word *terminal* I am referring to the operating system command line interface.
+
+Windows refers to its CLI as the *command prompt*, and in macOS we have the *terminal*.
+
+If you do not know how to operate your operating system CLI then you need to address that.
 
 ### Windows
 
