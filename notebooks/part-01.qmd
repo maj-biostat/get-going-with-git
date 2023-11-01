@@ -1,0 +1,14 @@
+---
+title: "Part 1 - Logistical elements"
+editor: source
+---
+
+```{r, echo = FALSE}
+source("./R/init.R")
+log_info("Called part 1 notebook")
+```
+
+In this part we will get everything set up.
+This may well be the hardest part.
+
+

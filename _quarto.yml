@@ -15,7 +15,7 @@ book:
   chapters:
     - index.qmd
     - notebooks/preamble.qmd
-    - part: Logistical elements
+    - part: notebooks/part-01.qmd
       chapters:
         - notebooks/what-is-revision-control.qmd
         - notebooks/git-install.qmd

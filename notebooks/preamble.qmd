@@ -4,7 +4,7 @@
 
 There is no point reinventing the wheel, Jenny Bryant motivates the use of version control in the following paper: [Excuse Me, Do You Have a Moment to Talk About Version Control?](https://www.tandfonline.com/doi/full/10.1080/00031305.2017.1399928?needAccess=true)
 
-## Command line interface
+## Command line interfaces
 
 A CLI is a software mechanism that you use to interact with your operating system via your keyboard rather than a mouse.
 You enter in commands as text and the system will do something, e.g. delete a file.
@@ -39,7 +39,7 @@ The following link needs admin rights (TKI people probably won't have nor will b
 
 + [Learn the command line](https://www.codecademy.com/learn/learn-the-command-line)
 
-## System management
+## Operating system management
 
 You will need to have some minimal technical competence in driving your computer.
 At a minimum, you need to know how to set an environment variable under your operating system of choice.
