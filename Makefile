@@ -31,6 +31,7 @@ list:
 .PHONY: clean
 clean:
 	rm -R $(LOG)/*
+	rm -R site/*
 
 # @echo "\nPassword is" $(PASSWORD)
 .PHONY: preview

@@ -8,7 +8,7 @@ source("./R/init.R")
 log_info("Called about notebook")
 ```
 
-## Repository status
+## Repository status {.unnumbered}
 
 Details on github repository files, tags, commits follow:
 
