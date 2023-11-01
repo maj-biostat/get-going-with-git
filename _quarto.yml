@@ -5,7 +5,7 @@ project:
 
 book:
   downloads: [pdf,docx]
-  title: "Starting up with git, github and github pages"
+  title: "Starting up with git"
   author:
   - name: "Mark Jones"
     affiliations:
