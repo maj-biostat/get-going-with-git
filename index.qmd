@@ -1,6 +1,6 @@
 # Introduction {.unnumbered}
 
-When you are getting into the gnitty gritty, version control is a large topic.
+When you are getting into the nitty gritty, version control is a large topic.
 The git, github, github cli and github pages ... technologies can be daunting to set up and use.
 However, once you are setup properly and understand how things fit together at a high level, users can go a long way with a minimal set of commands.
 
