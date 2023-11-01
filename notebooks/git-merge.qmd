@@ -1,0 +1,17 @@
+---
+title: "Merge"
+editor: source
+---
+
+
+```{r, echo = FALSE}
+source("./R/init.R")
+log_info("Called git-repository notebook")
+```
+
+## Merge concepts
+
+## Merge processes
+
+
+

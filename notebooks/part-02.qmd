@@ -9,7 +9,15 @@ log_info("Called part 1 notebook")
 ```
 
 Now we will make a start with git.
+Initially we will focus on using git within the confines of your local machine.
+Yes, that's right, for the moment, we won't be using github at all.
+The point of this is to give you a chance to get to grips with the basic ideas.
+After the main concepts are bedded in, we will move to thinking about github, which is a whole new beast.
 
+
+
+
+# Aside.
 
 git remote add origin https://github.com/career-karma-tutorials/ck-git
 gh repo create my-newrepo --public --source=. --remote=upstream --push

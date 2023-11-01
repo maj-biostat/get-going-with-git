@@ -1,0 +1,11 @@
+---
+title: "Part 3 - Collaboration"
+editor: source
+---
+
+```{r, echo = FALSE}
+source("./R/init.R")
+log_info("Called part 1 notebook")
+```
+
+Hosting git

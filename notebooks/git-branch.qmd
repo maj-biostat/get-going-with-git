@@ -1,0 +1,24 @@
+---
+title: "Branch"
+editor: source
+---
+
+
+```{r, echo = FALSE}
+source("./R/init.R")
+log_info("Called git-repository notebook")
+```
+
+## Why branches?
+
+## What is a branch?
+
+## Special branch concepts
+
+## Creating a branch
+
+## Switching branches
+
+## Working on branches
+
+

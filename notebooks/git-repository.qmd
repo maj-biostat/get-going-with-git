@@ -1,0 +1,20 @@
+---
+title: "Repositories"
+editor: source
+---
+
+
+```{r, echo = FALSE}
+source("./R/init.R")
+log_info("Called git-repository notebook")
+```
+
+## Git repositories
+
+Local vs remote
+
+### Initialisation
+
+### Repository components
+
+### Adding project files

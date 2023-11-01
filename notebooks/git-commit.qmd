@@ -1,0 +1,19 @@
+---
+title: "Commit"
+editor: source
+---
+
+
+```{r, echo = FALSE}
+source("./R/init.R")
+log_info("Called git-repository notebook")
+```
+
+## Adding files to projects
+
+## Commit process
+
+## Tracking status
+
+## Reviewing commit history
+
