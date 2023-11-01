@@ -8,30 +8,6 @@ source("./R/init.R")
 log_info("Called what-is-revision-control notebook")
 ```
 
-
-## The big picture {#sec-github-setup}
-
-First, let's briefly introduce some terminology and context.
-A **repository** is the mechanism that is used to implement version control by git.
-
-::: callout-note
-The repository is implemented by a hidden directory called `.git` that exists within the project directory and contains all the data on the changes that have been made to the files in the project.
-You should never touch this directory nor its contents.
-:::
-
-There are two types of repositories, *local* and *remote*.
-![Big picture](../fig/git-big-pic.jpg)
-The local repositories reside on your machine.
-Remote repositories are hosted by service providers, the most common being GitHub, GitLab and Bitbucket.
-We only deal with GitHub here.
-GitHub comes in a few varieties: 
-
-- GitHub Enterprise is hosted by the company called GitHub, see [github.com](https://github.com/). It is a commercial platform, but parts of it are made freely available.
-- GitHub Enterprise Server is self-hosted; this is what USyd provides via [https://github.sydney.edu.au/](https://github.sydney.edu.au/)
-
-In a nutshell, git provides a set of commands that allow you to manage the files that are retained in these local and remote repositories.
-More detail will come later.
-
 ## GitHub account {#sec-github-setup}
 
 As noted in @sec-preamble-github a pre-requisite for using this knowledge base is that you have a GitHub account.
@@ -258,7 +234,7 @@ gh auth status
 ```
 
 However, for `gh` to work with the desired host you need to set an environment variable to tell `gh` which platform to use.
-On macOS, you can set this up easily with:
+On macOS, you can set this up easily with the following entries in the `.profile` shell initialisation script (or `.bash_profile` for those inclined).
 
 ```
 gh-ent() {
@@ -270,7 +246,22 @@ gh-std() {
 }
 ```
 
-Now when you want to interrogate github.com repositories use:
+On Windows, I have no idea how you are supposed to do the above in an easy manner.
+You may just have to resort to running
+
+```
+set GH_HOST=github.sydney.edu.au
+```
+
+or 
+
+```
+set GH_HOST=github.com
+```
+
+each time you want to switch.
+
+Now (on macOS) when you want to interrogate github.com repositories use:
 
 ```
 gh-std
