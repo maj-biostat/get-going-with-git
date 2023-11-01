@@ -1,0 +1,15 @@
+---
+title: "Reviewing differences"
+editor: source
+---
+
+
+```{r, echo = FALSE}
+source("./R/init.R")
+log_info("Called git-differences notebook")
+```
+
+## 
+
+
+

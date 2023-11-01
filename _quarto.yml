@@ -21,14 +21,17 @@ book:
         - notebooks/git-install.qmd
         - notebooks/git-setup.qmd
         - notebooks/github-setup.qmd
-        - notebooks/about.qmd
     - part: notebooks/part-02.qmd
       chapters:
         - notebooks/git-repository.qmd
         - notebooks/git-commit.qmd
+        - notebooks/git-diffs.qmd
         - notebooks/git-branch.qmd
         - notebooks/git-merge.qmd
+        - notebooks/git-tags.qmd
+        - notebooks/git-history.qmd
     - part: notebooks/part-03.qmd
+    - notebooks/about.qmd
   site-url: https://pages.github.sydney.edu.au/mjon7053/starting-git/
   repo-url: https://github.sydney.edu.au/mjon7053/starting-git
   repo-actions: [source, issue]

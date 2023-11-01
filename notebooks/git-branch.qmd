@@ -6,7 +6,7 @@ editor: source
 
 ```{r, echo = FALSE}
 source("./R/init.R")
-log_info("Called git-repository notebook")
+log_info("Called git-branch notebook")
 ```
 
 ## Why branches?
