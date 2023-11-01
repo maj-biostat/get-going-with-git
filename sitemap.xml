@@ -2,46 +2,66 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://pages.github.sydney.edu.au/mjon7053/starting-git/index.html</loc>
-    <lastmod>2023-11-01T05:43:56.717Z</lastmod>
+    <lastmod>2023-11-01T08:03:16.081Z</lastmod>
   </url>
   <url>
     <loc>https://pages.github.sydney.edu.au/mjon7053/starting-git/notebooks/preamble.html</loc>
-    <lastmod>2023-11-01T05:43:56.720Z</lastmod>
+    <lastmod>2023-11-01T08:03:16.085Z</lastmod>
   </url>
   <url>
     <loc>https://pages.github.sydney.edu.au/mjon7053/starting-git/notebooks/part-01.html</loc>
-    <lastmod>2023-11-01T05:43:56.722Z</lastmod>
+    <lastmod>2023-11-01T08:03:16.088Z</lastmod>
   </url>
   <url>
     <loc>https://pages.github.sydney.edu.au/mjon7053/starting-git/notebooks/what-is-revision-control.html</loc>
-    <lastmod>2023-11-01T05:43:56.724Z</lastmod>
+    <lastmod>2023-11-01T08:03:16.091Z</lastmod>
   </url>
   <url>
     <loc>https://pages.github.sydney.edu.au/mjon7053/starting-git/notebooks/git-install.html</loc>
-    <lastmod>2023-11-01T05:43:56.727Z</lastmod>
+    <lastmod>2023-11-01T08:03:16.096Z</lastmod>
   </url>
   <url>
     <loc>https://pages.github.sydney.edu.au/mjon7053/starting-git/notebooks/git-setup.html</loc>
-    <lastmod>2023-11-01T05:43:56.729Z</lastmod>
+    <lastmod>2023-11-01T08:03:16.098Z</lastmod>
   </url>
   <url>
     <loc>https://pages.github.sydney.edu.au/mjon7053/starting-git/notebooks/github-setup.html</loc>
-    <lastmod>2023-11-01T05:43:56.733Z</lastmod>
+    <lastmod>2023-11-01T08:03:16.103Z</lastmod>
   </url>
   <url>
     <loc>https://pages.github.sydney.edu.au/mjon7053/starting-git/notebooks/about.html</loc>
-    <lastmod>2023-11-01T05:43:56.736Z</lastmod>
+    <lastmod>2023-11-01T08:03:16.106Z</lastmod>
   </url>
   <url>
     <loc>https://pages.github.sydney.edu.au/mjon7053/starting-git/notebooks/part-02.html</loc>
-    <lastmod>2023-11-01T05:43:56.737Z</lastmod>
+    <lastmod>2023-11-01T08:03:16.108Z</lastmod>
+  </url>
+  <url>
+    <loc>https://pages.github.sydney.edu.au/mjon7053/starting-git/notebooks/git-repository.html</loc>
+    <lastmod>2023-11-01T08:03:16.110Z</lastmod>
+  </url>
+  <url>
+    <loc>https://pages.github.sydney.edu.au/mjon7053/starting-git/notebooks/git-commit.html</loc>
+    <lastmod>2023-11-01T08:03:16.113Z</lastmod>
+  </url>
+  <url>
+    <loc>https://pages.github.sydney.edu.au/mjon7053/starting-git/notebooks/git-branch.html</loc>
+    <lastmod>2023-11-01T08:03:16.115Z</lastmod>
+  </url>
+  <url>
+    <loc>https://pages.github.sydney.edu.au/mjon7053/starting-git/notebooks/git-merge.html</loc>
+    <lastmod>2023-11-01T08:03:16.118Z</lastmod>
+  </url>
+  <url>
+    <loc>https://pages.github.sydney.edu.au/mjon7053/starting-git/notebooks/part-03.html</loc>
+    <lastmod>2023-11-01T08:03:16.119Z</lastmod>
   </url>
   <url>
     <loc>https://pages.github.sydney.edu.au/mjon7053/starting-git/Starting-up-with-git,-github-and-github-pages.pdf</loc>
-    <lastmod>2023-11-01T05:43:55.459Z</lastmod>
+    <lastmod>2023-11-01T08:03:14.777Z</lastmod>
   </url>
   <url>
     <loc>https://pages.github.sydney.edu.au/mjon7053/starting-git/Starting-up-with-git,-github-and-github-pages.docx</loc>
-    <lastmod>2023-11-01T05:43:56.680Z</lastmod>
+    <lastmod>2023-11-01T08:03:16.032Z</lastmod>
   </url>
 </urlset>
