@@ -1,5 +1,5 @@
 ---
-title: "Part 1 - Fundamentals"
+title: "Part 2 - Fundamentals"
 editor: source
 ---
 
@@ -8,6 +8,6 @@ source("./R/init.R")
 log_info("Called part 1 notebook")
 ```
 
-
+Now we will make a start with git.
 
 
