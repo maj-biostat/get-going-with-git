@@ -65,7 +65,7 @@ you should be able to set a user variable even if you do not have admin priviled
 + [Use environment variables in Terminal on Mac
 ](https://support.apple.com/en-gb/guide/terminal/apd382cc5fa-4f58-4449-b20a-41c53c006f8f/mac)
 
-## GitHub  {#sec-preamble-github}
+## GitHub
 
 Follow part 1 of the instructions provided by [Getting started with your GitHub account](https://docs.github.com/en/get-started/onboarding/getting-started-with-your-github-account) to create and configure your account.
 
