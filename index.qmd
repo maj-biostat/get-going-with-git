@@ -6,7 +6,7 @@ However, once you are setup properly and understand how things fit together at a
 
 I know, it is true that a little knowledge can be a dangerous thing, but it probably isn't quite as bad as complete ignorance.
 
-This text - *Starting with git, github and github pages* - aims to provide a minimal knowledge base, sufficient to get you started without having to wade through reams of documentation distributed all over the internet.
+This text - *Starting up with git, github and github pages* - aims to provide a minimal knowledge base, sufficient to get you started without having to wade through reams of documentation distributed all over the internet.
 It can be browsed online or downloaded as a word document for your reference.
 
 What is version control?
