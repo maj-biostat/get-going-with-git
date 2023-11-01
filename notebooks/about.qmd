@@ -1,12 +1,10 @@
----
-title: "About"
-editor: source
----
 
 ```{r, echo = FALSE}
 source("./R/init.R")
 log_info("Called about notebook")
 ```
+
+# About {.unnumbered}
 
 ## Repository status {.unnumbered}
 

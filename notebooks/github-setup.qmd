@@ -261,7 +261,11 @@ set GH_HOST=github.com
 
 each time you want to switch.
 
-Now (on macOS) when you want to interrogate github.com repositories use:
+Now (on macOS) when you want to interrogate github.com repositories we can use the following commands.
+
+:::callout-note
+Do not worry about the meaning of the commands, this is just to establish that we have configured things correctly.
+:::
 
 ```
 gh-std

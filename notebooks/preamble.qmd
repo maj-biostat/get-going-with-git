@@ -1,3 +1,9 @@
+
+```{r, echo = FALSE}
+source("./R/init.R")
+log_info("Called preamble notebook")
+```
+
 # Pre-requisites {.unnumbered}
 
 ## Background reading

@@ -11,6 +11,11 @@ log_info("Called what-is-revision-control notebook")
 ## The big picture {#sec-what-is-big-pic}
 
 First, let's briefly introduce some minimal terminology and context.
+
+::: callout-note
+TODO - Timelines
+:::
+
 A **repository** is the mechanism that is used to implement version control by git.
 
 ::: callout-note
