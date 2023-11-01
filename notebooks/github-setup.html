@@ -1,0 +1,702 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.3.353">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>Starting with git, github and github pages - 4&nbsp; Github setup</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<link href="../notebooks/about.html" rel="next">
+<link href="../notebooks/git-setup.html" rel="prev">
+<script src="../site_libs/quarto-html/quarto.js"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 20,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit"
+  }
+}</script>
+
+
+</head>
+
+<body class="nav-sidebar floating slimcontent">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../notebooks/part-01.html">Part 1 - Logistical elements</a></li><li class="breadcrumb-item"><a href="../notebooks/github-setup.html"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Github setup</span></a></li></ol></nav>
+      <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+      </a>
+      <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal sidebar-navigation floating overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header">
+    <div class="sidebar-title mb-0 py-0">
+      <a href="../">Starting with git, github and github pages</a> 
+        <div class="sidebar-tools-main">
+    <a href="https://github.sydney.edu.au/mjon7053/starting-git" title="Source Code" class="quarto-navigation-tool px-1" aria-label="Source Code"><i class="bi bi-git"></i></a>
+    <div class="dropdown">
+      <a href="" title="Download" id="quarto-navigation-tool-dropdown-0" class="quarto-navigation-tool dropdown-toggle px-1" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download"><i class="bi bi-download"></i></a>
+      <ul class="dropdown-menu" aria-labelledby="quarto-navigation-tool-dropdown-0">
+          <li>
+            <a class="dropdown-item sidebar-tools-main-item" href="../Starting-with-git,-github-and-github-pages.pdf">
+              <i class="bi bi-bi-file-pdf pe-1"></i>
+            Download PDF
+            </a>
+          </li>
+          <li>
+            <a class="dropdown-item sidebar-tools-main-item" href="../Starting-with-git,-github-and-github-pages.docx">
+              <i class="bi bi-bi-file-word pe-1"></i>
+            Download Docx
+            </a>
+          </li>
+      </ul>
+    </div>
+</div>
+    </div>
+      </div>
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+        </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Introduction</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../notebooks/preamble.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Pre-requisites</span></a>
+  </div>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../notebooks/part-01.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Part 1 - Logistical elements</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../notebooks/what-is-revision-control.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">What is (this thing) called revision control</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../notebooks/git-install.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Git install</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../notebooks/git-setup.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Git setup</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../notebooks/github-setup.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Github setup</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../notebooks/about.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">About</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <span class="sidebar-item-text sidebar-link text-start">
+ <span class="menu-text">Part 1 - Fundamentals</span></span>
+  </li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active" data-toc-expanded="99">
+    <h2 id="toc-title">Contents</h2>
+   
+  <ul>
+  <li><a href="#sec-github-setup" id="toc-sec-github-setup" class="nav-link active" data-scroll-target="#sec-github-setup"><span class="header-section-number">4.1</span> GitHub account</a>
+  <ul>
+  <li><a href="#personal-access-token" id="toc-personal-access-token" class="nav-link" data-scroll-target="#personal-access-token"><span class="header-section-number">4.1.1</span> Personal access token</a></li>
+  </ul></li>
+  <li><a href="#git-credential-manager" id="toc-git-credential-manager" class="nav-link" data-scroll-target="#git-credential-manager"><span class="header-section-number">4.2</span> Git Credential manager</a>
+  <ul>
+  <li><a href="#gcm-install" id="toc-gcm-install" class="nav-link" data-scroll-target="#gcm-install"><span class="header-section-number">4.2.1</span> GCM install</a></li>
+  <li><a href="#gcm-demo" id="toc-gcm-demo" class="nav-link" data-scroll-target="#gcm-demo"><span class="header-section-number">4.2.2</span> GCM demo</a></li>
+  <li><a href="#gcm-configuration-advanced-only" id="toc-gcm-configuration-advanced-only" class="nav-link" data-scroll-target="#gcm-configuration-advanced-only"><span class="header-section-number">4.2.3</span> GCM configuration (advanced only)</a></li>
+  </ul></li>
+  <li><a href="#github-cli" id="toc-github-cli" class="nav-link" data-scroll-target="#github-cli"><span class="header-section-number">4.3</span> GitHub CLI</a>
+  <ul>
+  <li><a href="#github-cli-authentication" id="toc-github-cli-authentication" class="nav-link" data-scroll-target="#github-cli-authentication"><span class="header-section-number">4.3.1</span> GitHub CLI authentication</a></li>
+  </ul></li>
+  </ul>
+<div class="toc-actions"><div><i class="bi bi-git"></i></div><div class="action-links"><p><a href="https://github.sydney.edu.au/mjon7053/starting-git/blob/main/notebooks/github-setup.qmd" class="toc-action">View source</a></p><p><a href="https://github.sydney.edu.au/mjon7053/starting-git/issues/new" class="toc-action">Report an issue</a></p></div></div></nav>
+    </div>
+<!-- main -->
+<main class="content page-columns page-full" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Github setup</span></h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+</header>
+
+<div class="cell">
+
+</div>
+<section id="sec-github-setup" class="level2" data-number="4.1">
+<h2 data-number="4.1" class="anchored" data-anchor-id="sec-github-setup"><span class="header-section-number">4.1</span> GitHub account</h2>
+<p>As noted in the pre-requisites for using this knowledge base, you have to have GitHub account.</p>
+<p>While there are multiple ways to interact with GitHub from your local machine, here we will use the commandline. There are two protocols that can be used, HTTPS and SSH. We will use HTTPS.</p>
+<p>First we need to set up a Personal access token.</p>
+<section id="personal-access-token" class="level3" data-number="4.1.1">
+<h3 data-number="4.1.1" class="anchored" data-anchor-id="personal-access-token"><span class="header-section-number">4.1.1</span> Personal access token</h3>
+<p>GitHub introduced personal access tokens a short while ago. Personal access tokens are basically a password with some bells and whistles.</p>
+<ol type="1">
+<li>Login to your GitHub account.</li>
+<li>Open <a href="https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/managing-your-personal-access-tokens#creating-a-personal-access-token-classic">Creating a personal access token (classic)</a> in a new tab in your browser and follow the instructions.</li>
+<li>Set the expiry to at least several months into the future.</li>
+</ol>
+</section>
+</section>
+<section id="git-credential-manager" class="level2 page-columns page-full" data-number="4.2">
+<h2 data-number="4.2" class="anchored" data-anchor-id="git-credential-manager"><span class="header-section-number">4.2</span> Git Credential manager</h2>
+<p>The <a href="https://github.com/git-ecosystem/git-credential-manager/blob/main/README.md">GCM</a> is a platform agnostic credential manager (in English, that translates loosely to a <em>password manager</em>). Once it’s installed and configured, Git Credential Manager is called by git and you shouldn’t need to do anything special.</p>
+<p>The next time you clone an HTTPS URL that requires authentication, Git will prompt you to log in using a browser window. You may first be asked to authorize an OAuth app. If your account or organization requires two-factor auth, you’ll also need to complete the 2FA challenge.</p>
+<p>Once you’ve authenticated successfully, your credentials are stored in the macOS keychain and will be used every time you clone an HTTPS URL. Git will not require you to type your credentials in the command line again unless you change your credentials.</p>
+<section id="gcm-install" class="level3" data-number="4.2.1">
+<h3 data-number="4.2.1" class="anchored" data-anchor-id="gcm-install"><span class="header-section-number">4.2.1</span> GCM install</h3>
+<p>For Windows users it can be installed by selecting this option during the installation wizard, see <a href="git-install.html#sec-git-install-win"><span>Section&nbsp;2.2.3</span></a>, step 6.</p>
+<p>For macOS, use <code>homebrew</code> again, specifically:</p>
+<pre><code>brew install --cask git-credential-manager
+## ==&gt; Downloading https://formulae.brew.sh/api/cask.jws.json
+## ############################################################################################################################################## 100.0%
+## ==&gt; Downloading https://github.com/git-ecosystem/git-credential-manager/releases/download/v2.3.2/gcm-osx-arm64-2.3.2.pkg
+## ==&gt; Downloading from https://objects.githubusercontent.com/github-production-release-asset-2e65be/158405551/3b89ee5f-5275-4316-a794-6f39e38849c4?X-Am
+## ############################################################################################################################################## 100.0%
+## ==&gt; Installing Cask git-credential-manager
+## ==&gt; Running installer for git-credential-manager with sudo; the password may be necessary.
+## Password:
+## installer: Package name is Git Credential Manager
+## installer: Installing at base path /
+## installer: The install was successful.
+## 🍺  git-credential-manager was successfully installed!</code></pre>
+</section>
+<section id="gcm-demo" class="level3 page-columns page-full" data-number="4.2.2">
+<h3 data-number="4.2.2" class="anchored" data-anchor-id="gcm-demo"><span class="header-section-number">4.2.2</span> GCM demo</h3>
+<p>Below I demo the process by cloning a private repository from my GitHub account.</p>
+<pre><code>192-168-1-100:tmp mark$ git clone https://github.com/maj-biostat/wisca_2.git
+Cloning into 'wisca_2'...
+info: please complete authentication in your browser...</code></pre>
+<p>at this point the following window is launch by GCM:</p>
+<div class="quarto-figure quarto-figure-center page-columns page-full">
+<figure class="figure page-columns page-full">
+<p><img src="../fig/gcm-login.png" class="img-fluid figure-img" style="width:50.0%"></p>
+<figcaption class="figure-caption margin-caption">GCM</figcaption>
+</figure>
+</div>
+<p>selecting <code>Sign in with your browser</code> the following will launch in your default browser (Chrome, Safari, etc)</p>
+<div class="quarto-figure quarto-figure-center page-columns page-full">
+<figure class="figure page-columns page-full">
+<p><img src="../fig/gcm-signin-browser.png" class="img-fluid figure-img" style="width:50.0%"></p>
+<figcaption class="figure-caption margin-caption">Sign in with browser</figcaption>
+</figure>
+</div>
+<p>selecting <code>Authorize git-ecosystem</code> will result in</p>
+<div class="quarto-figure quarto-figure-center page-columns page-full">
+<figure class="figure page-columns page-full">
+<p><img src="../fig/gcm-auth-code.png" class="img-fluid figure-img" style="width:50.0%"></p>
+<figcaption class="figure-caption margin-caption">Sign in with browser</figcaption>
+</figure>
+</div>
+<p>at which point you use the 2-factor authenticator tool (I use google authenticator) to respond with an authentication code.</p>
+<div class="quarto-figure quarto-figure-center page-columns page-full">
+<figure class="figure page-columns page-full">
+<p><img src="../fig/gcm-auth-success.png" class="img-fluid figure-img" style="width:50.0%"></p>
+<figcaption class="figure-caption margin-caption">Auth success</figcaption>
+</figure>
+</div>
+<p>Looking back at the terminal, the following output can be observed, which details the repository being cloned.</p>
+<pre><code>remote: Enumerating objects: 297, done.
+remote: Counting objects: 100% (297/297), done.
+remote: Compressing objects: 100% (156/156), done.
+remote: Total 297 (delta 148), reused 284 (delta 137), pack-reused 0
+Receiving objects: 100% (297/297), 7.85 MiB | 2.13 MiB/s, done.
+Resolving deltas: 100% (148/148), done.</code></pre>
+<p>Finally, you will receive an email of this sort:</p>
+<pre><code>Hey maj-biostat!
+
+A first-party GitHub OAuth application (Git Credential Manager) with gist, repo, and workflow scopes was recently authorized to access your account.
+Visit https://github.com/settings/connections/applications/0120e057bd645470c1ed for more information.
+
+To see this and other security events for your account, visit https://github.com/settings/security-log
+
+If you run into problems, please contact support by visiting https://github.com/contact
+
+Thanks,
+The GitHub Team</code></pre>
+<p>On repeating this process a second time, all the authentication works in the background and there will be no need to go through various authentication handshakes again.</p>
+<p>The same process applies irrespective of whether you are using <a href="https://github.com">GitHub.com</a> or the <a href="https://github.sydney.edu.au">USyd GitHub Enterprise Server</a>. However, it is adviseable to get this working in GitHub first and then work on getting it to work in the USyd GitHub Enterprise Server.</p>
+<p>The transition from the old authentication approach has (so far) proved completely seemless for macOS. It will be interesting to see what happens for the Windows platform.</p>
+</section>
+<section id="gcm-configuration-advanced-only" class="level3" data-number="4.2.3">
+<h3 data-number="4.2.3" class="anchored" data-anchor-id="gcm-configuration-advanced-only"><span class="header-section-number">4.2.3</span> GCM configuration (advanced only)</h3>
+<p>You can view the current credential manager by running the following commands:</p>
+<pre><code>git config --local credential.helper
+git config --global credential.helper
+# /usr/local/share/gcm-core/git-credential-manager
+git config --system credential.helper</code></pre>
+<p>Of the local, global and system, the first one checks the local repository config, the second is your ~/.gitconfig, and the third is based on where git is installed. Note that only one credential help is configured in the above example.</p>
+<p>In some circumstances you may need to reconfigure things. If you have to start from scratch, the following may be useful:</p>
+<pre><code>git config --local --unset credential.helper
+git config --global --unset credential.helper
+git config --system --unset credential.helper</code></pre>
+<p>For windows uses check the contents of the credential manager. This can be accessed via Control Panel &gt;&gt; All Control Panel Items &gt;&gt; Credential Manager or by simply typing Credential Manager in the Windows task bar. Under generic credentials you should see the git entries.</p>
+</section>
+</section>
+<section id="github-cli" class="level2" data-number="4.3">
+<h2 data-number="4.3" class="anchored" data-anchor-id="github-cli"><span class="header-section-number">4.3</span> GitHub CLI</h2>
+<p>In the day to day grind, having to deal with GitHub through its Web interface can be a little cumbersome. You can obviate having to interact with GitHub through the browser by using the <a href="https://docs.github.com/en/github-cli">GitHub CLI</a>. This tooling allows you to review, create and manage your repositories from the comfort of your commandline. You can think of it as an extension of git that allows you to invoke the GitHub specific functionality.</p>
+<p>The extremely term gh CLI manual can be found <a href="https://cli.github.com/manual/">here</a>.</p>
+<p>For Windows users, you can pick up the latest Signed MSI executables from the <a href="https://github.com/cli/cli/releases/">release page</a>.</p>
+<p>For macOS, use <code>homebrew</code>:</p>
+<pre><code>brew install gh
+## ==&gt; Downloading https://formulae.brew.sh/api/formula.jws.json
+## #################################################################################################################################### 100.0%
+## ==&gt; Downloading https://formulae.brew.sh/api/cask.jws.json
+## #################################################################################################################################### 100.0%
+## ==&gt; Downloading https://ghcr.io/v2/homebrew/core/gh/manifests/2.37.0
+## Already downloaded: /Users/mark/Library/Caches/Homebrew/downloads/331c0b76fd34aa97342efa0e4e41373dbac71c28aeb49346b1284b3450f4105b--gh-2.37.0.bottle_manifest.json
+## ==&gt; Fetching gh
+## ==&gt; Downloading https://ghcr.io/v2/homebrew/core/gh/blobs/sha256:a8c21e08d77963c2d12102aefe38f8c010c573b771ccf729ea438c40dddb7f3a
+## Already downloaded: /Users/mark/Library/Caches/Homebrew/downloads/d0e6a3f8f7a4b138b36484ec9ec8aff26b499381a0b4459f53efc0aefe001ee2--gh--2.37.0.arm64_ventura.bottle.tar.gz
+## ==&gt; Pouring gh--2.37.0.arm64_ventura.bottle.tar.gz
+## ==&gt; Caveats
+## Bash completion has been installed to:
+##   /opt/homebrew/etc/bash_completion.d
+## ==&gt; Summary
+## 🍺  /opt/homebrew/Cellar/gh/2.37.0: 191 files, 44.2MB
+## ==&gt; Running `brew cleanup gh`...
+## Disable this behaviour by setting HOMEBREW_NO_INSTALL_CLEANUP.
+## Hide these hints with HOMEBREW_NO_ENV_HINTS (see `man brew`).</code></pre>
+<section id="github-cli-authentication" class="level3" data-number="4.3.1">
+<h3 data-number="4.3.1" class="anchored" data-anchor-id="github-cli-authentication"><span class="header-section-number">4.3.1</span> GitHub CLI authentication</h3>
+<p>In order to make use of <code>gh</code> we need to go through another round of authentication setup. To do this, go to the terminal and run:</p>
+<pre><code>gh auth login
+## ? What account do you want to log into? GitHub Enterprise Server
+## ? GHE hostname: github.sydney.edu.au
+## ? What is your preferred protocol for Git operations? HTTPS
+## ? Authenticate Git with your GitHub credentials? Yes
+## ? How would you like to authenticate GitHub CLI? Login with a web browser</code></pre>
+<p>For additional information, see <a href="https://cli.github.com/manual/gh_auth">gh auth –help</a>.</p>
+<p>In order to use <code>gh</code> with github.com directly you need to authenticate for that platform too. Repeat the above, but now the responses look like this:</p>
+<pre><code>gh auth login
+## ? What account do you want to log into? GitHub.com
+## ? What is your preferred protocol for Git operations? HTTPS
+## ? Authenticate Git with your GitHub credentials? Yes
+## ? How would you like to authenticate GitHub CLI? Login with a web browser</code></pre>
+<p>You are nearly set. You can verify that what you have configured worked via:</p>
+<pre><code>gh auth status
+## github.sydney.edu.au
+##   ✓ Logged in to github.sydney.edu.au as mjon7053 (keyring)
+##   ✓ Git operations for github.sydney.edu.au configured to use https protocol.
+##   ✓ Token: gho_************************************
+##   ✓ Token scopes: gist, read:org, repo, workflow
+## 
+## github.com
+##   ✓ Logged in to github.com as maj-biostat (keyring)
+##   ✓ Git operations for github.com configured to use https protocol.
+##   ✓ Token: gho_************************************
+##   ✓ Token scopes: gist, read:org, repo, workflow</code></pre>
+<p>However, for <code>gh</code> to work with the desired host you need to set an environment variable to tell <code>gh</code> which platform to use. On macOS, you can set this up easily with the following entries in the <code>.profile</code> shell initialisation script (or <code>.bash_profile</code> for those inclined).</p>
+<pre><code>gh-ent() {
+  export GH_HOST=github.sydney.edu.au
+}
+
+gh-std() {
+  export GH_HOST=github.com
+}</code></pre>
+<p>On Windows, I have no idea how you are supposed to do the above in an easy manner. You may just have to resort to running</p>
+<pre><code>set GH_HOST=github.sydney.edu.au</code></pre>
+<p>or</p>
+<pre><code>set GH_HOST=github.com</code></pre>
+<p>each time you want to switch.</p>
+<p>Now (on macOS) when you want to interrogate github.com repositories use:</p>
+<pre><code>gh-std
+gh repo list
+
+## Showing 30 of 185 repositories in @maj-biostat
+## 
+## maj-biostat/misc-notes                         info for manjaro/arch linux setup                                public         1d
+## maj-biostat/wisca_2                            Revised approach to antibiogram                                  private        25d
+## maj-biostat/motc.run                                                                                            private        Sep 11, 2023
+## maj-biostat/motc.sim                           Simulation for motivate c trial                                  private        Sep 11, 2023
+## maj-biostat/motc.stan                          Stan models for motc                                             private        Sep  7, 2023
+## maj-biostat/quarto_demos_basic                 Demo using Quarto to render to word documents with custom te...  private        Aug 23, 2023
+## maj-biostat/BayesDRM                           Dose response models in stan                                     public         May 21, 2023
+## maj-biostat/motc.modproto                                                                                       public         May  1, 2023</code></pre>
+<p>and for the USyd Enterprise GitHub Server, use:</p>
+<pre><code>gh-ent
+gh repo list
+
+Showing 12 of 12 repositories in @mjon7053
+
+mjon7053/motc-mgt            Monitoring statistics for Motivate-C study                       private  1d
+mjon7053/fluvid.analyses     Analyses for fluvid coadministration study (COVID19 + FLU) vacc  private  17d
+mjon7053/motc.sap                                                                             public   Sep 14, 2023
+mjon7053/motc-sim-report     Motivate-C simulation report                                     private  Sep 12, 2023
+mjon7053/roadmap-notes       Notes relating to the ROADMAP project.                           private  Sep  2, 2023
+mjon7053/mjon7053.github.io                                                                   private  Aug 27, 2023</code></pre>
+
+
+</section>
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    text: function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var filterRegex = new RegExp("^(?:http:|https:)\/\/github\.sydney\.edu\.au");
+    var isInternal = (href) => {
+        return filterRegex.test(href) || localhostRegex.test(href);
+    }
+    // Inspect non-navigation links and adorn them if external
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item)');
+    for (var i=0; i<links.length; i++) {
+      const link = links[i];
+      if (!isInternal(link.href)) {
+          // target, if specified
+          link.setAttribute("target", "_blank");
+          // default icon
+          link.classList.add("external");
+      }
+    }
+});
+</script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="../notebooks/git-setup.html" class="pagination-link">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Git setup</span></span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="../notebooks/about.html" class="pagination-link">
+        <span class="nav-page-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">About</span></span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav>
+</div> <!-- /content -->
+
+
+
+</body></html>
