@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Starting up with git, github and github pages - 6&nbsp; Repositories</title>
+<title>Starting up with git, github and github pages - 5&nbsp; Repositories</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -73,7 +73,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../notebooks/part-02.html">Part 2 - Fundamentals</a></li><li class="breadcrumb-item"><a href="../notebooks/git-repository.html"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Repositories</span></a></li></ol></nav>
+      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../notebooks/part-02.html">Part 2 - Fundamentals</a></li><li class="breadcrumb-item"><a href="../notebooks/git-repository.html"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Repositories</span></a></li></ol></nav>
       <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
       </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -163,12 +163,6 @@ ul.task-list li input[type="checkbox"] {
  <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Github setup</span></span></a>
   </div>
 </li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../notebooks/about.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">About</span></span></a>
-  </div>
-</li>
       </ul>
   </li>
         <li class="sidebar-item sidebar-item-section">
@@ -183,13 +177,19 @@ ul.task-list li input[type="checkbox"] {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../notebooks/git-repository.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Repositories</span></span></a>
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Repositories</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../notebooks/git-commit.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Commit</span></span></a>
+ <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Commit</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../notebooks/git-diffs.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Reviewing differences</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -204,12 +204,30 @@ ul.task-list li input[type="checkbox"] {
  <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Merge</span></span></a>
   </div>
 </li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../notebooks/git-tags.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Tags</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../notebooks/git-history.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Reviewing history</span></span></a>
+  </div>
+</li>
       </ul>
   </li>
         <li class="sidebar-item sidebar-item-section">
       <span class="sidebar-item-text sidebar-link text-start">
  <span class="menu-text">Part 3 - Collaboration</span></span>
   </li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../notebooks/about.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">About</span></span></a>
+  </div>
+</li>
     </ul>
     </div>
 </nav>
@@ -220,11 +238,11 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">Contents</h2>
    
   <ul>
-  <li><a href="#git-repositories" id="toc-git-repositories" class="nav-link active" data-scroll-target="#git-repositories"><span class="header-section-number">6.1</span> Git repositories</a>
+  <li><a href="#git-repositories" id="toc-git-repositories" class="nav-link active" data-scroll-target="#git-repositories"><span class="header-section-number">5.1</span> Git repositories</a>
   <ul>
-  <li><a href="#initialisation" id="toc-initialisation" class="nav-link" data-scroll-target="#initialisation"><span class="header-section-number">6.1.1</span> Initialisation</a></li>
-  <li><a href="#repository-components" id="toc-repository-components" class="nav-link" data-scroll-target="#repository-components"><span class="header-section-number">6.1.2</span> Repository components</a></li>
-  <li><a href="#adding-project-files" id="toc-adding-project-files" class="nav-link" data-scroll-target="#adding-project-files"><span class="header-section-number">6.1.3</span> Adding project files</a></li>
+  <li><a href="#initialisation" id="toc-initialisation" class="nav-link" data-scroll-target="#initialisation"><span class="header-section-number">5.1.1</span> Initialisation</a></li>
+  <li><a href="#repository-components" id="toc-repository-components" class="nav-link" data-scroll-target="#repository-components"><span class="header-section-number">5.1.2</span> Repository components</a></li>
+  <li><a href="#adding-project-files" id="toc-adding-project-files" class="nav-link" data-scroll-target="#adding-project-files"><span class="header-section-number">5.1.3</span> Adding project files</a></li>
   </ul></li>
   </ul>
 <div class="toc-actions"><div><i class="bi bi-git"></i></div><div class="action-links"><p><a href="https://github.sydney.edu.au/mjon7053/starting-git/blob/main/notebooks/git-repository.qmd" class="toc-action">View source</a></p><p><a href="https://github.sydney.edu.au/mjon7053/starting-git/issues/new" class="toc-action">Report an issue</a></p></div></div></nav>
@@ -234,7 +252,7 @@ ul.task-list li input[type="checkbox"] {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Repositories</span></h1>
+<h1 class="title"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Repositories</span></h1>
 </div>
 
 
@@ -252,17 +270,17 @@ ul.task-list li input[type="checkbox"] {
 <div class="cell">
 
 </div>
-<section id="git-repositories" class="level2" data-number="6.1">
-<h2 data-number="6.1" class="anchored" data-anchor-id="git-repositories"><span class="header-section-number">6.1</span> Git repositories</h2>
+<section id="git-repositories" class="level2" data-number="5.1">
+<h2 data-number="5.1" class="anchored" data-anchor-id="git-repositories"><span class="header-section-number">5.1</span> Git repositories</h2>
 <p>Local vs remote</p>
-<section id="initialisation" class="level3" data-number="6.1.1">
-<h3 data-number="6.1.1" class="anchored" data-anchor-id="initialisation"><span class="header-section-number">6.1.1</span> Initialisation</h3>
+<section id="initialisation" class="level3" data-number="5.1.1">
+<h3 data-number="5.1.1" class="anchored" data-anchor-id="initialisation"><span class="header-section-number">5.1.1</span> Initialisation</h3>
 </section>
-<section id="repository-components" class="level3" data-number="6.1.2">
-<h3 data-number="6.1.2" class="anchored" data-anchor-id="repository-components"><span class="header-section-number">6.1.2</span> Repository components</h3>
+<section id="repository-components" class="level3" data-number="5.1.2">
+<h3 data-number="5.1.2" class="anchored" data-anchor-id="repository-components"><span class="header-section-number">5.1.2</span> Repository components</h3>
 </section>
-<section id="adding-project-files" class="level3" data-number="6.1.3">
-<h3 data-number="6.1.3" class="anchored" data-anchor-id="adding-project-files"><span class="header-section-number">6.1.3</span> Adding project files</h3>
+<section id="adding-project-files" class="level3" data-number="5.1.3">
+<h3 data-number="5.1.3" class="anchored" data-anchor-id="adding-project-files"><span class="header-section-number">5.1.3</span> Adding project files</h3>
 
 
 </section>
@@ -526,7 +544,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   </div>
   <div class="nav-page nav-page-next">
       <a href="../notebooks/git-commit.html" class="pagination-link">
-        <span class="nav-page-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Commit</span></span> <i class="bi bi-arrow-right-short"></i>
+        <span class="nav-page-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Commit</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>

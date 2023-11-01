@@ -2,66 +2,78 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://pages.github.sydney.edu.au/mjon7053/starting-git/index.html</loc>
-    <lastmod>2023-11-01T08:03:16.081Z</lastmod>
+    <lastmod>2023-11-01T08:12:19.588Z</lastmod>
   </url>
   <url>
     <loc>https://pages.github.sydney.edu.au/mjon7053/starting-git/notebooks/preamble.html</loc>
-    <lastmod>2023-11-01T08:03:16.085Z</lastmod>
+    <lastmod>2023-11-01T08:12:19.593Z</lastmod>
   </url>
   <url>
     <loc>https://pages.github.sydney.edu.au/mjon7053/starting-git/notebooks/part-01.html</loc>
-    <lastmod>2023-11-01T08:03:16.088Z</lastmod>
+    <lastmod>2023-11-01T08:12:19.596Z</lastmod>
   </url>
   <url>
     <loc>https://pages.github.sydney.edu.au/mjon7053/starting-git/notebooks/what-is-revision-control.html</loc>
-    <lastmod>2023-11-01T08:03:16.091Z</lastmod>
+    <lastmod>2023-11-01T08:12:19.600Z</lastmod>
   </url>
   <url>
     <loc>https://pages.github.sydney.edu.au/mjon7053/starting-git/notebooks/git-install.html</loc>
-    <lastmod>2023-11-01T08:03:16.096Z</lastmod>
+    <lastmod>2023-11-01T08:12:19.605Z</lastmod>
   </url>
   <url>
     <loc>https://pages.github.sydney.edu.au/mjon7053/starting-git/notebooks/git-setup.html</loc>
-    <lastmod>2023-11-01T08:03:16.098Z</lastmod>
+    <lastmod>2023-11-01T08:12:19.608Z</lastmod>
   </url>
   <url>
     <loc>https://pages.github.sydney.edu.au/mjon7053/starting-git/notebooks/github-setup.html</loc>
-    <lastmod>2023-11-01T08:03:16.103Z</lastmod>
-  </url>
-  <url>
-    <loc>https://pages.github.sydney.edu.au/mjon7053/starting-git/notebooks/about.html</loc>
-    <lastmod>2023-11-01T08:03:16.106Z</lastmod>
+    <lastmod>2023-11-01T08:12:19.613Z</lastmod>
   </url>
   <url>
     <loc>https://pages.github.sydney.edu.au/mjon7053/starting-git/notebooks/part-02.html</loc>
-    <lastmod>2023-11-01T08:03:16.108Z</lastmod>
+    <lastmod>2023-11-01T08:12:19.615Z</lastmod>
   </url>
   <url>
     <loc>https://pages.github.sydney.edu.au/mjon7053/starting-git/notebooks/git-repository.html</loc>
-    <lastmod>2023-11-01T08:03:16.110Z</lastmod>
+    <lastmod>2023-11-01T08:12:19.618Z</lastmod>
   </url>
   <url>
     <loc>https://pages.github.sydney.edu.au/mjon7053/starting-git/notebooks/git-commit.html</loc>
-    <lastmod>2023-11-01T08:03:16.113Z</lastmod>
+    <lastmod>2023-11-01T08:12:19.620Z</lastmod>
+  </url>
+  <url>
+    <loc>https://pages.github.sydney.edu.au/mjon7053/starting-git/notebooks/git-diffs.html</loc>
+    <lastmod>2023-11-01T08:12:19.624Z</lastmod>
   </url>
   <url>
     <loc>https://pages.github.sydney.edu.au/mjon7053/starting-git/notebooks/git-branch.html</loc>
-    <lastmod>2023-11-01T08:03:16.115Z</lastmod>
+    <lastmod>2023-11-01T08:12:19.625Z</lastmod>
   </url>
   <url>
     <loc>https://pages.github.sydney.edu.au/mjon7053/starting-git/notebooks/git-merge.html</loc>
-    <lastmod>2023-11-01T08:03:16.118Z</lastmod>
+    <lastmod>2023-11-01T08:12:19.628Z</lastmod>
+  </url>
+  <url>
+    <loc>https://pages.github.sydney.edu.au/mjon7053/starting-git/notebooks/git-tags.html</loc>
+    <lastmod>2023-11-01T08:12:19.631Z</lastmod>
+  </url>
+  <url>
+    <loc>https://pages.github.sydney.edu.au/mjon7053/starting-git/notebooks/git-history.html</loc>
+    <lastmod>2023-11-01T08:12:19.633Z</lastmod>
   </url>
   <url>
     <loc>https://pages.github.sydney.edu.au/mjon7053/starting-git/notebooks/part-03.html</loc>
-    <lastmod>2023-11-01T08:03:16.119Z</lastmod>
+    <lastmod>2023-11-01T08:12:19.635Z</lastmod>
+  </url>
+  <url>
+    <loc>https://pages.github.sydney.edu.au/mjon7053/starting-git/notebooks/about.html</loc>
+    <lastmod>2023-11-01T08:12:19.638Z</lastmod>
   </url>
   <url>
     <loc>https://pages.github.sydney.edu.au/mjon7053/starting-git/Starting-up-with-git,-github-and-github-pages.pdf</loc>
-    <lastmod>2023-11-01T08:03:14.777Z</lastmod>
+    <lastmod>2023-11-01T08:12:18.309Z</lastmod>
   </url>
   <url>
     <loc>https://pages.github.sydney.edu.au/mjon7053/starting-git/Starting-up-with-git,-github-and-github-pages.docx</loc>
-    <lastmod>2023-11-01T08:03:16.032Z</lastmod>
+    <lastmod>2023-11-01T08:12:19.533Z</lastmod>
   </url>
 </urlset>

@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Starting up with git, github and github pages - 7&nbsp; Commit</title>
+<title>Starting up with git, github and github pages - 6&nbsp; Commit</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -30,7 +30,7 @@ ul.task-list li input[type="checkbox"] {
 <script src="../site_libs/quarto-search/fuse.min.js"></script>
 <script src="../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../">
-<link href="../notebooks/git-branch.html" rel="next">
+<link href="../notebooks/git-diffs.html" rel="next">
 <link href="../notebooks/git-repository.html" rel="prev">
 <script src="../site_libs/quarto-html/quarto.js"></script>
 <script src="../site_libs/quarto-html/popper.min.js"></script>
@@ -73,7 +73,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../notebooks/part-02.html">Part 2 - Fundamentals</a></li><li class="breadcrumb-item"><a href="../notebooks/git-commit.html"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Commit</span></a></li></ol></nav>
+      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../notebooks/part-02.html">Part 2 - Fundamentals</a></li><li class="breadcrumb-item"><a href="../notebooks/git-commit.html"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Commit</span></a></li></ol></nav>
       <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
       </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -163,12 +163,6 @@ ul.task-list li input[type="checkbox"] {
  <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Github setup</span></span></a>
   </div>
 </li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../notebooks/about.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">About</span></span></a>
-  </div>
-</li>
       </ul>
   </li>
         <li class="sidebar-item sidebar-item-section">
@@ -183,13 +177,19 @@ ul.task-list li input[type="checkbox"] {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../notebooks/git-repository.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Repositories</span></span></a>
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Repositories</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../notebooks/git-commit.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Commit</span></span></a>
+ <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Commit</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../notebooks/git-diffs.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Reviewing differences</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -204,12 +204,30 @@ ul.task-list li input[type="checkbox"] {
  <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Merge</span></span></a>
   </div>
 </li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../notebooks/git-tags.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Tags</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../notebooks/git-history.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Reviewing history</span></span></a>
+  </div>
+</li>
       </ul>
   </li>
         <li class="sidebar-item sidebar-item-section">
       <span class="sidebar-item-text sidebar-link text-start">
  <span class="menu-text">Part 3 - Collaboration</span></span>
   </li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../notebooks/about.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">About</span></span></a>
+  </div>
+</li>
     </ul>
     </div>
 </nav>
@@ -220,10 +238,10 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">Contents</h2>
    
   <ul>
-  <li><a href="#adding-files-to-projects" id="toc-adding-files-to-projects" class="nav-link active" data-scroll-target="#adding-files-to-projects"><span class="header-section-number">7.1</span> Adding files to projects</a></li>
-  <li><a href="#commit-process" id="toc-commit-process" class="nav-link" data-scroll-target="#commit-process"><span class="header-section-number">7.2</span> Commit process</a></li>
-  <li><a href="#tracking-status" id="toc-tracking-status" class="nav-link" data-scroll-target="#tracking-status"><span class="header-section-number">7.3</span> Tracking status</a></li>
-  <li><a href="#reviewing-commit-history" id="toc-reviewing-commit-history" class="nav-link" data-scroll-target="#reviewing-commit-history"><span class="header-section-number">7.4</span> Reviewing commit history</a></li>
+  <li><a href="#adding-files-to-projects" id="toc-adding-files-to-projects" class="nav-link active" data-scroll-target="#adding-files-to-projects"><span class="header-section-number">6.1</span> Adding files to projects</a></li>
+  <li><a href="#commit-process" id="toc-commit-process" class="nav-link" data-scroll-target="#commit-process"><span class="header-section-number">6.2</span> Commit process</a></li>
+  <li><a href="#tracking-status" id="toc-tracking-status" class="nav-link" data-scroll-target="#tracking-status"><span class="header-section-number">6.3</span> Tracking status</a></li>
+  <li><a href="#reviewing-commit-history" id="toc-reviewing-commit-history" class="nav-link" data-scroll-target="#reviewing-commit-history"><span class="header-section-number">6.4</span> Reviewing commit history</a></li>
   </ul>
 <div class="toc-actions"><div><i class="bi bi-git"></i></div><div class="action-links"><p><a href="https://github.sydney.edu.au/mjon7053/starting-git/blob/main/notebooks/git-commit.qmd" class="toc-action">View source</a></p><p><a href="https://github.sydney.edu.au/mjon7053/starting-git/issues/new" class="toc-action">Report an issue</a></p></div></div></nav>
     </div>
@@ -232,7 +250,7 @@ ul.task-list li input[type="checkbox"] {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Commit</span></h1>
+<h1 class="title"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Commit</span></h1>
 </div>
 
 
@@ -250,17 +268,17 @@ ul.task-list li input[type="checkbox"] {
 <div class="cell">
 
 </div>
-<section id="adding-files-to-projects" class="level2" data-number="7.1">
-<h2 data-number="7.1" class="anchored" data-anchor-id="adding-files-to-projects"><span class="header-section-number">7.1</span> Adding files to projects</h2>
+<section id="adding-files-to-projects" class="level2" data-number="6.1">
+<h2 data-number="6.1" class="anchored" data-anchor-id="adding-files-to-projects"><span class="header-section-number">6.1</span> Adding files to projects</h2>
 </section>
-<section id="commit-process" class="level2" data-number="7.2">
-<h2 data-number="7.2" class="anchored" data-anchor-id="commit-process"><span class="header-section-number">7.2</span> Commit process</h2>
+<section id="commit-process" class="level2" data-number="6.2">
+<h2 data-number="6.2" class="anchored" data-anchor-id="commit-process"><span class="header-section-number">6.2</span> Commit process</h2>
 </section>
-<section id="tracking-status" class="level2" data-number="7.3">
-<h2 data-number="7.3" class="anchored" data-anchor-id="tracking-status"><span class="header-section-number">7.3</span> Tracking status</h2>
+<section id="tracking-status" class="level2" data-number="6.3">
+<h2 data-number="6.3" class="anchored" data-anchor-id="tracking-status"><span class="header-section-number">6.3</span> Tracking status</h2>
 </section>
-<section id="reviewing-commit-history" class="level2" data-number="7.4">
-<h2 data-number="7.4" class="anchored" data-anchor-id="reviewing-commit-history"><span class="header-section-number">7.4</span> Reviewing commit history</h2>
+<section id="reviewing-commit-history" class="level2" data-number="6.4">
+<h2 data-number="6.4" class="anchored" data-anchor-id="reviewing-commit-history"><span class="header-section-number">6.4</span> Reviewing commit history</h2>
 
 
 </section>
@@ -518,12 +536,12 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
       <a href="../notebooks/git-repository.html" class="pagination-link">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Repositories</span></span>
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Repositories</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="../notebooks/git-branch.html" class="pagination-link">
-        <span class="nav-page-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Branch</span></span> <i class="bi bi-arrow-right-short"></i>
+      <a href="../notebooks/git-diffs.html" class="pagination-link">
+        <span class="nav-page-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Reviewing differences</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>
