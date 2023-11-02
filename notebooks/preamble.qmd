@@ -45,7 +45,7 @@ The following link needs admin rights (TKI people probably won't have nor will b
 
 + [Learn the command line](https://www.codecademy.com/learn/learn-the-command-line)
 
-## Operating system management
+## Operating system management - environment variables
 
 You will need to have some minimal technical competence in driving your computer.
 At a minimum, you need to know how to set an environment variable under your operating system of choice.
@@ -70,6 +70,10 @@ you should be able to set a user variable even if you do not have admin priviled
 + [PATH Variable (Mac)](https://www.youtube.com/watch?v=2J58Pc2ZOAQ)
 + [Use environment variables in Terminal on Mac
 ](https://support.apple.com/en-gb/guide/terminal/apd382cc5fa-4f58-4449-b20a-41c53c006f8f/mac)
+
+## Operating system management
+
+Create a directory on your machine where we will store all the files for this workshop.
 
 ## GitHub
 

@@ -11,9 +11,25 @@ log_info("Called git-repository notebook")
 
 ## Git repositories
 
-Local vs remote
+A repository is the most basic component of git. 
+It is where you store your files and each files history.
+Repositories can be public or private, can have multiple collaborators and can be stored locally (on your personal computer) or remotely (in the cloud hosted by a service provider like github).
+
+Using git, you can create and configure repositories, add or remove files and review history of the files in the repository.
 
 ### Initialisation
+
+There are two basic ways of creating a repository on your local machine
+
+1. Initialise a new repository
+2. Clone an existing repository
+
+We will look at initialising a new repository, cloning will come later.
+Run the following on your machine
+
+```
+cd ~
+```
 
 ### Repository components
 
