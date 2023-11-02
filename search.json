@@ -2,9 +2,9 @@
   {
     "objectID": "index.html",
     "href": "index.html",
-    "title": "Starting up with git",
+    "title": "Get going with git",
     "section": "",
-    "text": "Introduction\nWhen you are getting into the nitty gritty, version control is a large topic. The git, github, github cli and github pages … technologies can be daunting to set up and use. However, once you are setup properly and understand how things fit together at a high level, users can go a long way with a minimal set of commands.\nI know, it is true that a little knowledge can be a dangerous thing, but it probably isn’t quite as bad as complete ignorance.\nStarting up with git - aims to provide a minimal knowledge base, sufficient to get you started without having to wade through reams of documentation distributed all over the internet. It can be browsed online or downloaded as a word document for your reference.\nWhat is version control? Setting up git Time to commit: working with a local repository Push and pull: working with a remote repository Making your first repository on GitHub Day 2: Collaborating with Others\nDealing with (git) conflicts Branching for sanity Creating pull requests Collaborating with GitHub tools Day 3: Dealing with Complications\nUndoing changes Learning good repository organization principles Ignoring things (in git) Working with large files Using the README Creating GitHub templates Extending git and GitHub with other tools"
+    "text": "Introduction\nWhen you are getting into the nitty gritty, version control is a large topic. The git, github, github cli and github pages … technologies can be daunting to set up and use. However, once you are setup properly and understand how things fit together at a high level, users can go a long way with a minimal set of commands.\nI know, it is true that a little knowledge can be a dangerous thing, but it probably isn’t quite as bad as complete ignorance.\nGet going with git - aims to provide a minimal knowledge base, sufficient to get you started without having to wade through reams of documentation distributed all over the internet. It can be browsed online or downloaded as a word document for your reference.\nWhat is version control? Setting up git Time to commit: working with a local repository Push and pull: working with a remote repository Making your first repository on GitHub Day 2: Collaborating with Others\nDealing with (git) conflicts Branching for sanity Creating pull requests Collaborating with GitHub tools Day 3: Dealing with Complications\nUndoing changes Learning good repository organization principles Ignoring things (in git) Working with large files Using the README Creating GitHub templates Extending git and GitHub with other tools"
   },
   {
     "objectID": "notebooks/preamble.html#background-reading",
@@ -21,11 +21,18 @@
     "text": "Command line interfaces\nA CLI is a software mechanism that you use to interact with your operating system via your keyboard rather than a mouse. You enter in commands as text and the system will do something, e.g. delete a file.\nCLIs are software that are supplied with the operating system. Software that implements such a text interface is often called a command-line interpreter, command processor or a shell.\nNearly universally, if I use the word terminal I am referring to the operating system command line interface.\nWindows refers to its CLI as the command prompt, and in macOS we have the terminal.\nIf you do not know how to operate your operating system CLI then you need to address that.\n\nWindows\nYou can do these tutorials to familiarise yourselves:\n\nHow to use Windows 10’s Command Prompt\nLearning Windows Terminal\n\nThe following link needs admin rights (TKI people probably won’t have nor will be able to obtain these rights) and is not strictly necessary here, but it gives a lot of useful commands and an opportunity to gain a bit more familiarity with the commandline.\n\n40 Windows Commands you NEED to know\n\n\n\nmacOS\n\nHow To Use Terminal On Your Mac\nWhat Is the Mac Terminal?\nAbsolute BEGINNER Guide to the Mac OS Terminal\n\n\n\nExtra credit\n\nLearn the command line"
   },
   {
+    "objectID": "notebooks/preamble.html#operating-system-management---environment-variables",
+    "href": "notebooks/preamble.html#operating-system-management---environment-variables",
+    "title": "Pre-requisites",
+    "section": "Operating system management - environment variables",
+    "text": "Operating system management - environment variables\nYou will need to have some minimal technical competence in driving your computer. At a minimum, you need to know how to set an environment variable under your operating system of choice. If you do not know how to set an environment variable, then you need to address that.\nOther items that are important to be familiar with are file and directory concepts. For example, if you do not know what the command tree does, then it would be useful to find out. Similarly, if you do not know what file permissions are then, again, it would be useful to find out.\n\nWindows\nYou can do these tutorials to familiarise yourselves:\n\nEnvironment Variables : Windows 10\nHow to Set Environment Variables in Windows 11\n\nyou should be able to set a user variable even if you do not have admin priviledges.\n\n\nmacOS\n\nHow to Set Environment Variables in MacOS\nPATH Variable (Mac)\nUse environment variables in Terminal on Mac"
+  },
+  {
     "objectID": "notebooks/preamble.html#operating-system-management",
     "href": "notebooks/preamble.html#operating-system-management",
     "title": "Pre-requisites",
     "section": "Operating system management",
-    "text": "Operating system management\nYou will need to have some minimal technical competence in driving your computer. At a minimum, you need to know how to set an environment variable under your operating system of choice. If you do not know how to set an environment variable, then you need to address that.\nOther items that are important to be familiar with are file and directory concepts. For example, if you do not know what the command tree does, then it would be useful to find out. Similarly, if you do not know what file permissions are then, again, it would be useful to find out.\n\nWindows\nYou can do these tutorials to familiarise yourselves:\n\nEnvironment Variables : Windows 10\nHow to Set Environment Variables in Windows 11\n\nyou should be able to set a user variable even if you do not have admin priviledges.\n\n\nmacOS\n\nHow to Set Environment Variables in MacOS\nPATH Variable (Mac)\nUse environment variables in Terminal on Mac"
+    "text": "Operating system management\nCreate a directory on your machine where we will store all the files for this workshop."
   },
   {
     "objectID": "notebooks/preamble.html#github",
@@ -109,7 +116,7 @@
     "href": "notebooks/git-repository.html#git-repositories",
     "title": "5  Repositories",
     "section": "5.1 Git repositories",
-    "text": "5.1 Git repositories\nLocal vs remote\n\n5.1.1 Initialisation\n\n\n5.1.2 Repository components\n\n\n5.1.3 Adding project files"
+    "text": "5.1 Git repositories\nA repository is the most basic component of git. It is where you store your files and each files history. Repositories can be public or private, can have multiple collaborators and can be stored locally (on your personal computer) or remotely (in the cloud hosted by a service provider like github).\nUsing git, you can create and configure repositories, add or remove files and review history of the files in the repository.\n\n5.1.1 Initialisation\nThere are two basic ways of creating a repository on your local machine\n\nInitialise a new repository\nClone an existing repository\n\nWe will look at initialising a new repository, cloning will come later. Run the following on your machine\ncd ~\n\n\n5.1.2 Repository components\n\n\n5.1.3 Adding project files"
   },
   {
     "objectID": "notebooks/git-commit.html#adding-files-to-projects",
@@ -228,6 +235,6 @@
     "href": "notebooks/about.html#repository-status",
     "title": "About",
     "section": "Repository status",
-    "text": "Repository status\nDetails on github repository files, tags, commits follow:\n\n\nCode\nrepo &lt;- git2r::repository(path = \".\")\nsummary(repo)\n\n\nLocal:    main /Users/mark/Documents/project/misc-stats/starting-git\nRemote:   main @ origin (https://github.com/maj-biostat/starting-git.git)\nHead:     [2fbe117] 2023-11-01: Minor edits\n\nBranches:         2\nTags:             0\nCommits:         21\nContributors:     1\nStashes:          0\nIgnored files:    3\nUntracked files: 21\nUnstaged files:   0\nStaged files:     0\n\nLatest commits:\n[2fbe117] 2023-11-01: Minor edits\n[3557833] 2023-11-01: Spelling\n[c5321da] 2023-11-01: extended clean and made about unnumbered\n[6490dcc] 2023-11-01: More shell\n[4c029b1] 2023-11-01: More shell"
+    "text": "Repository status\nDetails on github repository files, tags, commits follow:\n\n\nCode\nrepo &lt;- git2r::repository(path = \".\")\nsummary(repo)\n\n\nLocal:    main /Users/mark/Documents/project/misc-stats/get-going-with-git\nRemote:   main @ origin (https://github.com/maj-biostat/get-going-with-git)\nHead:     [803a376] 2023-11-02: reconfig to new naming\n\nBranches:         2\nTags:             0\nCommits:         23\nContributors:     1\nStashes:          0\nIgnored files:    3\nUntracked files: 19\nUnstaged files:   0\nStaged files:     0\n\nLatest commits:\n[803a376] 2023-11-02: reconfig to new naming\n[3ee74ba] 2023-11-02: Start of git repo section\n[2fbe117] 2023-11-01: Minor edits\n[3557833] 2023-11-01: Spelling\n[c5321da] 2023-11-01: extended clean and made about unnumbered"
   }
 ]
