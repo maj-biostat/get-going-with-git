@@ -32,8 +32,8 @@ book:
         - notebooks/git-history.qmd
     - part: notebooks/part-03.qmd
     - notebooks/about.qmd
-  site-url: https://pages.github.sydney.edu.au/mjon7053/starting-git/
-  repo-url: https://github.sydney.edu.au/mjon7053/starting-git
+  site-url: https://pages.github.sydney.edu.au/mjon7053/get-going-with-git/
+  repo-url: https://github.sydney.edu.au/mjon7053/get-going-with-git
   repo-actions: [source, issue]
 
 format:

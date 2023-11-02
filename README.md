@@ -1,4 +1,4 @@
-# starting-git
+# get-going-with-git
 
 Introduction to git, github, github cli and github pages.
 
