@@ -3,3 +3,4 @@ a <- readLines("stdin",n=1);
 cat("You entered")
 str(a);
 cat( "\n" )
+cat(a, file = "tmp.txt")

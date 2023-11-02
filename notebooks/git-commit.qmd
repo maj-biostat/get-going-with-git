@@ -32,12 +32,22 @@ Create a new file as follows:
 cat("Enter a string please: ");
 a <- readLines("stdin",n=1);
 cat("You entered")
+
 str(a);
 cat( "\n" )
+cat(a, file = "tmp.txt")
 ```
 
 save the file as `hello.R` in the `my-first-repo` directory.
+
 Or, download these files - [hello.R](https://github.com/maj-biostat/get-going-with-git/resources/my-first-repo/hello.R) [readme.md](https://github.com/maj-biostat/get-going-with-git/resources/my-first-repo/readme.md).
+
+Now run the R script from the terminal by entering this text:
+
+```{bash}
+#| eval = F
+Rscript hello.R
+```
 
 Now from the terminal in the `my-first-repo` director, type:
 
