@@ -11,7 +11,60 @@ log_info("Called git-commit notebook")
 
 ## Adding files to projects
 
+Let's start to introduce files for the project.
+Open a text editor, enter the following contents:
+
+```{md}
+# my-first-repo
+
+This is a readme.md file that captures important information about the project.
+
+The project is only a demo.
+```
+
+save the file as `readme.md` in the `my-first-repo` directory.
+
+
+Create a new file as follows:
+
+```{r}
+#| eval: false
+cat("Enter a string please: ");
+a <- readLines("stdin",n=1);
+cat("You entered")
+str(a);
+cat( "\n" )
+```
+
+save the file as `hello.R` in the `my-first-repo` directory.
+Or, download these files - [hello.R](https://github.com/maj-biostat/get-going-with-git/resources/my-first-repo/hello.R) [readme.md](https://github.com/maj-biostat/get-going-with-git/resources/my-first-repo/readme.md).
+
+Now from the terminal in the `my-first-repo` director, type:
+
+```{bash}
+#| eval: false
+git status
+## On branch main
+## 
+## No commits yet
+## 
+## Untracked files:
+##   (use "git add <file>..." to include in what will be committed)
+## 	readme.md
+## 
+## nothing added to commit but untracked files present (use "git add" to track)
+```
+
+Referencing the figure shown in @sec-repo-struct we now have added a file to the working directory.
+The files is presently untracked.
+
+![Add file to working directory](../fig/repos-add-file.jpg)
+
 ## Commit process
+
+Next, we want to add the new file to the repository.
+
+
 
 ## Tracking status
 

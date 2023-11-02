@@ -51,9 +51,12 @@ Generally, you will not touch this sub-directory directly.
 :::callout-note
 You can also create a repository from a pre-existing directory that has already got an established file structure and files.
 The process is exactly the same, just change to the directory that you want to add to version control, and run `git init`.
+
+Additionally, when you create a new project in Rstudio, you can select to initialise a new git repository.
+Underneath the covers, RStudio is simply invoking `git init`.
 :::
 
-### Repository structures
+### Repository structures {#sec-repo-struct}
 
 Before we start adding files to the new repository, you need to be aware of a few concepts.
 
@@ -62,6 +65,8 @@ There are three main structures within the repository:
 1. Working directory
 2. Staging area
 3. Commit history
+
+![Repository structures](../fig/repos-structs.jpg)
 
 The *working directory* is the usual files and sub-directories within your project directory.
 You add, update, rename, delete files and direcotries in this area.

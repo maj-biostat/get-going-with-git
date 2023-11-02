@@ -39,8 +39,9 @@ book:
 format:
   html:
     toc: true
-    code-fold: true
-    code-line-numbers: true
+    code-fold: false
+    code-line-numbers: false
+    code-block-background: true
     toc-location: right
     toc-title: "Contents"
     toc-depth: 4
