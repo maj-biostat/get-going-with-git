@@ -302,32 +302,29 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <h2 class="unnumbered anchored" data-anchor-id="repository-status">Repository status</h2>
 <p>Details on github repository files, tags, commits follow:</p>
 <div class="cell">
-<details>
-<summary>Code</summary>
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1"></a>repo <span class="ot">&lt;-</span> git2r<span class="sc">::</span><span class="fu">repository</span>(<span class="at">path =</span> <span class="st">"."</span>)</span>
-<span id="cb1-2"><a href="#cb1-2"></a><span class="fu">summary</span>(repo)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>repo <span class="ot">&lt;-</span> git2r<span class="sc">::</span><span class="fu">repository</span>(<span class="at">path =</span> <span class="st">"."</span>)</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(repo)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>Local:    main /Users/mark/Documents/project/misc-stats/get-going-with-git
 Remote:   main @ origin (https://github.com/maj-biostat/get-going-with-git)
-Head:     [803a376] 2023-11-02: reconfig to new naming
+Head:     [72867f5] 2023-11-02: Introducing commit instructs
 
 Branches:         2
 Tags:             0
-Commits:         23
+Commits:         25
 Contributors:     1
 Stashes:          0
 Ignored files:    3
-Untracked files: 19
+Untracked files: 20
 Unstaged files:   0
 Staged files:     0
 
 Latest commits:
+[72867f5] 2023-11-02: Introducing commit instructs
+[c321ed1] 2023-11-02: Added repository overview, cfg main branch in setup and workshop dir
 [803a376] 2023-11-02: reconfig to new naming
 [3ee74ba] 2023-11-02: Start of git repo section
-[2fbe117] 2023-11-01: Minor edits
-[3557833] 2023-11-01: Spelling
-[c5321da] 2023-11-01: extended clean and made about unnumbered</code></pre>
+[2fbe117] 2023-11-01: Minor edits</code></pre>
 </div>
 </div>
 

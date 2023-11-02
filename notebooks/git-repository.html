@@ -64,7 +64,7 @@ ul.task-list li input[type="checkbox"] {
 
 </head>
 
-<body class="nav-sidebar floating">
+<body class="nav-sidebar floating slimcontent">
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
@@ -241,14 +241,13 @@ ul.task-list li input[type="checkbox"] {
   <li><a href="#git-repositories" id="toc-git-repositories" class="nav-link active" data-scroll-target="#git-repositories"><span class="header-section-number">5.1</span> Git repositories</a>
   <ul>
   <li><a href="#initialisation" id="toc-initialisation" class="nav-link" data-scroll-target="#initialisation"><span class="header-section-number">5.1.1</span> Initialisation</a></li>
-  <li><a href="#repository-components" id="toc-repository-components" class="nav-link" data-scroll-target="#repository-components"><span class="header-section-number">5.1.2</span> Repository components</a></li>
-  <li><a href="#adding-project-files" id="toc-adding-project-files" class="nav-link" data-scroll-target="#adding-project-files"><span class="header-section-number">5.1.3</span> Adding project files</a></li>
+  <li><a href="#sec-repo-struct" id="toc-sec-repo-struct" class="nav-link" data-scroll-target="#sec-repo-struct"><span class="header-section-number">5.1.2</span> Repository structures</a></li>
   </ul></li>
   </ul>
 <div class="toc-actions"><div><i class="bi bi-git"></i></div><div class="action-links"><p><a href="https://github.sydney.edu.au/mjon7053/get-going-with-git/blob/main/notebooks/git-repository.qmd" class="toc-action">View source</a></p><p><a href="https://github.sydney.edu.au/mjon7053/get-going-with-git/issues/new" class="toc-action">Report an issue</a></p></div></div></nav>
     </div>
 <!-- main -->
-<main class="content" id="quarto-document-content">
+<main class="content page-columns page-full" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
@@ -270,7 +269,7 @@ ul.task-list li input[type="checkbox"] {
 <div class="cell">
 
 </div>
-<section id="git-repositories" class="level2" data-number="5.1">
+<section id="git-repositories" class="level2 page-columns page-full" data-number="5.1">
 <h2 data-number="5.1" class="anchored" data-anchor-id="git-repositories"><span class="header-section-number">5.1</span> Git repositories</h2>
 <p>A repository is the most basic component of git. It is where you store your files and each files history. Repositories can be public or private, can have multiple collaborators and can be stored locally (on your personal computer) or remotely (in the cloud hosted by a service provider like github).</p>
 <p>Using git, you can create and configure repositories, add or remove files and review history of the files in the repository.</p>
@@ -282,13 +281,52 @@ ul.task-list li input[type="checkbox"] {
 <li>Clone an existing repository</li>
 </ol>
 <p>We will look at initialising a new repository, cloning will come later. Run the following on your machine</p>
-<pre><code>cd ~</code></pre>
+<pre><code># Change dir to the local workshop directory
+mkdir my-first-repo
+cd my-first-repo
+git init
+## Initialized empty Git repository in /Users/mark/Documents/project/misc-stats/my-first-repo/.git/
+git status
+## On branch main
+## 
+## No commits yet
+## 
+## nothing to commit (create/copy files and use "git add" to track)</code></pre>
+<p>If you received the output detailed above then congratulations, you initialised a git repository.</p>
+<p>If you have configured your file explorer to show hidden files, you will notice that the <code>my-first-repo</code> directory now contains a <code>.git</code> sub-directory. This directory <strong>is</strong> the repository. It will contain all the version history and allow you to access a file at any stage in its development. Generally, you will not touch this sub-directory directly.</p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>You can also create a repository from a pre-existing directory that has already got an established file structure and files. The process is exactly the same, just change to the directory that you want to add to version control, and run <code>git init</code>.</p>
+<p>Additionally, when you create a new project in Rstudio, you can select to initialise a new git repository. Underneath the covers, RStudio is simply invoking <code>git init</code>.</p>
+</div>
+</div>
 </section>
-<section id="repository-components" class="level3" data-number="5.1.2">
-<h3 data-number="5.1.2" class="anchored" data-anchor-id="repository-components"><span class="header-section-number">5.1.2</span> Repository components</h3>
-</section>
-<section id="adding-project-files" class="level3" data-number="5.1.3">
-<h3 data-number="5.1.3" class="anchored" data-anchor-id="adding-project-files"><span class="header-section-number">5.1.3</span> Adding project files</h3>
+<section id="sec-repo-struct" class="level3 page-columns page-full" data-number="5.1.2">
+<h3 data-number="5.1.2" class="anchored" data-anchor-id="sec-repo-struct"><span class="header-section-number">5.1.2</span> Repository structures</h3>
+<p>Before we start adding files to the new repository, you need to be aware of a few concepts.</p>
+<p>There are three main structures within the repository:</p>
+<ol type="1">
+<li>Working directory</li>
+<li>Staging area</li>
+<li>Commit history</li>
+</ol>
+<div class="quarto-figure quarto-figure-center page-columns page-full">
+<figure class="figure page-columns page-full">
+<p><img src="../fig/repos-structs.jpg" class="img-fluid figure-img"></p>
+<figcaption class="figure-caption margin-caption">Repository structures</figcaption>
+</figure>
+</div>
+<p>The <em>working directory</em> is the usual files and sub-directories within your project directory. You add, update, rename, delete files and direcotries in this area. When you first create a file or directory within the working directory, it is not yet under version control. Such files are referred to as <em>untracked files</em>.</p>
+<p>The <em>staging area</em> is a special space to which files are added when we want to put them under version control.</p>
+<p>After staging files, they are committed to the repository. Once committed, files (and directories) are under version control and are referred to as <em>tracked files</em>. A commit is simply a version, but you could also think of it as a transaction with the repository. Changes to committed files are monitored and new updates to files can be committed to the repository as work on the project progresses. Every time you commit files, the <em>commit history</em> is saved.</p>
 
 
 </section>
