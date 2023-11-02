@@ -28,9 +28,51 @@ We will look at initialising a new repository, cloning will come later.
 Run the following on your machine
 
 ```
-cd ~
+# Change dir to the local workshop directory
+mkdir my-first-repo
+cd my-first-repo
+git init
+## Initialized empty Git repository in /Users/mark/Documents/project/misc-stats/my-first-repo/.git/
+git status
+## On branch main
+## 
+## No commits yet
+## 
+## nothing to commit (create/copy files and use "git add" to track)
 ```
 
-### Repository components
+If you received the output detailed above then congratulations, you initialised a git repository.
 
-### Adding project files
+If you have configured your file explorer to show hidden files, you will notice that the `my-first-repo` directory now contains a `.git` sub-directory.
+This directory **is** the repository.
+It will contain all the version history and allow you to access a file at any stage in its development.
+Generally, you will not touch this sub-directory directly.
+
+:::callout-note
+You can also create a repository from a pre-existing directory that has already got an established file structure and files.
+The process is exactly the same, just change to the directory that you want to add to version control, and run `git init`.
+:::
+
+### Repository structures
+
+Before we start adding files to the new repository, you need to be aware of a few concepts.
+
+There are three main structures within the repository:
+
+1. Working directory
+2. Staging area
+3. Commit history
+
+The *working directory* is the usual files and sub-directories within your project directory.
+You add, update, rename, delete files and direcotries in this area.
+When you first create a file or directory within the working directory, it is not yet under version control.
+Such files are referred to as *untracked files*.
+
+The *staging area* is a special space to which files are added when we want to put them under version control.
+
+After staging files, they are committed to the repository.
+Once committed, files (and directories) are under version control and are referred to as *tracked files*.
+A commit is simply a version, but you could also think of it as a transaction with the repository.
+Changes to committed files are monitored and new updates to files can be committed to the repository as work on the project progresses.
+Every time you commit files, the *commit history* is saved.
+

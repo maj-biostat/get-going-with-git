@@ -75,6 +75,10 @@ you should be able to set a user variable even if you do not have admin priviled
 
 Create a directory on your machine where we will store all the files for this workshop.
 
+Simply go to the your `Documents` directory and create a sub-dir called `get-going-with-git`.
+
+Throughout this text, if I say go to your local workshop directory, this is the location I want you to go to.
+
 ## GitHub
 
 Follow part 1 of the instructions provided by [Getting started with your GitHub account](https://docs.github.com/en/get-started/onboarding/getting-started-with-your-github-account) to create and configure your account.
