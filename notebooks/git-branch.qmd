@@ -1,5 +1,5 @@
 ---
-title: "Branch"
+title: "Branches"
 editor: source
 ---
 
