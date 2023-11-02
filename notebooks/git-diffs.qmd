@@ -120,7 +120,7 @@ git commit -m "Revised approach in capturing user input"
 
 If you want to restrict your attention to the differences that will be made to a repository due to committing staged files, you can use `git diff --cached`.
 
-## Comparisons with project versions
+## Comparisons across commit versions
 
 Once working directory changes have been committed to the repository it is still possible to review the differences between commit.
 
