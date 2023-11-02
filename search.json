@@ -144,54 +144,68 @@
     "href": "notebooks/git-commit.html#tracking-commit-history",
     "title": "6  Commit",
     "section": "6.4 Tracking commit history",
-    "text": "6.4 Tracking commit history\nOne of the primary features of revision control is that you can review your project file history. The simplest way to do this is with git log which will report all of the commits in reverse chronological order. You can see\n\nthat three commits have been made, all by myself with my email address listed\nthe time the commits were made and the message associated with each\nthe hash code associated with project version at each commit\n\nnote that the full hash is reported whereas previous a truncated version is shown\n\n\nThe commit followed by (HEAD -&gt; main) shows what part of the history our working directory currently reflects.\n\ngit log\n## commit 050a9d4e989313900010d19554d450e9efc9621c (HEAD -&gt; main)\n## Author: Mark &lt;mark.jones1@sydney.edu.au&gt;\n## Date:   Thu Nov 2 14:19:16 2023 +0800\n## \n##     Updated readme.md with installation instructions.\n## \n## commit 37e05b5985e455fdeb30a8c9883914750e3f9897\n## Author: Mark &lt;mark.jones1@sydney.edu.au&gt;\n## Date:   Thu Nov 2 14:18:53 2023 +0800\n## \n##     First commit of myscript.R, testing purposes only\n## \n## commit 728d107a238c12e665dd559c3db7fa9d5beeb2eb\n## Author: Mark &lt;mark.jones1@sydney.edu.au&gt;\n## Date:   Thu Nov 2 13:55:09 2023 +0800\n## \n##     First commit\n\nYou can format the logs in a variety of ways. For a more condensed view you can use the --oneline flag:\n\ngit log --oneline\n## 050a9d4 (HEAD -&gt; main) Testing still\n## 37e05b5 Test\n## 728d107 First commit\n\nIf you want the commit history for the last n commits, or between specific dates, or by author or even via searching for a specific string in the message you can run the following\n\ngit log -n 2\ngit log --after=\"2013-11-01\" --before=\"2023-10-15\"\ngit log --author=\"Mark\\|Fred\"\ngit log --grep=\"first\" -i\n\nThe first restricts to the last two commits, the second returns commits between mid Oct and the start of Nov, the second returns commits made by Mark or Fred and the third returns any commits where the word first was included in the message text (ignoring case).\nThe log command is powerful and it lets you see who updated the files, when they made the update and why they did it. Obviously, this has less utility when you are working on a repository in isolation but it still does have value (especially to your future self). For example, you might simply want to review when specific changes were made to the files or you might want to pick up some update that has been removed from the code and reintroduce it.\nWhen you are working on a repository in collaboration (see later) the value of the logs increases many fold as a way to be able to understand the evolution of the project and to work out who you need to contact if you think a problem has been introduced."
+    "text": "6.4 Tracking commit history\nOne of the primary features of revision control is that you can review your project file history. The simplest way to do this is with git log which will report all of the commits in reverse chronological order. You can see\n\nthat three commits have been made, all by myself with my email address listed\nthe time the commits were made and the message associated with each\nthe hash code associated with project version at each commit\n\nnote that the full hash is reported whereas previous a truncated version is shown\n\n\nThe commit followed by (HEAD -&gt; main) shows what part of the history our working directory currently reflects.\n\ngit log\n## commit 050a9d4e989313900010d19554d450e9efc9621c (HEAD -&gt; main)\n## Author: Mark &lt;mark.jones1@sydney.edu.au&gt;\n## Date:   Thu Nov 2 14:19:16 2023 +0800\n## \n##     Updated readme.md with installation instructions.\n## \n## commit 37e05b5985e455fdeb30a8c9883914750e3f9897\n## Author: Mark &lt;mark.jones1@sydney.edu.au&gt;\n## Date:   Thu Nov 2 14:18:53 2023 +0800\n## \n##     First commit of myscript.R, testing purposes only\n## \n## commit 728d107a238c12e665dd559c3db7fa9d5beeb2eb\n## Author: Mark &lt;mark.jones1@sydney.edu.au&gt;\n## Date:   Thu Nov 2 13:55:09 2023 +0800\n## \n##     First commit\n\nYou can format the logs in a variety of ways. For a more condensed view you can use the --oneline flag:\n\ngit log --oneline\n## 050a9d4 (HEAD -&gt; main) Testing still\n## 37e05b5 Test\n## 728d107 First commit\n\nIf you want the commit history for the last n commits, or between specific dates, or by author or even via searching for a specific string in the message you can run the following\n\ngit log -n 2\ngit log --after=\"2013-11-01\" --before=\"2023-10-15\"\ngit log --author=\"Mark\\|Fred\"\ngit log --grep=\"first\" -i\n\nThe first restricts to the last two commits, the second returns commits between mid Oct and the start of Nov, the second returns commits made by Mark or Fred and the third returns any commits where the word first was included in the message text (ignoring case).\nThe log command is powerful and it lets you see who updated the files, when they made the update and why they did it. Obviously, this has less utility when you are working on a repository in isolation but it still does have value (especially to your future self). For example, you might simply want to review when specific changes were made to the files or you might want to pick up some update that has been removed from the code and reintroduce it.\nWhen you are working on a repository in collaboration (see later) the value of the logs increases many fold as a way to be able to understand the evolution of the project and to work out who you need to contact if you think a problem has been introduced.\nTo establish what files were included in any given commit, you can use git show:\n\ngit show --name-only 728d107\n## commit 728d107a238c12e665dd559c3db7fa9d5beeb2eb\n## Author: Mark &lt;mark.jones1@sydney.edu.au&gt;\n## Date:   Thu Nov 2 13:55:09 2023 +0800\n## \n##     First commit\n## \n## .gitignore\n## hello.R\n## readme.md"
   },
   {
-    "objectID": "notebooks/git-diffs.html#section",
-    "href": "notebooks/git-diffs.html#section",
+    "objectID": "notebooks/git-diffs.html#comparisons-with-the-working-directory",
+    "href": "notebooks/git-diffs.html#comparisons-with-the-working-directory",
     "title": "7  Reviewing differences",
-    "section": "7.1 ",
-    "text": "7.1"
+    "section": "7.1 Comparisons with the working directory",
+    "text": "7.1 Comparisons with the working directory\nGit allows you to compare different versions of files that exist in the repository. In its vanilla form, the difference functionality compares the differences in a file (or files) in the working directory to the repository version.\nUpdate the contents of the hello.R script to match what follows.\n\ncounter &lt;- 1\nwhile(counter &lt;= 3)\n{\n  cat(paste0(\"Enter string number \", counter, \" \"))\n  a &lt;- readLines(\"stdin\",n=1);\n  cat(\"You entered\")\n  str(a);\n  cat( \"\\n\" )\n  counter &lt;- counter + 1\n}\n\nSimilarly, edit the readme.md file as below.\n\n# my-first-repo\n\nThis is a readme.md file that captures important information about the project.\n\nThe project is only a demo.\n\nThe main script implements a loop to capture input from a user.\n\nRunning git status you will see that the working directory uncommitted changes\n\ngit status\n## On branch main\n## Changes not staged for commit:\n##   (use \"git add &lt;file&gt;...\" to update what will be committed)\n##   (use \"git restore &lt;file&gt;...\" to discard changes in working directory)\n##  modified:   hello.R\n##  modified:   readme.md\n## \n## no changes added to commit (use \"git add\" and/or \"git commit -a\")\n\nIf we want to know what changes were made, we can run git diff but let’s looks at the differences on a file by file basis, comparing the old with the new.\n\ngit diff readme.md\n## diff --git a/readme.md b/readme.md\n## index 4826780..6c84404 100644\n## --- a/readme.md\n## +++ b/readme.md\n## @@ -4,6 +4,5 @@ This is a readme.md file that captures important information about the project.\n## \n##  The project is only a demo.\n## \n## -A minor revision.\n## -\n## +The main script implements a loop to capture input from a user.\n\nYou interpret the above as follows.\n\nAnything prefixed with - belongs to the old file and anything prefixed with + belongs to the new.\nThe section labelled with @@ gives you some context as to where the change has happened. In this case we can see that the text A minor revision has been removed and replaced with the text The main script implements a loop to capture input from a user.\n\nNow compare the working version of hello.R with the repository version, but this time look at the word by word differences:\n\ngit diff --word-diff hello.R\n## diff --git a/hello.R b/hello.R\n## index 674a20f..624f356 100644\n## --- a/hello.R\n## +++ b/hello.R\n## @@ -1,9 +1,12 @@\n## [-cat(\"a-]{+counter &lt;- 1+}\n## {+while(counter &lt;= 3)+}\n## {+{+}\n## {+  cat(paste0(\"Enter+} string [-please: \");-]{+number \", counter, \" \"))+}\n##   a &lt;- readLines(\"stdin\",n=1);\n##   cat(\"You [-entered\")-]{+entered \")+}\n##   str(a);\n##   cat( \"\\n\" )\n##   [-cat(a, file = \"log.txt\")-]{+counter &lt;- counter + 1+}\n## {+}+}\n\nThe diffs can take a bit of getting used to and some alternative tools are available that we will put to use in due course. For now, we will just deal with the commandline output.\nOnce satisfied that the changes are benign, stage and commit the edits in the usual way:\n\ngit add hello.R readme.md\ngit commit -m \"Revised approach in capturing user input\""
+  },
+  {
+    "objectID": "notebooks/git-diffs.html#comparisons-with-staged-files",
+    "href": "notebooks/git-diffs.html#comparisons-with-staged-files",
+    "title": "7  Reviewing differences",
+    "section": "7.2 Comparisons with staged files",
+    "text": "7.2 Comparisons with staged files\nIf you want to restrict your attention to the differences that will be made to a repository due to committing staged files, you can use git diff --cached."
+  },
+  {
+    "objectID": "notebooks/git-diffs.html#comparisons-across-commit-versions",
+    "href": "notebooks/git-diffs.html#comparisons-across-commit-versions",
+    "title": "7  Reviewing differences",
+    "section": "7.3 Comparisons across commit versions",
+    "text": "7.3 Comparisons across commit versions\nOnce working directory changes have been committed to the repository it is still possible to review the differences between commit.\nThe most common difference that is of interest is that between the last two commits. To achieve this run\n\ngit diff HEAD\n\nMore generally, to inspect differences between any commits, you simply supply the commit hashes that you want to compare:\n\ngit log --oneline\n## 050a9d4 (HEAD -&gt; main) Testing still\n## 37e05b5 Test\n## 728d107 First commit\ngit diff 728d107 37e05b5\n## diff --git a/myscript.R b/myscript.R\n## new file mode 100644\n## index 0000000..a12204c\n## --- /dev/null\n## +++ b/myscript.R\n## @@ -0,0 +1,3 @@\n## +library(survival)\n## +print(\"My script\")\n## +\n\nIf you want to restrict attention to a particular file, just add the filename that you want to compare to the end of the command\n\ngit diff 050a9d4 bb1529a hello.R\n## diff --git a/hello.R b/hello.R\n## index 674a20f..624f356 100644\n## --- a/hello.R\n## +++ b/hello.R\n## @@ -1,9 +1,12 @@\n## -cat(\"a string please: \");\n## -a &lt;- readLines(\"stdin\",n=1);\n## -cat(\"You entered\")\n## - str(a);\n## -cat( \"\\n\" )\n## -cat(a, file = \"log.txt\")\n## -\n## +counter &lt;- 1\n## +while(counter &lt;= 3)\n## +{\n## +  cat(paste0(\"Enter string number \", counter, \" \"))\n## +  a &lt;- readLines(\"stdin\",n=1);\n## +  cat(\"You entered \")\n## +  str(a);\n## +  cat( \"\\n\" )\n## +  counter &lt;- counter + 1\n## +}"
   },
   {
     "objectID": "notebooks/git-branch.html#why-branches",
     "href": "notebooks/git-branch.html#why-branches",
-    "title": "8  Branch",
+    "title": "8  Branches",
     "section": "8.1 Why branches?",
     "text": "8.1 Why branches?"
   },
   {
     "objectID": "notebooks/git-branch.html#what-is-a-branch",
     "href": "notebooks/git-branch.html#what-is-a-branch",
-    "title": "8  Branch",
+    "title": "8  Branches",
     "section": "8.2 What is a branch?",
     "text": "8.2 What is a branch?"
   },
   {
     "objectID": "notebooks/git-branch.html#special-branch-concepts",
     "href": "notebooks/git-branch.html#special-branch-concepts",
-    "title": "8  Branch",
+    "title": "8  Branches",
     "section": "8.3 Special branch concepts",
     "text": "8.3 Special branch concepts"
   },
   {
     "objectID": "notebooks/git-branch.html#creating-a-branch",
     "href": "notebooks/git-branch.html#creating-a-branch",
-    "title": "8  Branch",
+    "title": "8  Branches",
     "section": "8.4 Creating a branch",
     "text": "8.4 Creating a branch"
   },
   {
     "objectID": "notebooks/git-branch.html#switching-branches",
     "href": "notebooks/git-branch.html#switching-branches",
-    "title": "8  Branch",
+    "title": "8  Branches",
     "section": "8.5 Switching branches",
     "text": "8.5 Switching branches"
   },
   {
     "objectID": "notebooks/git-branch.html#working-on-branches",
     "href": "notebooks/git-branch.html#working-on-branches",
-    "title": "8  Branch",
+    "title": "8  Branches",
     "section": "8.6 Working on branches",
     "text": "8.6 Working on branches"
   },
@@ -235,6 +249,6 @@
     "href": "notebooks/about.html#repository-status",
     "title": "About",
     "section": "Repository status",
-    "text": "Repository status\nDetails on github repository files, tags, commits follow:\n\nrepo &lt;- git2r::repository(path = \".\")\nsummary(repo)\n\nLocal:    main /Users/mark/Documents/project/misc-stats/get-going-with-git\nRemote:   main @ origin (https://github.com/maj-biostat/get-going-with-git)\nHead:     [0d73ab1] 2023-11-02: First draft of commit processes\n\nBranches:         2\nTags:             0\nCommits:         27\nContributors:     1\nStashes:          0\nIgnored files:    3\nUntracked files: 20\nUnstaged files:   0\nStaged files:     0\n\nLatest commits:\n[0d73ab1] 2023-11-02: First draft of commit processes\n[f61768d] 2023-11-02: Minor edit\n[72867f5] 2023-11-02: Introducing commit instructs\n[c321ed1] 2023-11-02: Added repository overview, cfg main branch in setup and workshop dir\n[803a376] 2023-11-02: reconfig to new naming"
+    "text": "Repository status\nDetails on github repository files, tags, commits follow:\n\nrepo &lt;- git2r::repository(path = \".\")\nsummary(repo)\n\nLocal:    main /Users/mark/Documents/project/misc-stats/get-going-with-git\nRemote:   main @ origin (https://github.com/maj-biostat/get-going-with-git)\nHead:     [c472861] 2023-11-02: Updated section title\n\nBranches:         2\nTags:             0\nCommits:         29\nContributors:     1\nStashes:          0\nIgnored files:    3\nUntracked files: 20\nUnstaged files:   0\nStaged files:     0\n\nLatest commits:\n[c472861] 2023-11-02: Updated section title\n[389cc3c] 2023-11-02: First pass at diff\n[0d73ab1] 2023-11-02: First draft of commit processes\n[f61768d] 2023-11-02: Minor edit\n[72867f5] 2023-11-02: Introducing commit instructs"
   }
 ]
