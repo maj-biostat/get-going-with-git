@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Get going with git - 6&nbsp; Commit</title>
+<title>Get going with git - 7&nbsp; Stage and Commit</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -107,7 +107,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../notebooks/part-02.html">Part 2 - Fundamentals</a></li><li class="breadcrumb-item"><a href="../notebooks/git-commit.html"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Commit</span></a></li></ol></nav>
+      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../notebooks/part-02.html">Part 2 - Fundamentals</a></li><li class="breadcrumb-item"><a href="../notebooks/git-commit.html"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Stage and Commit</span></a></li></ol></nav>
       <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
       </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -125,23 +125,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <a href="../">Get going with git</a> 
         <div class="sidebar-tools-main">
     <a href="https://github.sydney.edu.au/mjon7053/get-going-with-git" title="Source Code" class="quarto-navigation-tool px-1" aria-label="Source Code"><i class="bi bi-git"></i></a>
-    <div class="dropdown">
-      <a href="" title="Download" id="quarto-navigation-tool-dropdown-0" class="quarto-navigation-tool dropdown-toggle px-1" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download"><i class="bi bi-download"></i></a>
-      <ul class="dropdown-menu" aria-labelledby="quarto-navigation-tool-dropdown-0">
-          <li>
-            <a class="dropdown-item sidebar-tools-main-item" href="../Get-going-with-git.pdf">
-              <i class="bi bi-bi-file-pdf pe-1"></i>
-            Download PDF
-            </a>
-          </li>
-          <li>
-            <a class="dropdown-item sidebar-tools-main-item" href="../Get-going-with-git.docx">
-              <i class="bi bi-bi-file-word pe-1"></i>
-            Download Docx
-            </a>
-          </li>
-      </ul>
-    </div>
 </div>
     </div>
       </div>
@@ -175,26 +158,32 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
+  <a href="../notebooks/resources.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Resources</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
   <a href="../notebooks/what-is-revision-control.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">What is (this thing) called revision control</span></span></a>
+ <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">What is (this thing) called revision control</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../notebooks/git-install.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Git install</span></span></a>
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Git install</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../notebooks/git-setup.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Git setup</span></span></a>
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Git setup</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../notebooks/github-setup.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Github setup</span></span></a>
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Github setup</span></span></a>
   </div>
 </li>
       </ul>
@@ -211,43 +200,43 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../notebooks/git-repository.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Repositories</span></span></a>
+ <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Repositories</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../notebooks/git-commit.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Commit</span></span></a>
+ <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Stage and Commit</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../notebooks/git-diffs.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Reviewing differences</span></span></a>
+ <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Reviewing differences</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../notebooks/git-branch.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Branches</span></span></a>
+ <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Branches</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../notebooks/git-merge.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Merge</span></span></a>
+ <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Merge</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../notebooks/git-tags.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Tags</span></span></a>
+ <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Tags</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../notebooks/git-history.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Reviewing history</span></span></a>
+ <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Reviewing history</span></span></a>
   </div>
 </li>
       </ul>
@@ -272,14 +261,14 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <h2 id="toc-title">Contents</h2>
    
   <ul>
-  <li><a href="#adding-files-to-projects" id="toc-adding-files-to-projects" class="nav-link active" data-scroll-target="#adding-files-to-projects"><span class="header-section-number">6.1</span> Adding files to projects</a></li>
-  <li><a href="#commit-process" id="toc-commit-process" class="nav-link" data-scroll-target="#commit-process"><span class="header-section-number">6.2</span> Commit process</a>
+  <li><a href="#adding-files-to-projects" id="toc-adding-files-to-projects" class="nav-link active" data-scroll-target="#adding-files-to-projects"><span class="header-section-number">7.1</span> Adding files to projects</a></li>
+  <li><a href="#commit-process" id="toc-commit-process" class="nav-link" data-scroll-target="#commit-process"><span class="header-section-number">7.2</span> Commit process</a>
   <ul>
-  <li><a href="#sec-staging" id="toc-sec-staging" class="nav-link" data-scroll-target="#sec-staging"><span class="header-section-number">6.2.1</span> Staging</a></li>
-  <li><a href="#sec-commit" id="toc-sec-commit" class="nav-link" data-scroll-target="#sec-commit"><span class="header-section-number">6.2.2</span> Commit</a></li>
+  <li><a href="#sec-staging" id="toc-sec-staging" class="nav-link" data-scroll-target="#sec-staging"><span class="header-section-number">7.2.1</span> Staging</a></li>
+  <li><a href="#sec-commit" id="toc-sec-commit" class="nav-link" data-scroll-target="#sec-commit"><span class="header-section-number">7.2.2</span> Commit</a></li>
   </ul></li>
-  <li><a href="#exercises" id="toc-exercises" class="nav-link" data-scroll-target="#exercises"><span class="header-section-number">6.3</span> Exercises</a></li>
-  <li><a href="#tracking-commit-history" id="toc-tracking-commit-history" class="nav-link" data-scroll-target="#tracking-commit-history"><span class="header-section-number">6.4</span> Tracking commit history</a></li>
+  <li><a href="#exercises" id="toc-exercises" class="nav-link" data-scroll-target="#exercises"><span class="header-section-number">7.3</span> Exercises</a></li>
+  <li><a href="#tracking-commit-history" id="toc-tracking-commit-history" class="nav-link" data-scroll-target="#tracking-commit-history"><span class="header-section-number">7.4</span> Tracking commit history</a></li>
   </ul>
 <div class="toc-actions"><div><i class="bi bi-git"></i></div><div class="action-links"><p><a href="https://github.sydney.edu.au/mjon7053/get-going-with-git/blob/main/notebooks/git-commit.qmd" class="toc-action">View source</a></p><p><a href="https://github.sydney.edu.au/mjon7053/get-going-with-git/issues/new" class="toc-action">Report an issue</a></p></div></div></nav>
     </div>
@@ -288,7 +277,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Commit</span></h1>
+<h1 class="title"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Stage and Commit</span></h1>
 </div>
 
 
@@ -306,19 +295,16 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div class="cell">
 
 </div>
-<section id="adding-files-to-projects" class="level2 page-columns page-full" data-number="6.1">
-<h2 data-number="6.1" class="anchored" data-anchor-id="adding-files-to-projects"><span class="header-section-number">6.1</span> Adding files to projects</h2>
-<p>Let’s start to introduce files for the project. Open a text editor, enter the following contents:</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># my-first-repo</span></span>
+<section id="adding-files-to-projects" class="level2 page-columns page-full" data-number="7.1">
+<h2 data-number="7.1" class="anchored" data-anchor-id="adding-files-to-projects"><span class="header-section-number">7.1</span> Adding files to projects</h2>
+<p>Let’s start to introduce files for the project. Open a text editor, enter the following contents (or download the readme.md file from the applicable section under <a href="resources.html"><span>Chapter&nbsp;1</span></a>) and save the file as <code>readme.md</code> in the <code>first-repo</code> directory.</p>
+<div class="cell" data-file="resources/fundamentals-readme.md">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># first-repo</span></span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="ex">This</span> is a readme.md file that captures important information about the project.</span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="ex">The</span> project is only a demo.</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>A demo markdown file <span class="cf">for</span> the git workshop.</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p>save the file as <code>readme.md</code> in the <code>my-first-repo</code> directory.</p>
-<p>Create a new file as follows:</p>
-<div class="cell">
+<p>Ditto for the following and save the file as <code>hello.R</code> in the <code>first-repo</code> directory.</p>
+<div class="cell" data-file="resources/fundamentals-hello.R">
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">"Enter a string please: "</span>);</span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>a <span class="ot">&lt;-</span> <span class="fu">readLines</span>(<span class="st">"stdin"</span>,<span class="at">n=</span><span class="dv">1</span>);</span>
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">"You entered"</span>)</span>
@@ -327,13 +313,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span>( <span class="st">"</span><span class="sc">\n</span><span class="st">"</span> )</span>
 <span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span>(a, <span class="at">file =</span> <span class="st">"log.txt"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p>save the file as <code>hello.R</code> in the <code>my-first-repo</code> directory.</p>
-<p>Or, download these files - <a href="https://github.com/maj-biostat/get-going-with-git/resources/my-first-repo/hello.R">hello.R</a> <a href="https://github.com/maj-biostat/get-going-with-git/resources/my-first-repo/readme.md">readme.md</a>.</p>
-<p>Now run the R script from the terminal by entering this text:</p>
+<p>Run the R script from the terminal by entering this text:</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="ex">Rscript</span> hello.R</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p>Now from the terminal in the <code>my-first-repo</code> director, type:</p>
+<p>Now from the terminal in the <code>first-repo</code> directory:</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb4"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> status</span>
 <span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="co">## On branch main</span></span>
@@ -348,7 +332,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a><span class="co">## </span></span>
 <span id="cb4-12"><a href="#cb4-12" aria-hidden="true" tabindex="-1"></a><span class="co">## nothing added to commit but untracked files present (use "git add" to track)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p>We see that there are three untracked files, two of which we will ultimately want to store in the git repository. In contrast to the newly initialised repository as shown in <a href="git-repository.html#sec-repo-struct"><span>Section&nbsp;5.1.2</span></a> we now have the following:</p>
+<p>We see that there are three untracked files, two of which we will ultimately want to store in the git repository. In contrast to the newly initialised repository as shown in <a href="git-repository.html#sec-repo-struct"><span>Section&nbsp;6.1.2</span></a> we now have the following:</p>
 <div class="quarto-figure quarto-figure-center page-columns page-full">
 <figure class="figure page-columns page-full">
 <p><img src="../fig/repos-add-file.jpg" class="img-fluid figure-img"></p>
@@ -356,60 +340,76 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </figure>
 </div>
 <p>The above is idealised. You may encounter the situation where you have many files, a number of which you have no intention of tracking under version control. You can ignore these files by creating a <code>.gitignore</code> file, which tells git which files it should ignore.</p>
-<p>Create a new text file with the following content:</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="ex">log.txt</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Create a new text file with the following content and save the file as <code>.gitignore</code>. This is a special configuration filename that git recognises. The <code>.</code> at the front of <code>gitignore</code> is important.</p>
+<p>If you missed the <code>.</code> or mistakenly added a <code>.txt</code> extension then the <code>.gitignore</code> functionality will not work.</p>
+<div class="cell" data-file="resources/fundamentals-gitignore">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co"># .gitignore file contains files</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="co"># that the repository will ignore</span></span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>log.txt</span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a><span class="sc">*</span>.txt</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p>save the file as <code>.gitignore</code>. Now run <code>git status</code> again:</p>
+<p>If you list (<code>ls - la</code>) the files in the <code>first-repo</code> directory, you should see the following (or something very similar):</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> status</span>
-<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="co">## On branch main</span></span>
-<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a><span class="co">## </span></span>
-<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a><span class="co">## No commits yet</span></span>
-<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a><span class="co">## </span></span>
-<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a><span class="co">## Untracked files:</span></span>
-<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a><span class="co">##   (use "git add &lt;file&gt;..." to include in what will be committed)</span></span>
-<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a><span class="co">##  .gitignore</span></span>
-<span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a><span class="co">##  hello.R</span></span>
-<span id="cb6-10"><a href="#cb6-10" aria-hidden="true" tabindex="-1"></a><span class="co">##  readme.md</span></span>
-<span id="cb6-11"><a href="#cb6-11" aria-hidden="true" tabindex="-1"></a><span class="co">## </span></span>
-<span id="cb6-12"><a href="#cb6-12" aria-hidden="true" tabindex="-1"></a><span class="co">## nothing added to commit but untracked files present (use "git add" to track)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="ex">192-168-1-100:first-repo</span> mark$ ls <span class="at">-la</span></span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="ex">total</span> 32</span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a><span class="ex">drwxr-xr-x</span>  7 mark  staff  224  7 Nov 10:15 .</span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a><span class="ex">drwxr-xr-x</span>  8 mark  staff  256  7 Nov 10:12 ..</span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a><span class="ex">drwxr-xr-x</span>  9 mark  staff  288  7 Nov 10:15 .git</span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a><span class="ex">-rw-r--r--@</span> 1 mark  staff   81  7 Nov 10:15 .gitignore</span>
+<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a><span class="ex">-rw-r--r--@</span> 1 mark  staff  126  7 Nov 10:13 hello.R</span>
+<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a><span class="ex">-rw-r--r--</span>  1 mark  staff    4  7 Nov 10:14 log.txt</span>
+<span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a><span class="ex">-rw-r--r--@</span> 1 mark  staff   59  7 Nov 10:13 readme.md</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p>and note that the <code>log.txt</code> file no longer registers with git.</p>
+<p>Run <code>git status</code> again and note that the <code>log.txt</code> file no longer registers with git.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> status</span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="co">## On branch main</span></span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a><span class="co">## </span></span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a><span class="co">## No commits yet</span></span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a><span class="co">## </span></span>
+<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a><span class="co">## Untracked files:</span></span>
+<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a><span class="co">##   (use "git add &lt;file&gt;..." to include in what will be committed)</span></span>
+<span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a><span class="co">##  .gitignore</span></span>
+<span id="cb7-9"><a href="#cb7-9" aria-hidden="true" tabindex="-1"></a><span class="co">##  hello.R</span></span>
+<span id="cb7-10"><a href="#cb7-10" aria-hidden="true" tabindex="-1"></a><span class="co">##  readme.md</span></span>
+<span id="cb7-11"><a href="#cb7-11" aria-hidden="true" tabindex="-1"></a><span class="co">## </span></span>
+<span id="cb7-12"><a href="#cb7-12" aria-hidden="true" tabindex="-1"></a><span class="co">## nothing added to commit but untracked files present (use "git add" to track)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
 </section>
-<section id="commit-process" class="level2 page-columns page-full" data-number="6.2">
-<h2 data-number="6.2" class="anchored" data-anchor-id="commit-process"><span class="header-section-number">6.2</span> Commit process</h2>
-<p>Next, we want to add the new file to the repository. The steps are</p>
+<section id="commit-process" class="level2 page-columns page-full" data-number="7.2">
+<h2 data-number="7.2" class="anchored" data-anchor-id="commit-process"><span class="header-section-number">7.2</span> Commit process</h2>
+<p>Now we want to add the new file to the repository. The steps are</p>
 <ol type="1">
 <li>Add the file (or files) that we want to include in the repository to the staging area</li>
 <li>Commit the staged files</li>
 </ol>
-<section id="sec-staging" class="level3 page-columns page-full" data-number="6.2.1">
-<h3 data-number="6.2.1" class="anchored" data-anchor-id="sec-staging"><span class="header-section-number">6.2.1</span> Staging</h3>
+<section id="sec-staging" class="level3 page-columns page-full" data-number="7.2.1">
+<h3 data-number="7.2.1" class="anchored" data-anchor-id="sec-staging"><span class="header-section-number">7.2.1</span> Staging</h3>
 <p>To add the files into the staging area run the commands:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> add hello.R readme.md .gitignore</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> add hello.R readme.md .gitignore</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Note that the <code>.gitignore</code> file was added as well as the <code>hello.R</code> and <code>readme.md</code> files. Now run</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> status</span>
-<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="co">## On branch main</span></span>
-<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a><span class="co">## </span></span>
-<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a><span class="co">## No commits yet</span></span>
-<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a><span class="co">## </span></span>
-<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a><span class="co">## Changes to be committed:</span></span>
-<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a><span class="co">##   (use "git rm --cached &lt;file&gt;..." to unstage)</span></span>
-<span id="cb8-8"><a href="#cb8-8" aria-hidden="true" tabindex="-1"></a><span class="co">##  new file:   .gitignore</span></span>
-<span id="cb8-9"><a href="#cb8-9" aria-hidden="true" tabindex="-1"></a><span class="co">##  new file:   hello.R</span></span>
-<span id="cb8-10"><a href="#cb8-10" aria-hidden="true" tabindex="-1"></a><span class="co">##  new file:   readme.md</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> status</span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="co">## On branch main</span></span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a><span class="co">## </span></span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a><span class="co">## No commits yet</span></span>
+<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a><span class="co">## </span></span>
+<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a><span class="co">## Changes to be committed:</span></span>
+<span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a><span class="co">##   (use "git rm --cached &lt;file&gt;..." to unstage)</span></span>
+<span id="cb9-8"><a href="#cb9-8" aria-hidden="true" tabindex="-1"></a><span class="co">##  new file:   .gitignore</span></span>
+<span id="cb9-9"><a href="#cb9-9" aria-hidden="true" tabindex="-1"></a><span class="co">##  new file:   hello.R</span></span>
+<span id="cb9-10"><a href="#cb9-10" aria-hidden="true" tabindex="-1"></a><span class="co">##  new file:   readme.md</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p>We can see that no commits have occurred but that we have staged the files that we want to add to the repository. What happens if we added a file that we did not want to add (the <code>-f</code> says we want to add a file that is included in the <code>.gitignore</code> list).</p>
+<p>We can see that no commits have occurred but that we have staged the files that we want to add to the repository.</p>
+<p>What happens if we accidentally add a file that we did not want to add (the <code>-f</code> says we want to add a file that is included in the <code>.gitignore</code> list)?</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> add <span class="at">-f</span> log.txt</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> add <span class="at">-f</span> log.txt</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>if you run <code>git status</code> you will see that <code>log.txt</code> is also staged. To remove <code>log.txt</code> from the staged area:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> reset log.txt</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> reset log.txt</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Now the picture looks like this.</p>
 <div class="quarto-figure quarto-figure-center page-columns page-full">
@@ -419,22 +419,24 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </figure>
 </div>
 </section>
-<section id="sec-commit" class="level3 page-columns page-full" data-number="6.2.2">
-<h3 data-number="6.2.2" class="anchored" data-anchor-id="sec-commit"><span class="header-section-number">6.2.2</span> Commit</h3>
+<section id="sec-commit" class="level3 page-columns page-full" data-number="7.2.2">
+<h3 data-number="7.2.2" class="anchored" data-anchor-id="sec-commit"><span class="header-section-number">7.2.2</span> Commit</h3>
 <p>To commit the files that have been staged:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> commit <span class="at">-m</span> <span class="st">"First commit"</span> </span>
-<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a><span class="co">## [main (root-commit) 728d107] First commit</span></span>
-<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a><span class="co">##  3 files changed, 15 insertions(+)</span></span>
-<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a><span class="co">##  create mode 100644 .gitignore</span></span>
-<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a><span class="co">##  create mode 100644 hello.R</span></span>
-<span id="cb11-6"><a href="#cb11-6" aria-hidden="true" tabindex="-1"></a><span class="co">##  create mode 100644 readme.md</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> commit <span class="at">-m</span> <span class="st">"First commit"</span> </span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a><span class="co">## [main (root-commit) 728d107] First commit</span></span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a><span class="co">##  3 files changed, 15 insertions(+)</span></span>
+<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a><span class="co">##  create mode 100644 .gitignore</span></span>
+<span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a><span class="co">##  create mode 100644 hello.R</span></span>
+<span id="cb12-6"><a href="#cb12-6" aria-hidden="true" tabindex="-1"></a><span class="co">##  create mode 100644 readme.md</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p>the <code>-m</code> flag provides a message that is associated with the commit. Now when we run <code>git status</code> we see that the repository is up to date with the working area files. We also see that the files have been removed from the staging area.</p>
+<p>the <code>-m</code> flag is necessary. When you make a commit, you need to provide a message that describes the nature of the changes.</p>
+<p>What is the weird stuff that is output prior to the commit message ([main (root-commit) 728d107]) in the commit history? It is a unique hash code that identifies this specific version of the project. Note, you will have a different hash code (and that is fine).</p>
+<p>When we run <code>git status</code> we see that the repository is up to date with the working area files. We also see that the files have been removed from the staging area.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> status</span>
-<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a><span class="co">## On branch main</span></span>
-<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a><span class="co">## nothing to commit, working tree clean</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> status</span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a><span class="co">## On branch main</span></span>
+<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a><span class="co">## nothing to commit, working tree clean</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="quarto-figure quarto-figure-center page-columns page-full">
 <figure class="figure page-columns page-full">
@@ -442,90 +444,91 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <figcaption class="figure-caption margin-caption">Commit files to history</figcaption>
 </figure>
 </div>
-<p>But what is the weird number in the commit history? It is basically a unique hash code that identifies this specific version of the project. Note, you will have a different hash code (and that is fine).</p>
 </section>
 </section>
-<section id="exercises" class="level2" data-number="6.3">
-<h2 data-number="6.3" class="anchored" data-anchor-id="exercises"><span class="header-section-number">6.3</span> Exercises</h2>
+<section id="exercises" class="level2" data-number="7.3">
+<h2 data-number="7.3" class="anchored" data-anchor-id="exercises"><span class="header-section-number">7.3</span> Exercises</h2>
 <div id="exr-1" class="theorem exercise">
-<p><span class="theorem-title"><strong>Exercise 6.1 </strong></span>Create a new R script in the working directory, it can contain anything you like. If you are lost, just use:</p>
+<p><span class="theorem-title"><strong>Exercise 7.1 </strong></span>Create a new R script in the working directory, it can contain anything you like. If you are lost, just use:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(survival)</span>
-<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(<span class="st">"My script"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(survival)</span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(<span class="st">"My script"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>and save it as <code>myscript.R</code>.</p>
 </div>
 <div id="exr-2" class="theorem exercise">
-<p><span class="theorem-title"><strong>Exercise 6.2 </strong></span>Add the new script to the staging area by following <a href="#sec-staging"><span>Section&nbsp;6.2.1</span></a> ensuring that you review the status.</p>
+<p><span class="theorem-title"><strong>Exercise 7.2 </strong></span>Add the new script to the staging area by following <a href="#sec-staging"><span>Section&nbsp;7.2.1</span></a> ensuring that you review the status.</p>
 </div>
 <div id="exr-3" class="theorem exercise">
-<p><span class="theorem-title"><strong>Exercise 6.3 </strong></span>Commit the staged files to the repository by following <a href="#sec-commit"><span>Section&nbsp;6.2.2</span></a> making sure that you record a message for your commit.</p>
+<p><span class="theorem-title"><strong>Exercise 7.3 </strong></span>Commit the staged files to the repository by following <a href="#sec-commit"><span>Section&nbsp;7.2.2</span></a> making sure that you record a message for your commit.</p>
 </div>
 <div id="exr-4" class="theorem exercise">
-<p><span class="theorem-title"><strong>Exercise 6.4 </strong></span>Edit the <code>readme.md</code> file adding a new line with some arbitrary text. Stage the file and commit.</p>
+<p><span class="theorem-title"><strong>Exercise 7.4 </strong></span>Edit the <code>readme.md</code> (use notepad or rstudio) file adding a new line with some arbitrary text. Stage the file and commit.</p>
 </div>
 </section>
-<section id="tracking-commit-history" class="level2" data-number="6.4">
-<h2 data-number="6.4" class="anchored" data-anchor-id="tracking-commit-history"><span class="header-section-number">6.4</span> Tracking commit history</h2>
-<p>One of the primary features of revision control is that you can review your project file history. The simplest way to do this is with <code>git log</code> which will report all of the commits in reverse chronological order. You can see</p>
+<section id="tracking-commit-history" class="level2" data-number="7.4">
+<h2 data-number="7.4" class="anchored" data-anchor-id="tracking-commit-history"><span class="header-section-number">7.4</span> Tracking commit history</h2>
+<p>One of the most notable features of revision control is that you can review your project file history. The simplest way to do this is with <code>git log</code> which will report all of the commits in reverse chronological order. You can see</p>
 <ul>
-<li>that three commits have been made, all by myself with my email address listed</li>
-<li>the time the commits were made and the message associated with each</li>
+<li>who made the commits</li>
+<li>when they were made and why (the commit messages)</li>
 <li>the hash code associated with project version at each commit
 <ul>
 <li>note that the full hash is reported whereas previous a truncated version is shown</li>
 </ul></li>
 </ul>
 <p>The commit followed by <code>(HEAD -&gt; main)</code> shows what part of the history our working directory currently reflects.</p>
+<p>Here is an example (your repository will look different but that is ok)</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> log</span>
-<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a><span class="co">## commit 050a9d4e989313900010d19554d450e9efc9621c (HEAD -&gt; main)</span></span>
-<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a><span class="co">## Author: Mark &lt;mark.jones1@sydney.edu.au&gt;</span></span>
-<span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a><span class="co">## Date:   Thu Nov 2 14:19:16 2023 +0800</span></span>
-<span id="cb14-5"><a href="#cb14-5" aria-hidden="true" tabindex="-1"></a><span class="co">## </span></span>
-<span id="cb14-6"><a href="#cb14-6" aria-hidden="true" tabindex="-1"></a><span class="co">##     Updated readme.md with installation instructions.</span></span>
-<span id="cb14-7"><a href="#cb14-7" aria-hidden="true" tabindex="-1"></a><span class="co">## </span></span>
-<span id="cb14-8"><a href="#cb14-8" aria-hidden="true" tabindex="-1"></a><span class="co">## commit 37e05b5985e455fdeb30a8c9883914750e3f9897</span></span>
-<span id="cb14-9"><a href="#cb14-9" aria-hidden="true" tabindex="-1"></a><span class="co">## Author: Mark &lt;mark.jones1@sydney.edu.au&gt;</span></span>
-<span id="cb14-10"><a href="#cb14-10" aria-hidden="true" tabindex="-1"></a><span class="co">## Date:   Thu Nov 2 14:18:53 2023 +0800</span></span>
-<span id="cb14-11"><a href="#cb14-11" aria-hidden="true" tabindex="-1"></a><span class="co">## </span></span>
-<span id="cb14-12"><a href="#cb14-12" aria-hidden="true" tabindex="-1"></a><span class="co">##     First commit of myscript.R, testing purposes only</span></span>
-<span id="cb14-13"><a href="#cb14-13" aria-hidden="true" tabindex="-1"></a><span class="co">## </span></span>
-<span id="cb14-14"><a href="#cb14-14" aria-hidden="true" tabindex="-1"></a><span class="co">## commit 728d107a238c12e665dd559c3db7fa9d5beeb2eb</span></span>
-<span id="cb14-15"><a href="#cb14-15" aria-hidden="true" tabindex="-1"></a><span class="co">## Author: Mark &lt;mark.jones1@sydney.edu.au&gt;</span></span>
-<span id="cb14-16"><a href="#cb14-16" aria-hidden="true" tabindex="-1"></a><span class="co">## Date:   Thu Nov 2 13:55:09 2023 +0800</span></span>
-<span id="cb14-17"><a href="#cb14-17" aria-hidden="true" tabindex="-1"></a><span class="co">## </span></span>
-<span id="cb14-18"><a href="#cb14-18" aria-hidden="true" tabindex="-1"></a><span class="co">##     First commit</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> log</span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a><span class="co">## commit 327170a6bc4d39463c4cfbc0f257420496642cb5 (HEAD -&gt; main)</span></span>
+<span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a><span class="co">## Author: Mark &lt;mark.jones1@sydney.edu.au&gt;</span></span>
+<span id="cb15-5"><a href="#cb15-5" aria-hidden="true" tabindex="-1"></a><span class="co">## Date:   Tue Nov 7 10:25:23 2023 +0800</span></span>
+<span id="cb15-6"><a href="#cb15-6" aria-hidden="true" tabindex="-1"></a><span class="co">## </span></span>
+<span id="cb15-7"><a href="#cb15-7" aria-hidden="true" tabindex="-1"></a><span class="co">##     Minor edit</span></span>
+<span id="cb15-8"><a href="#cb15-8" aria-hidden="true" tabindex="-1"></a><span class="co">## </span></span>
+<span id="cb15-9"><a href="#cb15-9" aria-hidden="true" tabindex="-1"></a><span class="co">## commit b078716e80498c2fa7abfb8ae27b204b2dc603d8</span></span>
+<span id="cb15-10"><a href="#cb15-10" aria-hidden="true" tabindex="-1"></a><span class="co">## Author: Mark &lt;mark.jones1@sydney.edu.au&gt;</span></span>
+<span id="cb15-11"><a href="#cb15-11" aria-hidden="true" tabindex="-1"></a><span class="co">## Date:   Tue Nov 7 10:24:58 2023 +0800</span></span>
+<span id="cb15-12"><a href="#cb15-12" aria-hidden="true" tabindex="-1"></a><span class="co">## </span></span>
+<span id="cb15-13"><a href="#cb15-13" aria-hidden="true" tabindex="-1"></a><span class="co">##     New file</span></span>
+<span id="cb15-14"><a href="#cb15-14" aria-hidden="true" tabindex="-1"></a><span class="co">## </span></span>
+<span id="cb15-15"><a href="#cb15-15" aria-hidden="true" tabindex="-1"></a><span class="co">## commit 0cd2d52e989059a61315525a3488e06d22cd04a5</span></span>
+<span id="cb15-16"><a href="#cb15-16" aria-hidden="true" tabindex="-1"></a><span class="co">## Author: Mark &lt;mark.jones1@sydney.edu.au&gt;</span></span>
+<span id="cb15-17"><a href="#cb15-17" aria-hidden="true" tabindex="-1"></a><span class="co">## Date:   Tue Nov 7 10:23:23 2023 +0800</span></span>
+<span id="cb15-18"><a href="#cb15-18" aria-hidden="true" tabindex="-1"></a><span class="co">## </span></span>
+<span id="cb15-19"><a href="#cb15-19" aria-hidden="true" tabindex="-1"></a><span class="co">##     First commit</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>You can format the logs in a variety of ways. For a more condensed view you can use the <code>--oneline</code> flag:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> log <span class="at">--oneline</span></span>
-<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a><span class="co">## 050a9d4 (HEAD -&gt; main) Testing still</span></span>
-<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a><span class="co">## 37e05b5 Test</span></span>
-<span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a><span class="co">## 728d107 First commit</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> log <span class="at">--oneline</span></span>
+<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a><span class="co">## 327170a (HEAD -&gt; main) Minor edit</span></span>
+<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a><span class="co">## b078716 New file</span></span>
+<span id="cb16-4"><a href="#cb16-4" aria-hidden="true" tabindex="-1"></a><span class="co">## 0cd2d52 First commit</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>If you want the commit history for the last n commits, or between specific dates, or by author or even via searching for a specific string in the message you can run the following</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> log <span class="at">-n</span> 2</span>
-<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> log <span class="at">--after</span><span class="op">=</span><span class="st">"2013-11-01"</span> <span class="at">--before</span><span class="op">=</span><span class="st">"2023-10-15"</span></span>
-<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> log <span class="at">--author</span><span class="op">=</span><span class="st">"Mark\|Fred"</span></span>
-<span id="cb16-4"><a href="#cb16-4" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> log <span class="at">--grep</span><span class="op">=</span><span class="st">"first"</span> <span class="at">-i</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> log <span class="at">-n</span> 2</span>
+<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> log <span class="at">--after</span><span class="op">=</span><span class="st">"2013-11-01"</span> <span class="at">--before</span><span class="op">=</span><span class="st">"2023-10-15"</span></span>
+<span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> log <span class="at">--author</span><span class="op">=</span><span class="st">"Mark\|Fred"</span></span>
+<span id="cb17-4"><a href="#cb17-4" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> log <span class="at">--grep</span><span class="op">=</span><span class="st">"first"</span> <span class="at">-i</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
+<p>Try them.</p>
 <p>The first restricts to the last two commits, the second returns commits between mid Oct and the start of Nov, the second returns commits made by Mark or Fred and the third returns any commits where the word first was included in the message text (ignoring case).</p>
 <p>The log command is powerful and it lets you see who updated the files, when they made the update and why they did it. Obviously, this has less utility when you are working on a repository in isolation but it still does have value (especially to your future self). For example, you might simply want to review when specific changes were made to the files or you might want to pick up some update that has been removed from the code and reintroduce it.</p>
 <p>When you are working on a repository in collaboration (see later) the value of the logs increases many fold as a way to be able to understand the evolution of the project and to work out who you need to contact if you think a problem has been introduced.</p>
 <p>To establish what files were included in any given commit, you can use <code>git show</code>:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> show <span class="at">--name-only</span> 728d107</span>
-<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a><span class="co">## commit 728d107a238c12e665dd559c3db7fa9d5beeb2eb</span></span>
-<span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a><span class="co">## Author: Mark &lt;mark.jones1@sydney.edu.au&gt;</span></span>
-<span id="cb17-4"><a href="#cb17-4" aria-hidden="true" tabindex="-1"></a><span class="co">## Date:   Thu Nov 2 13:55:09 2023 +0800</span></span>
-<span id="cb17-5"><a href="#cb17-5" aria-hidden="true" tabindex="-1"></a><span class="co">## </span></span>
-<span id="cb17-6"><a href="#cb17-6" aria-hidden="true" tabindex="-1"></a><span class="co">##     First commit</span></span>
-<span id="cb17-7"><a href="#cb17-7" aria-hidden="true" tabindex="-1"></a><span class="co">## </span></span>
-<span id="cb17-8"><a href="#cb17-8" aria-hidden="true" tabindex="-1"></a><span class="co">## .gitignore</span></span>
-<span id="cb17-9"><a href="#cb17-9" aria-hidden="true" tabindex="-1"></a><span class="co">## hello.R</span></span>
-<span id="cb17-10"><a href="#cb17-10" aria-hidden="true" tabindex="-1"></a><span class="co">## readme.md</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> show <span class="at">--name-only</span> 0cd2d52</span>
+<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a><span class="co">## Author: Mark &lt;mark.jones1@sydney.edu.au&gt;</span></span>
+<span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a><span class="co">## Date:   Tue Nov 7 10:23:23 2023 +0800</span></span>
+<span id="cb18-4"><a href="#cb18-4" aria-hidden="true" tabindex="-1"></a><span class="co">## </span></span>
+<span id="cb18-5"><a href="#cb18-5" aria-hidden="true" tabindex="-1"></a><span class="co">##     First commit</span></span>
+<span id="cb18-6"><a href="#cb18-6" aria-hidden="true" tabindex="-1"></a><span class="co">## </span></span>
+<span id="cb18-7"><a href="#cb18-7" aria-hidden="true" tabindex="-1"></a><span class="co">## .gitignore</span></span>
+<span id="cb18-8"><a href="#cb18-8" aria-hidden="true" tabindex="-1"></a><span class="co">## hello.R</span></span>
+<span id="cb18-9"><a href="#cb18-9" aria-hidden="true" tabindex="-1"></a><span class="co">## readme.md</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 
 
@@ -784,12 +787,12 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
       <a href="../notebooks/git-repository.html" class="pagination-link">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Repositories</span></span>
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Repositories</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
       <a href="../notebooks/git-diffs.html" class="pagination-link">
-        <span class="nav-page-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Reviewing differences</span></span> <i class="bi bi-arrow-right-short"></i>
+        <span class="nav-page-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Reviewing differences</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>
