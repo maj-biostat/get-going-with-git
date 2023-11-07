@@ -8,6 +8,6 @@ log_info("Called downloads notebook")
 
 These files are used in the fundamentals section:
 
-+ <a href="../resources/my-first-repo/hello.R">hello.R</a>
-+ <a href="../resources/my-first-repo/readme.R">readme.R</a>
-+ <a href="../resources/my-first-repo/branching.R">branching.R</a>
++ <a href="../resources/fundamentals-hello.R">hello.R</a>
++ <a href="../resources/fundamentals-readme.R">readme.R</a>
++ <a href="../resources/fundamentals-branching.R">branching.R</a>
