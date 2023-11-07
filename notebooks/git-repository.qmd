@@ -13,44 +13,38 @@ log_info("Called git-repository notebook")
 
 A repository is the most basic component of git. 
 It is where you store your files and each files history.
-Repositories can be public or private, can have multiple collaborators and can be stored locally (on your personal computer) or remotely (in the cloud hosted by a service provider like github).
+Through a variety of mechanisms, repositories can be public or private, can involve single people or multiple collaborators and can be stored locally (on your personal computer), in the cloud (in the cloud hosted by a service provider like github) or on a physical server (a basic file server will suffice in most cases).
 
 Using git, you can create and configure repositories, add or remove files and review history of the files in the repository.
 
 ### Initialisation
 
-There are two basic ways initialising a repository
+Let's initialise a new repository.
+Run the following on your machine:
 
-1. Initialise a new repository using git directly
-2. Clone an existing repository
+```{bash, eval = FALSE, engine = "sh"}
+# Change dir to the local workshop directory, 
+# e.g. cd ~/Documents/get-going-with-git
+mkdir first-repo
 
-We will look at initialising a new repository, cloning will come later.
-Run the following on your machine
+cd first-repo
 
-```
-# Change dir to the local workshop directory
-mkdir my-first-repo
-cd my-first-repo
 git init
-## Initialized empty Git repository in /Users/mark/Documents/project/misc-stats/my-first-repo/.git/
+## Initialized empty Git repository in /Users/mark/Documents/project/misc-stats/first-repo/.git/
 git status
 ## On branch main
 ## 
 ## No commits yet
 ## 
 ## nothing to commit (create/copy files and use "git add" to track)
+
 ```
 
-If you received the output detailed above then congratulations, you initialised a git repository.
+If you received the output detailed above (or something very similar to it) then congratulations, you initialised a git repository.
 
-:::callout-note
-There is nothing stopping you creating a repository on a shared drive.
-In fact, this is a useful first exercise that we will look at in the collaboration part of this workshop.
-:::
-
-If you have configured your file explorer to show hidden files, you will notice that the `my-first-repo` directory now contains a `.git` sub-directory.
-This directory **is** the repository.
-It will contain all the version history and allow you to access a file at any stage in its development.
+If you have configured your file explorer to show hidden files, you will notice that the `first-repo` directory now contains a `.git` sub-directory.
+This directory contains the everything related to the repository.
+For examples, it contains all the version history and allows you to access files at any stage in their development.
 Generally, you will not touch this sub-directory directly.
 
 :::callout-note
@@ -73,12 +67,18 @@ There are three main structures within the repository:
 
 ![Repository structures](../fig/repos-structs.jpg)
 
-The *working directory* is the usual files and sub-directories within your project directory.
+#### Working directory
+
+Is the usual files and sub-directories within your project directory.
 You add, update, rename, delete files and direcotries in this area.
 When you first create a file or directory within the working directory, it is not yet under version control.
 Such files are referred to as *untracked files*.
 
-The *staging area* is a special space to which files are added when we want to put them under version control.
+#### Staging area
+
+Is a special space to where you list the files that are added to be committed as a new version under version control.
+
+#### Commit history
 
 After staging files, they are committed to the repository.
 Once committed, files (and directories) are under version control and are referred to as *tracked files*.

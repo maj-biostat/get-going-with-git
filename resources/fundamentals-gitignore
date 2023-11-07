@@ -1,0 +1,4 @@
+# .gitignore file contains files
+# that the repository will ignore
+log.txt
+*.txt

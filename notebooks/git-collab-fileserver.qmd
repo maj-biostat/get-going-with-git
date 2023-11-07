@@ -1,0 +1,15 @@
+---
+title: "Collaboration - fileservers"
+editor: source
+---
+
+
+```{r, echo = FALSE}
+source("./R/init.R")
+log_info("Called git-collab-fileserver notebook")
+```
+
+## TODO
+
+Create repo on share
+Demo multiple use.

@@ -38,7 +38,17 @@ The concepts associated with branching are easiest understood by demonstration a
 When you make a new commit to git, the branch reference is updated to point to the new commit.
 When you move to a new branch, the HEAD reference is updated to point to the branch that you switched to.
 
-Create a new file in the 
+Go to the resources page and save the `branching.R` file to your `first-repo` directory.
+
+The file contains the following:
+
+```{r}
+#| echo: true
+#| eval: false 
+#| output : asis
+#| file: resources/fundamentals-branching.R
+```
+
 
 
 

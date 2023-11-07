@@ -19,30 +19,26 @@ Update the contents of the `hello.R` script to match what follows.
 ```{r}
 #| eval: false
 
-counter <- 1
-while(counter <= 3)
-{
-  cat(paste0("Enter string number ", counter, " "))
-  a <- readLines("stdin",n=1);
-  cat("You entered")
-  str(a);
-  cat( "\n" )
-  counter <- counter + 1
-}
+cat(paste0("What is your name?\n"));
+nme <- readLines("stdin",n=1);
+cat(paste0("Hi ",nme, " enter a string please: \n"));
+a <- readLines("stdin",n=1);
+cat("You entered the following string: ")
+cat(paste0(a, "\n"));
+cat(a, file = "log.txt")
 ```
 
 Similarly, edit the `readme.md` file as below.
 
 ```{md}
 #| eval: false
+# first-repo
 
-# my-first-repo
+A demo markdown file for the git workshop.
 
-This is a readme.md file that captures important information about the project.
+A new line for testing.
 
-The project is only a demo.
-
-The main script implements a loop to capture input from a user.
+Contains standalone R scripts.
 ```
 
 Running `git status` you will see that the working directory uncommitted changes
@@ -66,16 +62,15 @@ If we want to know what changes were made, we can run `git diff` but let's looks
 #| eval: false
 git diff readme.md
 ## diff --git a/readme.md b/readme.md
-## index 4826780..6c84404 100644
+## index 7501d7c..6929e2c 100644
 ## --- a/readme.md
 ## +++ b/readme.md
-## @@ -4,6 +4,5 @@ This is a readme.md file that captures important information about the project.
+## @@ -4,5 +4,7 @@ A demo markdown file for the git workshop.
 ## 
-##  The project is only a demo.
+##  A new line for testing.
 ## 
-## -A minor revision.
-## -
-## +The main script implements a loop to capture input from a user.
+## +Contains standalone R scripts.
+## +
 ```
 
 You interpret the above as follows.
@@ -89,20 +84,20 @@ Now compare the working version of `hello.R` with the repository version, but th
 #| eval: false
 git diff --word-diff hello.R
 ## diff --git a/hello.R b/hello.R
-## index 674a20f..624f356 100644
+## index 0c6d38c..5f09b06 100644
 ## --- a/hello.R
 ## +++ b/hello.R
-## @@ -1,9 +1,12 @@
-## [-cat("a-]{+counter <- 1+}
-## {+while(counter <= 3)+}
-## {+{+}
-## {+  cat(paste0("Enter+} string [-please: ");-]{+number ", counter, " "))+}
-##   a <- readLines("stdin",n=1);
-##   cat("You [-entered")-]{+entered ")+}
-##   str(a);
-##   cat( "\n" )
-##   [-cat(a, file = "log.txt")-]{+counter <- counter + 1+}
-## {+}+}
+## @@ -1,7 +1,9 @@
+## [-cat("Enter-]{+cat(paste0("What is your name?\n"));+}
+## {+nme <- readLines("stdin",n=1);+}
+## {+cat(paste0("Hi ",nme, " enter+} a string please: [-");-]{+\n"));+}
+## a <- readLines("stdin",n=1);
+## cat("You [-entered")-]
+## 
+## [-str(a);-]
+## [-cat( "\n" )-]{+entered the following string: ")+}
+## {+cat(paste0(a, "\n"));+}
+## cat(a, file = "log.txt")
 ```
 
 The diffs can take a bit of getting used to and some alternative tools are available that we will put to use in due course. 
@@ -129,27 +124,23 @@ To achieve this run
 
 ```{bash}
 #| eval: false
-git diff HEAD
+git diff HEAD 327170a
 ```
 
-More generally, to inspect differences between any commits, you simply supply the commit hashes that you want to compare:
+To inspect differences between any commits, you simply supply the commit hashes that you want to compare:
 
 ```{bash}
 #| eval: false
-git log --oneline
-## 050a9d4 (HEAD -> main) Testing still
-## 37e05b5 Test
-## 728d107 First commit
-git diff 728d107 37e05b5
+git diff b078716 0cd2d52
 ## diff --git a/myscript.R b/myscript.R
-## new file mode 100644
-## index 0000000..a12204c
-## --- /dev/null
-## +++ b/myscript.R
-## @@ -0,0 +1,3 @@
-## +library(survival)
-## +print("My script")
-## +
+## deleted file mode 100644
+## index a12204c..0000000
+## --- a/myscript.R
+## +++ /dev/null
+## @@ -1,3 +0,0 @@
+## -library(survival)
+## -print("My script")
+## -
 ```
 
 If you want to restrict attention to a particular file, just add the filename that you want to compare to the end of the command
@@ -157,29 +148,17 @@ If you want to restrict attention to a particular file, just add the filename th
 ```{bash}
 #| eval: false
 
-git diff 050a9d4 bb1529a hello.R
-## diff --git a/hello.R b/hello.R
-## index 674a20f..624f356 100644
-## --- a/hello.R
-## +++ b/hello.R
-## @@ -1,9 +1,12 @@
-## -cat("a string please: ");
-## -a <- readLines("stdin",n=1);
-## -cat("You entered")
-## - str(a);
-## -cat( "\n" )
-## -cat(a, file = "log.txt")
+git diff HEAD 327170a readme.md
+## diff --git a/readme.md b/readme.md
+## index 6929e2c..7501d7c 100644
+## --- a/readme.md
+## +++ b/readme.md
+## @@ -4,7 +4,5 @@ A demo markdown file for the git workshop.
+## 
+##  A new line for testing.
+## 
+## -Contains standalone R scripts.
 ## -
-## +counter <- 1
-## +while(counter <= 3)
-## +{
-## +  cat(paste0("Enter string number ", counter, " "))
-## +  a <- readLines("stdin",n=1);
-## +  cat("You entered ")
-## +  str(a);
-## +  cat( "\n" )
-## +  counter <- counter + 1
-## +}
 ```
 
 

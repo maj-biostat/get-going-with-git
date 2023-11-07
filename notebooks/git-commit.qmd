@@ -1,5 +1,5 @@
 ---
-title: "Commit"
+title: "Stage and Commit"
 editor: source
 ---
 
@@ -12,51 +12,32 @@ log_info("Called git-commit notebook")
 ## Adding files to projects
 
 Let's start to introduce files for the project.
-Open a text editor, enter the following contents:
-
-```{bash}
-#| eval: false
-
-# my-first-repo
-
-This is a readme.md file that captures important information about the project.
-
-The project is only a demo.
-```
-
-save the file as `readme.md` in the `my-first-repo` directory.
-
-
-Create a new file as follows:
+Open a text editor, enter the following contents (or download the readme.md file from the applicable section under @sec-resources-page) and save the file as `readme.md` in the `first-repo` directory.
 
 ```{r}
-#| eval: false
-cat("Enter a string please: ");
-a <- readLines("stdin",n=1);
-cat("You entered")
-
-str(a);
-cat( "\n" )
-cat(a, file = "log.txt")
+#| echo: true
+#| eval: false 
+#| output : asis
+#| file: resources/fundamentals-readme.md
 ```
 
-save the file as `hello.R` in the `my-first-repo` directory.
+Ditto for the following and save the file as `hello.R` in the `first-repo` directory.
 
-Or, download these files - 
+```{r}
+#| echo: true
+#| eval: false 
+#| output : asis
+#| file: resources/fundamentals-hello.R
+```
 
-[hello.R](../blob/main/resources/my-first-repo/hello.R)
-
-<!-- [hello.R](https://github.com/maj-biostat/get-going-with-git/resources/my-first-repo/hello.R) [readme.md](https://github.com/maj-biostat/get-going-with-git/resources/my-first-repo/readme.md). -->
-
-Now run the R script from the terminal by entering this text:
+Run the R script from the terminal by entering this text:
 
 ```{bash}
 #| eval: false
-
 Rscript hello.R
 ```
 
-Now from the terminal in the `my-first-repo` director, type:
+Now from the terminal in the `first-repo` directory:
 
 ```{bash}
 #| eval: false
@@ -83,15 +64,34 @@ The above is idealised.
 You may encounter the situation where you have many files, a number of which you have no intention of tracking under version control.
 You can ignore these files by creating a `.gitignore` file, which tells git which files it should ignore.
 
-Create a new text file with the following content:
+Create a new text file with the following content and save the file as `.gitignore`.
+This is a special configuration filename that git recognises.
+The `.` at the front of `gitignore` is important.
 
-```{bash}
-#| eval: false
-log.txt
+If you missed the `.` or mistakenly added a `.txt` extension then the `.gitignore` functionality will not work.
+
+```{r}
+#| echo: true
+#| eval: false 
+#| output : asis
+#| file: resources/fundamentals-gitignore
 ```
 
-save the file as `.gitignore`.
-Now run `git status` again:
+If you list (`ls - la`) the files in the `first-repo` directory, you should see the following (or something very similar):
+
+```{bash, eval = FALSE, engine = "sh"}
+192-168-1-100:first-repo mark$ ls -la
+total 32
+drwxr-xr-x  7 mark  staff  224  7 Nov 10:15 .
+drwxr-xr-x  8 mark  staff  256  7 Nov 10:12 ..
+drwxr-xr-x  9 mark  staff  288  7 Nov 10:15 .git
+-rw-r--r--@ 1 mark  staff   81  7 Nov 10:15 .gitignore
+-rw-r--r--@ 1 mark  staff  126  7 Nov 10:13 hello.R
+-rw-r--r--  1 mark  staff    4  7 Nov 10:14 log.txt
+-rw-r--r--@ 1 mark  staff   59  7 Nov 10:13 readme.md
+```
+
+Run `git status` again and note that the `log.txt` file no longer registers with git.
 
 ```{bash}
 #| eval: false
@@ -109,11 +109,9 @@ git status
 ## nothing added to commit but untracked files present (use "git add" to track)
 ```
 
-and note that the `log.txt` file no longer registers with git.
-
 ## Commit process
 
-Next, we want to add the new file to the repository.
+Now we want to add the new file to the repository.
 The steps are 
 
 1. Add the file (or files) that we want to include in the repository to the staging area
@@ -146,7 +144,8 @@ git status
 ```
 
 We can see that no commits have occurred but that we have staged the files that we want to add to the repository.
-What happens if we added a file that we did not want to add (the `-f` says we want to add a file that is included in the `.gitignore` list).
+
+What happens if we accidentally add a file that we did not want to add (the `-f` says we want to add a file that is included in the `.gitignore` list)?
 
 ```{bash}
 #| eval: false
@@ -180,23 +179,24 @@ git commit -m "First commit"
 ##  create mode 100644 readme.md
 ```
 
-the `-m` flag provides a message that is associated with the commit.
-Now when we run `git status` we see that the repository is up to date with the working area files.
+the `-m` flag is necessary.
+When you make a commit, you need to provide a message that describes the nature of the changes.
+
+What is the weird stuff that is output prior to the commit message ([main (root-commit) 728d107]) in the commit history?
+It is a unique hash code that identifies this specific version of the project.
+Note, you will have a different hash code (and that is fine).
+
+When we run `git status` we see that the repository is up to date with the working area files.
 We also see that the files have been removed from the staging area.
 
 ```{bash}
 #| eval: false
-
 git status
 ## On branch main
 ## nothing to commit, working tree clean
 ```
 
 ![Commit files to history](../fig/repos-commit-file.jpg)
-
-But what is the weird number in the commit history?
-It is basically a unique hash code that identifies this specific version of the project.
-Note, you will have a different hash code (and that is fine).
 
 ## Exercises
 
@@ -223,41 +223,44 @@ Commit the staged files to the repository by following @sec-commit making sure t
 :::
 
 :::{#exr-4}
-Edit the `readme.md` file adding a new line with some arbitrary text.
+Edit the `readme.md` (use notepad or rstudio) file adding a new line with some arbitrary text.
 Stage the file and commit.
 :::
 
 ## Tracking commit history
 
-One of the primary features of revision control is that you can review your project file history.
+One of the most notable features of revision control is that you can review your project file history.
 The simplest way to do this is with `git log` which will report all of the commits in reverse chronological order.
 You can see 
 
-- that three commits have been made, all by myself with my email address listed
-- the time the commits were made and the message associated with each
+- who made the commits
+- when they were made and why (the commit messages)
 - the hash code associated with project version at each commit
   - note that the full hash is reported whereas previous a truncated version is shown
   
 The commit followed by `(HEAD -> main)` shows what part of the history our working directory currently reflects.
 
+Here is an example (your repository will look different but that is ok)
+
 ```{bash}
 #| eval: false
 git log
-## commit 050a9d4e989313900010d19554d450e9efc9621c (HEAD -> main)
+
+## commit 327170a6bc4d39463c4cfbc0f257420496642cb5 (HEAD -> main)
 ## Author: Mark <mark.jones1@sydney.edu.au>
-## Date:   Thu Nov 2 14:19:16 2023 +0800
+## Date:   Tue Nov 7 10:25:23 2023 +0800
 ## 
-##     Updated readme.md with installation instructions.
+##     Minor edit
 ## 
-## commit 37e05b5985e455fdeb30a8c9883914750e3f9897
+## commit b078716e80498c2fa7abfb8ae27b204b2dc603d8
 ## Author: Mark <mark.jones1@sydney.edu.au>
-## Date:   Thu Nov 2 14:18:53 2023 +0800
+## Date:   Tue Nov 7 10:24:58 2023 +0800
 ## 
-##     First commit of myscript.R, testing purposes only
+##     New file
 ## 
-## commit 728d107a238c12e665dd559c3db7fa9d5beeb2eb
+## commit 0cd2d52e989059a61315525a3488e06d22cd04a5
 ## Author: Mark <mark.jones1@sydney.edu.au>
-## Date:   Thu Nov 2 13:55:09 2023 +0800
+## Date:   Tue Nov 7 10:23:23 2023 +0800
 ## 
 ##     First commit
 ```
@@ -268,9 +271,9 @@ For a more condensed view you can use the `--oneline` flag:
 ```{bash}
 #| eval: false
 git log --oneline
-## 050a9d4 (HEAD -> main) Testing still
-## 37e05b5 Test
-## 728d107 First commit
+## 327170a (HEAD -> main) Minor edit
+## b078716 New file
+## 0cd2d52 First commit
 ```
 
 If you want the commit history for the last n commits, or between specific dates, or by author or even via searching for a specific string in the message you can run the following
@@ -282,6 +285,8 @@ git log --after="2013-11-01" --before="2023-10-15"
 git log --author="Mark\|Fred"
 git log --grep="first" -i
 ```
+
+Try them.
 
 The first restricts to the last two commits, the second returns commits between mid Oct and the start of Nov, the second returns commits made by Mark or Fred and the third returns any commits where the word first was included in the message text (ignoring case).
 
@@ -296,10 +301,9 @@ To establish what files were included in any given commit, you can use `git show
 ```{bash}
 #| eval: false
 
-git show --name-only 728d107
-## commit 728d107a238c12e665dd559c3db7fa9d5beeb2eb
+git show --name-only 0cd2d52
 ## Author: Mark <mark.jones1@sydney.edu.au>
-## Date:   Thu Nov 2 13:55:09 2023 +0800
+## Date:   Tue Nov 7 10:23:23 2023 +0800
 ## 
 ##     First commit
 ## 
