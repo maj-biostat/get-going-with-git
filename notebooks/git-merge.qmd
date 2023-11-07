@@ -9,9 +9,202 @@ source("./R/init.R")
 log_info("Called git-merge notebook")
 ```
 
-## Merge concepts
+## Recap
+
+From the previous branching example - 
+
+1. We delivered stage one of an analysis to the client
+2. We started on the secondary analyses 
+3. Before the secondary analysis was complete, we realised there was an error in the original analysis that needed an emergency fix
+3. We rewound to an earlier state in the repository and then fixed the error and checked in our work
+4. We made the work permanent by creating a new branch and then checking out that branch
+5. We tagged the fix and the re-issued the analysis to the client
+6. We jumped back to our secondary analysis by checking out the main branch
+
+Ok, so now we have a fix to the error in the original analysis in one branch `fix-01` and a partially completed secondary analysis on the `main` branch.
+We want to bring the changes from the fix into our present work.
 
 ## Merge processes
 
+Merging is usually a fairly automated process.
+Run the following.
+
+```{bash, eval = FALSE, engine = "sh"}
+git checkout main
+git merge fix-01
+```
+
+You may be prompted to enter a commit message (alternatively just provide the -m flag).
+
+```{bash, eval = FALSE, engine = "sh"}
+Merge branch 'fix-01'
+# Please enter a commit message to explain why this merge is necessary,
+# especially if it merges an updated upstream into a topic branch.
+#
+# Lines starting with '#' will be ignored, and an empty message aborts
+# the commit.
+```
+
+and then the following output.
+
+```{bash, eval = FALSE, engine = "sh"}
+## Auto-merging branching.R
+## Merge made by the 'ort' strategy.
+##  branching.R | 3 ++-
+##  1 file changed, 2 insertions(+), 1 deletion(-)
+```
+
+If you look at the difference between the HEAD (the `HEAD~1` notation means compare with the previous commit, `HEAD~2` means compare with 2 commits prior and so on) and the commit associated with the merge you will see
+
+```{bash, eval = FALSE, engine = "sh"}
+git diff HEAD~1
+## diff --git a/branching.R b/branching.R
+## index b60c9f0..8f1c1b3 100644
+## --- a/branching.R
+## +++ b/branching.R
+## @@ -45,6 +45,7 @@ message("\nDESCRIPTIVE SUMMARY:\n")
+## 
+##  lyt <- basic_table() %>%
+##    split_cols_by("arm") %>%
+## +  split_rows_by("age") %>%
+##    summarize_row_groups() %>%
+##    analyze("y", mean, format = "xx.x")
+## 
+## @@ -54,7 +55,7 @@ build_table(lyt, d)
+## 
+##  message("\n\nANALYSIS OF CONTINOUS OUTCOME (UNSTRATIFIED):\n")
+## 
+## -lm1 <- lm(y ~ x, data = d)
+## +lm1 <- lm(y ~ x * u, data = d)
+##  summary(lm1)
+## 
+##  message("\n\nANALYSIS OF BINARY OUTCOME (UNSTRATIFIED):\n")
+```
+
+We now have the changes from the emergency fix in the main branch and we can continue with the secondary analysis.
+
+Sometimes merging doesn't work quite so smoothly and we need to iron out conflicts.
+
+## Exercises
+
+:::{#exr-1} 
+
+Complete the analysis by adding the following code to generate a figure from the fitted model.
+
+```{r, eval = FALSE}
+p1 <- ggplot(d_fit, aes(x = arm, y  = pr_z)) +
+  geom_point() +
+  geom_linerange(aes(ymin = pr_z_lb, ymax = pr_z_ub)) +
+  scale_x_discrete("") +
+  scale_y_continuous("Probability of response")
+
+ggsave("fig-sec.png", p1, width = 10, height = 10, units = "cm")
+```
+
+Here is what you need to do:
+
+- Run the updated script `Rscript branching.R` to make sure it works.
+- Edit the `.gitignore` file so that the figure does not get committed to the repository.
+- Stage and commit the files and then review the commit history.
+- Create a v2.0 tag with an meaningful message.
+:::
 
 
+:::{#exr-2} 
+
+Usually it makes sense to create a new branch for each piece of development we undertake.
+This ensures that the main branch continues to reflect a working version at all times.
+Create a new branch from the current state and call it `analysis-03`.
+Run the following code:
+
+```{bash, eval = F, engine = "sh"}
+git branch analysis-03
+git checkout analysis-03
+git status
+```
+
+Add the analysis code into `branching.R`
+
+```{r, eval = FALSE}
+message("\n\nANALYSIS OF SURVIVAL OUTCOME (UNSTRATIFIED):\n")
+lm3 <- coxph(Surv(w, evt) ~ x, data = d)
+summary(lm3)
+```
+
+Run the script to make sure it works then stage and commit along with an updated `.gitignore` files that excludes all `png` files.
+
+Checkout main:
+
+```{bash, eval = F, engine = "sh"}
+git checkout main
+```
+
+Add the following change to the `branching.R` code (just adding a new theme to the ggplot figure)
+
+```{r, eval = FALSE}
+p1 <- ggplot(d_fit, aes(x = arm, y  = pr_z)) +
+  geom_point() +
+  geom_linerange(aes(ymin = pr_z_lb, ymax = pr_z_ub)) +
+  scale_x_discrete("") +
+  scale_y_continuous("Probability of response") +
+  theme_bw()
+```
+
+Run the script, then stage and commit.
+
+Checkout `analysis-03` branch:
+
+```{bash, eval = F, engine = "sh"}
+git checkout analysis-03
+```
+
+Add the following code:
+
+```{r, eval = FALSE}
+png("fig-surv.png")
+plot(survfit(Surv(w, evt) ~ x, data = d), lty = 1:2)
+dev.off()
+```
+
+Run the script to make sure it works then stage and commit.
+Treat this as the release by tagging it as `v3.0`.
+Checkout the `main` branch and merge the analysis into main.
+
+```{bash, eval = F, engine = "sh"}
+git checkout main
+git merge analysis-03
+```
+
+Review the commit history:
+
+```{bash, eval = F, engine = "sh"}
+git log --oneline --decorate --graph --all
+## *   2829471 (HEAD -> main) Merge branch 'analysis-03'
+## |\
+## | * be09457 (tag: v3.0, analysis-03) Finished surv
+## | * 7a5e7b9 Surv analysis
+## * | 53115b6 minor
+## |/
+## * 1a9dfeb (tag: v2.0) Edits from code review
+## * d1586df Completion of secondary analysis
+## *   bf34b9c Merge from fix-01
+## |\
+## | * b8de16c (tag: v1.1, fix-01) Edits from code review
+## | * 12561d9 Emergency fix
+## * | d88f9e5 WIP
+## |/
+## * a2cc6f7 (tag: v1.0) Comments from code review
+## * fa24778 branching.R
+## * 3bdac46 Revised approach to capturing input
+## * 327170a Minor edit
+## * b078716 New file
+## * 0cd2d52 First commit
+```
+:::
+
+At this point, you have the fundamentals.
+However, there are things that are going to catch you out.
+For example, in the above work, we used three-way merges.
+These are convenient but can also get messy when your branching structure gets complex.
+In most of our daily work merges will probably suffice, but know that there is another way.
+The other way is rebasing, but we will not deal with it here.

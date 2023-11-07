@@ -31,8 +31,6 @@ book:
         - notebooks/git-diffs.qmd
         - notebooks/git-branch.qmd
         - notebooks/git-merge.qmd
-        - notebooks/git-tags.qmd
-        - notebooks/git-history.qmd
     - part: notebooks/part-03.qmd
 
     - notebooks/about.qmd

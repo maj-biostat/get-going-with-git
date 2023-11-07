@@ -11,34 +11,44 @@ log_info("Called git-branch notebook")
 
 ## What is a branch?
 
-When you run `git status` you saw *On branch main* in the output.
-Similarly, when you ran `git log` the last commit reported is suffixed with *(HEAD -> main)*.
-Both of these were a reference to the branch that is currently linked to the working directory.
+:::callout-warning
+We are going to step it up a notch.
+The topic of branching can be challenging for beginners.
+Practice and repitition is key to understanding.
+Try not to panic.
+At a basic level, it is actually straight forward once you get familiar with the processes.
+:::
 
-A branch is a mechanism that allows multiple pieces of work to be progressed independently within the same project.
-Initially, there is a singular progression of the project, but at some point a release of the software made.
-More time later, bugs are found and/or new functionality is added. 
-Over time, the evolution of the project starts to resemble a branching structure.
+When you run `git status` you saw the text - *On branch main* as part of the output.
+Similarly, when you ran `git log` the last commit reported is suffixed with *(HEAD -> main)*.
+Both of these were a reference to the version on the branch that is currently linked to the working directory.
+
+Branching is simply a mechanism that allows you to diverge from the main line of development and continue to do work without messing with that main line. 
+They allow multiple pieces of work to be progressed independently within the same project.
+
+For example, initially there is a singular progression of the project, but at some point you will want to create a release for a software product, or a piece of documentation or an analysis.
+Later you may want to revise the release due to changes in project direction, new data, bugs etc.
+You use branches to facilitate this process in a logical and coherent way.
 
 In the examples encountered so far, the branching we have encountered is just a stem (specifically, the *main* branch).
-Here is an illustration of the kind of branch that we have dealth with so far.
+Here is a common type of representation of the kind of branch that we have dealth with so far.
+The circles represent each commit, which would refer to changes in one or more files.
 The repository has gone through a series of commits (1, 2, 3, 4 etc.) and the working directory is currently looking at the repository version 4. 
-Here is a common representation of the different versions.
 
 ![Branch more like a stem](../fig/branch-01.jpg){width=70%}
 
-The circles represent each commit, which would refer to changes in one or more files.
 The arrow pointing at 4 is the current *HEAD* of the repository. 
+HEAD is a special concept in git.
 It answers the question "What am I currently looking at?"
 
-## Creating branches
+## Time travel
 
 The concepts associated with branching are easiest understood by demonstration and experimentation.
 
 When you make a new commit to git, the branch reference is updated to point to the new commit.
 When you move to a new branch, the HEAD reference is updated to point to the branch that you switched to.
 
-Go to the resources page and save the `branching.R` file to your `first-repo` directory.
+Go to the @sec-resources-page resources page and save the `branching.R` file to your `first-repo` directory.
 
 The file contains the following:
 
@@ -46,43 +56,210 @@ The file contains the following:
 #| echo: true
 #| eval: false 
 #| output : asis
+#| code-fold : true
 #| file: resources/fundamentals-branching.R
 ```
 
+Run the script:
 
-
-
-
-
-## Why branches?
-
-Assume that you had started a protocol, which had been reviewed by ethics and could move to a released version.
-However, protocols tend to evolve over time as the study progresses due to things not considered in the design stage.
-Rather than having multiple protocol documents, it could be useful to retain the current released protocol as well as the evolving state within a single protocol context.
-For example, this would allow you to mark releases explicitly and track every change made during each release.
-Branches will allow you to do this.
-
-Next, assume that you were involved in a study with sequential analyses. 
-Each interim would have a very similar, but probably not identical codebase.
-Again, rather than having multiple copies of the analysis code, it could be beneficial to retain the analysis within a single repository with each interim analysis encapsulated within its own context.
-Branches will allow you to do this.
-
-
-```
-alias glt='git log --oneline --decorate --graph --all'
-alias glta='git log --graph --pretty='\''%Cred%h%Creset -%C(auto)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset'\'' --all'
+```{bash}
+#| eval: false
+Rscript branching.R
 ```
 
-The main reason to use
+Imagine this was the first analysis for a project and will be sent to the clients. 
+The completed work represents a milestone for the project so we stage and commit the file and then create a tag for it.
+
+```{bash, eval = FALSE, engine = "sh"}
+git tag -a v1.0 -m "Analysis 1"
+```
+
+We continue with the work for the next deliverable completing a secondary analysis on the binary outcome `z`.
+Add the following code to the end of the `branching.R` script, re-run with `Rscript branching.R` and then commit the file to the repository.
+
+```{r, eval = FALSE}
+message("\n\nANALYSIS OF BINARY OUTCOME (UNSTRATIFIED):\n")
+
+lm2 <- glm(z ~ x, data = d, family = binomial)
+summary(lm2)
+
+pr <- predict(lm2, newdata = data.table(x = 0:1), type = "response", se = T)
+d_fit <- data.table(
+  arm = c("PBO", "ACTIVE"),
+  x = 0:1,
+  pr_z = pr$fit,
+  pr_z_lb = pr$fit - 2 * pr$se.fit,
+  pr_z_ub = pr$fit + 2 * pr$se.fit
+)
+```
+
+We are not finished with our second deliverable, but at this point we realise that the initial analysis that was sent to the client was incorrect.
+As you may have spotted, we should have run a stratified analysis due to the presence of a confounder.
+We urgently need to re-issue the corrected analysis to the client.
+Bummer.
+
+In contrast to the minor change above, in real life we might be much further along with this next deliverable, which may be vastly more complex than what I have illustrated above.
+For example, we may have introduced new files, restructured the original analysis, added functionality etc.
+
+While we could go through the process of winding back all the changes, with revision control we do not have to because we can rewind to any point.
+
+Next we go over the processes involved.
+
+### Commit
+
+First thing to do is to check that your code is running ok and then commit any files that have not yet been committed to the repository.
+Not doing so will cause you some major headaches, so best advice is to not forget to do this.
+
+```{bash, eval = FALSE, engine = "sh"}
+git status
+git add braching.R
+git commit -m "Commit of files part way through development"
+```
+
+### Rewind
+
+Now we want to rewind our repository back to the time at which the deliverable was made.
+We can do this by using `git log` to find the commit hash or we can just use the tag that we set for the release.
+Using the tag is more convenient so let's do that.
+
+```{bash, eval = FALSE, engine = "sh"}
+git log --oneline
+git checkout v1.0
+## Note: switching to 'v1.0'.
+## 
+## You are in 'detached HEAD' state. You can look around, make experimental
+## changes and commit them, and you can discard any commits you make in this
+## state without impacting any branches by switching back to a branch.
+## 
+## If you want to create a new branch to retain commits you create, you may
+## do so (now or later) by using -c with the switch command. Example:
+## 
+##   git switch -c <new-branch-name>
+## 
+## Or undo this operation with:
+## 
+##   git switch -
+## 
+## Turn off this advice by setting config variable advice.detachedHead to false
+## 
+## HEAD is now at a2cc6f7 Comments from code review
+```
+
+In terms of the schematic of the repository, the environment now looks like this.
+
+![Rewind to earlier deliverable](../fig/branch-02.jpg){width=70%}
+
+We have move the HEAD such that our working versions now point to the files that were originally delivered to the client.
+
+:::callout-note
+Don't panic overly about the warning about being in the *detached HEAD* state.
+:::
+
+If you look at `branching.R` you will see that the starts of the secondary analysis has disappeared.
+
+
+### Fix issue
+
+In order to fix the analysis we need to introduce the confounder as a covariate in the linear model.
+Introduce the following fixes.
+First to the descriptive summary:
+
+```{r, eval = FALSE}
+message("\nDESCRIPTIVE SUMMARY:\n")
+
+lyt <- basic_table() %>%
+  split_cols_by("arm") %>%
+  split_rows_by("age") %>%
+  summarize_row_groups() %>%
+  analyze("y", mean, format = "xx.x")
+
+build_table(lyt, d)
+```
+
+and then to the analysis make these corrections and finally re-run the script to confirm that it produces what we expect.
+
+```{r, eval = FALSE}
+lm1 <- lm(y ~ x * u, data = d)
+summary(lm1)
+```
+
+Stage and then commit these changes.
+We can get some insight into the state of the tree now.
+Below I have added one more commit so that you can get a sense of how things are progressing.
+
+```{bash, eval = FALSE, engine = "sh"}
+git log --oneline --decorate --graph --all
+## * 7ab12b3 (HEAD) Code review correction
+## * 4cca810 Added emergency fix
+## | * c82a48d (main) Started on secondary analyses
+## |/
+## * a2cc6f7 (tag: v1.0) Comments from code review
+## * fa24778 branching.R
+## * 3bdac46 Revised approach to capturing input
+## * 327170a Minor edit
+## * b078716 New file
+## * 0cd2d52 First commit
+```
+
+The equivalent illustration would look something like this:
+
+![Add a fix](../fig/branch-03.jpg){width=70%}
+
+### Make permanent
+
+Now that we have fixed the code, we want to make the change permanent.
+That is, we want to formally tell git that our alternative history should be maintained.
+The way to do that is to create a new branch out of the recent changes (which already look like a branch).
+
+```{bash, eval = FALSE, engine = "sh"}
+git branch fix-01
+# Switch to new branch
+git checkout fix-01
+```
+
+When we look at the tree we see both HEAD and the branch (note the first line text which says *HEAD, fix-01*).
+
+```{bash, eval = FALSE, engine = "sh"}
+git log --oneline --decorate --graph --all
+## * 7ab12b3 (HEAD, fix-01) Code review correction
+## * 4cca810 Added emergency fix
+## | * c82a48d (main) Started on secondary analyses
+## |/
+## * a2cc6f7 (tag: v1.0) Comments from code review
+## * fa24778 branching.R
+## * 3bdac46 Revised approach to capturing input
+## * 327170a Minor edit
+## * b078716 New file
+## * 0cd2d52 First commit
+```
+
+And now the picture is
+
+![Looking at the HEAD of our new branch](../fig/branch-04.jpg){width=70%}
+
+If this is the version that we re-issue to the client, we might as well tag it.
+
+```{bash, eval = FALSE, engine = "sh"}
+git tag -a v1.1 -m "Analysis 1 (re-issue)"
+```
+
+### Switching back to the secondary
+
+Switching back to our partially complete secondary analysis is as simple as.
+
+```{bash, eval = FALSE, engine = "sh"}
+git checkout main
+```
+
+If you look at the `branching.R` script you will be able to see the secondary analysis we started some time ago.
+However, if you look closely you will see that the changes we just made in the `fix-01` branch have not yet been propagated to the `main` branch.
+It is important that we pick up this fix.
+
+This process is known as *merging* and it will be tackled later.
 
 
 
-## Special branch concepts
 
-## Creating a branch
 
-## Switching branches
-
-## Working on branches
 
 
