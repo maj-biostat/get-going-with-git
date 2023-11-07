@@ -9,9 +9,63 @@ source("./R/init.R")
 log_info("Called git-branch notebook")
 ```
 
+## What is a branch?
+
+When you run `git status` you saw *On branch main* in the output.
+Similarly, when you ran `git log` the last commit reported is suffixed with *(HEAD -> main)*.
+Both of these were a reference to the branch that is currently linked to the working directory.
+
+A branch is a mechanism that allows multiple pieces of work to be progressed independently within the same project.
+Initially, there is a singular progression of the project, but at some point a release of the software made.
+More time later, bugs are found and/or new functionality is added. 
+Over time, the evolution of the project starts to resemble a branching structure.
+
+In the examples encountered so far, the branching we have encountered is just a stem (specifically, the *main* branch).
+Here is an illustration of the kind of branch that we have dealth with so far.
+The repository has gone through a series of commits (1, 2, 3, 4 etc.) and the working directory is currently looking at the repository version 4. 
+Here is a common representation of the different versions.
+
+![Branch more like a stem](../fig/branch-01.jpg){width=70%}
+
+The circles represent each commit, which would refer to changes in one or more files.
+The arrow pointing at 4 is the current *HEAD* of the repository. 
+It answers the question "What am I currently looking at?"
+
+## Creating branches
+
+The concepts associated with branching are easiest understood by demonstration and experimentation.
+
+When you make a new commit to git, the branch reference is updated to point to the new commit.
+When you move to a new branch, the HEAD reference is updated to point to the branch that you switched to.
+
+Create a new file in the 
+
+
+
+
+
 ## Why branches?
 
-## What is a branch?
+Assume that you had started a protocol, which had been reviewed by ethics and could move to a released version.
+However, protocols tend to evolve over time as the study progresses due to things not considered in the design stage.
+Rather than having multiple protocol documents, it could be useful to retain the current released protocol as well as the evolving state within a single protocol context.
+For example, this would allow you to mark releases explicitly and track every change made during each release.
+Branches will allow you to do this.
+
+Next, assume that you were involved in a study with sequential analyses. 
+Each interim would have a very similar, but probably not identical codebase.
+Again, rather than having multiple copies of the analysis code, it could be beneficial to retain the analysis within a single repository with each interim analysis encapsulated within its own context.
+Branches will allow you to do this.
+
+
+```
+alias glt='git log --oneline --decorate --graph --all'
+alias glta='git log --graph --pretty='\''%Cred%h%Creset -%C(auto)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset'\'' --all'
+```
+
+The main reason to use
+
+
 
 ## Special branch concepts
 

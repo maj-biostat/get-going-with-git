@@ -2,6 +2,8 @@ project:
   type: book
   output-dir: site
   execute-dir: project
+  resources:
+    - resources/my-first-repo/hello.R
 
 book:
   downloads: [pdf,docx]
@@ -31,6 +33,7 @@ book:
         - notebooks/git-tags.qmd
         - notebooks/git-history.qmd
     - part: notebooks/part-03.qmd
+    - notebooks/resources.qmd
     - notebooks/about.qmd
   site-url: https://pages.github.sydney.edu.au/mjon7053/get-going-with-git/
   repo-url: https://github.sydney.edu.au/mjon7053/get-going-with-git

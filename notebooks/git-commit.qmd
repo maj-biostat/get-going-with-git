@@ -42,7 +42,11 @@ cat(a, file = "log.txt")
 
 save the file as `hello.R` in the `my-first-repo` directory.
 
-Or, download these files - [hello.R](https://github.com/maj-biostat/get-going-with-git/resources/my-first-repo/hello.R) [readme.md](https://github.com/maj-biostat/get-going-with-git/resources/my-first-repo/readme.md).
+Or, download these files - 
+
+[hello.R](../blob/main/resources/my-first-repo/hello.R)
+
+<!-- [hello.R](https://github.com/maj-biostat/get-going-with-git/resources/my-first-repo/hello.R) [readme.md](https://github.com/maj-biostat/get-going-with-git/resources/my-first-repo/readme.md). -->
 
 Now run the R script from the terminal by entering this text:
 

@@ -19,9 +19,9 @@ Using git, you can create and configure repositories, add or remove files and re
 
 ### Initialisation
 
-There are two basic ways of creating a repository on your local machine
+There are two basic ways initialising a repository
 
-1. Initialise a new repository
+1. Initialise a new repository using git directly
 2. Clone an existing repository
 
 We will look at initialising a new repository, cloning will come later.
@@ -42,6 +42,11 @@ git status
 ```
 
 If you received the output detailed above then congratulations, you initialised a git repository.
+
+:::callout-note
+There is nothing stopping you creating a repository on a shared drive.
+In fact, this is a useful first exercise that we will look at in the collaboration part of this workshop.
+:::
 
 If you have configured your file explorer to show hidden files, you will notice that the `my-first-repo` directory now contains a `.git` sub-directory.
 This directory **is** the repository.

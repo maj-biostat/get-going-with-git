@@ -1,0 +1,13 @@
+
+```{r, echo = FALSE}
+source("./R/init.R")
+log_info("Called downloads notebook")
+```
+
+# Resources {.unnumbered}
+
+These files are used in the fundamentals section:
+
++ <a href="../resources/my-first-repo/hello.R">hello.R</a>
++ <a href="../resources/my-first-repo/readme.R">readme.R</a>
++ <a href="../resources/my-first-repo/branching.R">branching.R</a>

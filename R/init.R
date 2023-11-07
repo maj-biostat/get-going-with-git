@@ -15,6 +15,7 @@ suppressPackageStartupMessages(library("git2r"))
 suppressPackageStartupMessages(library("knitr"))
 # suppressPackageStartupMessages(library("jsonlite"))
 # suppressPackageStartupMessages(library("pracma"))
+suppressPackageStartupMessages(library("medicaldata"))
 
 ggplot2::theme_set(theme_bw() + theme(
   legend.position = "bottom"
