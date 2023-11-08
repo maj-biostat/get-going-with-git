@@ -10,6 +10,20 @@ log_info("Called preamble notebook")
 
 There is no point reinventing the wheel, Jenny Bryant motivates the use of version control in the following paper: [Excuse Me, Do You Have a Moment to Talk About Version Control?](https://www.tandfonline.com/doi/full/10.1080/00031305.2017.1399928?needAccess=true)
 
+## Objectives
+
+Note that you are likely to find some of this course hard and/or frustrating.
+I have purposefully taken a low level perspective on git because it is the best way to get a clear picture of what is actually happening.
+
+Think of it this way, if you didn't understand what letters and words are, you are probably going to have a hard job of understanding how to *cunstrucked a sentunse*^[Yes, intentional :)].
+
+People get themselves in a mess often simply as a result of not understanding the fundamentals.
+Therefore, the goal here is to understand the fundamental aspects of revision control and git in particular.
+Once you have that base, extending from there will be much easier for you.
+
+The pace of the workshop will be based on the abilities of the audience but there is an expectation that the audience practices the skills.
+The workshop is likely to be run over a few sessions but the exact length is yet to be determined.
+
 ## Command line interfaces
 
 A CLI is a software mechanism that you use to interact with your operating system via your keyboard rather than a mouse.
@@ -94,3 +108,8 @@ If you have a unikey, you should have access.
 Go [here](https://github.sydney.edu.au) and confirm that you can login.
 
 
+## OneDrive
+
+You will need to install the desktop application for OneDrive so that you have file system integration (i.e. so that you can see your OneDrive through your file explorer app).
+
+You may need to go to IT Support to get them to install OneDrive for you, but it may already be installed.

@@ -32,6 +32,8 @@ book:
         - notebooks/git-branch.qmd
         - notebooks/git-merge.qmd
     - part: notebooks/part-03.qmd
+      chapters:
+        - notebooks/git-collab-fileserver.qmd
 
     - notebooks/about.qmd
   site-url: https://pages.github.sydney.edu.au/mjon7053/get-going-with-git/
