@@ -11,7 +11,7 @@ log_info("Called github-101 notebook")
 
 Rightly or wrongly, GitHub has become the defacto tool for storing and sharing work.
 GitHub is a hosting service for git repositories. 
-It is not part of the git software.
+It is not part of the git software and unfortunately, it is owned by Microsoft.
 
 Around 10,000 companies (3M, Dell, Airbnb, Netflix ...) use GitHub as part of their development stack.
 It sources literally 100's of millions of projects with billions of contributions to these projects per year.
@@ -196,154 +196,163 @@ git checkout dev-01
 ## Switched to branch 'dev-01'
 ```
 
-Rather than code something up, simply download the [random-numbers.R](../resources/collaboration-random-numbers.R) script (also listed on resources, @sec-resources-page page) and save it to the demo-01 repository folder on your machine.
+Rather than code something up, simply download the [random-numbers.R](../resources/fundamentals/random-numbers.R) script (also listed on resources, @sec-resources-page page) and save it to the demo-01 repository folder on your machine.
 Run the script with `Rscript random-numbers.R` to make sure that it works.
+
+```{r, eval = F}
+Rscript random-numbers.R
+##         categorical      normal     gamma poisson
+## Min.             -3 -3.56987408 0.0329983    3.00
+## 1st Qu.          -2 -0.56524365 0.2845135    8.00
+## Median            0  0.03029335 0.7235894    9.00
+## Mean              0  0.07900788 1.0749329    9.82
+## 3rd Qu.           2  0.74139889 1.3816200   12.00
+## Max.              3  3.18586281 5.3176913   20.00
+```
+
+Now make an arbitrary change to the `README.md` file then stage and commit the files to the `dev-01` branch.
 
 ```{bash, eval = F, engine = "sh"}
 git status
 ## On branch dev-01
-## Untracked files:
-##   (use "git add <file>..." to include in what will be committed)
-## 	random-numbers.R
-```
-
-Stage and commit the file and then push it to the remote repository.
-
-```{bash, eval = F, engine = "sh"}
-git add random-numbers.R
-git commit -m "Random numbers"
-## [dev-01 4e69222] Random numbers
-##  1 file changed, 7 insertions(+)
-##  create mode 100644 data.R
-```
-
-Switch back to the main branch and merge your piece of work.
-
-
-To test this out go to the `demo-01` repo on your machine and add an arbitrary line to the `README.md` file.
-You can do this by using any text editing application like notepad etc.
-
-```{bash, eval = F, engine = "sh"}
-git status
-## On branch main
-## Your branch is up to date with 'origin/main'.
-## 
 ## Changes not staged for commit:
 ##   (use "git add <file>..." to update what will be committed)
 ##   (use "git restore <file>..." to discard changes in working directory)
 ## 	modified:   README.md
 ## 
-## no changes added to commit (use "git add" and/or "git commit -a")
-git add README.md
-git commit -m "Added arbitrary line to readme"
-## [main bddb7fc] Added arbitrary line to readme
-##  1 file changed, 4 insertions(+)
-git push
-## Enumerating objects: 5, done.
-## Counting objects: 100% (5/5), done.
+## Untracked files:
+##   (use "git add <file>..." to include in what will be committed)
+## 	random-numbers.R
+git add README.md random-numbers.R
+git status
+## On branch dev-01
+## Changes to be committed:
+##   (use "git restore --staged <file>..." to unstage)
+## 	modified:   README.md
+## 	new file:   random-numbers.R
+git commit -m "Development for demo-01 project"
+## [dev-01 fc5f874] Development for demo-01 project
+## 2 files changed, 12 insertions(+), 1 deletion(-)
+```
+
+Switch back to the main branch and get ready to merge your piece of work^[I know this is a bit artificial, but it is just for practice].
+
+```{bash, eval = F, engine = "sh"}
+git checkout main
+```
+
+Looking at the logs, you can see the `dev-01` branch is one step ahead of what we are currently viewing in our working directory.
+
+```{bash, eval = F, engine = "sh"}
+git log --oneline --decorate --graph --all
+## * fc5f874 (dev-01) Development for demo-01 project
+## * 809fe51 (HEAD -> main, origin/main, origin/HEAD) Initial commit
+```
+
+and the working directory reflects this reality as only the `READ.md` file currently exists.
+
+```{bash, eval = F, engine = "sh"}
+ls -la
+## total 8
+## drwxr-xr-x   4 mark  staff  128 10 Nov 11:44 .
+## drwxr-xr-x  10 mark  staff  320 10 Nov 09:19 ..
+## drwxr-xr-x  13 mark  staff  416 10 Nov 11:44 .git
+## -rw-r--r--   1 mark  staff   26 10 Nov 11:44 README.md
+```
+
+Merge the `dev-01` branch into `main`
+
+```{bash, eval = F, engine = "sh"}
+git merge dev-01
+## Updating 809fe51..fc5f874
+## Fast-forward
+##  README.md        |  2 +-
+##  random-numbers.R | 11 +++++++++++
+##  2 files changed, 12 insertions(+), 1 deletion(-)
+##  create mode 100644 random-numbers.R
+```
+
+We now have all the files and updates:
+
+```{bash, eval = F, engine = "sh"}
+ls -la
+## total 16
+## drwxr-xr-x   5 mark  staff  160 10 Nov 11:49 .
+## drwxr-xr-x  10 mark  staff  320 10 Nov 09:19 ..
+## drwxr-xr-x  14 mark  staff  448 10 Nov 11:49 .git
+## -rw-r--r--   1 mark  staff   66 10 Nov 11:49 README.md
+## -rw-r--r--   1 mark  staff  203 10 Nov 11:49 random-numbers.R
+```
+
+And the logs indicate that we are now up to date (note the location of *HEAD*)
+
+```{bash, eval = F, engine = "sh"}
+git log --oneline --decorate --graph --all
+## * fc5f874 (HEAD -> main, dev-01) Development for demo-01 project
+## * 809fe51 (origin/main, origin/HEAD) Initial commit
+```
+
+Finally, push these updates to the remote, remembering to use the `-u` flag on this first occasion.
+
+```{bash, eval = F, engine = "sh"}
+git push -u origin main
+## Enumerating objects: 6, done.
+## Counting objects: 100% (6/6), done.
 ## Delta compression using up to 8 threads
-## Compressing objects: 100% (2/2), done.
-## Writing objects: 100% (3/3), 340 bytes | 340.00 KiB/s, done.
-## Total 3 (delta 0), reused 0 (delta 0), pack-reused 0
-## To https://github.com/maj-biostat/demo.git
-##    92a5bee..bddb7fc  main -> main
+## Compressing objects: 100% (4/4), done.
+## Writing objects: 100% (4/4), 513 bytes | 513.00 KiB/s, done.
+## Total 4 (delta 0), reused 0 (delta 0), pack-reused 0
+## To https://github.com/maj-biostat/demo-01.git
+##    809fe51..fc5f874  main -> main
+## branch 'main' set up to track 'origin/main'.
+```
+
+:::callout-note
+If you wish to push all branches (i.e. both `main` and `dev-01`) in this case then you would need to add the `--all` flag to the `git push`.
+In the present example, this would push all the branches up to the remote.
+All people reviewing the remote can then review the complete history should they need to.
+:::
+
+```{bash, eval = F, engine = "sh"}
+git push --all
+## Total 0 (delta 0), reused 0 (delta 0), pack-reused 0
+## remote:
+## remote: Create a pull request for 'dev-01' on GitHub by visiting:
+## remote:      https://github.com/maj-biostat/demo-01/pull/new/dev-01
+## remote:
+## To https://github.com/maj-biostat/demo-01.git
+##  * [new branch]      dev-01 -> dev-01
 ```
 
 And the change can be observed once the GitHub page is refreshed.
 
-![Updated readme and pushed to GitHub](../fig/github-14.png){width=90%}
+![Updated files pushed to GitHub](../fig/github-14.png){width=90%}
 
-Let's make another change and then move on to reviewing history.
-
-Following best practice, prior to making a change we create a feature branch and then switch to that branch.
-
-```{bash, eval = F, engine = "sh"}
-git branch dev-01
-git checkout dev-01
-## Switched to branch 'dev-01'
-```
-
-Rather than code something up, simply download the `random-numbers.R` script from the @sec-resources-page page and save it to the demo-1 repository folder on your machine.
-Run the script with `Rscript random-numbers.R` to make sure that it works.
-
-```{bash, eval = F, engine = "sh"}
-git status
-## On branch dev-01
-## Untracked files:
-##   (use "git add <file>..." to include in what will be committed)
-## 	random-numbers.R
-```
-
-Stage and commit the file and then push it to the remote repository.
-
-```{bash, eval = F, engine = "sh"}
-git add random-numbers.R
-git commit -m "Random numbers"
-## [dev-01 4e69222] Random numbers
-##  1 file changed, 7 insertions(+)
-##  create mode 100644 data.R
-```
-
-Switch back to the main branch and merge your piece of work.
-
-:::callback-note
-I know, this is a bit artificial, it is solely for practice.
-Typically, there would be a number of commits involved in a piece of development, a bug fix or a new release for a protocol.
-:::
-
-```{bash, eval = F, engine = "sh"}
-git checkout main
-## Switched to branch 'main'
-## Your branch is up to date with 'origin/main'.
-git merge dev-01
-## Updating bddb7fc..4e69222
-## Fast-forward
-##  random-numbers.R | 7 +++++++
-##  1 file changed, 7 insertions(+)
-##  create mode 100644 random-numbers.R
-## 192-168-1-100:my-demo mark$
-## 192-168-1-100:my-demo mark$
-```
-
-If you want to (and it is generally good practice to do so) `git fetch` from the remote to get the latest status.
-
-:::callout-note
-In this case we know that nothing has happened to the remote so there will be no change.
-:::
-
-And then push our changes.
-
-```{bash, eval = F, engine = "sh"}
-git fetch
-git push
-## Enumerating objects: 4, done.
-## Counting objects: 100% (4/4), done.
-## Delta compression using up to 8 threads
-## Compressing objects: 100% (2/2), done.
-## Writing objects: 100% (3/3), 316 bytes | 316.00 KiB/s, done.
-## Total 3 (delta 0), reused 0 (delta 0), pack-reused 0
-## To https://github.com/maj-biostat/demo.git
-##    bddb7fc..4e69222  main -> main
-```
-
-Once again, if you reload the github repository page, you will see the new file.
 
 ### Reviewing history
 
 GitHub provides an interface to review the changes that have occurred on the repo.
+Clicking on a file within your repository will take you to the file history page where you can review the evolution of the file.
 
+![Updated readme and pushed to GitHub](../fig/github-15.png){width=90%}
 
+Once the history page opens you can navigate to various versions of a file.
+One the left you can select the branch of interest (here main is shown).
+You can view the code or the commit with syntax highlighting or in raw form (which also lets you copy and paste the raw text should you need it).
+Over on the right are the latest commit point and an open to review the full timeline (History).
 
+![File review](../fig/github-16.png){width=90%}
 
+When you review the blame view, you can see determine who did what and when.
 
-### Fork repository
-
-### Commit 
-
-### Releases
+![Code associated with commits](../fig/github-17.png){width=90%}
 
 ### Issues
 
+Issues can be managed directly within GitHub, although they are repository specific.
+Currently, our team mostly uses Jira to track and manage issues and therefore I will not cover the GitHub functionality beyond mentioning that it is very straight forward to use.
+In my opinion, there is merit in division of labour.
+GitHub serves well as a hosting service for git and continuous integrations.
 
 ## Exercises
 
