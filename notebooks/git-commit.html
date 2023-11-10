@@ -227,6 +227,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
  <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Merge</span></span></a>
   </div>
 </li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../notebooks/github-101.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">GitHub introduction</span></span></a>
+  </div>
+</li>
       </ul>
   </li>
         <li class="sidebar-item sidebar-item-section">
@@ -241,7 +247,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../notebooks/git-collab-fileserver.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Collaboration 1</span></span></a>
+ <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Collaboration 101</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../notebooks/git-collab-github.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Collaboration with GitHub</span></span></a>
   </div>
 </li>
       </ul>
@@ -299,13 +311,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="adding-files-to-projects" class="level2 page-columns page-full" data-number="7.1">
 <h2 data-number="7.1" class="anchored" data-anchor-id="adding-files-to-projects"><span class="header-section-number">7.1</span> Adding files to projects</h2>
 <p>Let’s start to introduce files for the project. Open a text editor, enter the following contents (or download the readme.md file from the applicable section under <a href="resources.html"><span>Chapter&nbsp;1</span></a>) and save the file as <code>readme.md</code> in the <code>first-repo</code> directory.</p>
-<div class="cell" data-file="resources/fundamentals-readme.md">
+<div class="cell" data-file="resources/fundamentals/readme.md">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># first-repo</span></span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>A demo markdown file <span class="cf">for</span> the git workshop.</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Ditto for the following and save the file as <code>hello.R</code> in the <code>first-repo</code> directory.</p>
-<div class="cell" data-file="resources/fundamentals-hello.R">
+<div class="cell" data-file="resources/fundamentals/hello.R">
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">"Enter a string please: "</span>);</span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>a <span class="ot">&lt;-</span> <span class="fu">readLines</span>(<span class="st">"stdin"</span>,<span class="at">n=</span><span class="dv">1</span>);</span>
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">"You entered"</span>)</span>
@@ -343,7 +355,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>The above is idealised. You may encounter the situation where you have many files, a number of which you have no intention of tracking under version control. You can ignore these files by creating a <code>.gitignore</code> file, which tells git which files it should ignore.</p>
 <p>Create a new text file with the following content and save the file as <code>.gitignore</code>. This is a special configuration filename that git recognises. The <code>.</code> at the front of <code>gitignore</code> is important.</p>
 <p>If you missed the <code>.</code> or mistakenly added a <code>.txt</code> extension then the <code>.gitignore</code> functionality will not work.</p>
-<div class="cell" data-file="resources/fundamentals-gitignore">
+<div class="cell" data-file="resources/fundamentals/.gitignore">
 <div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co"># .gitignore file contains files</span></span>
 <span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="co"># that the repository will ignore</span></span>
 <span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>log.txt</span>

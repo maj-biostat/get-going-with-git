@@ -193,6 +193,12 @@ ul.task-list li input[type="checkbox"] {
  <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Merge</span></span></a>
   </div>
 </li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../notebooks/github-101.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">GitHub introduction</span></span></a>
+  </div>
+</li>
       </ul>
   </li>
         <li class="sidebar-item sidebar-item-section">
@@ -207,7 +213,13 @@ ul.task-list li input[type="checkbox"] {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../notebooks/git-collab-fileserver.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Collaboration 1</span></span></a>
+ <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Collaboration 101</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../notebooks/git-collab-github.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Collaboration with GitHub</span></span></a>
   </div>
 </li>
       </ul>
@@ -276,18 +288,21 @@ ul.task-list li input[type="checkbox"] {
 </section>
 <section id="objectives" class="level2">
 <h2 class="anchored" data-anchor-id="objectives">Objectives</h2>
-<p>Note that you are likely to find some of this course hard and/or frustrating. I have purposefully taken a low level perspective on git because it is the best way to get a clear picture of what is actually happening.</p>
-<p>Think of it this way, if you didn’t understand what letters and words are, you are probably going to have a hard job of understanding how to <em>cunstrucked a sentunse</em><a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a>.</p>
-<p>People get themselves in a mess often simply as a result of not understanding the fundamentals. Therefore, the goal here is to understand the fundamental aspects of revision control and git in particular. Once you have that base, extending from there will be much easier for you.</p>
-<p>The pace of the workshop will be based on the abilities of the audience but there is an expectation that the audience practices the skills. The workshop is likely to be run over a few sessions but the exact length is yet to be determined.</p>
+<blockquote class="blockquote">
+<p>“I am no expert (in git <em>et al</em>) but I know enough to both get myself into trouble and usually find a way out of it.”</p>
+</blockquote>
+<p>Note that you are likely to find some of this knowledge base hard and/or frustrating. The work purposefully (and unapologetically) takes a low level perspective on git. The rationale stems from experience of this being the best way to build a clear and coherent understanding.</p>
+<p>Think of it this way, if you didn’t understand what letters and words are, you are probably going to have a hard job of understanding how to <em>cunstrucked a sentunse</em>.</p>
+<p>Often people get themselves in a mess simply as a result of not understanding the fundamentals. Therefore, the goal here is to understand the fundamental aspects of revision control and git in particular. Once you have that base, extending from there will be much easier for you.</p>
+<p>The pace of the workshop will be based on the abilities of the audience but there is an expectation that the audience practices the skills. The workshop is likely to be run over a few sessions but the exact length is yet to be determined. It is mainly targeted at analysts that are new to revision control but with some effort is accessible to anyone.</p>
 </section>
 <section id="command-line-interfaces" class="level2">
 <h2 class="anchored" data-anchor-id="command-line-interfaces">Command line interfaces</h2>
-<p>A CLI is a software mechanism that you use to interact with your operating system via your keyboard rather than a mouse. You enter in commands as text and the system will do something, e.g.&nbsp;delete a file.</p>
-<p>CLIs are software that are supplied with the operating system. Software that implements such a text interface is often called a command-line interpreter, command processor or a shell.</p>
+<p>A CLI is software, supplied with the operating system, that you use to interact with your operating system via your keyboard rather than a mouse. Software that implements such a text interface is often called a command-line interpreter, command processor or a shell. You enter in commands as text and the system will do something, e.g.&nbsp;delete a file.</p>
+<p>People outside of software development and analysts find the command line arcane, but it provides an extremely useful set of tools that pay dividends if you make the effort to learn.</p>
 <p>Nearly universally, if I use the word <em>terminal</em> I am referring to the operating system command line interface.</p>
 <p>Windows refers to its CLI as the <em>command prompt</em>, and in macOS we have the <em>terminal</em>.</p>
-<p>If you do not know how to operate your operating system CLI then you need to address that.</p>
+<p>If you do not know how to operate your operating system CLI then you need to address that to make the most out of this text.</p>
 <section id="windows" class="level3">
 <h3 class="anchored" data-anchor-id="windows">Windows</h3>
 <p>You can do these tutorials to familiarise yourselves:</p>
@@ -313,11 +328,24 @@ ul.task-list li input[type="checkbox"] {
 <ul>
 <li><a href="https://www.codecademy.com/learn/learn-the-command-line">Learn the command line</a></li>
 </ul>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>The reason I haven’t mentioned Linux is simply because for Linux oriented people, it is reasonable to assume that this level of competence has already been met.</p>
+</div>
+</div>
 </section>
 </section>
 <section id="operating-system-management---environment-variables" class="level2">
 <h2 class="anchored" data-anchor-id="operating-system-management---environment-variables">Operating system management - environment variables</h2>
-<p>You will need to have some minimal technical competence in driving your computer. At a minimum, you need to know how to set an environment variable under your operating system of choice. If you do not know how to set an environment variable, then you need to address that.</p>
+<p>You will need to have some minimal technical competence in driving your computer. For example, you need to know how to set an environment variable under your operating system of choice. If you do not know how to set an environment variable, then you need to address that.</p>
 <p>Other items that are important to be familiar with are file and directory concepts. For example, if you do not know what the command <code>tree</code> does, then it would be useful to find out. Similarly, if you do not know what file permissions are then, again, it would be useful to find out.</p>
 <section id="windows-1" class="level3">
 <h3 class="anchored" data-anchor-id="windows-1">Windows</h3>
@@ -359,20 +387,14 @@ Warning
 <p>The part on <strong>configuring 2-factor authentication</strong> is absolutely mandatory, the rest of the 2-factor content can be skimmed. See <a href="https://docs.github.com/en/authentication/securing-your-account-with-two-factor-authentication-2fa/configuring-two-factor-authentication">Configuring two-factor authentication</a>.</p>
 </div>
 </div>
-<p>To use the USyd GitHub Enterprise Server, you will need a unikey. If you have a unikey, you should have access. Go <a href="https://github.sydney.edu.au">here</a> and confirm that you can login.</p>
+<p>To use the USyd GitHub Enterprise Server, you will need a unikey. If you have a unikey, you should have access. If you go <a href="https://github.sydney.edu.au">here</a> you can confirm that you can login, but note that you will not require access to the Enterprise Server to complete this course.</p>
 </section>
 <section id="onedrive" class="level2">
 <h2 class="anchored" data-anchor-id="onedrive">OneDrive</h2>
-<p>You will need to install the desktop application for OneDrive so that you have file system integration (i.e.&nbsp;so that you can see your OneDrive through your file explorer app).</p>
+<p>It would be beneficial if you can install the desktop application for OneDrive so that you have file system integration (i.e.&nbsp;so that you can see your OneDrive through your file explorer app).</p>
 <p>You may need to go to IT Support to get them to install OneDrive for you, but it may already be installed.</p>
 
 
-</section>
-<section id="footnotes" class="footnotes footnotes-end-of-document" role="doc-endnotes">
-<hr>
-<ol>
-<li id="fn1"><p>Yes, intentional :)<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
-</ol>
 </section>
 
 </main> <!-- /main -->

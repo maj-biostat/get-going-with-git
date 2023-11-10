@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Get going with git - 11&nbsp; Collaboration 1</title>
+<title>Get going with git - 12&nbsp; Collaboration 101</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -64,7 +64,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="../site_libs/quarto-search/fuse.min.js"></script>
 <script src="../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../">
-<link href="../notebooks/about.html" rel="next">
+<link href="../notebooks/git-collab-github.html" rel="next">
 <link href="../notebooks/part-03.html" rel="prev">
 <script src="../site_libs/quarto-html/quarto.js"></script>
 <script src="../site_libs/quarto-html/popper.min.js"></script>
@@ -107,7 +107,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../notebooks/part-03.html">Part 3 - Collaboration</a></li><li class="breadcrumb-item"><a href="../notebooks/git-collab-fileserver.html"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Collaboration 1</span></a></li></ol></nav>
+      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../notebooks/part-03.html">Part 3 - Collaboration</a></li><li class="breadcrumb-item"><a href="../notebooks/git-collab-fileserver.html"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Collaboration 101</span></a></li></ol></nav>
       <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
       </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -227,6 +227,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
  <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Merge</span></span></a>
   </div>
 </li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../notebooks/github-101.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">GitHub introduction</span></span></a>
+  </div>
+</li>
       </ul>
   </li>
         <li class="sidebar-item sidebar-item-section">
@@ -241,7 +247,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../notebooks/git-collab-fileserver.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Collaboration 1</span></span></a>
+ <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Collaboration 101</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../notebooks/git-collab-github.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Collaboration with GitHub</span></span></a>
   </div>
 </li>
       </ul>
@@ -262,15 +274,16 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <h2 id="toc-title">Contents</h2>
    
   <ul>
-  <li><a href="#no-github" id="toc-no-github" class="nav-link active" data-scroll-target="#no-github"><span class="header-section-number">11.1</span> No github?</a></li>
-  <li><a href="#so-remote" id="toc-so-remote" class="nav-link" data-scroll-target="#so-remote"><span class="header-section-number">11.2</span> So remote</a></li>
-  <li><a href="#initialising-remotes" id="toc-initialising-remotes" class="nav-link" data-scroll-target="#initialising-remotes"><span class="header-section-number">11.3</span> Initialising remotes</a></li>
-  <li><a href="#keeping-remotes-up-to-date" id="toc-keeping-remotes-up-to-date" class="nav-link" data-scroll-target="#keeping-remotes-up-to-date"><span class="header-section-number">11.4</span> Keeping remotes up to date</a>
+  <li><a href="#no-github" id="toc-no-github" class="nav-link active" data-scroll-target="#no-github"><span class="header-section-number">12.1</span> No github?</a></li>
+  <li><a href="#so-remote" id="toc-so-remote" class="nav-link" data-scroll-target="#so-remote"><span class="header-section-number">12.2</span> So remote</a></li>
+  <li><a href="#initialising-remotes" id="toc-initialising-remotes" class="nav-link" data-scroll-target="#initialising-remotes"><span class="header-section-number">12.3</span> Initialising remotes</a></li>
+  <li><a href="#keeping-remotes-up-to-date" id="toc-keeping-remotes-up-to-date" class="nav-link" data-scroll-target="#keeping-remotes-up-to-date"><span class="header-section-number">12.4</span> Keeping remotes up to date</a>
   <ul>
-  <li><a href="#fetch-and-push-simple-case" id="toc-fetch-and-push-simple-case" class="nav-link" data-scroll-target="#fetch-and-push-simple-case"><span class="header-section-number">11.4.1</span> Fetch and push (simple case)</a></li>
-  <li><a href="#fetch-and-push-merge-required" id="toc-fetch-and-push-merge-required" class="nav-link" data-scroll-target="#fetch-and-push-merge-required"><span class="header-section-number">11.4.2</span> Fetch and push (merge required)</a></li>
+  <li><a href="#fetch-and-push-simple-case" id="toc-fetch-and-push-simple-case" class="nav-link" data-scroll-target="#fetch-and-push-simple-case"><span class="header-section-number">12.4.1</span> Fetch and push (simple case)</a></li>
+  <li><a href="#fetch-and-push-merge-required" id="toc-fetch-and-push-merge-required" class="nav-link" data-scroll-target="#fetch-and-push-merge-required"><span class="header-section-number">12.4.2</span> Fetch and push (merge required)</a></li>
   </ul></li>
-  <li><a href="#remotes-and-branches" id="toc-remotes-and-branches" class="nav-link" data-scroll-target="#remotes-and-branches"><span class="header-section-number">11.5</span> Remotes and branches</a></li>
+  <li><a href="#remotes-and-branches" id="toc-remotes-and-branches" class="nav-link" data-scroll-target="#remotes-and-branches"><span class="header-section-number">12.5</span> Remotes and branches</a></li>
+  <li><a href="#comparing-differences" id="toc-comparing-differences" class="nav-link" data-scroll-target="#comparing-differences"><span class="header-section-number">12.6</span> Comparing differences</a></li>
   </ul>
 <div class="toc-actions"><div><i class="bi bi-git"></i></div><div class="action-links"><p><a href="https://github.sydney.edu.au/mjon7053/get-going-with-git/blob/main/notebooks/git-collab-fileserver.qmd" class="toc-action">View source</a></p><p><a href="https://github.sydney.edu.au/mjon7053/get-going-with-git/issues/new" class="toc-action">Report an issue</a></p></div></div></nav>
     </div>
@@ -279,7 +292,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Collaboration 1</span></h1>
+<h1 class="title"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Collaboration 101</span></h1>
 </div>
 
 
@@ -297,16 +310,18 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div class="cell">
 
 </div>
-<section id="no-github" class="level2" data-number="11.1">
-<h2 data-number="11.1" class="anchored" data-anchor-id="no-github"><span class="header-section-number">11.1</span> No github?</h2>
-<p>GitHub is a hosting service for git repositories. It also extends some of the git functionality. They have captured the market, mainly because people are stupid.</p>
-<p>Before 2008, GitHub did not exist, and it wasn’t a catastrophe. What did we do? Git has the functionality built into it to allow collaboration via hosting git repositories directly on fileservers. This is a reasonable solution for small teams with access to a common network, but it has its limitations. Nevertheless, most bluechip organisations used this approach during the 2000’s.</p>
+<p>What is covered here simply scratches the surface. Git is extremely flexible in the workflows that can be set up. A basic approach is that of a centralised repository. This is fairly easy to understand and is simple to set up for small teams.</p>
+<p>The concept of <em>remotes</em> is introduced as is an associated workflow.</p>
+<section id="no-github" class="level2" data-number="12.1">
+<h2 data-number="12.1" class="anchored" data-anchor-id="no-github"><span class="header-section-number">12.1</span> No github?</h2>
+<p>GitHub is a hosting service for git repositories. It also extends some of the git functionality. They have captured the market, mainly because we are all a bit dim.</p>
+<p>Before 2005 (ish), GitHub did not exist, and it wasn’t a catastrophe. What did we do? Git has the functionality built into it to allow collaboration via hosting git repositories directly on fileservers. This is a reasonable solution for small teams with access to a common network, but it has its limitations. Nevertheless, most bluechip organisations used this approach during the 2000’s.</p>
 <p>Repositories that are retained outside of your local machine are referred to as <em>remotes</em>. It doesn’t matter whether they are hosted on LIQUID, or a random file server or GitHub or BitBucket or Timbuktu. They are still known as remotes.</p>
 <p>Remotes allow you to work on a repository collaboratively with your colleagues. This has been standard practice in software development since circa 1760.</p>
 <p>We will talk about hosting remotes on fileservers here and then move on to GitHub next.</p>
 </section>
-<section id="so-remote" class="level2" data-number="11.2">
-<h2 data-number="11.2" class="anchored" data-anchor-id="so-remote"><span class="header-section-number">11.2</span> So remote</h2>
+<section id="so-remote" class="level2" data-number="12.2">
+<h2 data-number="12.2" class="anchored" data-anchor-id="so-remote"><span class="header-section-number">12.2</span> So remote</h2>
 <p>What remote (or remotes) are associated with the example repository that we have been working on? Let’s look.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> remote <span class="at">-v</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -314,8 +329,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>No remotes.</p>
 <p>If at any time you want to review the remotes associated with your repository (you can have more than one remote) then invoke the command that we just used.</p>
 </section>
-<section id="initialising-remotes" class="level2 page-columns page-full" data-number="11.3">
-<h2 data-number="11.3" class="anchored" data-anchor-id="initialising-remotes"><span class="header-section-number">11.3</span> Initialising remotes</h2>
+<section id="initialising-remotes" class="level2 page-columns page-full" data-number="12.3">
+<h2 data-number="12.3" class="anchored" data-anchor-id="initialising-remotes"><span class="header-section-number">12.3</span> Initialising remotes</h2>
 <p>Let’s set up a remote on OneDrive. OneDrive is a cloud file-server, but technically we could replace OneDrive with any file-server. For example, we used to have the LIQUID drive at TKI mounted as a network drive and we could use that.</p>
 <p>Anyway, just follow along.</p>
 <div class="cell">
@@ -390,11 +405,12 @@ Note
 <figcaption class="figure-caption margin-caption">Clone repository</figcaption>
 </figure>
 </div>
-<p>Over on the left we have the remote git database. On the right we have Mark who created the remote from his local repository and Sylvie who cloned the remote repository to her local machine.</p>
+<p>Over on the left we have the remote git database. On the right we have Mark who created the remote from his local repository and Sylvie who cloned the remote repository to her local machine. Git isn’t restricted to this centralised architecture (it is possible to have multiple remotes and other variations) but it is a common paradigm.</p>
+<p>GitHub uses a different workflow that commonly relies on a project owner pulling a developers updates into a main project repository rather than the developer pushing their work directly to the project repository. We will see more about this later.</p>
 </section>
-<section id="keeping-remotes-up-to-date" class="level2" data-number="11.4">
-<h2 data-number="11.4" class="anchored" data-anchor-id="keeping-remotes-up-to-date"><span class="header-section-number">11.4</span> Keeping remotes up to date</h2>
-<p>You can think of a remote as the hub around which collaboration revolves. As a project progresses, the local files are updated and we need to get these files into the remote so that our colleagues can keep their work in sync. However, someone else may send their files to the remote prior to you completing your work.</p>
+<section id="keeping-remotes-up-to-date" class="level2 page-columns page-full" data-number="12.4">
+<h2 data-number="12.4" class="anchored" data-anchor-id="keeping-remotes-up-to-date"><span class="header-section-number">12.4</span> Keeping remotes up to date</h2>
+<p>For now, you can think of a remote as the hub around which collaboration revolves. As a project progresses, the local files are updated and we need to get these files into the remote so that our colleagues can keep their work in sync. However, someone else may send their files to the remote prior to you completing your work.</p>
 <p><strong>This would mean that the state of the remote is ahead of your local repository.</strong></p>
 <p>git (and GitHub) will not allow you to send your updates to the repository unless you are sync’d. In other words, you have to be up to date in order to send your changes to the remote.</p>
 <p>To be able to push your work up to the remote, the steps are:</p>
@@ -403,11 +419,18 @@ Note
 <li>run <code>git fetch</code> to establish whether you are up to date with the remote</li>
 <li>if necessary, merge any changes into your local repository to get up to date</li>
 <li>ensure that all your changes are committed to the local repository</li>
-<li>push you modifications up to the remote</li>
+<li><code>git push</code> you modifications up to the remote</li>
 </ol>
-<p>It sounds a bit involved, but in practice it is simple.</p>
-<section id="fetch-and-push-simple-case" class="level3" data-number="11.4.1">
-<h3 data-number="11.4.1" class="anchored" data-anchor-id="fetch-and-push-simple-case"><span class="header-section-number">11.4.1</span> Fetch and push (simple case)</h3>
+<p>Here is another picture.</p>
+<div class="quarto-figure quarto-figure-center page-columns page-full">
+<figure class="figure page-columns page-full">
+<p><img src="../fig/collab-workflow-01.jpg" class="img-fluid figure-img" style="width:90.0%"></p>
+<figcaption class="figure-caption margin-caption">Centralised workflow</figcaption>
+</figure>
+</div>
+<p>It sounds (and looks) a bit involved, but in practice it is simple. We will go over the steps below.</p>
+<section id="fetch-and-push-simple-case" class="level3" data-number="12.4.1">
+<h3 data-number="12.4.1" class="anchored" data-anchor-id="fetch-and-push-simple-case"><span class="header-section-number">12.4.1</span> Fetch and push (simple case)</h3>
 <p>First Silvie ensures that all her local changes are committed to the repository. It looks like Silvie made a change to the <code>readme.md</code> when we were not looking.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb6"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="bu">cd</span> sylvie-first-repo</span>
@@ -458,19 +481,32 @@ Note
 <span id="cb8-18"><a href="#cb8-18" aria-hidden="true" tabindex="-1"></a><span class="co">## 0cd2d52 First commit</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
-<section id="fetch-and-push-merge-required" class="level3" data-number="11.4.2">
-<h3 data-number="11.4.2" class="anchored" data-anchor-id="fetch-and-push-merge-required"><span class="header-section-number">11.4.2</span> Fetch and push (merge required)</h3>
+<section id="fetch-and-push-merge-required" class="level3" data-number="12.4.2">
+<h3 data-number="12.4.2" class="anchored" data-anchor-id="fetch-and-push-merge-required"><span class="header-section-number">12.4.2</span> Fetch and push (merge required)</h3>
 <p>In the interim Mark has been working on the <code>first-repo</code> and will want to get these changes into the remote. However, Mark hasn’t yet linked his local repository with the remote.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb9"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> remote <span class="at">-v</span></span>
 <span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="co">## nothing</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p>It is simple to fix this with <code>git remote add</code> which, predictably tells git to configure a link between a local and remote version of the repository. The use of the word <em>origin</em> is just convention and it is a shortcut for the full directory path (or URL) for the remote. You can call the remote anything you want but most people stick with the convention of <em>origin</em>, which is a bit like the convention of using <em>main</em> for the main branch.</p>
+<p>To fix this we use <code>git remote add</code> which, predictably tells git to configure a link between a local and remote version of the repository. This is a one time process and once we have set the remote, we do not need to do it again until we need to add a new remote.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb10"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> remote add origin /Users/mark/Library/CloudStorage/OneDrive-TheUniversityofSydney\(Staff\)/first-repo.git</span>
 <span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> remote <span class="at">-v</span></span>
 <span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a><span class="co">## origin   /Users/mark/Library/CloudStorage/OneDrive-TheUniversityofSydney(Staff)/first-repo.git (fetch)</span></span>
 <span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a><span class="co">## origin   /Users/mark/Library/CloudStorage/OneDrive-TheUniversityofSydney(Staff)/first-repo.git (push)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>The use of the word <em>origin</em> below is just convention to indicate the primary remote. It is a shortcut for the full directory path (or URL) for the remote. You can call the remote anything you want but most people stick with the convention of <em>origin</em>, which is a bit like the GitHub convention of using <em>main</em> for the main branch. If you were to add a second remote, you would call it something other than <em>origin</em>.</p>
+</div>
 </div>
 <p>Next, we need to tell the local repository to reference this remote.</p>
 <div class="cell">
@@ -545,8 +581,8 @@ Note
 </div>
 </section>
 </section>
-<section id="remotes-and-branches" class="level2" data-number="11.5">
-<h2 data-number="11.5" class="anchored" data-anchor-id="remotes-and-branches"><span class="header-section-number">11.5</span> Remotes and branches</h2>
+<section id="remotes-and-branches" class="level2" data-number="12.5">
+<h2 data-number="12.5" class="anchored" data-anchor-id="remotes-and-branches"><span class="header-section-number">12.5</span> Remotes and branches</h2>
 <p>One key aspect that I have not mentioned to date is for the scenario where new branches are created in a local repository.</p>
 <p>To list all known branches in both your local repository and the remote (or remotes)</p>
 <div class="cell">
@@ -587,6 +623,10 @@ Note
 <span id="cb23-5"><a href="#cb23-5" aria-hidden="true" tabindex="-1"></a><span class="co">## branch 'analysis-04' set up to track 'origin/analysis-04'.</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>And now uses can fetch and review this branch within the context of their local repositories.</p>
+</section>
+<section id="comparing-differences" class="level2" data-number="12.6">
+<h2 data-number="12.6" class="anchored" data-anchor-id="comparing-differences"><span class="header-section-number">12.6</span> Comparing differences</h2>
+<p>TODO - Using the .. notation.</p>
 
 
 </section>
@@ -848,8 +888,8 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="../notebooks/about.html" class="pagination-link">
-        <span class="nav-page-text">About</span> <i class="bi bi-arrow-right-short"></i>
+      <a href="../notebooks/git-collab-github.html" class="pagination-link">
+        <span class="nav-page-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Collaboration with GitHub</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>
