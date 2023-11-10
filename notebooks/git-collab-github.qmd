@@ -1,0 +1,20 @@
+---
+title: "Collaboration with GitHub"
+editor: source
+---
+
+
+```{r, echo = FALSE}
+source("./R/init.R")
+log_info("Called git-collab-github notebook")
+```
+
+### Fork repository
+
+### Commit 
+
+### Releases
+
+### Issues
+
+### Pull requests

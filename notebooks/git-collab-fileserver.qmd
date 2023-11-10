@@ -1,5 +1,5 @@
 ---
-title: "Collaboration 1"
+title: "Collaboration 101"
 editor: source
 ---
 
@@ -9,13 +9,20 @@ source("./R/init.R")
 log_info("Called git-collab-fileserver notebook")
 ```
 
+What is covered here simply scratches the surface.
+Git is extremely flexible in the workflows that can be set up.
+A basic approach is that of a centralised repository.
+This is fairly easy to understand and is simple to set up for small teams.
+
+The concept of *remotes* is introduced as is an associated workflow.
+
 ## No github?
 
 GitHub is a hosting service for git repositories. 
 It also extends some of the git functionality.
-They have captured the market, mainly because people are stupid.
+They have captured the market, mainly because we are all a bit dim.
 
-Before 2008, GitHub did not exist, and it wasn't a catastrophe.
+Before 2005 (ish), GitHub did not exist, and it wasn't a catastrophe.
 What did we do?
 Git has the functionality built into it to allow collaboration via hosting git repositories directly on fileservers.
 This is a reasonable solution for small teams with access to a common network, but it has its limitations.
@@ -128,11 +135,15 @@ The picture now looks like this
 ![Clone repository](../fig/remote-01.jpg){width=70%}
 
 Over on the left we have the remote git database.
-On the right we have Mark who created the remote from his local repository and Sylvie who cloned the remote repository to her local machine. 
+On the right we have Mark who created the remote from his local repository and Sylvie who cloned the remote repository to her local machine.
+Git isn't restricted to this centralised architecture (it is possible to have multiple remotes and other variations) but it is a common paradigm.
+
+GitHub uses a different workflow that commonly relies on a project owner pulling a developers updates into a main project repository rather than the developer pushing their work directly to the project repository.
+We will see more about this later.
 
 ## Keeping remotes up to date
 
-You can think of a remote as the hub around which collaboration revolves.
+For now, you can think of a remote as the hub around which collaboration revolves.
 As a project progresses, the local files are updated and we need to get these files into the remote so that our colleagues can keep their work in sync.
 However, someone else may send their files to the remote prior to you completing your work.
 
@@ -147,9 +158,14 @@ To be able to push your work up to the remote, the steps are:
 2. run `git fetch` to establish whether you are up to date with the remote 
 3. if necessary, merge any changes into your local repository to get up to date
 4. ensure that all your changes are committed to the local repository
-5. push you modifications up to the remote
+5. `git push` you modifications up to the remote
 
-It sounds a bit involved, but in practice it is simple.
+Here is another picture.
+
+![Centralised workflow](../fig/collab-workflow-01.jpg){width=90%}
+
+It sounds (and looks) a bit involved, but in practice it is simple.
+We will go over the steps below.
 
 ### Fetch and push (simple case)
 
@@ -220,9 +236,10 @@ git remote -v
 ## nothing
 ```
 
-It is simple to fix this with `git remote add` which, predictably tells git to configure a link between a local and remote version of the repository.
-The use of the word *origin* is just convention and it is a shortcut for the full directory path (or URL) for the remote.
-You  can call the remote anything you want but most people stick with the convention of *origin*, which is a bit like the convention of using *main* for the main branch.
+
+To fix this we use `git remote add` which, predictably tells git to configure a link between a local and remote version of the repository.
+This is a one time process and once we have set the remote, we do not need to do it again until we need to add a new remote.
+
 
 ```{bash, eval = F, engine = "sh"}
 git remote add origin /Users/mark/Library/CloudStorage/OneDrive-TheUniversityofSydney\(Staff\)/first-repo.git
@@ -230,6 +247,13 @@ git remote -v
 ## origin	/Users/mark/Library/CloudStorage/OneDrive-TheUniversityofSydney(Staff)/first-repo.git (fetch)
 ## origin	/Users/mark/Library/CloudStorage/OneDrive-TheUniversityofSydney(Staff)/first-repo.git (push)
 ```
+
+:::callout-note
+The use of the word *origin* below is just convention to indicate the primary remote.
+It is a shortcut for the full directory path (or URL) for the remote.
+You  can call the remote anything you want but most people stick with the convention of *origin*, which is a bit like the GitHub convention of using *main* for the main branch.
+If you were to add a second remote, you would call it something other than *origin*.
+:::
 
 Next, we need to tell the local repository to reference this remote.
 
@@ -383,4 +407,6 @@ git push --set-upstream origin analysis-04
 
 And now uses can fetch and review this branch within the context of their local repositories.
 
+## Comparing differences
 
+TODO - Using the .. notation.

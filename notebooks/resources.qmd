@@ -12,3 +12,7 @@ These files are used in **Part 2 - Fundamentals** from the text:
 + <a href="../resources/fundamentals-readme.md">readme.md</a>
 + <a href="../resources/fundamentals-branching.R">branching.R</a>
 + <a href="../resources/fundamentals-gitignore">.gitignore</a>
+
+These files are used in **Part 3 - Collaboration** from the text:
+
++ [random-numbers.R](../resources/collaboration-random-numbers.R)

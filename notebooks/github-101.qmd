@@ -1,0 +1,355 @@
+---
+title: "GitHub introduction"
+editor: source
+---
+
+
+```{r, echo = FALSE}
+source("./R/init.R")
+log_info("Called github-101 notebook")
+```
+
+Rightly or wrongly, GitHub has become the defacto tool for storing and sharing work.
+GitHub is a hosting service for git repositories. 
+It is not part of the git software.
+
+Around 10,000 companies (3M, Dell, Airbnb, Netflix ...) use GitHub as part of their development stack.
+It sources literally 100's of millions of projects with billions of contributions to these projects per year.
+Around 95% of developers use git as the version control system of choice.
+
+Alternatives that aim to serve similar goals include [GitLab](https://about.gitlab.com/) and [Bitbucket](https://bitbucket.org/product).
+
+You should have set up an account, configured 2FA and created a personal token per the pre-requisite notes so that isn't going to be covered here.
+We will use `https` to access GitHub, which is the default, so you do not need to set up any other protocols.
+
+## Walk around the interface
+
+When you log into [GitHub](github.com) you will be taken to your dashboard (homepage) which is a bit of a feed, quick links to some of your repositories and other things that might be of interest.
+Day to day, what you probably want to see and interact with is your repositories and their settings.
+
+![GitHub landing](../fig/github-01.png){width=90%}
+
+Go to the top right hand corner and click the far right icon to get the drop down, then select your profile.
+All of the following is based on my account but you can follow along under your login as well, just replace my username with yours in the relevant places.
+
+![GitHub landing dropdown](../fig/github-02.png){width=90%}
+
+From there you can edit various details pertaining to yourself, review your stats and so on and then jump into the git repositories that you have put onto GitHub.
+
+![GitHub profile](../fig/github-03.png){width=90%}
+
+Select the repository link to see a list of all your repositories.
+You can also get here directly from your landing page via the 'Your repositories' link.
+I have highlighted the `get-going-with-git` repo. 
+You won't have this repository at this stage (you might not have any) but that's ok, just follow along.
+
+![GitHub repository listing](../fig/github-04.png){width=90%}
+
+Selecting a specific repository brings up its landing page which includes the repository files, a description file, stats on the repository, settings and various other items.
+The page that is shown below corresponds to the git repository used to manage this knowledge base and website.
+
+![GitHub repository landing page](../fig/github-05.png){width=90%}
+
+## Common functions via GitHub
+
+Some (if not all) of the functionality that git implements has been integrated into the GitHub platform.
+Let's go over some of them briefly.
+
+### Initialise repository
+
+There are a few ways to do this.
+The simplest is to initialise the repo on GitHub then clone it down to your machine.
+The preferred way to to start with pre-existing local work (repo) and connect it with a remote on GitHub.
+
+#### Initialise on GitHub {#sec-initialise-on-github}
+
+You can achieve this directly from any page.
+
+![GitHub initialise new remote repository](../fig/github-06.png){width=90%}
+
+The configuration is largely self-explanatory.
+
+![Configure the repository](../fig/github-07.png){width=90%}
+
+And then you are taken to your new shiny repository page.
+
+![New repository page](../fig/github-08.png){width=90%}
+
+Clicking on Settings (highlighted above) if you were to want to add collaborators.
+
+![Collaborators setting](../fig/github-09.png){width=90%}
+
+![Enter collaborator details](../fig/github-10.png){width=90%}
+
+And if you want to change the visibility (public/private) of the repository it is down at the bottom of the general settings under the Dange Zone section.
+
+#### Initialise from existing repository
+
+Again, you can achieve this directly from any page.
+
+![GitHub initialise new remote repository](../fig/github-06.png){width=90%}
+
+The only difference in the setup is that you **do NOT to initialize the repository with a readme**.
+You will then be shown the following instructions.
+The latter case is the one that is applicable, as shown.
+
+![Link a local repo with the new remote](../fig/github-11.png){width=90%}
+
+If you recall from the previous discussion on fileserver remotes, we had set the remote for the `first-repo` repository to be a OneDrive remote.
+Recapping:
+
+```{bash, eval = F, engine = "sh"}
+pwd
+## /Users/mark/Documents/project/misc-stats/first-repo
+git remote -v
+## origin	/Users/mark/Library/CloudStorage/OneDrive-TheUniversityofSydney(Staff)/first-repo.git (fetch)
+## origin	/Users/mark/Library/CloudStorage/OneDrive-TheUniversityofSydney(Staff)/first-repo.git (push)
+```
+
+While we can technically have multiple remotes, it might be easier to simply unlink from this current remote.
+
+```{bash, eval = F, engine = "sh"}
+git remote rm origin
+git remote -v
+## 
+```
+
+And now add GitHub as the new remote.
+
+```{bash, eval = F, engine = "sh"}
+git remote add origin https://github.com/maj-biostat/demo2.git
+git branch -M main
+git push -u origin main
+
+## Enumerating objects: 68, done.
+## Counting objects: 100% (68/68), done.
+## Delta compression using up to 8 threads
+## Compressing objects: 100% (67/67), done.
+## Writing objects: 100% (68/68), 6.51 KiB | 3.25 MiB/s, done.
+## Total 68 (delta 41), reused 0 (delta 0), pack-reused 0
+## remote: Resolving deltas: 100% (41/41), done.
+## To https://github.com/maj-biostat/demo2.git
+##  * [new branch]      main -> main
+## branch 'main' set up to track 'origin/main'.
+```
+
+:::callout-note
+The `git branch -M main` simply renames the current branch to main. 
+In practice, this isn't a problem if you create all of your repositories with a default branch called *main* instead of *master* which is the legacy git preferred name.
+:::
+
+:::callout-note
+The `git push -u` pushes up the branch information and the evolution of the repository.
+The `-u` is bsically telling git to link your local main branch with the remote main branch.
+You only need to use this flag once and thereafter you can use `git fetch` and `git push` and git will know which remote you want to communicate with.
+:::
+
+When we refresh the github page [https://github.com/maj-biostat/demo-02](https://github.com/maj-biostat/demo-02) (replacing my username with your own) then we see that the `first-repo` now appears on GitHub.
+It doesn't matter that the remote repo is called something other than `first-repo`.
+Generally you will give things the same names, but not always.
+
+![first-repo is now on GitHub](../fig/github-12.png){width=90%}
+
+### Clone a GitHub remote
+
+In the first approach to initialising a remote (@sec-initialise-on-github) we did not bring the remote down to the local machine.
+However, this is fairly trivial process to achieve by using `git clone` in a similar manner to how we used it previously.
+
+Navigate back to the `demo-01` repository on GitHub, select the green clone button and copy the link to your clipboard.
+
+![Cloning from GitHub](../fig/github-13.png){width=90%}
+
+Now head back to your terminal, change directory out of `first-repo` into the local workshop directory and run the following which clones the *demo-01* repository to a local directory named *demo-01*. 
+
+:::callout-note
+Locally, you can give the remote repository any name you want. 
+Here we have just used the same repository name as the remote, but we could call it *my-demo-01* or anything else you want.
+:::
+
+```{bash, eval = F, engine = "sh"}
+git clone https://github.com/maj-biostat/demo-01.git demo-01
+## Cloning into 'demo-01'...
+## remote: Enumerating objects: 3, done.
+## remote: Counting objects: 100% (3/3), done.
+## remote: Total 3 (delta 0), reused 0 (delta 0), pack-reused 0
+## Receiving objects: 100% (3/3), done.
+cd demo-01/
+ls -la
+## total 8
+## drwxr-xr-x  10 mark  staff  320  9 Nov 13:29 ..
+## drwxr-xr-x   4 mark  staff  128  9 Nov 13:29 .
+## -rw-r--r--   1 mark  staff   24  9 Nov 13:29 README.md
+## drwxr-xr-x  12 mark  staff  384  9 Nov 13:29 .git
+```
+
+### Fetch and push
+
+Once you have linked your local and remote repositories, the workflow is identical to what has been previously introduced.
+
+Let's work through the process again.
+
+Following best practice, prior to making a change we create a feature branch and then switch to that branch.
+
+```{bash, eval = F, engine = "sh"}
+git branch dev-01
+git checkout dev-01
+## Switched to branch 'dev-01'
+```
+
+Rather than code something up, simply download the [random-numbers.R](../resources/collaboration-random-numbers.R) script (also listed on resources, @sec-resources-page page) and save it to the demo-01 repository folder on your machine.
+Run the script with `Rscript random-numbers.R` to make sure that it works.
+
+```{bash, eval = F, engine = "sh"}
+git status
+## On branch dev-01
+## Untracked files:
+##   (use "git add <file>..." to include in what will be committed)
+## 	random-numbers.R
+```
+
+Stage and commit the file and then push it to the remote repository.
+
+```{bash, eval = F, engine = "sh"}
+git add random-numbers.R
+git commit -m "Random numbers"
+## [dev-01 4e69222] Random numbers
+##  1 file changed, 7 insertions(+)
+##  create mode 100644 data.R
+```
+
+Switch back to the main branch and merge your piece of work.
+
+
+To test this out go to the `demo-01` repo on your machine and add an arbitrary line to the `README.md` file.
+You can do this by using any text editing application like notepad etc.
+
+```{bash, eval = F, engine = "sh"}
+git status
+## On branch main
+## Your branch is up to date with 'origin/main'.
+## 
+## Changes not staged for commit:
+##   (use "git add <file>..." to update what will be committed)
+##   (use "git restore <file>..." to discard changes in working directory)
+## 	modified:   README.md
+## 
+## no changes added to commit (use "git add" and/or "git commit -a")
+git add README.md
+git commit -m "Added arbitrary line to readme"
+## [main bddb7fc] Added arbitrary line to readme
+##  1 file changed, 4 insertions(+)
+git push
+## Enumerating objects: 5, done.
+## Counting objects: 100% (5/5), done.
+## Delta compression using up to 8 threads
+## Compressing objects: 100% (2/2), done.
+## Writing objects: 100% (3/3), 340 bytes | 340.00 KiB/s, done.
+## Total 3 (delta 0), reused 0 (delta 0), pack-reused 0
+## To https://github.com/maj-biostat/demo.git
+##    92a5bee..bddb7fc  main -> main
+```
+
+And the change can be observed once the GitHub page is refreshed.
+
+![Updated readme and pushed to GitHub](../fig/github-14.png){width=90%}
+
+Let's make another change and then move on to reviewing history.
+
+Following best practice, prior to making a change we create a feature branch and then switch to that branch.
+
+```{bash, eval = F, engine = "sh"}
+git branch dev-01
+git checkout dev-01
+## Switched to branch 'dev-01'
+```
+
+Rather than code something up, simply download the `random-numbers.R` script from the @sec-resources-page page and save it to the demo-1 repository folder on your machine.
+Run the script with `Rscript random-numbers.R` to make sure that it works.
+
+```{bash, eval = F, engine = "sh"}
+git status
+## On branch dev-01
+## Untracked files:
+##   (use "git add <file>..." to include in what will be committed)
+## 	random-numbers.R
+```
+
+Stage and commit the file and then push it to the remote repository.
+
+```{bash, eval = F, engine = "sh"}
+git add random-numbers.R
+git commit -m "Random numbers"
+## [dev-01 4e69222] Random numbers
+##  1 file changed, 7 insertions(+)
+##  create mode 100644 data.R
+```
+
+Switch back to the main branch and merge your piece of work.
+
+:::callback-note
+I know, this is a bit artificial, it is solely for practice.
+Typically, there would be a number of commits involved in a piece of development, a bug fix or a new release for a protocol.
+:::
+
+```{bash, eval = F, engine = "sh"}
+git checkout main
+## Switched to branch 'main'
+## Your branch is up to date with 'origin/main'.
+git merge dev-01
+## Updating bddb7fc..4e69222
+## Fast-forward
+##  random-numbers.R | 7 +++++++
+##  1 file changed, 7 insertions(+)
+##  create mode 100644 random-numbers.R
+## 192-168-1-100:my-demo mark$
+## 192-168-1-100:my-demo mark$
+```
+
+If you want to (and it is generally good practice to do so) `git fetch` from the remote to get the latest status.
+
+:::callout-note
+In this case we know that nothing has happened to the remote so there will be no change.
+:::
+
+And then push our changes.
+
+```{bash, eval = F, engine = "sh"}
+git fetch
+git push
+## Enumerating objects: 4, done.
+## Counting objects: 100% (4/4), done.
+## Delta compression using up to 8 threads
+## Compressing objects: 100% (2/2), done.
+## Writing objects: 100% (3/3), 316 bytes | 316.00 KiB/s, done.
+## Total 3 (delta 0), reused 0 (delta 0), pack-reused 0
+## To https://github.com/maj-biostat/demo.git
+##    bddb7fc..4e69222  main -> main
+```
+
+Once again, if you reload the github repository page, you will see the new file.
+
+### Reviewing history
+
+GitHub provides an interface to review the changes that have occurred on the repo.
+
+
+
+
+
+### Fork repository
+
+### Commit 
+
+### Releases
+
+### Issues
+
+
+## Exercises
+
+:::{#exr-1} 
+When creating a new branch, we have needed to take to steps.
+First, we created the branch and then we checked it out.
+Is there a way this can be done with one command? Hint - Yes
+What is that command?
+:::
