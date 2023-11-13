@@ -57,7 +57,7 @@ The file contains the following:
 #| eval: false 
 #| output : asis
 #| code-fold : true
-#| file: resources/fundamentals-branching.R
+#| file: resources/fundamentals/branching.R
 ```
 
 Run the script:
