@@ -1,0 +1,19 @@
+---
+title: "Collaboration with GitHub from the CLI"
+editor: source
+---
+
+
+```{r, echo = FALSE}
+source("./R/init.R")
+log_info("Called git-collab-cli-gh notebook")
+```
+
+
+<!-- https://adamdurrant.co.uk/blog/create-repo-from-cli -->
+<!-- https://stackoverflow.com/questions/64385414/how-to-create-a-git-repository-using-github-cli -->
+
+
+<!-- git remote add origin https://github.com/career-karma-tutorials/ck-git gh repo create my-newrepo –public –source=. –remote=upstream –push -->
+
+<!-- The first part of the one liner: gh repo create my-newrepo creates and names a repo in your account (note: ‘my-newrepo’ should be replaced by the repo name of your choice) The -public flag makes sure the repo is public (swap this for -private if necessary) The -source=. flag specifies the source directory to be pushed Finally, the -remote=upstream flag specifies the remote repository to which the local repository is going to be compared with when pushing i.e the ‘upstream’ default. -->
