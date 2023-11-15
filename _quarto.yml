@@ -36,11 +36,12 @@ book:
       chapters:
         - notebooks/git-collab-fileserver.qmd
         - notebooks/git-collab-github.qmd
-
     - notebooks/about.qmd
   site-url: https://pages.github.sydney.edu.au/mjon7053/get-going-with-git/
   repo-url: https://github.sydney.edu.au/mjon7053/get-going-with-git
   repo-actions: [source, issue]
+
+
 
 format:
   html:
@@ -65,6 +66,7 @@ format:
     link-external-icon: true
     link-external-newwindow: true
     link-external-filter: '^(?:http:|https:)\/\/github\.sydney\.edu\.au'
+
 
   pdf:
     documentclass: scrreprt

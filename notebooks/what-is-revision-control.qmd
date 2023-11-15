@@ -43,7 +43,9 @@ Again, I cannot sum it up better than Jenny, so please take the time to read it.
 
 ## Why commandline
 
-Because it is the best way.
+Because every other approach fundamentally rests on the workings of git.
+While other approaches might abstract away from some of gits complexity, they also make some of the workings opaque.
+By learning the commandline functions, you focus on what you actually need and when you use another approach, you will understand what it is trying to achieve.
 
 
 

@@ -276,6 +276,8 @@ git fetch  # pulls down information on the branches in the remote
 git branch --set-upstream-to=origin/main main # links a local with remote branch
 ```
 
+
+
 Checking the status we see that the change that Sylvie pushed has left us out of sync.
 
 ```{bash, eval = F, engine = "sh"}
@@ -336,6 +338,13 @@ git merge
 ##  readme.md | 3 +++
 ##  1 file changed, 3 insertions(+)
 ```
+
+:::callout-note
+Git offers another command `git pull` that effectively combines `git fetch` with `git merge`.
+The benefit of using `git fetch` is that it will update your local repository but will not make any changes to your XXX.
+:::
+
+\nameref{sec-no-github}
 
 And in this case, the merge appears to have worked correctly.
 

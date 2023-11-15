@@ -15,3 +15,5 @@ These files are used in **Part 2 - Fundamentals** from the text:
 + [random-numbers.R](../resources/fundamentals/random-numbers.R)
 
 These files are used in **Part 3 - Collaboration** from the text:
+
++ None currently required.

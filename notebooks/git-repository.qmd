@@ -12,10 +12,11 @@ log_info("Called git-repository notebook")
 ## Git repositories
 
 A repository is the most basic component of git. 
-It is where you store your files and each files history.
-Through a variety of mechanisms, repositories can be public or private, can involve single people or multiple collaborators and can be stored locally (on your personal computer), in the cloud (in the cloud hosted by a service provider like github) or on a physical server (a basic file server will suffice in most cases).
+It is where the history is retained in terms of commits (it's not correct but for the time being you can think of these as versions or snapshots of the files/repository).
 
-Using git, you can create and configure repositories, add or remove files and review history of the files in the repository.
+Repositories can be public or private, can involve single people or multiple collaborators and can be stored locally (on your personal computer), be located/stored in the cloud (in the cloud as in hosted by a service provider like github), or on a physical server (a basic file server will suffice in most cases), or just on your local machine.
+
+Using the functions provided through git, you can create and configure repositories, add or remove files, review history of the files in the repository and much more.
 
 ### Initialisation
 
@@ -43,15 +44,18 @@ git status
 If you received the output detailed above (or something very similar to it) then congratulations, you initialised a git repository.
 
 If you have configured your file explorer to show hidden files, you will notice that the `first-repo` directory now contains a `.git` sub-directory.
-This directory contains the everything related to the repository.
-For examples, it contains all the version history and allows you to access files at any stage in their development.
-Generally, you will not touch this sub-directory directly.
+If you are running a Windows OS, then depending on what version you have, you may be able to run `ls -la` to list all files (i.e. including hidden files) within a directory.
+
+This (`.git`) directory contains everything related to the repository.
+
+:::callout-warning
+**If you delete the `.git` directory, you will erase all of your commits. So, do not delete it unless you are absolutely certain this is what you want.**
+:::
 
 :::callout-note
-You can also create a repository from a pre-existing directory that has already got an established file structure and files.
+1. You can also create a repository from a pre-existing directory that has already got an established file structure and files.
 The process is exactly the same, just change to the directory that you want to add to version control, and run `git init`.
-
-Additionally, when you create a new project in Rstudio, you can select to initialise a new git repository.
+2. When you create a new project in Rstudio, you can select to initialise a new git repository.
 Underneath the covers, RStudio is simply invoking `git init`.
 :::
 
@@ -67,7 +71,7 @@ There are three main structures within the repository:
 
 ![Repository structures](../fig/repos-structs.jpg)
 
-#### Working directory
+#### Working directory {#sec-working-dir}
 
 Is the usual files and sub-directories within your project directory.
 You add, update, rename, delete files and direcotries in this area.

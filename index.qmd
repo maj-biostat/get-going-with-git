@@ -2,35 +2,12 @@
 
 When you are getting into the nitty gritty, version control is a large topic.
 The git, github, github cli and github pages ... technologies can be daunting to set up and use.
-However, once you are setup properly and understand how things fit together at a high level, users can go a long way with a minimal set of commands.
+However, once you have things installed and configured and you understand how things fit together at a high level, then you can go a long way with a minimal set of commands.
 
 I know, it is true that a little knowledge can be a dangerous thing, but it probably isn't quite as bad as complete ignorance.
 
-**Get going with git** - aims to provide a minimal knowledge base, sufficient to get you started without having to wade through reams of documentation distributed all over the internet.
+**Get going with git** - aims to provide a minimal knowledge base, sufficient to get you started with the core functionality and hopefully without having to wade through reams of documentation that is distributed all over the internet.
+
 It can be browsed online or downloaded as a word document for your reference.
-
-What is version control?
-Setting up git
-Time to commit: working with a local repository
-Push and pull: working with a remote repository
-Making your first repository on GitHub
-Day 2: Collaborating with Others
-
-Dealing with (git) conflicts
-Branching for sanity
-Creating pull requests
-Collaborating with GitHub tools
-Day 3: Dealing with Complications
-
-Undoing changes
-Learning good repository organization principles
-Ignoring things (in git)
-Working with large files
-Using the README
-Creating GitHub templates
-Extending git and GitHub with other tools
-
-
-
 
 
