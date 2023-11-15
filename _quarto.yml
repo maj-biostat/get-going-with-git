@@ -19,7 +19,6 @@ book:
     - notebooks/preamble.qmd
     - part: notebooks/part-01.qmd
       chapters:
-        - notebooks/resources.qmd
         - notebooks/what-is-revision-control.qmd
         - notebooks/git-install.qmd
         - notebooks/git-setup.qmd
@@ -36,6 +35,11 @@ book:
       chapters:
         - notebooks/git-collab-fileserver.qmd
         - notebooks/git-collab-github.qmd
+        - notebooks/git-doc-github.qmd
+    - part: notebooks/part-04.qmd
+      chapters:
+        - notebooks/resources.qmd
+        - notebooks/common-commands.qmd
     - notebooks/about.qmd
   site-url: https://pages.github.sydney.edu.au/mjon7053/get-going-with-git/
   repo-url: https://github.sydney.edu.au/mjon7053/get-going-with-git

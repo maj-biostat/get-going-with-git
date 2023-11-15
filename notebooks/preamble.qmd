@@ -4,7 +4,7 @@ source("./R/init.R")
 log_info("Called preamble notebook")
 ```
 
-# Pre-requisites {.unnumbered}
+# Preamble {.unnumbered}
 
 ## Background reading
 
@@ -12,20 +12,21 @@ There is no point reinventing the wheel, Jenny Bryant motivates the use of versi
 
 ## Objectives
 
-> "I am no expert (in git *et al*) but I know enough to both get myself into trouble and usually find a way out of it."
+:::callout-note
+There is no getting around it.
+You are likely^[Actually with very high probability. Sorry.] going to find some^[Possibly a lot.] of this knowledge base hard and/or frustrating and a bit painful.
+Your knowledge will progress in a stepwise fashion - setup, core concepts, collaboration.
+Each of these will give you pain, but once you have practice them, they become an intuitive and comforting safety net.
+:::
 
-
-Note that you are likely to find some of this knowledge base hard and/or frustrating.
-The work purposefully (and unapologetically) takes a low level perspective on git.
+The approach I have taken is purposefully (and unapologetically) applied and a fairly low level perspective on git.
 The rationale stems from experience of this being the best way to build a clear and coherent understanding.
+Once you have the fundamentals practiced, it is much easier to pick up any git client of your choosing safe in the knowledge that you have some insight into what is going on under the hood and if things go horribly wrong, you have some chance of being able to fix them.
 
-Think of it this way, if you didn't understand what letters and words are, you are probably going to have a hard job of understanding how to *cunstrucked a sentunse*.
-
-Often people get themselves in a mess simply as a result of not understanding the fundamentals.
-Therefore, the goal here is to understand the fundamental aspects of revision control and git in particular.
+The goal here is for you to gain understanding into the fundamental aspects of revision control and git in particular.
 Once you have that base, extending from there will be much easier for you.
 
-The pace of the workshop will be based on the abilities of the audience but there is an expectation that the audience practices the skills.
+The pace of the workshop will be based on the abilities of the audience but there is an expectation that the audience practices the skills in their own time.
 The workshop is likely to be run over a few sessions but the exact length is yet to be determined.
 It is mainly targeted at analysts that are new to revision control but with some effort is accessible to anyone.
 
@@ -33,9 +34,11 @@ It is mainly targeted at analysts that are new to revision control but with some
 
 A CLI is software, supplied with the operating system, that you use to interact with your operating system via your keyboard rather than a mouse.
 Software that implements such a text interface is often called a command-line interpreter, command processor or a shell.
-You enter in commands as text and the system will do something, e.g. delete a file.
+You enter in commands as text and the system will do something, e.g. create a file, delete a file.
+Each of these commands is a piece of software that performs some function.
+`git` is one such command that facilitates access to a wide range of functions.
 
-People outside of software development and analysts find the command line arcane, but it provides an extremely useful set of tools that pay dividends if you make the effort to learn.
+People outside of software development and (some) analysts find the command line arcane, but it provides an extremely useful set of tools that pay dividends if you make the effort to learn.
 
 Nearly universally, if I use the word *terminal* I am referring to the operating system command line interface.
 
@@ -69,14 +72,14 @@ The following link needs admin rights (TKI people probably won't have nor will b
 The reason I haven't mentioned Linux is simply because for Linux oriented people, it is reasonable to assume that this level of competence has already been met.
 :::
 
-## Operating system management - environment variables
+## Operating system management - environment variables etc
 
 You will need to have some minimal technical competence in driving your computer.
 For example, you need to know how to set an environment variable under your operating system of choice.
 If you do not know how to set an environment variable, then you need to address that.
 
 Other items that are important to be familiar with are file and directory concepts.
-For example, if you do not know what the command `tree` does, then it would be useful to find out.
+For example, if you do not know what the command `tree` does, then it might be useful for you to find out.
 Similarly, if you do not know what file permissions are then, again, it would be useful to find out.
 
 ### Windows
@@ -99,7 +102,7 @@ you should be able to set a user variable even if you do not have admin priviled
 
 Create a directory on your machine where we will store all the files for this workshop.
 
-Simply go to the your `Documents` directory and create a sub-dir called `get-going-with-git`.
+Simply go to the your `Documents` directory and create a sub-dir called `get-going-with-git` (you can call it what you want, but this is going to be the location of our scratchpad and temp work).
 
 Throughout this text, if I say go to your local workshop directory, this is the location I want you to go to.
 

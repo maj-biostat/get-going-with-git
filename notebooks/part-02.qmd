@@ -14,15 +14,12 @@ Yes, that's right, for the moment, we won't be using github at all.
 The point of this is to give you a chance to get to grips with the basic ideas.
 After the main concepts are bedded in, we will move to thinking about github, which is a whole new beast.
 
+We will talk about the following;
 
++ Repositories, how to set them up and some concepts.
++ How to interact with the repositories on a basic level.
++ How to compare and assess the present state of our repository
++ Branches, what they are and what the are used for as well as setting them up
++ Merging, what it is and how to do it
++ GitHub, an overview
 
-
-# Aside.
-
-git remote add origin https://github.com/career-karma-tutorials/ck-git
-gh repo create my-newrepo --public --source=. --remote=upstream --push
-
-The first part of the one liner: gh repo create my-newrepo creates and names a repo in your account (note: ‘my-newrepo’ should be replaced by the repo name of your choice)
-The -public flag makes sure the repo is public (swap this for -private if necessary)
-The -source=. flag specifies the source directory to be pushed
-Finally, the -remote=upstream flag specifies the remote repository to which the local repository is going to be compared with when pushing i.e the ‘upstream’ default.

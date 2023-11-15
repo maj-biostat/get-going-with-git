@@ -1,0 +1,13 @@
+---
+title: "Part 4 - Other bits"
+editor: source
+---
+
+```{r, echo = FALSE}
+source("./R/init.R")
+log_info("Called part 4 notebook")
+```
+
+Here are some additional bits that I did not know where to put anywhere else.
+
+

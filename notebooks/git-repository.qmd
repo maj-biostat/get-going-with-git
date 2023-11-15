@@ -41,6 +41,11 @@ git status
 
 ```
 
+::: callout-note
+The repository is implemented by a hidden directory called `.git` that exists within the project directory and contains all the data on the changes that have been made to the files in the project.
+You should never touch this directory nor its contents.
+:::
+
 If you received the output detailed above (or something very similar to it) then congratulations, you initialised a git repository.
 
 If you have configured your file explorer to show hidden files, you will notice that the `first-repo` directory now contains a `.git` sub-directory.

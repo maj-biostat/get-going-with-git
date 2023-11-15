@@ -178,7 +178,11 @@ $ brew cask uninstall <cask>
 
 The official site for the git windows binary download is [https://git-scm.com/download/win](https://git-scm.com/download/win).
 
-Download the 64-bit standalone installer, run it, agree to the conditions and license, choose the default location.
+If you haven't done all the install steps, download the 64-bit standalone installer, run it, agree to the conditions and license, choose the default location.
+
+:::callout-note
+There might be some merit in re-installing git just to make sure you have the latest version and that you select the correct setup.
+:::
 
 Ensure that the following install components are chosen:
 
@@ -197,6 +201,7 @@ The reason to do this is so that git aligns with github (which uses `main` as it
 4. Ensure that line ending conversion is set to `Checkout as-is, commit as-is`. 
 5. For the terminal emulator, select `Use Windows default console window`. 
 This has some limitations but it is ok for an introduction.
+That said, if you are comfortable with the `bash` variant, do not let me stand in your way.
 6. Ensure that `Git Credential Manager Core` is selected when prompted.
 
 We will run through this install for someone in the group.

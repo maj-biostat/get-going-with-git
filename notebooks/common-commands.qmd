@@ -1,0 +1,9 @@
+
+```{r, echo = FALSE}
+source("./R/init.R")
+log_info("Called common-commands notebook")
+```
+
+# Common commands {#sec-common-commands}
+
+todo

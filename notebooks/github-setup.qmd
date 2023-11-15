@@ -1,11 +1,11 @@
 ---
-title: "Github setup"
+title: "GitHub setup"
 editor: source
 ---
 
 ```{r, echo = FALSE}
 source("./R/init.R")
-log_info("Called what-is-revision-control notebook")
+log_info("Called github-setup notebook")
 ```
 
 ## GitHub account {#sec-github-setup}
@@ -14,7 +14,7 @@ As noted in the pre-requisites for using this knowledge base, you will need to h
 
 The two ways to interact with GitHub are HTTPS and SSH.
 They are both secure protocols with the goal of protecting your credentials and your work.
-SSH can be a little harder to set up and has some advantages over HTTPS, but it also less commonly used and can be problematic when firewalls are involved so we will stick to HTTPS.
+SSH can be a little harder to set up and has some advantages over HTTPS, but it less commonly used and can be problematic when firewalls are involved so we will stick to HTTPS.
 
 But first we need to set up a Personal access token.
 
@@ -30,24 +30,33 @@ Personal access tokens are basically a password with some bells and whistles.
 
 ## Git Credential manager
 
-While SSH uses keys (along with a key agent) HTTPS relies on you having a mechanism to retain your credentials.
+While SSH uses keys (along with a key agent which will normally already be on your machine) HTTPS relies on you having a mechanism to retain your credentials.
 Neither having to type in your personal access token each time you want to push a change to a remote repository or retaining your credentials within the git config are viable nor recommended approaches.
 
 Enter the Git Credential Manager (GCM).
 The [GCM](https://github.com/git-ecosystem/git-credential-manager/blob/main/README.md) is a platform agnostic credential manager (in English, that translates loosely to a *password manager*).
-Once it's installed and configured, Git Credential Manager is called by git and you shouldn't need to do anything special.
+Once it's installed and configured, the Git Credential Manager is called by git and you shouldn't need to do anything special.
 
 The next time you clone an HTTPS URL that requires authentication, Git will prompt you to log in using a browser window. 
 You may first be asked to authorize an OAuth app. 
 If your account or organization requires two-factor auth, you'll also need to complete the 2FA challenge.
 
-Once you've authenticated successfully, your credentials are stored in the macOS keychain and will be used every time you clone an HTTPS URL. 
+Once you've authenticated successfully, your credentials are stored in the macOS keychain (or Windows equivalent) and will be used every time you clone an HTTPS URL. 
 Git will not require you to type your credentials in the command line again unless you change your credentials.
 
 
 ### GCM install
 
 For Windows users it can be installed by selecting this option during the installation wizard, see @sec-git-install-win, step 6.
+To display the current version, one of the following should help depending on which version of git you have:
+
+```{bash, eval = FALSE, engine = "sh"}
+git credential-manager version
+```
+
+```{bash, eval = FALSE, engine = "sh"}
+git credential-manager-core --version
+```
 
 For macOS, use `homebrew` again, specifically:
 
@@ -66,6 +75,14 @@ brew install --cask git-credential-manager
 ## installer: The install was successful.
 ## 🍺  git-credential-manager was successfully installed!
 ```
+
+and then type:
+
+```{bash, eval = FALSE, engine = "sh"}
+git-credential-manager --version
+```
+
+to confirm it was installed and is accessible.
 
 ### GCM demo
 
@@ -89,7 +106,7 @@ selecting `Authorize git-ecosystem` will result in
 
 ![Sign in with browser](../fig/gcm-auth-code.png){width=50%}
 
-at which point you use the 2-factor authenticator tool (I use google authenticator) to respond with an authentication code.
+at which point you use the 2-factor authenticator tool (e.g. google authenticator, microsoft authenticator etc) to respond with an authentication code.
 
 ![Auth success](../fig/gcm-auth-success.png){width=50%}
 
@@ -159,12 +176,15 @@ Under generic credentials you should see the git entries.
 
 ## GitHub CLI
 
+For now, we can probably leave GitHub CLI setup, because I don't think we will get to use it.
+It will be used in a more advanced introduction.
+
 In the day to day grind, having to deal with GitHub through its Web interface can be a little cumbersome.
 You can obviate having to interact with GitHub through the browser by using the [GitHub CLI](https://docs.github.com/en/github-cli).
 This tooling allows you to review, create and manage your repositories from the comfort of your commandline.
 You can think of it as an extension of git that allows you to invoke the GitHub specific functionality.
 
-The extremely term gh CLI manual can be found [here](https://cli.github.com/manual/).
+The extremely terse `gh` CLI manual can be found [here](https://cli.github.com/manual/).
 
 For Windows users, you can pick up the latest Signed MSI executables from the [release page](https://github.com/cli/cli/releases/).
 

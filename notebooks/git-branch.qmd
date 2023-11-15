@@ -21,6 +21,7 @@ At a basic level, it is actually straight forward once you get familiar with the
 
 Branching is simply a mechanism that allows you to diverge from the main line of development and continue to do work without messing with that main line. 
 They allow multiple pieces of work to be progressed independently within the same project.
+Ideally, you want to introduce each homogenous change within the context of its own branch.
 
 When you run `git status` you saw the text - *On branch main* as part of the output.
 You can think of `main` as your default branch.

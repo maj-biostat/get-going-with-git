@@ -8,6 +8,13 @@ source("./R/init.R")
 log_info("Called part 1 notebook")
 ```
 
-Remotes
+This part is about how we use `git` to collaborate.
+It is probably the toughest part and so we will just cover the basics.
+I will
 
-Hosting git
++ Introduce fileserver backed git remotes
++ GitHub collaboration processes
++ Documentation backed by GitHub
+
+
+

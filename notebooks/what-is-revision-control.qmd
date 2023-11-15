@@ -1,5 +1,5 @@
 ---
-title: "What is (this thing) called revision control"
+title: "What is (this thing) called revision/version control?"
 editor: source
 ---
 
@@ -10,22 +10,29 @@ log_info("Called what-is-revision-control notebook")
 
 ## The big picture {#sec-what-is-big-pic}
 
-First, let's briefly introduce some minimal terminology and context.
+Version control is any practice that allows you to track and manage the evolution of a project.
 
-::: callout-note
-TODO - Timelines
-:::
+Remember filenames like `document_v3.docx`, `document_v3_20230101.docx`, `document_v3_20230101_ts.docx`?
+That is a manual, informal and unstructure approached to version control.
+You can tighten up the filenaming standards, but this approach is still very limited.
+For example, simultaneous changes and merges are tedious, can involve double handling and are error prone.
 
-A **repository** is the mechanism that is used to implement version control by git.
+A software implementation of revision control is a mechanism to understand a project/file history without having to used $N^q$ distinct filenames to identify the different versions.
+Git is one of many revision control systems. 
+In data science, IT and tech fields, it is the de-facto standard.
+If you ever aspire to working in a technical role in one of those fields, you would need to learn git.
 
-::: callout-note
-The repository is implemented by a hidden directory called `.git` that exists within the project directory and contains all the data on the changes that have been made to the files in the project.
-You should never touch this directory nor its contents.
-:::
+Irrespective, arguably, if you are collaborating, you should probably be using git.
 
-There are two types of repositories, *local* and *remote*.
+When you get started with git, you will need to think about repositories, not to be confused with suppositories.
+Repositories are where you project code is held.
+
+Broadly, there are two types - *local* and *remote*.
+The local ones are those that reside on your own machine. 
+The remotes ones are off in the void somewhere, but they are linked and interact via `git` like this:
+
 ![Big picture](../fig/git-big-pic.jpg)
-The local repositories reside on your machine.
+
 Remote repositories are hosted by service providers, the most common being GitHub, GitLab and Bitbucket.
 We only deal with GitHub here.
 GitHub comes in a few varieties: 
