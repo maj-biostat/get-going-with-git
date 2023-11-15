@@ -20,6 +20,40 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
 </style>
 
 
@@ -64,7 +98,7 @@ ul.task-list li input[type="checkbox"] {
 
 </head>
 
-<body class="nav-sidebar floating">
+<body class="nav-sidebar floating slimcontent">
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
@@ -241,15 +275,20 @@ ul.task-list li input[type="checkbox"] {
    
   <ul>
   <li><a href="#fork-repository" id="toc-fork-repository" class="nav-link active" data-scroll-target="#fork-repository"><span class="header-section-number">13.0.1</span> Fork repository</a></li>
-  <li><a href="#commit" id="toc-commit" class="nav-link" data-scroll-target="#commit"><span class="header-section-number">13.0.2</span> Commit</a></li>
-  <li><a href="#releases" id="toc-releases" class="nav-link" data-scroll-target="#releases"><span class="header-section-number">13.0.3</span> Releases</a></li>
-  <li><a href="#issues" id="toc-issues" class="nav-link" data-scroll-target="#issues"><span class="header-section-number">13.0.4</span> Issues</a></li>
-  <li><a href="#pull-requests" id="toc-pull-requests" class="nav-link" data-scroll-target="#pull-requests"><span class="header-section-number">13.0.5</span> Pull requests</a></li>
+  <li><a href="#pull-requests" id="toc-pull-requests" class="nav-link" data-scroll-target="#pull-requests"><span class="header-section-number">13.0.2</span> Pull requests</a></li>
+  <li><a href="#pull-request-demo" id="toc-pull-request-demo" class="nav-link" data-scroll-target="#pull-request-demo"><span class="header-section-number">13.0.3</span> Pull request demo</a>
+  <ul>
+  <li><a href="#fork-and-clone-repo" id="toc-fork-and-clone-repo" class="nav-link" data-scroll-target="#fork-and-clone-repo"><span class="header-section-number">13.0.3.1</span> Fork and clone repo</a></li>
+  <li><a href="#feature-branch-and-feature-development" id="toc-feature-branch-and-feature-development" class="nav-link" data-scroll-target="#feature-branch-and-feature-development"><span class="header-section-number">13.0.3.2</span> Feature branch and feature development</a></li>
+  <li><a href="#sync-with-upstream-and-merge-conflicts" id="toc-sync-with-upstream-and-merge-conflicts" class="nav-link" data-scroll-target="#sync-with-upstream-and-merge-conflicts"><span class="header-section-number">13.0.3.3</span> Sync with upstream (and merge conflicts)</a></li>
+  <li><a href="#create-pr" id="toc-create-pr" class="nav-link" data-scroll-target="#create-pr"><span class="header-section-number">13.0.3.4</span> Create PR</a></li>
+  <li><a href="#incorporating-pr-into-upstream-repo" id="toc-incorporating-pr-into-upstream-repo" class="nav-link" data-scroll-target="#incorporating-pr-into-upstream-repo"><span class="header-section-number">13.0.3.5</span> Incorporating PR into upstream repo</a></li>
+  </ul></li>
   </ul>
 <div class="toc-actions"><div><i class="bi bi-git"></i></div><div class="action-links"><p><a href="https://github.sydney.edu.au/mjon7053/get-going-with-git/blob/main/notebooks/git-collab-github.qmd" class="toc-action">View source</a></p><p><a href="https://github.sydney.edu.au/mjon7053/get-going-with-git/issues/new" class="toc-action">Report an issue</a></p></div></div></nav>
     </div>
 <!-- main -->
-<main class="content" id="quarto-document-content">
+<main class="content page-columns page-full" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
@@ -271,22 +310,570 @@ ul.task-list li input[type="checkbox"] {
 <div class="cell">
 
 </div>
-<section id="fork-repository" class="level3" data-number="13.0.1">
+<p>We have considered settings where an indiviual creates a repository to which you (and/or others) may be added as collaborators and then contribute via the shared repository workflow introduced in the fundamentals.</p>
+<p>However, there are circumstances where you will not be a part of a project team but you would like to contribute to a project. For example, you may want to contribute to an existing CRAN R package for which the code is stored on GitHub, as many now are.</p>
+<p>There is a lot of documentation (some of it infinitely and frustratingly dense) on forks and pull requests that I have attempted to summarise, probably poorly, and combined with my own understanding obtained from experience. This section is therefore necessarily incomplete in that it does not reflect all of the possible considerations and functionality. Hopefully, it will give you some understanding and some practice and you can develop as need be from there.</p>
+<section id="fork-repository" class="level3 page-columns page-full" data-number="13.0.1">
 <h3 data-number="13.0.1" class="anchored" data-anchor-id="fork-repository"><span class="header-section-number">13.0.1</span> Fork repository</h3>
+<p>Forks are a GitHub function that permit a complete copy of any public repository on GitHub, effectively taking a snapshot at a specific point in time. If you are not the owner or a collaborator on a project then the only way that you will be able to make any changes to the files is if you take a fork.</p>
+<div class="quarto-figure quarto-figure-center page-columns page-full">
+<figure class="figure page-columns page-full">
+<p><img src="../fig/github-18.png" class="img-fluid figure-img" style="width:90.0%"></p>
+<figcaption class="figure-caption margin-caption">Forking on GitHub</figcaption>
+</figure>
+</div>
+<p>Clicking the fork button gives you a configuration screen where you can give your own name for the copy when it shows up in your account.</p>
+<div class="quarto-figure quarto-figure-center page-columns page-full">
+<figure class="figure page-columns page-full">
+<p><img src="../fig/github-19.png" class="img-fluid figure-img" style="width:90.0%"></p>
+<figcaption class="figure-caption margin-caption">Forking configuration on GitHub</figcaption>
+</figure>
+</div>
+<p>A fork is (more or less) a clone that happens within the bounds of the GitHub hosting service. After you take a fork, you would then clone as usual from that fork (that now sits in your account) as a remote to create a local repo.</p>
+<p>You may choose to fork a repository for several reasons, here are four.</p>
+<ol type="1">
+<li>As a way to contribute to a project (e.g.&nbsp;an R package)</li>
+<li>To use someone’s code as a starting point (e.g.&nbsp;simulation code)</li>
+<li>To experiment with some code</li>
+<li>To use one of your own projects as the basis for a new project<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a></li>
+</ol>
+<p>Based on the process above, the fork will no longer be directly attached to the original repository but you can take an additional step (see later) so that you have the original repository as a remote in order to keep your version up to date.</p>
+<div class="callout callout-style-default callout-warning callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Warning
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<ol type="1">
+<li>If you fork from a private repository, when/if that repository is deleted, all forks are deleted.</li>
+<li>If you fork from a public repository and the upstream repository is deleted, one of the public forks is selected to be the new upstream repository.</li>
+</ol>
+</div>
+</div>
+<p>Let’s use the <a href="https://cran.r-project.org/web/packages/digest/index.html">digest CRAN</a> package as a quick example. Go to the <a href="https://github.com/eddelbuettel/digest">GitHub source</a>, click fork, accept the defaults and click <em>create</em> and then clone the repository to your local machine as shown below.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> clone https://github.com/maj-biostat/digest.git</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="co">## Cloning into 'digest'...</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="co">## remote: Enumerating objects: 3174, done.</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="co">## remote: Counting objects: 100% (843/843), done.</span></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="co">## remote: Compressing objects: 100% (274/274), done.</span></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="co">## remote: Total 3174 (delta 471), reused 826 (delta 463), pack-reused 2331</span></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="co">## Receiving objects: 100% (3174/3174), 2.15 MiB | 3.25 MiB/s, done.</span></span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="co">## Resolving deltas: 100% (2034/2034), done.</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>There is some common terminology that relates to the fork process, so I will introduce next.</p>
+<p>When you clone the forked repository to your local machine, the forked repository (the one now sitting in your account) is considered as the <strong>remote origin</strong>, and the repository you forked from (the original one belonging to Dirk) is <strong>upstream</strong>. The picture looks like this, try to keep it in mind.</p>
+<div class="quarto-figure quarto-figure-center page-columns page-full">
+<figure class="figure page-columns page-full">
+<p><img src="../fig/github-20.png" class="img-fluid figure-img" style="width:90.0%"></p>
+<figcaption class="figure-caption margin-caption">Upstream, origin, local</figcaption>
+</figure>
+</div>
+<p>Once you have the local repo, you can edit the code and push your changes to your account.</p>
+<div class="callout callout-style-default callout-warning callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Warning
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>If you have it in mind that you would like to push back to the upstream source at some point in the future, it is advisable (actually strongly advisable) to leave your forks <code>main</code> branch the hell alone and work purely off development branches. <em>That is,</em> <strong>do not</strong> <em>push to your main branch and keep all of your features within their own dedicated feature branches.</em> This is because if you keep things in branches, it is much easier to see what is yours and what is theirs. That isn’t a complete reason, but this is one of those rules that if will make your life easier if you just follow it without too much question.</p>
+</div>
+</div>
+<p>As mentioned, you would not be able to push directly to <a href="https://dirk.eddelbuettel.com/">Dirk’s</a> source as you are not a collaborator on that project. Initially, you won’t even be able to keep up to date with Dirk’s work because there is no direct link between his repo and your local. To make this link, you need to add Dirk’s repo as the upstream remote:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> remote add upstream https://github.com/eddelbuettel/digest.git</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> remote <span class="at">-v</span></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="co">## origin   https://github.com/maj-biostat/digest.git (fetch)</span></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="co">## origin   https://github.com/maj-biostat/digest.git (push)</span></span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a><span class="co">## upstream https://github.com/eddelbuettel/digest.git (fetch)</span></span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a><span class="co">## upstream https://github.com/eddelbuettel/digest.git (push)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>This will make the dotted line in the figure above into a solid line. The final thing you want to do is to track the upstream main branch instead of the origin main branch. This makes sure that you are keeping your repo up to date with any changes that Dirk’s is making on his upstream source.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> branch <span class="at">-u</span> upstream/main</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>After that, you should be good to go.</p>
+<p>As time goes on, you can now fetch the latest changes that Dirk has made and merge them in with any local modifications you have made.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> fetch upstream</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="co">## remote: Enumerating objects: 30, done.</span></span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="co">## remote: Counting objects: 100% (27/27), done.</span></span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a><span class="co">## remote: Compressing objects: 100% (8/8), done.</span></span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a><span class="co">## remote: Total 18 (delta 12), reused 15 (delta 9), pack-reused 0</span></span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a><span class="co">## Unpacking objects: 100% (18/18), 4.95 KiB | 337.00 KiB/s, done.</span></span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a><span class="co">## From https://github.com/eddelbuettel/digest</span></span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a><span class="co">##  * [new branch]      feature/crc32c     -&gt; upstream/feature/crc32c</span></span>
+<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a><span class="co">##  * [new branch]      feature/redo_pr195 -&gt; upstream/feature/redo_pr195</span></span>
+<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a><span class="co">##  * [new branch]      master             -&gt; upstream/master</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>I believe the above process (or at least some of it) is also possible through the GitHub interface but I have not used that approach.</p>
+</div>
+</div>
+<p>If you are keen for Dirk to consider your changes for inclusion in a release of the <code>digest</code> package, then you will need to prepare a pull request.</p>
 </section>
-<section id="commit" class="level3" data-number="13.0.2">
-<h3 data-number="13.0.2" class="anchored" data-anchor-id="commit"><span class="header-section-number">13.0.2</span> Commit</h3>
+<section id="pull-requests" class="level3" data-number="13.0.2">
+<h3 data-number="13.0.2" class="anchored" data-anchor-id="pull-requests"><span class="header-section-number">13.0.2</span> Pull requests</h3>
+<p>A pull request basically tells others that you have pushed a set of changes to a branch in a repository on GitHub. <em>Pull requests</em> are not managed by git, these are something that GitHub implemented as a value-add. However, git does integrate pull requests as part of its distributed design, it simply does not care what mechanism is used to implement the pull request. As far as git is concerned, a pull request could simply be an email from you to some third party that informs them about your change and gives them the option to pull the change into their repository. On top of a line of communication, GitHub adds on things like a formal framework for providing review comments on the proposed changes.</p>
+<p>Pull requests are (or can be) applicable under both the <em>fork and pull</em> workflow processes and the <em>shared repository</em> workflow. In the shared repository workflow, pull requests could be useful as a means to initiate code review prior to development branches being merged into the main branch. Here, we will only cover pull requests for the <em>fork and pull</em> workflow, but the process for a share repository is very similar.</p>
+<p>In brief, the steps are:</p>
+<ol type="1">
+<li>Fork and clone the repository on which you want to contribute</li>
+<li>Create a new branch for your development</li>
+<li>Develop</li>
+<li>Push your branch to your fork</li>
+<li>Create a pull request, providing the requisite description of the change</li>
+<li>Submit the pull request</li>
+<li>Address any reviewer comments</li>
+<li>Push request is approved and merged</li>
+</ol>
 </section>
-<section id="releases" class="level3" data-number="13.0.3">
-<h3 data-number="13.0.3" class="anchored" data-anchor-id="releases"><span class="header-section-number">13.0.3</span> Releases</h3>
+<section id="pull-request-demo" class="level3 page-columns page-full" data-number="13.0.3">
+<h3 data-number="13.0.3" class="anchored" data-anchor-id="pull-request-demo"><span class="header-section-number">13.0.3</span> Pull request demo</h3>
+<p>Again, doing will make this more concrete. In order that we have do all the steps, I created the <a href="https://github.com/t-student/aliasr">aliasr</a> repository under the GitHub user <a href="https://github.com/t-student">t-student</a>.</p>
+<div class="quarto-figure quarto-figure-center page-columns page-full">
+<figure class="figure page-columns page-full">
+<p><img src="../fig/pull-request-01.png" class="img-fluid figure-img" style="width:90.0%"></p>
+<figcaption class="figure-caption margin-caption">aliasr repo</figcaption>
+</figure>
+</div>
+<p>Just listen to this first and then you can have a go.</p>
+<section id="fork-and-clone-repo" class="level4 page-columns page-full" data-number="13.0.3.1">
+<h4 data-number="13.0.3.1" class="anchored" data-anchor-id="fork-and-clone-repo"><span class="header-section-number">13.0.3.1</span> Fork and clone repo</h4>
+<p>From my <a href="https://github.com/maj-biostat">maj-biostat</a> work account, I navigate to the <a href="https://github.com/t-student/aliasr">aliasr</a> repo and click the fork button. Note that I changed to dark theme so that you can distinguish the two different accounts.</p>
+<div class="quarto-figure quarto-figure-center page-columns page-full">
+<figure class="figure page-columns page-full">
+<p><img src="../fig/pull-request-02.png" class="img-fluid figure-img" style="width:90.0%"></p>
+<figcaption class="figure-caption margin-caption">Fork aliasr repo</figcaption>
+</figure>
+</div>
+<div class="quarto-figure quarto-figure-center page-columns page-full">
+<figure class="figure page-columns page-full">
+<p><img src="../fig/pull-request-03.png" class="img-fluid figure-img" style="width:90.0%"></p>
+<figcaption class="figure-caption margin-caption">Fork aliasr repo settings</figcaption>
+</figure>
+</div>
+<div class="quarto-figure quarto-figure-center page-columns page-full">
+<figure class="figure page-columns page-full">
+<p><img src="../fig/pull-request-04.png" class="img-fluid figure-img" style="width:90.0%"></p>
+<figcaption class="figure-caption margin-caption">Forking…</figcaption>
+</figure>
+</div>
+<div class="quarto-figure quarto-figure-center page-columns page-full">
+<figure class="figure page-columns page-full">
+<p><img src="../fig/pull-request-05.png" class="img-fluid figure-img" style="width:90.0%"></p>
+<figcaption class="figure-caption margin-caption">Forked repo in maj-biostat dir</figcaption>
+</figure>
+</div>
+<p>Now that I have forked the R package repo, I can clone it to my local machine in the usual manner.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> clone https://github.com/maj-biostat/aliasr.git</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="co">## Cloning into 'aliasr'...</span></span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="co">## remote: Enumerating objects: 11, done.</span></span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a><span class="co">## remote: Counting objects: 100% (11/11), done.</span></span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a><span class="co">## remote: Compressing objects: 100% (6/6), done.</span></span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a><span class="co">## remote: Total 11 (delta 0), reused 11 (delta 0), pack-reused 0</span></span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a><span class="co">## Receiving objects: 100% (11/11), done.</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Before I do anything else, from the terminal I change directory to <code>aliasr</code> and then add the <code>t-student</code> repo as the upstream.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> remote <span class="at">-v</span></span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="co">## origin   https://github.com/maj-biostat/aliasr.git (fetch)</span></span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a><span class="co">## origin   https://github.com/maj-biostat/aliasr.git (push)</span></span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> status</span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a><span class="co">## On branch main</span></span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a><span class="co">## Your branch is up to date with 'origin/main'.</span></span>
+<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a><span class="co">## </span></span>
+<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a><span class="co">## nothing to commit, working tree clean</span></span>
+<span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> remote add upstream https://github.com/t-student/aliasr.git</span>
+<span id="cb6-10"><a href="#cb6-10" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> remote <span class="at">-v</span></span>
+<span id="cb6-11"><a href="#cb6-11" aria-hidden="true" tabindex="-1"></a><span class="co">## origin   https://github.com/maj-biostat/aliasr.git (fetch)</span></span>
+<span id="cb6-12"><a href="#cb6-12" aria-hidden="true" tabindex="-1"></a><span class="co">## origin   https://github.com/maj-biostat/aliasr.git (push)</span></span>
+<span id="cb6-13"><a href="#cb6-13" aria-hidden="true" tabindex="-1"></a><span class="co">## upstream https://github.com/t-student/aliasr.git (fetch)</span></span>
+<span id="cb6-14"><a href="#cb6-14" aria-hidden="true" tabindex="-1"></a><span class="co">## upstream https://github.com/t-student/aliasr.git (push)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>And then I first bring any commits down from the upstream and then tell git to track the upstream main branch instead of my remote origin.</p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>If you miss the <code>git fetch upstream</code> you will not have access to the main branch and the <code>git branch -u upstream/main</code> command will fail as a result.</p>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> fetch upstream</span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="co">## From https://github.com/t-student/aliasr</span></span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a><span class="co">##  * [new branch]      main       -&gt; upstream/main</span></span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a> </span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> branch <span class="at">-u</span> upstream/main</span>
+<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a><span class="co">## branch 'main' set up to track 'upstream/main'.</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
 </section>
-<section id="issues" class="level3" data-number="13.0.4">
-<h3 data-number="13.0.4" class="anchored" data-anchor-id="issues"><span class="header-section-number">13.0.4</span> Issues</h3>
+<section id="feature-branch-and-feature-development" class="level4" data-number="13.0.3.2">
+<h4 data-number="13.0.3.2" class="anchored" data-anchor-id="feature-branch-and-feature-development"><span class="header-section-number">13.0.3.2</span> Feature branch and feature development</h4>
+<p>Remembering best practice, I create a new branch in my local repo for my feature development and switch to that branch.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> branch feat-csum</span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> checkout feat-csum</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Ok, so if I look at the commit logs in my local repo I have the following:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> log <span class="at">--all</span></span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="co">## commit 8e9007a5ca648770671a1f0b12c352b6690131cd (HEAD -&gt; feat-csum, upstream/main, origin/main, origin/HEAD, main)</span></span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a><span class="co">## Author: Mark Jones &lt;maj684@gmail.com&gt;</span></span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a><span class="co">## Date:   Wed Nov 15 07:24:02 2023 +0800</span></span>
+<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a><span class="co">## </span></span>
+<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a><span class="co">##     Initiall commit</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Opening the project in rstudio (or VIM if you are so inclined), I add a new function to the end of the <code>abbrv.R</code> script</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>csum <span class="ot">&lt;-</span> <span class="cf">function</span>(x, <span class="at">na.rm =</span> T){</span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>  x_new <span class="ot">&lt;-</span> x[<span class="sc">!</span><span class="fu">is.na</span>(x)]</span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>  c_x_new <span class="ot">&lt;-</span> <span class="fu">cumsum</span>(x_new)</span>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a>  c_x <span class="ot">&lt;-</span> x</span>
+<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a>  c_x[<span class="sc">!</span><span class="fu">is.na</span>(c_x)] <span class="ot">&lt;-</span> c_x_new</span>
+<span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a>  c_x</span>
+<span id="cb10-7"><a href="#cb10-7" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>And can test it with the usual procedures for building and installing an R Package, namely:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="bu">cd</span> ..</span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a><span class="ex">R</span> CMD build aliasr</span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a><span class="ex">R</span> CMD INSTALL aliasr_0.1.0.tar.gz</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>and then load that library in an R session and test the new csum function</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="do">## R version 4.3.0 (2023-04-21) -- "Already Tomorrow"</span></span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a><span class="do">## Copyright (C) 2023 The R Foundation for Statistical Computing</span></span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a><span class="do">## Platform: aarch64-apple-darwin20 (64-bit)</span></span>
+<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a><span class="do">## </span></span>
+<span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a><span class="do">## R is free software and comes with ABSOLUTELY NO WARRANTY.</span></span>
+<span id="cb12-6"><a href="#cb12-6" aria-hidden="true" tabindex="-1"></a><span class="do">## You are welcome to redistribute it under certain conditions.</span></span>
+<span id="cb12-7"><a href="#cb12-7" aria-hidden="true" tabindex="-1"></a><span class="do">## Type 'license()' or 'licence()' for distribution details.</span></span>
+<span id="cb12-8"><a href="#cb12-8" aria-hidden="true" tabindex="-1"></a><span class="do">## </span></span>
+<span id="cb12-9"><a href="#cb12-9" aria-hidden="true" tabindex="-1"></a><span class="do">##   Natural language support but running in an English locale</span></span>
+<span id="cb12-10"><a href="#cb12-10" aria-hidden="true" tabindex="-1"></a><span class="do">## </span></span>
+<span id="cb12-11"><a href="#cb12-11" aria-hidden="true" tabindex="-1"></a><span class="do">## R is a collaborative project with many contributors.</span></span>
+<span id="cb12-12"><a href="#cb12-12" aria-hidden="true" tabindex="-1"></a><span class="do">## Type 'contributors()' for more information and</span></span>
+<span id="cb12-13"><a href="#cb12-13" aria-hidden="true" tabindex="-1"></a><span class="do">## 'citation()' on how to cite R or R packages in publications.</span></span>
+<span id="cb12-14"><a href="#cb12-14" aria-hidden="true" tabindex="-1"></a><span class="do">## </span></span>
+<span id="cb12-15"><a href="#cb12-15" aria-hidden="true" tabindex="-1"></a><span class="do">## Type 'demo()' for some demos, 'help()' for on-line help, or</span></span>
+<span id="cb12-16"><a href="#cb12-16" aria-hidden="true" tabindex="-1"></a><span class="do">## 'help.start()' for an HTML browser interface to help.</span></span>
+<span id="cb12-17"><a href="#cb12-17" aria-hidden="true" tabindex="-1"></a><span class="do">## Type 'q()' to quit R.</span></span>
+<span id="cb12-18"><a href="#cb12-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-19"><a href="#cb12-19" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(aliasr)</span>
+<span id="cb12-20"><a href="#cb12-20" aria-hidden="true" tabindex="-1"></a><span class="fu">csum</span>(<span class="fu">c</span>(<span class="dv">1</span>, <span class="cn">NA</span>, <span class="dv">3</span>, <span class="dv">5</span>))</span>
+<span id="cb12-21"><a href="#cb12-21" aria-hidden="true" tabindex="-1"></a>[<span class="dv">1</span>]  <span class="dv">1</span> <span class="cn">NA</span>  <span class="dv">4</span>  <span class="dv">9</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Based on this rather superficial testing, I stage and commit.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> add R/abbrv.R</span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> commit <span class="at">-m</span> <span class="st">"Implementation of cumsum alias"</span></span>
+<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a><span class="co">## [feat-csum 5e5be52] Implementation of cumsum alias</span></span>
+<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a><span class="co">##  1 file changed, 7 insertions(+)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>And now I push the feature branch to my fork (here I am specifying both the remote and the branch).</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> push origin feat-csum</span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a><span class="co">## Enumerating objects: 7, done.</span></span>
+<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a><span class="co">## Counting objects: 100% (7/7), done.</span></span>
+<span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a><span class="co">## Delta compression using up to 8 threads</span></span>
+<span id="cb14-5"><a href="#cb14-5" aria-hidden="true" tabindex="-1"></a><span class="co">## Compressing objects: 100% (3/3), done.</span></span>
+<span id="cb14-6"><a href="#cb14-6" aria-hidden="true" tabindex="-1"></a><span class="co">## Writing objects: 100% (4/4), 442 bytes | 442.00 KiB/s, done.</span></span>
+<span id="cb14-7"><a href="#cb14-7" aria-hidden="true" tabindex="-1"></a><span class="co">## Total 4 (delta 2), reused 0 (delta 0), pack-reused 0</span></span>
+<span id="cb14-8"><a href="#cb14-8" aria-hidden="true" tabindex="-1"></a><span class="co">## remote: Resolving deltas: 100% (2/2), completed with 2 local objects.</span></span>
+<span id="cb14-9"><a href="#cb14-9" aria-hidden="true" tabindex="-1"></a><span class="co">## remote:</span></span>
+<span id="cb14-10"><a href="#cb14-10" aria-hidden="true" tabindex="-1"></a><span class="co">## remote: Create a pull request for 'feat-csum' on GitHub by visiting:</span></span>
+<span id="cb14-11"><a href="#cb14-11" aria-hidden="true" tabindex="-1"></a><span class="co">## remote:      https://github.com/maj-biostat/aliasr/pull/new/feat-csum</span></span>
+<span id="cb14-12"><a href="#cb14-12" aria-hidden="true" tabindex="-1"></a><span class="co">## remote:</span></span>
+<span id="cb14-13"><a href="#cb14-13" aria-hidden="true" tabindex="-1"></a><span class="co">## To https://github.com/maj-biostat/aliasr.git</span></span>
+<span id="cb14-14"><a href="#cb14-14" aria-hidden="true" tabindex="-1"></a><span class="co">##  * [new branch]      feat-csum -&gt; feat-csum</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
 </section>
-<section id="pull-requests" class="level3" data-number="13.0.5">
-<h3 data-number="13.0.5" class="anchored" data-anchor-id="pull-requests"><span class="header-section-number">13.0.5</span> Pull requests</h3>
+<section id="sync-with-upstream-and-merge-conflicts" class="level4 page-columns page-full" data-number="13.0.3.3">
+<h4 data-number="13.0.3.3" class="anchored" data-anchor-id="sync-with-upstream-and-merge-conflicts"><span class="header-section-number">13.0.3.3</span> Sync with upstream (and merge conflicts)</h4>
+<p>I am all ready and excited to create a pull request, but reviewing my fork on GitHub, I see that there has been a covert change to the upstream repository while I have been developing the <code>csum</code> feature. Specifically, I appear to be 2 commits behind the upstream repo.</p>
+<div class="quarto-figure quarto-figure-center page-columns page-full">
+<figure class="figure page-columns page-full">
+<p><img src="../fig/pull-request-06.png" class="img-fluid figure-img" style="width:90.0%"></p>
+<figcaption class="figure-caption margin-caption">Pushed new feature to fork</figcaption>
+</figure>
+</div>
+<p>To address this, I need to merge the changes.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> fetch upstream</span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a><span class="co">## remote: Enumerating objects: 10, done.</span></span>
+<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a><span class="co">## remote: Counting objects: 100% (10/10), done.</span></span>
+<span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a><span class="co">## remote: Compressing objects: 100% (2/2), done.</span></span>
+<span id="cb15-5"><a href="#cb15-5" aria-hidden="true" tabindex="-1"></a><span class="co">## remote: Total 7 (delta 3), reused 7 (delta 3), pack-reused 0</span></span>
+<span id="cb15-6"><a href="#cb15-6" aria-hidden="true" tabindex="-1"></a><span class="co">## Unpacking objects: 100% (7/7), 647 bytes | 92.00 KiB/s, done.</span></span>
+<span id="cb15-7"><a href="#cb15-7" aria-hidden="true" tabindex="-1"></a><span class="co">## From https://github.com/t-student/aliasr</span></span>
+<span id="cb15-8"><a href="#cb15-8" aria-hidden="true" tabindex="-1"></a><span class="co">##    8e9007a..14b1c35  main       -&gt; upstream/main</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Urgh. It was all going so well. Merge conflicts are common and, if you use git, you are going to see this message sooner or later.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> merge upstream/main</span>
+<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a><span class="co">## Auto-merging R/abbrv.R</span></span>
+<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a><span class="co">## CONFLICT (content): Merge conflict in R/abbrv.R</span></span>
+<span id="cb16-4"><a href="#cb16-4" aria-hidden="true" tabindex="-1"></a><span class="co">## Automatic merge failed; fix conflicts and then commit the result.</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Running status, we can see that git merged the new README.md into our repository with no problem but it had difficulties with the <code>abbrv.R</code> script.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> status</span>
+<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a><span class="co">## On branch feat-csum</span></span>
+<span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a><span class="co">## You have unmerged paths.</span></span>
+<span id="cb17-4"><a href="#cb17-4" aria-hidden="true" tabindex="-1"></a><span class="co">##   (fix conflicts and run "git commit")</span></span>
+<span id="cb17-5"><a href="#cb17-5" aria-hidden="true" tabindex="-1"></a><span class="co">##   (use "git merge --abort" to abort the merge)</span></span>
+<span id="cb17-6"><a href="#cb17-6" aria-hidden="true" tabindex="-1"></a><span class="co">## </span></span>
+<span id="cb17-7"><a href="#cb17-7" aria-hidden="true" tabindex="-1"></a><span class="co">## Changes to be committed:</span></span>
+<span id="cb17-8"><a href="#cb17-8" aria-hidden="true" tabindex="-1"></a><span class="co">##  new file:   README.md</span></span>
+<span id="cb17-9"><a href="#cb17-9" aria-hidden="true" tabindex="-1"></a><span class="co">## </span></span>
+<span id="cb17-10"><a href="#cb17-10" aria-hidden="true" tabindex="-1"></a><span class="co">## Unmerged paths:</span></span>
+<span id="cb17-11"><a href="#cb17-11" aria-hidden="true" tabindex="-1"></a><span class="co">##   (use "git add &lt;file&gt;..." to mark resolution)</span></span>
+<span id="cb17-12"><a href="#cb17-12" aria-hidden="true" tabindex="-1"></a><span class="co">##  both modified:   R/abbrv.R</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Opening the <code>R/abbrv.R</code> script, you will be able to see conflict markers (<code>&lt;&lt;&lt;&lt;&lt;&lt;&lt;</code>, <code>=======</code>, <code>&gt;&gt;&gt;&gt;&gt;&gt;&gt;</code>) have been incorporated by git where the merge failed. You see the changes from the HEAD (or base branch) after the line <code>&lt;&lt;&lt;&lt;&lt;&lt;&lt; HEAD</code>. In this case, this is what you just introduced. You can also see <code>=======</code> dividing the changes from the other branch, i.e.&nbsp;those that are in the upstream version.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="co"># TOP PART OF SCRIPT OMITTED FOR BREVITY</span></span>
+<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a>csum <span class="ot">&lt;-</span> <span class="cf">function</span>(x, <span class="at">na.rm =</span> T){</span>
+<span id="cb18-4"><a href="#cb18-4" aria-hidden="true" tabindex="-1"></a>  x_new <span class="ot">&lt;-</span> x[<span class="sc">!</span><span class="fu">is.na</span>(x)]</span>
+<span id="cb18-5"><a href="#cb18-5" aria-hidden="true" tabindex="-1"></a>  c_x_new <span class="ot">&lt;-</span> <span class="fu">cumsum</span>(x_new)</span>
+<span id="cb18-6"><a href="#cb18-6" aria-hidden="true" tabindex="-1"></a><span class="sc">&lt;</span><span class="er">&lt;&lt;&lt;&lt;&lt;&lt;</span> HEAD</span>
+<span id="cb18-7"><a href="#cb18-7" aria-hidden="true" tabindex="-1"></a>  c_x <span class="ot">&lt;-</span> x</span>
+<span id="cb18-8"><a href="#cb18-8" aria-hidden="true" tabindex="-1"></a>  c_x[<span class="sc">!</span><span class="fu">is.na</span>(c_x)] <span class="ot">&lt;-</span> c_x_new</span>
+<span id="cb18-9"><a href="#cb18-9" aria-hidden="true" tabindex="-1"></a>  c_x</span>
+<span id="cb18-10"><a href="#cb18-10" aria-hidden="true" tabindex="-1"></a><span class="sc">==</span><span class="er">=====</span></span>
+<span id="cb18-11"><a href="#cb18-11" aria-hidden="true" tabindex="-1"></a>  c_x_new</span>
+<span id="cb18-12"><a href="#cb18-12" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span><span class="er">&gt;&gt;&gt;&gt;&gt;&gt;</span> upstream<span class="sc">/</span>main</span>
+<span id="cb18-13"><a href="#cb18-13" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>At this point you need to decide what you want to keep and so edit the script to the following.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="co"># TOP PART OF SCRIPT OMITTED FOR BREVITY</span></span>
+<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a>csum <span class="ot">&lt;-</span> <span class="cf">function</span>(x, <span class="at">na.rm =</span> T){</span>
+<span id="cb19-4"><a href="#cb19-4" aria-hidden="true" tabindex="-1"></a>  x_new <span class="ot">&lt;-</span> x[<span class="sc">!</span><span class="fu">is.na</span>(x)]</span>
+<span id="cb19-5"><a href="#cb19-5" aria-hidden="true" tabindex="-1"></a>  c_x_new <span class="ot">&lt;-</span> <span class="fu">cumsum</span>(x_new)</span>
+<span id="cb19-6"><a href="#cb19-6" aria-hidden="true" tabindex="-1"></a>  c_x <span class="ot">&lt;-</span> x</span>
+<span id="cb19-7"><a href="#cb19-7" aria-hidden="true" tabindex="-1"></a>  c_x[<span class="sc">!</span><span class="fu">is.na</span>(c_x)] <span class="ot">&lt;-</span> c_x_new</span>
+<span id="cb19-8"><a href="#cb19-8" aria-hidden="true" tabindex="-1"></a>  c_x</span>
+<span id="cb19-9"><a href="#cb19-9" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Stage and commit.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> add R/abbrv.R</span>
+<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> commit <span class="at">-m</span> <span class="st">"Resolved merge conflict by retaining majbiostat implementation."</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>As always, the log shows the history of the repository. We can see the two commits that were made in the upstream repo while I was working on the <code>feat-csum</code> branch.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> log <span class="at">--all</span></span>
+<span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a><span class="co">## commit 9c949d06702c6513409e7a2119466437ad060a87 (HEAD -&gt; feat-csum)</span></span>
+<span id="cb21-3"><a href="#cb21-3" aria-hidden="true" tabindex="-1"></a><span class="co">## Merge: c615c0c 14b1c35</span></span>
+<span id="cb21-4"><a href="#cb21-4" aria-hidden="true" tabindex="-1"></a><span class="co">## Author: Mark Jones &lt;mark.jones1@sydney.edu.au&gt;</span></span>
+<span id="cb21-5"><a href="#cb21-5" aria-hidden="true" tabindex="-1"></a><span class="co">## Date:   Wed Nov 15 08:00:32 2023 +0800</span></span>
+<span id="cb21-6"><a href="#cb21-6" aria-hidden="true" tabindex="-1"></a><span class="co">## </span></span>
+<span id="cb21-7"><a href="#cb21-7" aria-hidden="true" tabindex="-1"></a><span class="co">##     Resolved merge conflict by retaining majbiostat implementation.</span></span>
+<span id="cb21-8"><a href="#cb21-8" aria-hidden="true" tabindex="-1"></a><span class="co">## </span></span>
+<span id="cb21-9"><a href="#cb21-9" aria-hidden="true" tabindex="-1"></a><span class="co">## commit 14b1c3514033c88155f6a15f87ac9fc3ed915fe6 (upstream/main)</span></span>
+<span id="cb21-10"><a href="#cb21-10" aria-hidden="true" tabindex="-1"></a><span class="co">## Author: Mark Jones &lt;maj684@gmail.com&gt;</span></span>
+<span id="cb21-11"><a href="#cb21-11" aria-hidden="true" tabindex="-1"></a><span class="co">## Date:   Wed Nov 15 07:55:40 2023 +0800</span></span>
+<span id="cb21-12"><a href="#cb21-12" aria-hidden="true" tabindex="-1"></a><span class="co">## </span></span>
+<span id="cb21-13"><a href="#cb21-13" aria-hidden="true" tabindex="-1"></a><span class="co">##     Csum implementation</span></span>
+<span id="cb21-14"><a href="#cb21-14" aria-hidden="true" tabindex="-1"></a><span class="co">## </span></span>
+<span id="cb21-15"><a href="#cb21-15" aria-hidden="true" tabindex="-1"></a><span class="co">## commit cc35ec0a25dab3e388d704b2ca19808808629ed9</span></span>
+<span id="cb21-16"><a href="#cb21-16" aria-hidden="true" tabindex="-1"></a><span class="co">## Author: Mark Jones &lt;maj684@gmail.com&gt;</span></span>
+<span id="cb21-17"><a href="#cb21-17" aria-hidden="true" tabindex="-1"></a><span class="co">## Date:   Wed Nov 15 07:54:05 2023 +0800</span></span>
+<span id="cb21-18"><a href="#cb21-18" aria-hidden="true" tabindex="-1"></a><span class="co">## </span></span>
+<span id="cb21-19"><a href="#cb21-19" aria-hidden="true" tabindex="-1"></a><span class="co">##     Readme for landing page</span></span>
+<span id="cb21-20"><a href="#cb21-20" aria-hidden="true" tabindex="-1"></a><span class="co">## </span></span>
+<span id="cb21-21"><a href="#cb21-21" aria-hidden="true" tabindex="-1"></a><span class="co">## commit c615c0c65e9225436c96bb00df1cb64d0194a4d2 (origin/feat-csum)</span></span>
+<span id="cb21-22"><a href="#cb21-22" aria-hidden="true" tabindex="-1"></a><span class="co">## Author: Mark Jones &lt;mark.jones1@sydney.edu.au&gt;</span></span>
+<span id="cb21-23"><a href="#cb21-23" aria-hidden="true" tabindex="-1"></a><span class="co">## Date:   Wed Nov 15 07:28:06 2023 +0800</span></span>
+<span id="cb21-24"><a href="#cb21-24" aria-hidden="true" tabindex="-1"></a><span class="co">## </span></span>
+<span id="cb21-25"><a href="#cb21-25" aria-hidden="true" tabindex="-1"></a><span class="co">##     Implementation of cumsum alias</span></span>
+<span id="cb21-26"><a href="#cb21-26" aria-hidden="true" tabindex="-1"></a><span class="co">## </span></span>
+<span id="cb21-27"><a href="#cb21-27" aria-hidden="true" tabindex="-1"></a><span class="co">## commit 8e9007a5ca648770671a1f0b12c352b6690131cd (origin/main, origin/HEAD, main)</span></span>
+<span id="cb21-28"><a href="#cb21-28" aria-hidden="true" tabindex="-1"></a><span class="co">## Author: Mark Jones &lt;maj684@gmail.com&gt;</span></span>
+<span id="cb21-29"><a href="#cb21-29" aria-hidden="true" tabindex="-1"></a><span class="co">## Date:   Wed Nov 15 07:24:02 2023 +0800</span></span>
+<span id="cb21-30"><a href="#cb21-30" aria-hidden="true" tabindex="-1"></a><span class="co">## </span></span>
+<span id="cb21-31"><a href="#cb21-31" aria-hidden="true" tabindex="-1"></a><span class="co">##     Initiall commit</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Based on this, I can push to my fork:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> push origin feat-csum</span>
+<span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a><span class="co">## Enumerating objects: 4, done.</span></span>
+<span id="cb22-3"><a href="#cb22-3" aria-hidden="true" tabindex="-1"></a><span class="co">## Counting objects: 100% (4/4), done.</span></span>
+<span id="cb22-4"><a href="#cb22-4" aria-hidden="true" tabindex="-1"></a><span class="co">## Delta compression using up to 8 threads</span></span>
+<span id="cb22-5"><a href="#cb22-5" aria-hidden="true" tabindex="-1"></a><span class="co">## Compressing objects: 100% (2/2), done.</span></span>
+<span id="cb22-6"><a href="#cb22-6" aria-hidden="true" tabindex="-1"></a><span class="co">## Writing objects: 100% (2/2), 327 bytes | 327.00 KiB/s, done.</span></span>
+<span id="cb22-7"><a href="#cb22-7" aria-hidden="true" tabindex="-1"></a><span class="co">## Total 2 (delta 1), reused 0 (delta 0), pack-reused 0</span></span>
+<span id="cb22-8"><a href="#cb22-8" aria-hidden="true" tabindex="-1"></a><span class="co">## remote: Resolving deltas: 100% (1/1), completed with 1 local object.</span></span>
+<span id="cb22-9"><a href="#cb22-9" aria-hidden="true" tabindex="-1"></a><span class="co">## To https://github.com/maj-biostat/aliasr.git</span></span>
+<span id="cb22-10"><a href="#cb22-10" aria-hidden="true" tabindex="-1"></a><span class="co">##    c615c0c..9c949d0  feat-csum -&gt; feat-csum</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>and if I want to be tidy, I can switch to local/main and run a fetch then merge in order that my main branch is also in sync with the upstream. After that I can push to main. In brief:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> checkout main</span>
+<span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> fetch upstream</span>
+<span id="cb23-3"><a href="#cb23-3" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> merge</span>
+<span id="cb23-4"><a href="#cb23-4" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> push origin</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Strictly speaking, I believe the above isn’t really necessary, but it gets rid of some notifications at the GitHub end that can be a bit concerning if taken on face value.</p>
+</div>
+</div>
+</section>
+<section id="create-pr" class="level4 page-columns page-full" data-number="13.0.3.4">
+<h4 data-number="13.0.3.4" class="anchored" data-anchor-id="create-pr"><span class="header-section-number">13.0.3.4</span> Create PR</h4>
+<p>With all that done, your fork should look something like the following.</p>
+<div class="quarto-figure quarto-figure-center page-columns page-full">
+<figure class="figure page-columns page-full">
+<p><img src="../fig/pull-request-07.png" class="img-fluid figure-img" style="width:90.0%"></p>
+<figcaption class="figure-caption margin-caption">Sync’d fork</figcaption>
+</figure>
+</div>
+<p>Clicking the <code>compare &amp; pull request</code> intiations the pull request process.</p>
+<p>Note:</p>
+<ol type="1">
+<li>The source and the targets along with GitHubs comment that merging is possible.</li>
+<li>A description providing an overview of the feature</li>
+<li>Allowing edits by maintainers (i.e.&nbsp;those with appropriate privaleges on the upstream repo can commit to your branch)</li>
+<li>A visual diff of the before and after implementation of the impacted script (or scripts)</li>
+</ol>
+<div class="quarto-figure quarto-figure-center page-columns page-full">
+<figure class="figure page-columns page-full">
+<p><img src="../fig/pull-request-08.png" class="img-fluid figure-img" style="width:90.0%"></p>
+<figcaption class="figure-caption margin-caption">Open a pull request</figcaption>
+</figure>
+</div>
+<p>Clicking on create will provide you with a PR summary:</p>
+<div class="quarto-figure quarto-figure-center page-columns page-full">
+<figure class="figure page-columns page-full">
+<p><img src="../fig/pull-request-09.png" class="img-fluid figure-img" style="width:90.0%"></p>
+<figcaption class="figure-caption margin-caption">Pull request summary</figcaption>
+</figure>
+</div>
+</section>
+<section id="incorporating-pr-into-upstream-repo" class="level4 page-columns page-full" data-number="13.0.3.5">
+<h4 data-number="13.0.3.5" class="anchored" data-anchor-id="incorporating-pr-into-upstream-repo"><span class="header-section-number">13.0.3.5</span> Incorporating PR into upstream repo</h4>
+<p>Heading back to the upstream repo (and importantly under my <code>t-student</code> account) I can see that a pull request has been created. Three options are available to do the merge</p>
+<ol type="1">
+<li>Merge</li>
+<li>Squash and merge</li>
+<li>Rebase and merge</li>
+</ol>
+<div class="quarto-figure quarto-figure-center page-columns page-full">
+<figure class="figure page-columns page-full">
+<p><img src="../fig/pull-request-10.png" class="img-fluid figure-img" style="width:90.0%"></p>
+<figcaption class="figure-caption margin-caption">Merge PR</figcaption>
+</figure>
+</div>
+<p>You can pick one of the above options (but I am not sure how you would rewind if things go wrong) or you can use the command line.</p>
+<p>The first thing you need to do is fetch the pull request detail. To do this you specify <code>pull/&lt;PR ID&gt;/head:&lt;branch name&gt;</code> where the <code>&lt;PR ID&gt;</code> was listed in the PR page and the <code>&lt;branch name&gt;</code> is just some arbitrary branch name you want to give this feature. Again, at the terminal, as the owner of the upstream repo:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb24"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> fetch origin pull/1/head:feat001</span>
+<span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a><span class="co">## remote: Enumerating objects: 12, done.</span></span>
+<span id="cb24-3"><a href="#cb24-3" aria-hidden="true" tabindex="-1"></a><span class="co">## remote: Counting objects: 100% (12/12), done.</span></span>
+<span id="cb24-4"><a href="#cb24-4" aria-hidden="true" tabindex="-1"></a><span class="co">## remote: Compressing objects: 100% (2/2), done.</span></span>
+<span id="cb24-5"><a href="#cb24-5" aria-hidden="true" tabindex="-1"></a><span class="co">## remote: Total 6 (delta 3), reused 6 (delta 3), pack-reused 0</span></span>
+<span id="cb24-6"><a href="#cb24-6" aria-hidden="true" tabindex="-1"></a><span class="co">## Unpacking objects: 100% (6/6), 698 bytes | 116.00 KiB/s, done.</span></span>
+<span id="cb24-7"><a href="#cb24-7" aria-hidden="true" tabindex="-1"></a><span class="co">## From github.com:t-student/aliasr</span></span>
+<span id="cb24-8"><a href="#cb24-8" aria-hidden="true" tabindex="-1"></a><span class="co">##  * [new ref]         refs/pull/1/head -&gt; feat001</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>From here, as the owner of the upstream repo and the person that ultimately decides whether the feature will be incorporated into the aliasr package or not, you can make whatever edits you want by simply checking out <code>feat001</code>. After you are satisfied, then you can merge back into <code>main</code> and push up to the repo.</p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>The <code>--no-ff</code> says <em>no fast forward</em>. This is a shortcut method git can take when there are no local changes. Use this flag when you want the history of merging a feature from somewhere else.</p>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> checkout main</span>
+<span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> merge <span class="at">--no-ff</span> feat001</span>
+<span id="cb25-3"><a href="#cb25-3" aria-hidden="true" tabindex="-1"></a><span class="co">## Merge made by the 'ort' strategy.</span></span>
+<span id="cb25-4"><a href="#cb25-4" aria-hidden="true" tabindex="-1"></a><span class="co">##  R/abbrv.R | 4 +++-</span></span>
+<span id="cb25-5"><a href="#cb25-5" aria-hidden="true" tabindex="-1"></a><span class="co">##  1 file changed, 3 insertions(+), 1 deletion(-)</span></span>
+<span id="cb25-6"><a href="#cb25-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-7"><a href="#cb25-7" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> push origin main</span>
+<span id="cb25-8"><a href="#cb25-8" aria-hidden="true" tabindex="-1"></a><span class="co">## Enumerating objects: 13, done.</span></span>
+<span id="cb25-9"><a href="#cb25-9" aria-hidden="true" tabindex="-1"></a><span class="co">## Counting objects: 100% (13/13), done.</span></span>
+<span id="cb25-10"><a href="#cb25-10" aria-hidden="true" tabindex="-1"></a><span class="co">## Delta compression using up to 8 threads</span></span>
+<span id="cb25-11"><a href="#cb25-11" aria-hidden="true" tabindex="-1"></a><span class="co">## Compressing objects: 100% (6/6), done.</span></span>
+<span id="cb25-12"><a href="#cb25-12" aria-hidden="true" tabindex="-1"></a><span class="co">## Writing objects: 100% (7/7), 814 bytes | 814.00 KiB/s, done.</span></span>
+<span id="cb25-13"><a href="#cb25-13" aria-hidden="true" tabindex="-1"></a><span class="co">## Total 7 (delta 3), reused 0 (delta 0), pack-reused 0</span></span>
+<span id="cb25-14"><a href="#cb25-14" aria-hidden="true" tabindex="-1"></a><span class="co">## remote: Resolving deltas: 100% (3/3), completed with 2 local objects.</span></span>
+<span id="cb25-15"><a href="#cb25-15" aria-hidden="true" tabindex="-1"></a><span class="co">## To github.com:t-student/aliasr.git</span></span>
+<span id="cb25-16"><a href="#cb25-16" aria-hidden="true" tabindex="-1"></a><span class="co">##    14b1c35..a904f44  main -&gt; main</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Now, when you go back to the the <a href="https://github.com/t-student/aliasr">aliasr</a> you will see that the pull request has been closed.</p>
+<div class="quarto-figure quarto-figure-center page-columns page-full">
+<figure class="figure page-columns page-full">
+<p><img src="../fig/pull-request-11.png" class="img-fluid figure-img" style="width:90.0%"></p>
+<figcaption class="figure-caption margin-caption">Closed PR</figcaption>
+</figure>
+</div>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>I know. That was a lot. The objective here is to give you a preview or at least cursory understanding of the underlying concepts and required actions rather than just simply knowledge of what buttons to press.</p>
+</div>
+</div>
 
 
+</section>
+</section>
+<section id="footnotes" class="footnotes footnotes-end-of-document" role="doc-endnotes">
+<hr>
+<ol>
+<li id="fn1"><p>Yes, you can fork your own repos, although a template repository might be more suitable depending on your goals.<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+</ol>
 </section>
 
 </main> <!-- /main -->

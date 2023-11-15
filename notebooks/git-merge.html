@@ -319,6 +319,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </section>
 <section id="merge-processes" class="level2" data-number="10.2">
 <h2 data-number="10.2" class="anchored" data-anchor-id="merge-processes"><span class="header-section-number">10.2</span> Merge processes</h2>
+<p>There are two related approaches for combining your changes into a shared repository; rebase and merge. Personally, I never use <code>git rebase</code> and always use <code>git merge</code>. Mainly this is because the complexity of the repositories that I work on never justifies the rebase approach. Rebasing rewrites commits from one branch to another whereas merge retains the full repository history.</p>
 <p>Merging is usually a fairly automated process. Run the following.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> checkout main</span>

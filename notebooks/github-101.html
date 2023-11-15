@@ -566,7 +566,7 @@ Note
 <span id="cb7-19"><a href="#cb7-19" aria-hidden="true" tabindex="-1"></a><span class="co">## [dev-01 fc5f874] Development for demo-01 project</span></span>
 <span id="cb7-20"><a href="#cb7-20" aria-hidden="true" tabindex="-1"></a><span class="co">## 2 files changed, 12 insertions(+), 1 deletion(-)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p>Switch back to the main branch and get ready to merge your piece of work<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a>.</p>
+<p>Switch back to the main branch and get ready to merge your piece of work into the local <code>main</code> branch<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a>.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb8"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> checkout main</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
@@ -611,7 +611,7 @@ Note
 <span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a><span class="co">## * fc5f874 (HEAD -&gt; main, dev-01) Development for demo-01 project</span></span>
 <span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a><span class="co">## * 809fe51 (origin/main, origin/HEAD) Initial commit</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p>Finally, push these updates to the remote, remembering to use the <code>-u</code> flag on this first occasion.</p>
+<p>In this case, we know there have been no changes to the remote during the time where we were doing our development. However, in most collaborative projects, you cannot guarantee this, so we would run a <code>git fetch</code> followed by a <code>git merge</code> to merge any changes that had been pushed to the remote by our collaborators. Finally, we push our updates to the remote, remembering to use the <code>-u</code> flag on this first occasion.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb14"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> push <span class="at">-u</span> origin main</span>
 <span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a><span class="co">## Enumerating objects: 6, done.</span></span>
@@ -681,7 +681,8 @@ Note
 </section>
 <section id="issues" class="level3" data-number="11.2.5">
 <h3 data-number="11.2.5" class="anchored" data-anchor-id="issues"><span class="header-section-number">11.2.5</span> Issues</h3>
-<p>Issues can be managed directly within GitHub, although they are repository specific. Currently, our team mostly uses Jira to track and manage issues and therefore I will not cover the GitHub functionality beyond mentioning that it is very straight forward to use. In my opinion, there is merit in division of labour. GitHub serves well as a hosting service for git and continuous integrations.</p>
+<p>Issues can be managed directly within GitHub, although they are repository specific. Currently, our team mostly uses Jira to track and manage issues and therefore I will not cover the GitHub functionality beyond mentioning that it is very straight forward to use.</p>
+<p>One instance where you may be required to use GitHub issue functionality is when you find a bug in a CRAN package, e.g.&nbsp;<a href="https://github.com/rstudio/gt/issues/1415">https://github.com/rstudio/gt/issues/1415</a>. When doing so, you will find that they require a particular protocol to be followed that include the development of a minimal working example. This is standard practice in software development, it makes a developers life much easier and it is more likely that the problem you are reporting will actually get fixed.</p>
 </section>
 </section>
 <section id="exercises" class="level2" data-number="11.3">

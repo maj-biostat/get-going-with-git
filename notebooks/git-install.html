@@ -20,6 +20,40 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
 </style>
 
 
@@ -297,15 +331,23 @@ Warning
 <section id="mac-osx" class="level3" data-number="3.2.1">
 <h3 data-number="3.2.1" class="anchored" data-anchor-id="mac-osx"><span class="header-section-number">3.2.1</span> Mac OSX</h3>
 <p>First, do you have git installed already? Launch the <code>terminal</code> app (see the pre-requisites on the landing page if you do not know how to do this). In the terminal, type:</p>
-<pre><code>which git</code></pre>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">which</span> git</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
 <p>which should show the location of the version of git in use:</p>
-<pre><code>## /opt/homebrew/bin/git</code></pre>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co">## /opt/homebrew/bin/git</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
 <p>If you have homebrew (see below) installed, you can just type:</p>
-<pre><code>brew install git</code></pre>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="ex">brew</span> install git</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
 <p>and git will be installed, otherwise, follow the instructions below and then come back here.</p>
 <p>Once git is installed run the <code>which git</code> command again and then run <code>git --version</code> which is shown (along with the output) below:</p>
-<pre><code>git --version
-## git version 2.42.0</code></pre>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> <span class="at">--version</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="co">## git version 2.42.0</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
 <p>If you got here, then you have git installed. You can close down terminal, open it up again and then run the <code>git --version</code> command again to make certain that everything is ok.</p>
 </section>
 <section id="homebrew" class="level3" data-number="3.2.2">
@@ -314,65 +356,81 @@ Warning
 <p>To use homebrew, you need to install it first. To do that, go <a href="https://brew.sh/">here</a>, then follow the instructions, which amount to going to the terminal and running the commands listed below.</p>
 <p>Please go and read the landing page for homebrew before you proceed any further.</p>
 <p>The first command ensures that pre-requisites are met, see <a href="https://docs.brew.sh/Installation">here</a>:</p>
-<pre><code> xcode-select --install</code></pre>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a> <span class="ex">xcode-select</span> <span class="at">--install</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
 <p>if this has already been doing you will get an error, or be asked to run Software Update. Generally, you can just move on to the next command:</p>
-<pre><code>/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"</code></pre>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="ex">/bin/bash</span> <span class="at">-c</span> <span class="st">"</span><span class="va">$(</span><span class="ex">curl</span> <span class="at">-fsSL</span> https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh<span class="va">)</span><span class="st">"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
 <p><code>curl</code> is a tool for transferring data from a url. It is usually stored under <code>/usr/bin</code> but if you are having issues then exporting the following might assist:</p>
-<pre><code>export HOMEBREW_FORCE_BREWED_CURL=1</code></pre>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="bu">export</span> <span class="va">HOMEBREW_FORCE_BREWED_CURL</span><span class="op">=</span>1</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
 <p>which basically tells homebrew to use its own version of curl. After the above is complete, homebrew should be installed. Now you can run</p>
-<pre><code>brew install git</code></pre>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="ex">brew</span> install git</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
 <p>to install git for you.</p>
 <p>For reference, here are a minimal set of commands for using homebrew (additional information can be found in the homebrew man pages).</p>
 <p>Basic information on homebrew:</p>
-<pre><code># Display the version of Homebrew.
-$ brew --version
-# Print Help Information
-$ brew help
-# Print Help Info for a brew command
-$ brew help &lt;sub-command&gt;
-# Check system for potential problems.
-$ brew doctor</code></pre>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Display the version of Homebrew.</span></span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> brew <span class="at">--version</span></span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Print Help Information</span></span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> brew help</span>
+<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Print Help Info for a brew command</span></span>
+<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> brew help <span class="op">&lt;</span>sub-command<span class="op">&gt;</span></span>
+<span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Check system for potential problems.</span></span>
+<span id="cb9-8"><a href="#cb9-8" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> brew doctor</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
 <p>Keep your homebrew applications up to date:</p>
-<pre><code># Fetch latest version of homebrew and formula
-$ brew update
-# Show formulae with an updated version available
-$ brew outdated
-# Upgrade all outdated and unpinned brews
-$ brew upgrade
-# Upgrade only the specified brew
-$ brew upgrade &lt;formula&gt;
-# Prevent the specified formulae from being upgraded
-$ brew pin &lt;formula&gt;
-# Allow the specified formulae to be upgraded.
-$ brew unpin &lt;formula&gt;</code></pre>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Fetch latest version of homebrew and formula</span></span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> brew update</span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Show formulae with an updated version available</span></span>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> brew outdated</span>
+<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Upgrade all outdated and unpinned brews</span></span>
+<span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> brew upgrade</span>
+<span id="cb10-7"><a href="#cb10-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Upgrade only the specified brew</span></span>
+<span id="cb10-8"><a href="#cb10-8" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> brew upgrade <span class="op">&lt;</span>formula<span class="op">&gt;</span></span>
+<span id="cb10-9"><a href="#cb10-9" aria-hidden="true" tabindex="-1"></a><span class="co"># Prevent the specified formulae from being upgraded</span></span>
+<span id="cb10-10"><a href="#cb10-10" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> brew pin <span class="op">&lt;</span>formula<span class="op">&gt;</span></span>
+<span id="cb10-11"><a href="#cb10-11" aria-hidden="true" tabindex="-1"></a><span class="co"># Allow the specified formulae to be upgraded.</span></span>
+<span id="cb10-12"><a href="#cb10-12" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> brew unpin <span class="op">&lt;</span>formula<span class="op">&gt;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
 <p>The core commands for managing commandline applications are:</p>
-<pre><code># List all the installed formulae.
-$ brew list
-# Display all locally available formulae for brewing.
-$ brew search
-# Perform a substring search of formulae names for brewing.
-$ brew search &lt;text&gt;
-# Display information about the formula.
-$ brew info &lt;formula&gt;
-# Install the formula.
-$ brew install &lt;formula&gt;
-# Uninstall the formula.
-$ brew uninstall &lt;formula&gt;
-# Remove older versions of installed formulae.
-$ brew cleanup</code></pre>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="co"># List all the installed formulae.</span></span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> brew list</span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Display all locally available formulae for brewing.</span></span>
+<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> brew search</span>
+<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Perform a substring search of formulae names for brewing.</span></span>
+<span id="cb11-6"><a href="#cb11-6" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> brew search <span class="op">&lt;</span>text<span class="op">&gt;</span></span>
+<span id="cb11-7"><a href="#cb11-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Display information about the formula.</span></span>
+<span id="cb11-8"><a href="#cb11-8" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> brew info <span class="op">&lt;</span>formula<span class="op">&gt;</span></span>
+<span id="cb11-9"><a href="#cb11-9" aria-hidden="true" tabindex="-1"></a><span class="co"># Install the formula.</span></span>
+<span id="cb11-10"><a href="#cb11-10" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> brew install <span class="op">&lt;</span>formula<span class="op">&gt;</span></span>
+<span id="cb11-11"><a href="#cb11-11" aria-hidden="true" tabindex="-1"></a><span class="co"># Uninstall the formula.</span></span>
+<span id="cb11-12"><a href="#cb11-12" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> brew uninstall <span class="op">&lt;</span>formula<span class="op">&gt;</span></span>
+<span id="cb11-13"><a href="#cb11-13" aria-hidden="true" tabindex="-1"></a><span class="co"># Remove older versions of installed formulae.</span></span>
+<span id="cb11-14"><a href="#cb11-14" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> brew cleanup</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
 <p>Homebrew casks allow you to install GUI applications. Unless you are an advanced user, you will rarely need to use these, but for completeness:</p>
-<pre><code># Tap the Cask repository from Github.
-$ brew tap homebrew/cask
-# List all the installed casks .
-$ brew cask list
-# Search all known casks based on the substring text.
-$ brew search &lt;text&gt;
-# Install the given cask.
-$ brew cask install &lt;cask&gt;
-# Reinstalls the given Cask
-$ brew cask reinstall &lt;cask&gt;
-# Uninstall the given cask.
-$ brew cask uninstall &lt;cask&gt;</code></pre>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Tap the Cask repository from Github.</span></span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> brew tap homebrew/cask</span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a><span class="co"># List all the installed casks .</span></span>
+<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> brew cask list</span>
+<span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Search all known casks based on the substring text.</span></span>
+<span id="cb12-6"><a href="#cb12-6" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> brew search <span class="op">&lt;</span>text<span class="op">&gt;</span></span>
+<span id="cb12-7"><a href="#cb12-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Install the given cask.</span></span>
+<span id="cb12-8"><a href="#cb12-8" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> brew cask install <span class="op">&lt;</span>cask<span class="op">&gt;</span></span>
+<span id="cb12-9"><a href="#cb12-9" aria-hidden="true" tabindex="-1"></a><span class="co"># Reinstalls the given Cask</span></span>
+<span id="cb12-10"><a href="#cb12-10" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> brew cask reinstall <span class="op">&lt;</span>cask<span class="op">&gt;</span></span>
+<span id="cb12-11"><a href="#cb12-11" aria-hidden="true" tabindex="-1"></a><span class="co"># Uninstall the given cask.</span></span>
+<span id="cb12-12"><a href="#cb12-12" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> brew cask uninstall <span class="op">&lt;</span>cask<span class="op">&gt;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
 </section>
 <section id="sec-git-install-win" class="level3" data-number="3.2.3">
 <h3 data-number="3.2.3" class="anchored" data-anchor-id="sec-git-install-win"><span class="header-section-number">3.2.3</span> Windows</h3>
@@ -396,8 +454,10 @@ $ brew cask uninstall &lt;cask&gt;</code></pre>
 <p>We will run through this install for someone in the group.</p>
 <p>To keep git up to date, you will need to go to the above site and download and reinstall git.</p>
 <p>Open the command prompt and type:</p>
-<pre><code>git --version
-## git version 2.42.0</code></pre>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> <span class="at">--version</span></span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a><span class="co">## git version 2.42.0</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
 
 
 </section>

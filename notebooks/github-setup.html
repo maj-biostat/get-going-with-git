@@ -20,6 +20,40 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
 </style>
 
 
@@ -283,8 +317,8 @@ ul.task-list li input[type="checkbox"] {
 <section id="sec-github-setup" class="level2" data-number="5.1">
 <h2 data-number="5.1" class="anchored" data-anchor-id="sec-github-setup"><span class="header-section-number">5.1</span> GitHub account</h2>
 <p>As noted in the pre-requisites for using this knowledge base, you will need to have <a href="www.github.com">GitHub</a> account.</p>
-<p>While there are multiple ways to interact with GitHub from your local machine, here we will use the commandline. There are two protocols that can be used, HTTPS and SSH. We will use HTTPS.</p>
-<p>First we need to set up a Personal access token.</p>
+<p>The two ways to interact with GitHub are HTTPS and SSH. They are both secure protocols with the goal of protecting your credentials and your work. SSH can be a little harder to set up and has some advantages over HTTPS, but it also less commonly used and can be problematic when firewalls are involved so we will stick to HTTPS.</p>
+<p>But first we need to set up a Personal access token.</p>
 <section id="personal-access-token" class="level3" data-number="5.1.1">
 <h3 data-number="5.1.1" class="anchored" data-anchor-id="personal-access-token"><span class="header-section-number">5.1.1</span> Personal access token</h3>
 <p>GitHub introduced personal access tokens a short while ago. Personal access tokens are basically a password with some bells and whistles.</p>
@@ -297,33 +331,38 @@ ul.task-list li input[type="checkbox"] {
 </section>
 <section id="git-credential-manager" class="level2 page-columns page-full" data-number="5.2">
 <h2 data-number="5.2" class="anchored" data-anchor-id="git-credential-manager"><span class="header-section-number">5.2</span> Git Credential manager</h2>
-<p>The <a href="https://github.com/git-ecosystem/git-credential-manager/blob/main/README.md">GCM</a> is a platform agnostic credential manager (in English, that translates loosely to a <em>password manager</em>). Once it’s installed and configured, Git Credential Manager is called by git and you shouldn’t need to do anything special.</p>
+<p>While SSH uses keys (along with a key agent) HTTPS relies on you having a mechanism to retain your credentials. Neither having to type in your personal access token each time you want to push a change to a remote repository or retaining your credentials within the git config are viable nor recommended approaches.</p>
+<p>Enter the Git Credential Manager (GCM). The <a href="https://github.com/git-ecosystem/git-credential-manager/blob/main/README.md">GCM</a> is a platform agnostic credential manager (in English, that translates loosely to a <em>password manager</em>). Once it’s installed and configured, Git Credential Manager is called by git and you shouldn’t need to do anything special.</p>
 <p>The next time you clone an HTTPS URL that requires authentication, Git will prompt you to log in using a browser window. You may first be asked to authorize an OAuth app. If your account or organization requires two-factor auth, you’ll also need to complete the 2FA challenge.</p>
 <p>Once you’ve authenticated successfully, your credentials are stored in the macOS keychain and will be used every time you clone an HTTPS URL. Git will not require you to type your credentials in the command line again unless you change your credentials.</p>
 <section id="gcm-install" class="level3" data-number="5.2.1">
 <h3 data-number="5.2.1" class="anchored" data-anchor-id="gcm-install"><span class="header-section-number">5.2.1</span> GCM install</h3>
 <p>For Windows users it can be installed by selecting this option during the installation wizard, see <a href="git-install.html#sec-git-install-win"><span>Section&nbsp;3.2.3</span></a>, step 6.</p>
 <p>For macOS, use <code>homebrew</code> again, specifically:</p>
-<pre><code>brew install --cask git-credential-manager
-## ==&gt; Downloading https://formulae.brew.sh/api/cask.jws.json
-## ############################################################################################################################################## 100.0%
-## ==&gt; Downloading https://github.com/git-ecosystem/git-credential-manager/releases/download/v2.3.2/gcm-osx-arm64-2.3.2.pkg
-## ==&gt; Downloading from https://objects.githubusercontent.com/github-production-release-asset-2e65be/158405551/3b89ee5f-5275-4316-a794-6f39e38849c4?X-Am
-## ############################################################################################################################################## 100.0%
-## ==&gt; Installing Cask git-credential-manager
-## ==&gt; Running installer for git-credential-manager with sudo; the password may be necessary.
-## Password:
-## installer: Package name is Git Credential Manager
-## installer: Installing at base path /
-## installer: The install was successful.
-## 🍺  git-credential-manager was successfully installed!</code></pre>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="ex">brew</span> install <span class="at">--cask</span> git-credential-manager</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="co">## ==&gt; Downloading https://formulae.brew.sh/api/cask.jws.json</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="co">## ############################################################################################################################################## 100.0%</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="co">## ==&gt; Downloading https://github.com/git-ecosystem/git-credential-manager/releases/download/v2.3.2/gcm-osx-arm64-2.3.2.pkg</span></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="co">## ==&gt; Downloading from https://objects.githubusercontent.com/github-production-release-asset-2e65be/158405551/3b89ee5f-5275-4316-a794-6f39e38849c4?X-Am</span></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="co">## ############################################################################################################################################## 100.0%</span></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="co">## ==&gt; Installing Cask git-credential-manager</span></span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="co">## ==&gt; Running installer for git-credential-manager with sudo; the password may be necessary.</span></span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a><span class="co">## Password:</span></span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a><span class="co">## installer: Package name is Git Credential Manager</span></span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a><span class="co">## installer: Installing at base path /</span></span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a><span class="co">## installer: The install was successful.</span></span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a><span class="co">## 🍺  git-credential-manager was successfully installed!</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
 </section>
 <section id="gcm-demo" class="level3 page-columns page-full" data-number="5.2.2">
 <h3 data-number="5.2.2" class="anchored" data-anchor-id="gcm-demo"><span class="header-section-number">5.2.2</span> GCM demo</h3>
 <p>Below I demo the process by cloning a private repository from my GitHub account.</p>
-<pre><code>192-168-1-100:tmp mark$ git clone https://github.com/maj-biostat/wisca_2.git
-Cloning into 'wisca_2'...
-info: please complete authentication in your browser...</code></pre>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="ex">192-168-1-100:tmp</span> mark$ git clone https://github.com/maj-biostat/wisca_2.git</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="ex">Cloning</span> into <span class="st">'wisca_2'</span>...</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="ex">info:</span> please complete authentication in your browser...</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
 <p>at this point the following window is launch by GCM:</p>
 <div class="quarto-figure quarto-figure-center page-columns page-full">
 <figure class="figure page-columns page-full">
@@ -353,24 +392,28 @@ info: please complete authentication in your browser...</code></pre>
 </figure>
 </div>
 <p>Looking back at the terminal, the following output can be observed, which details the repository being cloned.</p>
-<pre><code>remote: Enumerating objects: 297, done.
-remote: Counting objects: 100% (297/297), done.
-remote: Compressing objects: 100% (156/156), done.
-remote: Total 297 (delta 148), reused 284 (delta 137), pack-reused 0
-Receiving objects: 100% (297/297), 7.85 MiB | 2.13 MiB/s, done.
-Resolving deltas: 100% (148/148), done.</code></pre>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="ex">remote:</span> Enumerating objects: 297, done.</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="ex">remote:</span> Counting objects: 100% <span class="er">(</span><span class="ex">297/297</span><span class="kw">)</span><span class="ex">,</span> done.</span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="ex">remote:</span> Compressing objects: 100% <span class="er">(</span><span class="ex">156/156</span><span class="kw">)</span><span class="ex">,</span> done.</span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a><span class="ex">remote:</span> Total 297 <span class="er">(</span><span class="ex">delta</span> 148<span class="kw">)</span><span class="ex">,</span> reused 284 <span class="er">(</span><span class="ex">delta</span> 137<span class="kw">)</span><span class="ex">,</span> pack-reused 0</span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a><span class="ex">Receiving</span> objects: 100% <span class="er">(</span><span class="ex">297/297</span><span class="kw">)</span><span class="ex">,</span> 7.85 MiB <span class="kw">|</span> <span class="ex">2.13</span> MiB/s, done.</span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a><span class="ex">Resolving</span> deltas: 100% <span class="er">(</span><span class="ex">148/148</span><span class="kw">)</span><span class="ex">,</span> done.</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
 <p>Finally, you will receive an email of this sort:</p>
-<pre><code>Hey maj-biostat!
-
-A first-party GitHub OAuth application (Git Credential Manager) with gist, repo, and workflow scopes was recently authorized to access your account.
-Visit https://github.com/settings/connections/applications/0120e057bd645470c1ed for more information.
-
-To see this and other security events for your account, visit https://github.com/settings/security-log
-
-If you run into problems, please contact support by visiting https://github.com/contact
-
-Thanks,
-The GitHub Team</code></pre>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="ex">Hey</span> maj-biostat!</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="ex">A</span> first-party GitHub OAuth application <span class="er">(</span><span class="ex">Git</span> Credential Manager<span class="kw">)</span> <span class="ex">with</span> gist, repo, and workflow scopes was recently authorized to access your account.</span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a><span class="ex">Visit</span> https://github.com/settings/connections/applications/0120e057bd645470c1ed for more information.</span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a><span class="ex">To</span> see this and other security events for your account, visit https://github.com/settings/security-log</span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a><span class="ex">If</span> you run into problems, please contact support by visiting https://github.com/contact</span>
+<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a><span class="ex">Thanks,</span></span>
+<span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a><span class="ex">The</span> GitHub Team</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
 <p>On repeating this process a second time, all the authentication works in the background and there will be no need to go through various authentication handshakes again.</p>
 <p>The same process applies irrespective of whether you are using <a href="https://github.com">GitHub.com</a> or the <a href="https://github.sydney.edu.au">USyd GitHub Enterprise Server</a>. However, it is adviseable to get this working in GitHub first and then work on getting it to work in the USyd GitHub Enterprise Server.</p>
 <p>The transition from the old authentication approach has (so far) proved completely seemless for macOS. It will be interesting to see what happens for the Windows platform.</p>
@@ -378,15 +421,19 @@ The GitHub Team</code></pre>
 <section id="gcm-configuration-advanced-only" class="level3" data-number="5.2.3">
 <h3 data-number="5.2.3" class="anchored" data-anchor-id="gcm-configuration-advanced-only"><span class="header-section-number">5.2.3</span> GCM configuration (advanced only)</h3>
 <p>You can view the current credential manager by running the following commands:</p>
-<pre><code>git config --local credential.helper
-git config --global credential.helper
-# /usr/local/share/gcm-core/git-credential-manager
-git config --system credential.helper</code></pre>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> config <span class="at">--local</span> credential.helper</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> config <span class="at">--global</span> credential.helper</span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="co"># /usr/local/share/gcm-core/git-credential-manager</span></span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> config <span class="at">--system</span> credential.helper</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
 <p>Of the local, global and system, the first one checks the local repository config, the second is your ~/.gitconfig, and the third is based on where git is installed. Note that only one credential help is configured in the above example.</p>
 <p>In some circumstances you may need to reconfigure things. If you have to start from scratch, the following may be useful:</p>
-<pre><code>git config --local --unset credential.helper
-git config --global --unset credential.helper
-git config --system --unset credential.helper</code></pre>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> config <span class="at">--local</span> <span class="at">--unset</span> credential.helper</span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> config <span class="at">--global</span> <span class="at">--unset</span> credential.helper</span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> config <span class="at">--system</span> <span class="at">--unset</span> credential.helper</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
 <p>For windows uses check the contents of the credential manager. This can be accessed via Control Panel &gt;&gt; All Control Panel Items &gt;&gt; Credential Manager or by simply typing Credential Manager in the Windows task bar. Under generic credentials you should see the git entries.</p>
 </section>
 </section>
@@ -396,66 +443,80 @@ git config --system --unset credential.helper</code></pre>
 <p>The extremely term gh CLI manual can be found <a href="https://cli.github.com/manual/">here</a>.</p>
 <p>For Windows users, you can pick up the latest Signed MSI executables from the <a href="https://github.com/cli/cli/releases/">release page</a>.</p>
 <p>For macOS, use <code>homebrew</code>:</p>
-<pre><code>brew install gh
-## ==&gt; Downloading https://formulae.brew.sh/api/formula.jws.json
-## #################################################################################################################################### 100.0%
-## ==&gt; Downloading https://formulae.brew.sh/api/cask.jws.json
-## #################################################################################################################################### 100.0%
-## ==&gt; Downloading https://ghcr.io/v2/homebrew/core/gh/manifests/2.37.0
-## Already downloaded: /Users/mark/Library/Caches/Homebrew/downloads/331c0b76fd34aa97342efa0e4e41373dbac71c28aeb49346b1284b3450f4105b--gh-2.37.0.bottle_manifest.json
-## ==&gt; Fetching gh
-## ==&gt; Downloading https://ghcr.io/v2/homebrew/core/gh/blobs/sha256:a8c21e08d77963c2d12102aefe38f8c010c573b771ccf729ea438c40dddb7f3a
-## Already downloaded: /Users/mark/Library/Caches/Homebrew/downloads/d0e6a3f8f7a4b138b36484ec9ec8aff26b499381a0b4459f53efc0aefe001ee2--gh--2.37.0.arm64_ventura.bottle.tar.gz
-## ==&gt; Pouring gh--2.37.0.arm64_ventura.bottle.tar.gz
-## ==&gt; Caveats
-## Bash completion has been installed to:
-##   /opt/homebrew/etc/bash_completion.d
-## ==&gt; Summary
-## 🍺  /opt/homebrew/Cellar/gh/2.37.0: 191 files, 44.2MB
-## ==&gt; Running `brew cleanup gh`...
-## Disable this behaviour by setting HOMEBREW_NO_INSTALL_CLEANUP.
-## Hide these hints with HOMEBREW_NO_ENV_HINTS (see `man brew`).</code></pre>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="ex">brew</span> install gh</span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="co">## ==&gt; Downloading https://formulae.brew.sh/api/formula.jws.json</span></span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a><span class="co">## #################################################################################################################################### 100.0%</span></span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a><span class="co">## ==&gt; Downloading https://formulae.brew.sh/api/cask.jws.json</span></span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a><span class="co">## #################################################################################################################################### 100.0%</span></span>
+<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a><span class="co">## ==&gt; Downloading https://ghcr.io/v2/homebrew/core/gh/manifests/2.37.0</span></span>
+<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a><span class="co">## Already downloaded: /Users/mark/Library/Caches/Homebrew/downloads/331c0b76fd34aa97342efa0e4e41373dbac71c28aeb49346b1284b3450f4105b--gh-2.37.0.bottle_manifest.json</span></span>
+<span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a><span class="co">## ==&gt; Fetching gh</span></span>
+<span id="cb7-9"><a href="#cb7-9" aria-hidden="true" tabindex="-1"></a><span class="co">## ==&gt; Downloading https://ghcr.io/v2/homebrew/core/gh/blobs/sha256:a8c21e08d77963c2d12102aefe38f8c010c573b771ccf729ea438c40dddb7f3a</span></span>
+<span id="cb7-10"><a href="#cb7-10" aria-hidden="true" tabindex="-1"></a><span class="co">## Already downloaded: /Users/mark/Library/Caches/Homebrew/downloads/d0e6a3f8f7a4b138b36484ec9ec8aff26b499381a0b4459f53efc0aefe001ee2--gh--2.37.0.arm64_ventura.bottle.tar.gz</span></span>
+<span id="cb7-11"><a href="#cb7-11" aria-hidden="true" tabindex="-1"></a><span class="co">## ==&gt; Pouring gh--2.37.0.arm64_ventura.bottle.tar.gz</span></span>
+<span id="cb7-12"><a href="#cb7-12" aria-hidden="true" tabindex="-1"></a><span class="co">## ==&gt; Caveats</span></span>
+<span id="cb7-13"><a href="#cb7-13" aria-hidden="true" tabindex="-1"></a><span class="co">## Bash completion has been installed to:</span></span>
+<span id="cb7-14"><a href="#cb7-14" aria-hidden="true" tabindex="-1"></a><span class="co">##   /opt/homebrew/etc/bash_completion.d</span></span>
+<span id="cb7-15"><a href="#cb7-15" aria-hidden="true" tabindex="-1"></a><span class="co">## ==&gt; Summary</span></span>
+<span id="cb7-16"><a href="#cb7-16" aria-hidden="true" tabindex="-1"></a><span class="co">## 🍺  /opt/homebrew/Cellar/gh/2.37.0: 191 files, 44.2MB</span></span>
+<span id="cb7-17"><a href="#cb7-17" aria-hidden="true" tabindex="-1"></a><span class="co">## ==&gt; Running `brew cleanup gh`...</span></span>
+<span id="cb7-18"><a href="#cb7-18" aria-hidden="true" tabindex="-1"></a><span class="co">## Disable this behaviour by setting HOMEBREW_NO_INSTALL_CLEANUP.</span></span>
+<span id="cb7-19"><a href="#cb7-19" aria-hidden="true" tabindex="-1"></a><span class="co">## Hide these hints with HOMEBREW_NO_ENV_HINTS (see `man brew`).</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
 <section id="github-cli-authentication" class="level3" data-number="5.3.1">
 <h3 data-number="5.3.1" class="anchored" data-anchor-id="github-cli-authentication"><span class="header-section-number">5.3.1</span> GitHub CLI authentication</h3>
 <p>In order to make use of <code>gh</code> we need to go through another round of authentication setup. To do this, go to the terminal and run:</p>
-<pre><code>gh auth login
-## ? What account do you want to log into? GitHub Enterprise Server
-## ? GHE hostname: github.sydney.edu.au
-## ? What is your preferred protocol for Git operations? HTTPS
-## ? Authenticate Git with your GitHub credentials? Yes
-## ? How would you like to authenticate GitHub CLI? Login with a web browser</code></pre>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="ex">gh</span> auth login</span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="co">## ? What account do you want to log into? GitHub Enterprise Server</span></span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a><span class="co">## ? GHE hostname: github.sydney.edu.au</span></span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a><span class="co">## ? What is your preferred protocol for Git operations? HTTPS</span></span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a><span class="co">## ? Authenticate Git with your GitHub credentials? Yes</span></span>
+<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a><span class="co">## ? How would you like to authenticate GitHub CLI? Login with a web browser</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
 <p>For additional information, see <a href="https://cli.github.com/manual/gh_auth">gh auth –help</a>.</p>
 <p>In order to use <code>gh</code> with github.com directly you need to authenticate for that platform too. Repeat the above, but now the responses look like this:</p>
-<pre><code>gh auth login
-## ? What account do you want to log into? GitHub.com
-## ? What is your preferred protocol for Git operations? HTTPS
-## ? Authenticate Git with your GitHub credentials? Yes
-## ? How would you like to authenticate GitHub CLI? Login with a web browser</code></pre>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="ex">gh</span> auth login</span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="co">## ? What account do you want to log into? GitHub.com</span></span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a><span class="co">## ? What is your preferred protocol for Git operations? HTTPS</span></span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a><span class="co">## ? Authenticate Git with your GitHub credentials? Yes</span></span>
+<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a><span class="co">## ? How would you like to authenticate GitHub CLI? Login with a web browser</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
 <p>You are nearly set. You can verify that what you have configured worked via:</p>
-<pre><code>gh auth status
-## github.sydney.edu.au
-##   ✓ Logged in to github.sydney.edu.au as mjon7053 (keyring)
-##   ✓ Git operations for github.sydney.edu.au configured to use https protocol.
-##   ✓ Token: gho_************************************
-##   ✓ Token scopes: gist, read:org, repo, workflow
-## 
-## github.com
-##   ✓ Logged in to github.com as maj-biostat (keyring)
-##   ✓ Git operations for github.com configured to use https protocol.
-##   ✓ Token: gho_************************************
-##   ✓ Token scopes: gist, read:org, repo, workflow</code></pre>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="ex">gh</span> auth status</span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a><span class="co">## github.sydney.edu.au</span></span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a><span class="co">##   ✓ Logged in to github.sydney.edu.au as mjon7053 (keyring)</span></span>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a><span class="co">##   ✓ Git operations for github.sydney.edu.au configured to use https protocol.</span></span>
+<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a><span class="co">##   ✓ Token: gho_************************************</span></span>
+<span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a><span class="co">##   ✓ Token scopes: gist, read:org, repo, workflow</span></span>
+<span id="cb10-7"><a href="#cb10-7" aria-hidden="true" tabindex="-1"></a><span class="co">## </span></span>
+<span id="cb10-8"><a href="#cb10-8" aria-hidden="true" tabindex="-1"></a><span class="co">## github.com</span></span>
+<span id="cb10-9"><a href="#cb10-9" aria-hidden="true" tabindex="-1"></a><span class="co">##   ✓ Logged in to github.com as maj-biostat (keyring)</span></span>
+<span id="cb10-10"><a href="#cb10-10" aria-hidden="true" tabindex="-1"></a><span class="co">##   ✓ Git operations for github.com configured to use https protocol.</span></span>
+<span id="cb10-11"><a href="#cb10-11" aria-hidden="true" tabindex="-1"></a><span class="co">##   ✓ Token: gho_************************************</span></span>
+<span id="cb10-12"><a href="#cb10-12" aria-hidden="true" tabindex="-1"></a><span class="co">##   ✓ Token scopes: gist, read:org, repo, workflow</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
 <p>However, for <code>gh</code> to work with the desired host you need to set an environment variable to tell <code>gh</code> which platform to use. On macOS, you can set this up easily with the following entries in the <code>.profile</code> shell initialisation script (or <code>.bash_profile</code> for those inclined).</p>
-<pre><code>gh-ent() {
-  export GH_HOST=github.sydney.edu.au
-}
-
-gh-std() {
-  export GH_HOST=github.com
-}</code></pre>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="fu">gh-ent()</span> <span class="kw">{</span></span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>  <span class="bu">export</span> <span class="va">GH_HOST</span><span class="op">=</span>github.sydney.edu.au</span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a><span class="kw">}</span></span>
+<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a><span class="fu">gh-std()</span> <span class="kw">{</span></span>
+<span id="cb11-6"><a href="#cb11-6" aria-hidden="true" tabindex="-1"></a>  <span class="bu">export</span> <span class="va">GH_HOST</span><span class="op">=</span>github.com</span>
+<span id="cb11-7"><a href="#cb11-7" aria-hidden="true" tabindex="-1"></a><span class="kw">}</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
 <p>On Windows, I have no idea how you are supposed to do the above in an easy manner. You may just have to resort to running</p>
-<pre><code>set GH_HOST=github.sydney.edu.au</code></pre>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="bu">set</span> GH_HOST=github.sydney.edu.au</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
 <p>or</p>
-<pre><code>set GH_HOST=github.com</code></pre>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="bu">set</span> GH_HOST=github.com</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
 <p>each time you want to switch.</p>
 <p>Now (on macOS) when you want to interrogate github.com repositories we can use the following commands.</p>
 <div class="callout callout-style-default callout-note callout-titled">
@@ -471,31 +532,35 @@ Note
 <p>Do not worry about the meaning of the commands, this is just to establish that we have configured things correctly.</p>
 </div>
 </div>
-<pre><code>gh-std
-gh repo list
-
-## Showing 30 of 185 repositories in @maj-biostat
-## 
-## maj-biostat/misc-notes                         info for manjaro/arch linux setup                                public         1d
-## maj-biostat/wisca_2                            Revised approach to antibiogram                                  private        25d
-## maj-biostat/motc.run                                                                                            private        Sep 11, 2023
-## maj-biostat/motc.sim                           Simulation for motivate c trial                                  private        Sep 11, 2023
-## maj-biostat/motc.stan                          Stan models for motc                                             private        Sep  7, 2023
-## maj-biostat/quarto_demos_basic                 Demo using Quarto to render to word documents with custom te...  private        Aug 23, 2023
-## maj-biostat/BayesDRM                           Dose response models in stan                                     public         May 21, 2023
-## maj-biostat/motc.modproto                                                                                       public         May  1, 2023</code></pre>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="ex">gh-std</span></span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a><span class="ex">gh</span> repo list</span>
+<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a><span class="co">## Showing 30 of 185 repositories in @maj-biostat</span></span>
+<span id="cb14-5"><a href="#cb14-5" aria-hidden="true" tabindex="-1"></a><span class="co">## </span></span>
+<span id="cb14-6"><a href="#cb14-6" aria-hidden="true" tabindex="-1"></a><span class="co">## maj-biostat/misc-notes                         info for manjaro/arch linux setup                                public         1d</span></span>
+<span id="cb14-7"><a href="#cb14-7" aria-hidden="true" tabindex="-1"></a><span class="co">## maj-biostat/wisca_2                            Revised approach to antibiogram                                  private        25d</span></span>
+<span id="cb14-8"><a href="#cb14-8" aria-hidden="true" tabindex="-1"></a><span class="co">## maj-biostat/motc.run                                                                                            private        Sep 11, 2023</span></span>
+<span id="cb14-9"><a href="#cb14-9" aria-hidden="true" tabindex="-1"></a><span class="co">## maj-biostat/motc.sim                           Simulation for motivate c trial                                  private        Sep 11, 2023</span></span>
+<span id="cb14-10"><a href="#cb14-10" aria-hidden="true" tabindex="-1"></a><span class="co">## maj-biostat/motc.stan                          Stan models for motc                                             private        Sep  7, 2023</span></span>
+<span id="cb14-11"><a href="#cb14-11" aria-hidden="true" tabindex="-1"></a><span class="co">## maj-biostat/quarto_demos_basic                 Demo using Quarto to render to word documents with custom te...  private        Aug 23, 2023</span></span>
+<span id="cb14-12"><a href="#cb14-12" aria-hidden="true" tabindex="-1"></a><span class="co">## maj-biostat/BayesDRM                           Dose response models in stan                                     public         May 21, 2023</span></span>
+<span id="cb14-13"><a href="#cb14-13" aria-hidden="true" tabindex="-1"></a><span class="co">## maj-biostat/motc.modproto                                                                                       public         May  1, 2023</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
 <p>and for the USyd Enterprise GitHub Server, use:</p>
-<pre><code>gh-ent
-gh repo list
-
-Showing 12 of 12 repositories in @mjon7053
-
-mjon7053/motc-mgt            Monitoring statistics for Motivate-C study                       private  1d
-mjon7053/fluvid.analyses     Analyses for fluvid coadministration study (COVID19 + FLU) vacc  private  17d
-mjon7053/motc.sap                                                                             public   Sep 14, 2023
-mjon7053/motc-sim-report     Motivate-C simulation report                                     private  Sep 12, 2023
-mjon7053/roadmap-notes       Notes relating to the ROADMAP project.                           private  Sep  2, 2023
-mjon7053/mjon7053.github.io                                                                   private  Aug 27, 2023</code></pre>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="ex">gh-ent</span></span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a><span class="ex">gh</span> repo list</span>
+<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a><span class="ex">Showing</span> 12 of 12 repositories in @mjon7053</span>
+<span id="cb15-5"><a href="#cb15-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-6"><a href="#cb15-6" aria-hidden="true" tabindex="-1"></a><span class="ex">mjon7053/motc-mgt</span>            Monitoring statistics for Motivate-C study                       private  1d</span>
+<span id="cb15-7"><a href="#cb15-7" aria-hidden="true" tabindex="-1"></a><span class="ex">mjon7053/fluvid.analyses</span>     Analyses for fluvid coadministration study <span class="er">(</span><span class="ex">COVID19</span> + FLU<span class="kw">)</span> <span class="ex">vacc</span>  private  17d</span>
+<span id="cb15-8"><a href="#cb15-8" aria-hidden="true" tabindex="-1"></a><span class="ex">mjon7053/motc.sap</span>                                                                             public   Sep 14, 2023</span>
+<span id="cb15-9"><a href="#cb15-9" aria-hidden="true" tabindex="-1"></a><span class="ex">mjon7053/motc-sim-report</span>     Motivate-C simulation report                                     private  Sep 12, 2023</span>
+<span id="cb15-10"><a href="#cb15-10" aria-hidden="true" tabindex="-1"></a><span class="ex">mjon7053/roadmap-notes</span>       Notes relating to the ROADMAP project.                           private  Sep  2, 2023</span>
+<span id="cb15-11"><a href="#cb15-11" aria-hidden="true" tabindex="-1"></a><span class="ex">mjon7053/mjon7053.github.io</span>                                                                   private  Aug 27, 2023</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
 
 
 </section>
