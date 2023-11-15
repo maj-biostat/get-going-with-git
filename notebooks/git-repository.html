@@ -279,7 +279,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#initialisation" id="toc-initialisation" class="nav-link" data-scroll-target="#initialisation"><span class="header-section-number">6.1.1</span> Initialisation</a></li>
   <li><a href="#sec-repo-struct" id="toc-sec-repo-struct" class="nav-link" data-scroll-target="#sec-repo-struct"><span class="header-section-number">6.1.2</span> Repository structures</a>
   <ul class="collapse">
-  <li><a href="#working-directory" id="toc-working-directory" class="nav-link" data-scroll-target="#working-directory"><span class="header-section-number">6.1.2.1</span> Working directory</a></li>
+  <li><a href="#sec-working-dir" id="toc-sec-working-dir" class="nav-link" data-scroll-target="#sec-working-dir"><span class="header-section-number">6.1.2.1</span> Working directory</a></li>
   <li><a href="#staging-area" id="toc-staging-area" class="nav-link" data-scroll-target="#staging-area"><span class="header-section-number">6.1.2.2</span> Staging area</a></li>
   <li><a href="#commit-history" id="toc-commit-history" class="nav-link" data-scroll-target="#commit-history"><span class="header-section-number">6.1.2.3</span> Commit history</a></li>
   </ul></li>
@@ -312,8 +312,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 <section id="git-repositories" class="level2 page-columns page-full" data-number="6.1">
 <h2 data-number="6.1" class="anchored" data-anchor-id="git-repositories"><span class="header-section-number">6.1</span> Git repositories</h2>
-<p>A repository is the most basic component of git. It is where you store your files and each files history. Through a variety of mechanisms, repositories can be public or private, can involve single people or multiple collaborators and can be stored locally (on your personal computer), in the cloud (in the cloud hosted by a service provider like github) or on a physical server (a basic file server will suffice in most cases).</p>
-<p>Using git, you can create and configure repositories, add or remove files and review history of the files in the repository.</p>
+<p>A repository is the most basic component of git. It is where the history is retained in terms of commits (it’s not correct but for the time being you can think of these as versions or snapshots of the files/repository).</p>
+<p>Repositories can be public or private, can involve single people or multiple collaborators and can be stored locally (on your personal computer), be located/stored in the cloud (in the cloud as in hosted by a service provider like github), or on a physical server (a basic file server will suffice in most cases), or just on your local machine.</p>
+<p>Using the functions provided through git, you can create and configure repositories, add or remove files, review history of the files in the repository and much more.</p>
 <section id="initialisation" class="level3" data-number="6.1.1">
 <h3 data-number="6.1.1" class="anchored" data-anchor-id="initialisation"><span class="header-section-number">6.1.1</span> Initialisation</h3>
 <p>Let’s initialise a new repository. Run the following on your machine:</p>
@@ -334,7 +335,21 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a><span class="co">## nothing to commit (create/copy files and use "git add" to track)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>If you received the output detailed above (or something very similar to it) then congratulations, you initialised a git repository.</p>
-<p>If you have configured your file explorer to show hidden files, you will notice that the <code>first-repo</code> directory now contains a <code>.git</code> sub-directory. This directory contains the everything related to the repository. For examples, it contains all the version history and allows you to access files at any stage in their development. Generally, you will not touch this sub-directory directly.</p>
+<p>If you have configured your file explorer to show hidden files, you will notice that the <code>first-repo</code> directory now contains a <code>.git</code> sub-directory. If you are running a Windows OS, then depending on what version you have, you may be able to run <code>ls -la</code> to list all files (i.e.&nbsp;including hidden files) within a directory.</p>
+<p>This (<code>.git</code>) directory contains everything related to the repository.</p>
+<div class="callout callout-style-default callout-warning callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Warning
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p><strong>If you delete the <code>.git</code> directory, you will erase all of your commits. So, do not delete it unless you are absolutely certain this is what you want.</strong></p>
+</div>
+</div>
 <div class="callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -345,8 +360,10 @@ Note
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>You can also create a repository from a pre-existing directory that has already got an established file structure and files. The process is exactly the same, just change to the directory that you want to add to version control, and run <code>git init</code>.</p>
-<p>Additionally, when you create a new project in Rstudio, you can select to initialise a new git repository. Underneath the covers, RStudio is simply invoking <code>git init</code>.</p>
+<ol type="1">
+<li>You can also create a repository from a pre-existing directory that has already got an established file structure and files. The process is exactly the same, just change to the directory that you want to add to version control, and run <code>git init</code>.</li>
+<li>When you create a new project in Rstudio, you can select to initialise a new git repository. Underneath the covers, RStudio is simply invoking <code>git init</code>.</li>
+</ol>
 </div>
 </div>
 </section>
@@ -365,8 +382,8 @@ Note
 <figcaption class="figure-caption margin-caption">Repository structures</figcaption>
 </figure>
 </div>
-<section id="working-directory" class="level4" data-number="6.1.2.1">
-<h4 data-number="6.1.2.1" class="anchored" data-anchor-id="working-directory"><span class="header-section-number">6.1.2.1</span> Working directory</h4>
+<section id="sec-working-dir" class="level4" data-number="6.1.2.1">
+<h4 data-number="6.1.2.1" class="anchored" data-anchor-id="sec-working-dir"><span class="header-section-number">6.1.2.1</span> Working directory</h4>
 <p>Is the usual files and sub-directories within your project directory. You add, update, rename, delete files and direcotries in this area. When you first create a file or directory within the working directory, it is not yet under version control. Such files are referred to as <em>untracked files</em>.</p>
 </section>
 <section id="staging-area" class="level4" data-number="6.1.2.2">

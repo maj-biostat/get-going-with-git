@@ -274,7 +274,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <h2 id="toc-title">Contents</h2>
    
   <ul>
-  <li><a href="#no-github" id="toc-no-github" class="nav-link active" data-scroll-target="#no-github"><span class="header-section-number">12.1</span> No github?</a></li>
+  <li><a href="#sec-no-github" id="toc-sec-no-github" class="nav-link active" data-scroll-target="#sec-no-github"><span class="header-section-number">12.1</span> No github?</a></li>
   <li><a href="#so-remote" id="toc-so-remote" class="nav-link" data-scroll-target="#so-remote"><span class="header-section-number">12.2</span> So remote</a></li>
   <li><a href="#initialising-remotes" id="toc-initialising-remotes" class="nav-link" data-scroll-target="#initialising-remotes"><span class="header-section-number">12.3</span> Initialising remotes</a></li>
   <li><a href="#keeping-remotes-up-to-date" id="toc-keeping-remotes-up-to-date" class="nav-link" data-scroll-target="#keeping-remotes-up-to-date"><span class="header-section-number">12.4</span> Keeping remotes up to date</a>
@@ -312,8 +312,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 <p>What is covered here simply scratches the surface. Git is extremely flexible in the workflows that can be set up. A basic approach is that of a centralised repository. This is fairly easy to understand and is simple to set up for small teams.</p>
 <p>The concept of <em>remotes</em> is introduced as is an associated workflow.</p>
-<section id="no-github" class="level2" data-number="12.1">
-<h2 data-number="12.1" class="anchored" data-anchor-id="no-github"><span class="header-section-number">12.1</span> No github?</h2>
+<section id="sec-no-github" class="level2" data-number="12.1">
+<h2 data-number="12.1" class="anchored" data-anchor-id="sec-no-github"><span class="header-section-number">12.1</span> No github?</h2>
 <p>GitHub is a hosting service for git repositories. It also extends some of the git functionality. They have captured the market, mainly because we are all a bit dim.</p>
 <p>Before 2005 (ish), GitHub did not exist, and it wasn’t a catastrophe. What did we do? Git has the functionality built into it to allow collaboration via hosting git repositories directly on fileservers. This is a reasonable solution for small teams with access to a common network, but it has its limitations. Nevertheless, most bluechip organisations used this approach during the 2000’s.</p>
 <p>Repositories that are retained outside of your local machine are referred to as <em>remotes</em>. It doesn’t matter whether they are hosted on LIQUID, or a random file server or GitHub or BitBucket or Timbuktu. They are still known as remotes.</p>
@@ -579,6 +579,19 @@ Note
 <span id="cb16-4"><a href="#cb16-4" aria-hidden="true" tabindex="-1"></a><span class="co">## Merge made by the 'ort' strategy.</span></span>
 <span id="cb16-5"><a href="#cb16-5" aria-hidden="true" tabindex="-1"></a><span class="co">##  readme.md | 3 +++</span></span>
 <span id="cb16-6"><a href="#cb16-6" aria-hidden="true" tabindex="-1"></a><span class="co">##  1 file changed, 3 insertions(+)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Git offers another command <code>git pull</code> that effectively combines <code>git fetch</code> with <code>git merge</code>. The benefit of using <code>git fetch</code> is that it will update your local repository but will not make any changes to your working directory (see <a href="git-repository.html#sec-working-dir"><span>Section&nbsp;6.1.2.1</span></a> for a reminder).</p>
+</div>
 </div>
 <p>And in this case, the merge appears to have worked correctly.</p>
 <div class="cell">
