@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Get going with git - 5&nbsp; Repositories</title>
+<title>Get going with git - 15&nbsp; Common commands</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -20,40 +20,6 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
-/* CSS for syntax highlighting */
-pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
-pre > code.sourceCode > span:empty { height: 1.2em; }
-.sourceCode { overflow: visible; }
-code.sourceCode > span { color: inherit; text-decoration: inherit; }
-div.sourceCode { margin: 1em 0; }
-pre.sourceCode { margin: 0; }
-@media screen {
-div.sourceCode { overflow: auto; }
-}
-@media print {
-pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
-}
-pre.numberSource code
-  { counter-reset: source-line 0; }
-pre.numberSource code > span
-  { position: relative; left: -4em; counter-increment: source-line; }
-pre.numberSource code > span > a:first-child::before
-  { content: counter(source-line);
-    position: relative; left: -1em; text-align: right; vertical-align: baseline;
-    border: none; display: inline-block;
-    -webkit-touch-callout: none; -webkit-user-select: none;
-    -khtml-user-select: none; -moz-user-select: none;
-    -ms-user-select: none; user-select: none;
-    padding: 0 4px; width: 4em;
-  }
-pre.numberSource { margin-left: 3em;  padding-left: 4px; }
-div.sourceCode
-  {   }
-@media screen {
-pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
-}
 </style>
 
 
@@ -64,8 +30,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="../site_libs/quarto-search/fuse.min.js"></script>
 <script src="../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../">
-<link href="../notebooks/git-commit.html" rel="next">
-<link href="../notebooks/part-02.html" rel="prev">
+<link href="../notebooks/about.html" rel="next">
+<link href="../notebooks/resources.html" rel="prev">
 <script src="../site_libs/quarto-html/quarto.js"></script>
 <script src="../site_libs/quarto-html/popper.min.js"></script>
 <script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
@@ -98,7 +64,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 </head>
 
-<body class="nav-sidebar floating slimcontent">
+<body class="nav-sidebar floating">
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
@@ -107,7 +73,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../notebooks/part-02.html">Part 2 - Fundamentals</a></li><li class="breadcrumb-item"><a href="../notebooks/git-repository.html"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Repositories</span></a></li></ol></nav>
+      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../notebooks/part-04.html">Part 4 - Other bits</a></li><li class="breadcrumb-item"><a href="../notebooks/common-commands.html"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">Common commands</span></a></li></ol></nav>
       <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
       </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -193,7 +159,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../notebooks/git-repository.html" class="sidebar-item-text sidebar-link active">
+  <a href="../notebooks/git-repository.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Repositories</span></span></a>
   </div>
 </li>
@@ -275,7 +241,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../notebooks/common-commands.html" class="sidebar-item-text sidebar-link">
+  <a href="../notebooks/common-commands.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">Common commands</span></span></a>
   </div>
 </li>
@@ -293,29 +259,14 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div id="quarto-sidebar-glass" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass"></div>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        <nav id="TOC" role="doc-toc" class="toc-active" data-toc-expanded="99">
-    <h2 id="toc-title">Contents</h2>
-   
-  <ul>
-  <li><a href="#git-repositories" id="toc-git-repositories" class="nav-link active" data-scroll-target="#git-repositories"><span class="header-section-number">5.1</span> Git repositories</a>
-  <ul>
-  <li><a href="#initialisation" id="toc-initialisation" class="nav-link" data-scroll-target="#initialisation"><span class="header-section-number">5.1.1</span> Initialisation</a></li>
-  <li><a href="#sec-repo-struct" id="toc-sec-repo-struct" class="nav-link" data-scroll-target="#sec-repo-struct"><span class="header-section-number">5.1.2</span> Repository structures</a>
-  <ul class="collapse">
-  <li><a href="#sec-working-dir" id="toc-sec-working-dir" class="nav-link" data-scroll-target="#sec-working-dir"><span class="header-section-number">5.1.2.1</span> Working directory</a></li>
-  <li><a href="#staging-area" id="toc-staging-area" class="nav-link" data-scroll-target="#staging-area"><span class="header-section-number">5.1.2.2</span> Staging area</a></li>
-  <li><a href="#commit-history" id="toc-commit-history" class="nav-link" data-scroll-target="#commit-history"><span class="header-section-number">5.1.2.3</span> Commit history</a></li>
-  </ul></li>
-  </ul></li>
-  </ul>
-<div class="toc-actions"><div><i class="bi bi-git"></i></div><div class="action-links"><p><a href="https://github.sydney.edu.au/mjon7053/get-going-with-git/blob/main/notebooks/git-repository.qmd" class="toc-action">View source</a></p><p><a href="https://github.sydney.edu.au/mjon7053/get-going-with-git/issues/new" class="toc-action">Report an issue</a></p></div></div></nav>
+        
     </div>
 <!-- main -->
-<main class="content page-columns page-full" id="quarto-document-content">
+<main class="content" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Repositories</span></h1>
+<h1 class="title"><span id="sec-common-commands" class="quarto-section-identifier"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">Common commands</span></span></h1>
 </div>
 
 
@@ -333,107 +284,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div class="cell">
 
 </div>
-<section id="git-repositories" class="level2 page-columns page-full" data-number="5.1">
-<h2 data-number="5.1" class="anchored" data-anchor-id="git-repositories"><span class="header-section-number">5.1</span> Git repositories</h2>
-<p>A repository is the most basic component of git. It is where the history is retained in terms of commits (it’s not correct but for the time being you can think of these as versions or snapshots of the files/repository).</p>
-<p>Repositories can be public or private, can involve single people or multiple collaborators and can be stored locally (on your personal computer), be located/stored in the cloud (in the cloud as in hosted by a service provider like github), or on a physical server (a basic file server will suffice in most cases), or just on your local machine.</p>
-<p>Using the functions provided through git, you can create and configure repositories, add or remove files, review history of the files in the repository and much more.</p>
-<section id="initialisation" class="level3" data-number="5.1.1">
-<h3 data-number="5.1.1" class="anchored" data-anchor-id="initialisation"><span class="header-section-number">5.1.1</span> Initialisation</h3>
-<p>Let’s initialise a new repository. Run the following on your machine:</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Change dir to the local workshop directory, </span></span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="co"># e.g. cd ~/Documents/get-going-with-git</span></span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="fu">mkdir</span> first-repo</span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="bu">cd</span> first-repo</span>
-<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> init</span>
-<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="co">## Initialized empty Git repository in /Users/mark/Documents/project/misc-stats/first-repo/.git/</span></span>
-<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> status</span>
-<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a><span class="co">## On branch main</span></span>
-<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a><span class="co">## </span></span>
-<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a><span class="co">## No commits yet</span></span>
-<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a><span class="co">## </span></span>
-<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a><span class="co">## nothing to commit (create/copy files and use "git add" to track)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<div class="callout callout-style-default callout-note callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Note
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>The repository is implemented by a hidden directory called <code>.git</code> that exists within the project directory and contains all the data on the changes that have been made to the files in the project. You should never touch this directory nor its contents.</p>
-</div>
-</div>
-<p>If you received the output detailed above (or something very similar to it) then congratulations, you initialised a git repository.</p>
-<p>If you have configured your file explorer to show hidden files, you will notice that the <code>first-repo</code> directory now contains a <code>.git</code> sub-directory. If you are running a Windows OS, then depending on what version you have, you may be able to run <code>ls -la</code> to list all files (i.e.&nbsp;including hidden files) within a directory.</p>
-<p>This (<code>.git</code>) directory contains everything related to the repository.</p>
-<div class="callout callout-style-default callout-warning callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Warning
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p><strong>If you delete the <code>.git</code> directory, you will erase all of your commits. So, do not delete it unless you are absolutely certain this is what you want.</strong></p>
-</div>
-</div>
-<div class="callout callout-style-default callout-note callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Note
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<ol type="1">
-<li>You can also create a repository from a pre-existing directory that has already got an established file structure and files. The process is exactly the same, just change to the directory that you want to add to version control, and run <code>git init</code>.</li>
-<li>When you create a new project in Rstudio, you can select to initialise a new git repository. Underneath the covers, RStudio is simply invoking <code>git init</code>.</li>
-</ol>
-</div>
-</div>
-</section>
-<section id="sec-repo-struct" class="level3 page-columns page-full" data-number="5.1.2">
-<h3 data-number="5.1.2" class="anchored" data-anchor-id="sec-repo-struct"><span class="header-section-number">5.1.2</span> Repository structures</h3>
-<p>Before we start adding files to the new repository, you need to be aware of a few concepts.</p>
-<p>There are three main structures within the repository:</p>
-<ol type="1">
-<li>Working directory</li>
-<li>Staging area</li>
-<li>Commit history</li>
-</ol>
-<div class="quarto-figure quarto-figure-center page-columns page-full">
-<figure class="figure page-columns page-full">
-<p><img src="../fig/repos-structs.jpg" class="img-fluid figure-img"></p>
-<figcaption class="figure-caption margin-caption">Repository structures</figcaption>
-</figure>
-</div>
-<section id="sec-working-dir" class="level4" data-number="5.1.2.1">
-<h4 data-number="5.1.2.1" class="anchored" data-anchor-id="sec-working-dir"><span class="header-section-number">5.1.2.1</span> Working directory</h4>
-<p>Is the usual files and sub-directories within your project directory. You add, update, rename, delete files and direcotries in this area. When you first create a file or directory within the working directory, it is not yet under version control. Such files are referred to as <em>untracked files</em>.</p>
-</section>
-<section id="staging-area" class="level4" data-number="5.1.2.2">
-<h4 data-number="5.1.2.2" class="anchored" data-anchor-id="staging-area"><span class="header-section-number">5.1.2.2</span> Staging area</h4>
-<p>Is a special space to where you list the files that are added to be committed as a new version under version control.</p>
-</section>
-<section id="commit-history" class="level4" data-number="5.1.2.3">
-<h4 data-number="5.1.2.3" class="anchored" data-anchor-id="commit-history"><span class="header-section-number">5.1.2.3</span> Commit history</h4>
-<p>After staging files, they are committed to the repository. Once committed, files (and directories) are under version control and are referred to as <em>tracked files</em>. A commit is simply a version, but you could also think of it as a transaction with the repository. Changes to committed files are monitored and new updates to files can be committed to the repository as work on the project progresses. Every time you commit files, the <em>commit history</em> is saved.</p>
+<p>todo</p>
 
 
-</section>
-</section>
-</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
@@ -687,13 +540,13 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="../notebooks/part-02.html" class="pagination-link">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Part 2 - Fundamentals</span>
+      <a href="../notebooks/resources.html" class="pagination-link">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Resources</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="../notebooks/git-commit.html" class="pagination-link">
-        <span class="nav-page-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Stage and Commit</span></span> <i class="bi bi-arrow-right-short"></i>
+      <a href="../notebooks/about.html" class="pagination-link">
+        <span class="nav-page-text">About</span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>
@@ -701,4 +554,4 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 
 
 
-</body></html>
+<footer class="footer"><div class="nav-footer"><div class="nav-footer-center"><div class="toc-actions"><div><i class="bi bi-git"></i></div><div class="action-links"><p><a href="https://github.sydney.edu.au/mjon7053/get-going-with-git/blob/main/notebooks/common-commands.qmd" class="toc-action">View source</a></p><p><a href="https://github.sydney.edu.au/mjon7053/get-going-with-git/issues/new" class="toc-action">Report an issue</a></p></div></div></div></div></footer></body></html>

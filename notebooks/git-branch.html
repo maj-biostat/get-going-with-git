@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Get going with git - 9&nbsp; Branches</title>
+<title>Get going with git - 8&nbsp; Branches</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -107,7 +107,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../notebooks/part-02.html">Part 2 - Fundamentals</a></li><li class="breadcrumb-item"><a href="../notebooks/git-branch.html"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Branches</span></a></li></ol></nav>
+      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../notebooks/part-02.html">Part 2 - Fundamentals</a></li><li class="breadcrumb-item"><a href="../notebooks/git-branch.html"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Branches</span></a></li></ol></nav>
       <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
       </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -144,7 +144,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../notebooks/preamble.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Pre-requisites</span></a>
+ <span class="menu-text">Preamble (don’t skip)</span></a>
   </div>
 </li>
         <li class="sidebar-item sidebar-item-section">
@@ -158,32 +158,26 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../notebooks/resources.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Resources</span></span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
   <a href="../notebooks/what-is-revision-control.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">What is (this thing) called revision control</span></span></a>
+ <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">What is (this thing) called revision/version control?</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../notebooks/git-install.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Git install</span></span></a>
+ <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Git install</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../notebooks/git-setup.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Git setup</span></span></a>
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Git setup</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../notebooks/github-setup.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Github setup</span></span></a>
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">GitHub setup</span></span></a>
   </div>
 </li>
       </ul>
@@ -200,37 +194,37 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../notebooks/git-repository.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Repositories</span></span></a>
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Repositories</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../notebooks/git-commit.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Stage and Commit</span></span></a>
+ <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Stage and Commit</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../notebooks/git-diffs.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Reviewing differences</span></span></a>
+ <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Reviewing differences</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../notebooks/git-branch.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Branches</span></span></a>
+ <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Branches</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../notebooks/git-merge.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Merge</span></span></a>
+ <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Merge</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../notebooks/github-101.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">GitHub introduction</span></span></a>
+ <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">GitHub introduction</span></span></a>
   </div>
 </li>
       </ul>
@@ -247,13 +241,42 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../notebooks/git-collab-fileserver.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Collaboration 101</span></span></a>
+ <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Collaboration 101</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../notebooks/git-collab-github.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Collaboration with GitHub</span></span></a>
+ <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Collaboration with GitHub</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../notebooks/git-doc-github.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Documentation via GitHub</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../notebooks/part-04.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Part 4 - Other bits</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../notebooks/resources.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Resources</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../notebooks/common-commands.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">Common commands</span></span></a>
   </div>
 </li>
       </ul>
@@ -274,14 +297,14 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <h2 id="toc-title">Contents</h2>
    
   <ul>
-  <li><a href="#what-is-a-branch" id="toc-what-is-a-branch" class="nav-link active" data-scroll-target="#what-is-a-branch"><span class="header-section-number">9.1</span> What is a branch?</a></li>
-  <li><a href="#time-travel" id="toc-time-travel" class="nav-link" data-scroll-target="#time-travel"><span class="header-section-number">9.2</span> Time travel</a>
+  <li><a href="#what-is-a-branch" id="toc-what-is-a-branch" class="nav-link active" data-scroll-target="#what-is-a-branch"><span class="header-section-number">8.1</span> What is a branch?</a></li>
+  <li><a href="#time-travel" id="toc-time-travel" class="nav-link" data-scroll-target="#time-travel"><span class="header-section-number">8.2</span> Time travel</a>
   <ul>
-  <li><a href="#commit" id="toc-commit" class="nav-link" data-scroll-target="#commit"><span class="header-section-number">9.2.1</span> Commit</a></li>
-  <li><a href="#rewind" id="toc-rewind" class="nav-link" data-scroll-target="#rewind"><span class="header-section-number">9.2.2</span> Rewind</a></li>
-  <li><a href="#fix-issue" id="toc-fix-issue" class="nav-link" data-scroll-target="#fix-issue"><span class="header-section-number">9.2.3</span> Fix issue</a></li>
-  <li><a href="#make-permanent" id="toc-make-permanent" class="nav-link" data-scroll-target="#make-permanent"><span class="header-section-number">9.2.4</span> Make permanent</a></li>
-  <li><a href="#switching-back-to-the-secondary" id="toc-switching-back-to-the-secondary" class="nav-link" data-scroll-target="#switching-back-to-the-secondary"><span class="header-section-number">9.2.5</span> Switching back to the secondary</a></li>
+  <li><a href="#commit" id="toc-commit" class="nav-link" data-scroll-target="#commit"><span class="header-section-number">8.2.1</span> Commit</a></li>
+  <li><a href="#rewind" id="toc-rewind" class="nav-link" data-scroll-target="#rewind"><span class="header-section-number">8.2.2</span> Rewind</a></li>
+  <li><a href="#fix-issue" id="toc-fix-issue" class="nav-link" data-scroll-target="#fix-issue"><span class="header-section-number">8.2.3</span> Fix issue</a></li>
+  <li><a href="#make-permanent" id="toc-make-permanent" class="nav-link" data-scroll-target="#make-permanent"><span class="header-section-number">8.2.4</span> Make permanent</a></li>
+  <li><a href="#switching-back-to-the-secondary" id="toc-switching-back-to-the-secondary" class="nav-link" data-scroll-target="#switching-back-to-the-secondary"><span class="header-section-number">8.2.5</span> Switching back to the secondary</a></li>
   </ul></li>
   </ul>
 <div class="toc-actions"><div><i class="bi bi-git"></i></div><div class="action-links"><p><a href="https://github.sydney.edu.au/mjon7053/get-going-with-git/blob/main/notebooks/git-branch.qmd" class="toc-action">View source</a></p><p><a href="https://github.sydney.edu.au/mjon7053/get-going-with-git/issues/new" class="toc-action">Report an issue</a></p></div></div></nav>
@@ -291,7 +314,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Branches</span></h1>
+<h1 class="title"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Branches</span></h1>
 </div>
 
 
@@ -309,8 +332,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div class="cell">
 
 </div>
-<section id="what-is-a-branch" class="level2 page-columns page-full" data-number="9.1">
-<h2 data-number="9.1" class="anchored" data-anchor-id="what-is-a-branch"><span class="header-section-number">9.1</span> What is a branch?</h2>
+<section id="what-is-a-branch" class="level2 page-columns page-full" data-number="8.1">
+<h2 data-number="8.1" class="anchored" data-anchor-id="what-is-a-branch"><span class="header-section-number">8.1</span> What is a branch?</h2>
 <div class="callout callout-style-default callout-warning callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -324,7 +347,7 @@ Warning
 <p>We are going to step it up a notch. The topic of branching can be challenging for beginners. Practice and repitition is key to understanding. Try not to panic. At a basic level, it is actually straight forward once you get familiar with the processes.</p>
 </div>
 </div>
-<p>Branching is simply a mechanism that allows you to diverge from the main line of development and continue to do work without messing with that main line. They allow multiple pieces of work to be progressed independently within the same project.</p>
+<p>Branching is simply a mechanism that allows you to diverge from the main line of development and continue to do work without messing with that main line. They allow multiple pieces of work to be progressed independently within the same project. Ideally, you want to introduce each homogenous change within the context of its own branch.</p>
 <p>When you run <code>git status</code> you saw the text - <em>On branch main</em> as part of the output. You can think of <code>main</code> as your default branch. Similarly, when you ran <code>git log</code> the last commit reported is suffixed with <em>(HEAD -&gt; main)</em>. Both of these were a reference to the version on the branch that is currently linked to the working directory.</p>
 <p>For example, initially there is a singular progression of the project, but at some point you will want to create a release for a software product, or a piece of documentation or an analysis. Later you may want to revise the release due to changes in project direction, new data, bugs etc. You use branches to facilitate this process in a logical and coherent way. Typically, you branch off from the default branch of a repository, but you can branch from any branch that exists.</p>
 <p>In the examples encountered so far, the branching we have encountered is just a stem (specifically, the <em>main</em> branch). Here is a common type of representation of the kind of branch that we have dealth with so far. The circles represent each commit, which would refer to changes in one or more files. The repository has gone through a series of commits (1, 2, 3, 4 etc.) and the working directory is currently looking at the repository version 4.</p>
@@ -336,11 +359,11 @@ Warning
 </div>
 <p>The arrow pointing at 4 is the current <em>HEAD</em> of the repository. HEAD is a special concept in git. It answers the question “What am I currently looking at?”</p>
 </section>
-<section id="time-travel" class="level2 page-columns page-full" data-number="9.2">
-<h2 data-number="9.2" class="anchored" data-anchor-id="time-travel"><span class="header-section-number">9.2</span> Time travel</h2>
+<section id="time-travel" class="level2 page-columns page-full" data-number="8.2">
+<h2 data-number="8.2" class="anchored" data-anchor-id="time-travel"><span class="header-section-number">8.2</span> Time travel</h2>
 <p>The concepts associated with branching are easiest understood by demonstration and experimentation.</p>
 <p>When you make a new commit to git, the branch reference is updated to point to the new commit. When you move to a new branch, the HEAD reference is updated to point to the branch that you switched to.</p>
-<p>Go to the <a href="resources.html"><span>Chapter&nbsp;1</span></a> resources page and save the <code>branching.R</code> file to your <code>first-repo</code> directory.</p>
+<p>Go to the <a href="resources.html"><span>Chapter&nbsp;14</span></a> resources page and save the <code>branching.R</code> file to your <code>first-repo</code> directory.</p>
 <p>The file contains the following:</p>
 <div class="cell" data-file="resources/fundamentals/branching.R">
 <details>
@@ -444,8 +467,8 @@ Warning
 <p>In contrast to the minor change above, in real life we might be much further along with this next deliverable, which may be vastly more complex than what I have illustrated above. For example, we may have introduced new files, restructured the original analysis, added functionality etc.</p>
 <p>While we could go through the process of winding back all the changes, with revision control we do not have to because we can rewind to any point.</p>
 <p>Next we go over the processes involved.</p>
-<section id="commit" class="level3" data-number="9.2.1">
-<h3 data-number="9.2.1" class="anchored" data-anchor-id="commit"><span class="header-section-number">9.2.1</span> Commit</h3>
+<section id="commit" class="level3" data-number="8.2.1">
+<h3 data-number="8.2.1" class="anchored" data-anchor-id="commit"><span class="header-section-number">8.2.1</span> Commit</h3>
 <p>First thing to do is to check that your code is running ok and then commit any files that have not yet been committed to the repository. Not doing so will cause you some major headaches, so best advice is to not forget to do this.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb5"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> status</span>
@@ -453,8 +476,8 @@ Warning
 <span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> commit <span class="at">-m</span> <span class="st">"Commit of files part way through development"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
-<section id="rewind" class="level3 page-columns page-full" data-number="9.2.2">
-<h3 data-number="9.2.2" class="anchored" data-anchor-id="rewind"><span class="header-section-number">9.2.2</span> Rewind</h3>
+<section id="rewind" class="level3 page-columns page-full" data-number="8.2.2">
+<h3 data-number="8.2.2" class="anchored" data-anchor-id="rewind"><span class="header-section-number">8.2.2</span> Rewind</h3>
 <p>Now we want to rewind our repository back to the time at which the deliverable was made. We can do this by using <code>git log</code> to find the commit hash or we can just use the tag that we set for the release. Using the tag is more convenient so let’s do that.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb6"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> log <span class="at">--oneline</span></span>
@@ -501,8 +524,8 @@ Note
 </div>
 <p>If you look at <code>branching.R</code> you will see that the starts of the secondary analysis has disappeared.</p>
 </section>
-<section id="fix-issue" class="level3 page-columns page-full" data-number="9.2.3">
-<h3 data-number="9.2.3" class="anchored" data-anchor-id="fix-issue"><span class="header-section-number">9.2.3</span> Fix issue</h3>
+<section id="fix-issue" class="level3 page-columns page-full" data-number="8.2.3">
+<h3 data-number="8.2.3" class="anchored" data-anchor-id="fix-issue"><span class="header-section-number">8.2.3</span> Fix issue</h3>
 <p>In order to fix the analysis we need to introduce the confounder as a covariate in the linear model. Introduce the following fixes. First to the descriptive summary:</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">message</span>(<span class="st">"</span><span class="sc">\n</span><span class="st">DESCRIPTIVE SUMMARY:</span><span class="sc">\n</span><span class="st">"</span>)</span>
@@ -542,8 +565,8 @@ Note
 </figure>
 </div>
 </section>
-<section id="make-permanent" class="level3 page-columns page-full" data-number="9.2.4">
-<h3 data-number="9.2.4" class="anchored" data-anchor-id="make-permanent"><span class="header-section-number">9.2.4</span> Make permanent</h3>
+<section id="make-permanent" class="level3 page-columns page-full" data-number="8.2.4">
+<h3 data-number="8.2.4" class="anchored" data-anchor-id="make-permanent"><span class="header-section-number">8.2.4</span> Make permanent</h3>
 <p>Now that we have fixed the code, we want to make the change permanent. That is, we want to formally tell git that our alternative history should be maintained. The way to do that is to create a new branch out of the recent changes (which already look like a branch).</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb10"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> branch fix-01</span>
@@ -576,8 +599,8 @@ Note
 <div class="sourceCode cell-code" id="cb12"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> tag <span class="at">-a</span> v1.1 <span class="at">-m</span> <span class="st">"Analysis 1 (re-issue)"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
-<section id="switching-back-to-the-secondary" class="level3" data-number="9.2.5">
-<h3 data-number="9.2.5" class="anchored" data-anchor-id="switching-back-to-the-secondary"><span class="header-section-number">9.2.5</span> Switching back to the secondary</h3>
+<section id="switching-back-to-the-secondary" class="level3" data-number="8.2.5">
+<h3 data-number="8.2.5" class="anchored" data-anchor-id="switching-back-to-the-secondary"><span class="header-section-number">8.2.5</span> Switching back to the secondary</h3>
 <p>Switching back to our partially complete secondary analysis is as simple as.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb13"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> checkout main</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -842,12 +865,12 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
       <a href="../notebooks/git-diffs.html" class="pagination-link">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Reviewing differences</span></span>
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Reviewing differences</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
       <a href="../notebooks/git-merge.html" class="pagination-link">
-        <span class="nav-page-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Merge</span></span> <i class="bi bi-arrow-right-short"></i>
+        <span class="nav-page-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Merge</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>

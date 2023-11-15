@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Get going with git - 13&nbsp; Collaboration with GitHub</title>
+<title>Get going with git - 12&nbsp; Collaboration with GitHub</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -64,7 +64,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="../site_libs/quarto-search/fuse.min.js"></script>
 <script src="../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../">
-<link href="../notebooks/about.html" rel="next">
+<link href="../notebooks/git-doc-github.html" rel="next">
 <link href="../notebooks/git-collab-fileserver.html" rel="prev">
 <script src="../site_libs/quarto-html/quarto.js"></script>
 <script src="../site_libs/quarto-html/popper.min.js"></script>
@@ -107,7 +107,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../notebooks/part-03.html">Part 3 - Collaboration</a></li><li class="breadcrumb-item"><a href="../notebooks/git-collab-github.html"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Collaboration with GitHub</span></a></li></ol></nav>
+      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../notebooks/part-03.html">Part 3 - Collaboration</a></li><li class="breadcrumb-item"><a href="../notebooks/git-collab-github.html"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Collaboration with GitHub</span></a></li></ol></nav>
       <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
       </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -144,7 +144,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../notebooks/preamble.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Pre-requisites</span></a>
+ <span class="menu-text">Preamble (don’t skip)</span></a>
   </div>
 </li>
         <li class="sidebar-item sidebar-item-section">
@@ -158,32 +158,26 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../notebooks/resources.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Resources</span></span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
   <a href="../notebooks/what-is-revision-control.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">What is (this thing) called revision control</span></span></a>
+ <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">What is (this thing) called revision/version control?</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../notebooks/git-install.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Git install</span></span></a>
+ <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Git install</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../notebooks/git-setup.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Git setup</span></span></a>
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Git setup</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../notebooks/github-setup.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Github setup</span></span></a>
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">GitHub setup</span></span></a>
   </div>
 </li>
       </ul>
@@ -200,37 +194,37 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../notebooks/git-repository.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Repositories</span></span></a>
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Repositories</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../notebooks/git-commit.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Stage and Commit</span></span></a>
+ <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Stage and Commit</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../notebooks/git-diffs.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Reviewing differences</span></span></a>
+ <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Reviewing differences</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../notebooks/git-branch.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Branches</span></span></a>
+ <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Branches</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../notebooks/git-merge.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Merge</span></span></a>
+ <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Merge</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../notebooks/github-101.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">GitHub introduction</span></span></a>
+ <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">GitHub introduction</span></span></a>
   </div>
 </li>
       </ul>
@@ -247,13 +241,42 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../notebooks/git-collab-fileserver.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Collaboration 101</span></span></a>
+ <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Collaboration 101</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../notebooks/git-collab-github.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Collaboration with GitHub</span></span></a>
+ <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Collaboration with GitHub</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../notebooks/git-doc-github.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Documentation via GitHub</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../notebooks/part-04.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Part 4 - Other bits</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../notebooks/resources.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Resources</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../notebooks/common-commands.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">Common commands</span></span></a>
   </div>
 </li>
       </ul>
@@ -274,15 +297,15 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <h2 id="toc-title">Contents</h2>
    
   <ul>
-  <li><a href="#fork-repository" id="toc-fork-repository" class="nav-link active" data-scroll-target="#fork-repository"><span class="header-section-number">13.0.1</span> Fork repository</a></li>
-  <li><a href="#pull-requests" id="toc-pull-requests" class="nav-link" data-scroll-target="#pull-requests"><span class="header-section-number">13.0.2</span> Pull requests</a></li>
-  <li><a href="#pull-request-demo" id="toc-pull-request-demo" class="nav-link" data-scroll-target="#pull-request-demo"><span class="header-section-number">13.0.3</span> Pull request demo</a>
+  <li><a href="#fork-repository" id="toc-fork-repository" class="nav-link active" data-scroll-target="#fork-repository"><span class="header-section-number">12.0.1</span> Fork repository</a></li>
+  <li><a href="#pull-requests" id="toc-pull-requests" class="nav-link" data-scroll-target="#pull-requests"><span class="header-section-number">12.0.2</span> Pull requests</a></li>
+  <li><a href="#pull-request-demo" id="toc-pull-request-demo" class="nav-link" data-scroll-target="#pull-request-demo"><span class="header-section-number">12.0.3</span> Pull request demo</a>
   <ul>
-  <li><a href="#fork-and-clone-repo" id="toc-fork-and-clone-repo" class="nav-link" data-scroll-target="#fork-and-clone-repo"><span class="header-section-number">13.0.3.1</span> Fork and clone repo</a></li>
-  <li><a href="#feature-branch-and-feature-development" id="toc-feature-branch-and-feature-development" class="nav-link" data-scroll-target="#feature-branch-and-feature-development"><span class="header-section-number">13.0.3.2</span> Feature branch and feature development</a></li>
-  <li><a href="#sync-with-upstream-and-merge-conflicts" id="toc-sync-with-upstream-and-merge-conflicts" class="nav-link" data-scroll-target="#sync-with-upstream-and-merge-conflicts"><span class="header-section-number">13.0.3.3</span> Sync with upstream (and merge conflicts)</a></li>
-  <li><a href="#create-pr" id="toc-create-pr" class="nav-link" data-scroll-target="#create-pr"><span class="header-section-number">13.0.3.4</span> Create PR</a></li>
-  <li><a href="#incorporating-pr-into-upstream-repo" id="toc-incorporating-pr-into-upstream-repo" class="nav-link" data-scroll-target="#incorporating-pr-into-upstream-repo"><span class="header-section-number">13.0.3.5</span> Incorporating PR into upstream repo</a></li>
+  <li><a href="#fork-and-clone-repo" id="toc-fork-and-clone-repo" class="nav-link" data-scroll-target="#fork-and-clone-repo"><span class="header-section-number">12.0.3.1</span> Fork and clone repo</a></li>
+  <li><a href="#feature-branch-and-feature-development" id="toc-feature-branch-and-feature-development" class="nav-link" data-scroll-target="#feature-branch-and-feature-development"><span class="header-section-number">12.0.3.2</span> Feature branch and feature development</a></li>
+  <li><a href="#sync-with-upstream-and-merge-conflicts" id="toc-sync-with-upstream-and-merge-conflicts" class="nav-link" data-scroll-target="#sync-with-upstream-and-merge-conflicts"><span class="header-section-number">12.0.3.3</span> Sync with upstream (and merge conflicts)</a></li>
+  <li><a href="#create-pr" id="toc-create-pr" class="nav-link" data-scroll-target="#create-pr"><span class="header-section-number">12.0.3.4</span> Create PR</a></li>
+  <li><a href="#incorporating-pr-into-upstream-repo" id="toc-incorporating-pr-into-upstream-repo" class="nav-link" data-scroll-target="#incorporating-pr-into-upstream-repo"><span class="header-section-number">12.0.3.5</span> Incorporating PR into upstream repo</a></li>
   </ul></li>
   </ul>
 <div class="toc-actions"><div><i class="bi bi-git"></i></div><div class="action-links"><p><a href="https://github.sydney.edu.au/mjon7053/get-going-with-git/blob/main/notebooks/git-collab-github.qmd" class="toc-action">View source</a></p><p><a href="https://github.sydney.edu.au/mjon7053/get-going-with-git/issues/new" class="toc-action">Report an issue</a></p></div></div></nav>
@@ -292,7 +315,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Collaboration with GitHub</span></h1>
+<h1 class="title"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Collaboration with GitHub</span></h1>
 </div>
 
 
@@ -313,8 +336,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>We have considered settings where an indiviual creates a repository to which you (and/or others) may be added as collaborators and then contribute via the shared repository workflow introduced in the fundamentals.</p>
 <p>However, there are circumstances where you will not be a part of a project team but you would like to contribute to a project. For example, you may want to contribute to an existing CRAN R package for which the code is stored on GitHub, as many now are.</p>
 <p>There is a lot of documentation (some of it infinitely and frustratingly dense) on forks and pull requests that I have attempted to summarise, probably poorly, and combined with my own understanding obtained from experience. This section is therefore necessarily incomplete in that it does not reflect all of the possible considerations and functionality. Hopefully, it will give you some understanding and some practice and you can develop as need be from there.</p>
-<section id="fork-repository" class="level3 page-columns page-full" data-number="13.0.1">
-<h3 data-number="13.0.1" class="anchored" data-anchor-id="fork-repository"><span class="header-section-number">13.0.1</span> Fork repository</h3>
+<section id="fork-repository" class="level3 page-columns page-full" data-number="12.0.1">
+<h3 data-number="12.0.1" class="anchored" data-anchor-id="fork-repository"><span class="header-section-number">12.0.1</span> Fork repository</h3>
 <p>Forks are a GitHub function that permit a complete copy of any public repository on GitHub, effectively taking a snapshot at a specific point in time. If you are not the owner or a collaborator on a project then the only way that you will be able to make any changes to the files is if you take a fork.</p>
 <div class="quarto-figure quarto-figure-center page-columns page-full">
 <figure class="figure page-columns page-full">
@@ -429,8 +452,8 @@ Note
 </div>
 <p>If you are keen for Dirk to consider your changes for inclusion in a release of the <code>digest</code> package, then you will need to prepare a pull request.</p>
 </section>
-<section id="pull-requests" class="level3" data-number="13.0.2">
-<h3 data-number="13.0.2" class="anchored" data-anchor-id="pull-requests"><span class="header-section-number">13.0.2</span> Pull requests</h3>
+<section id="pull-requests" class="level3" data-number="12.0.2">
+<h3 data-number="12.0.2" class="anchored" data-anchor-id="pull-requests"><span class="header-section-number">12.0.2</span> Pull requests</h3>
 <p>A pull request basically tells others that you have pushed a set of changes to a branch in a repository on GitHub. <em>Pull requests</em> are not managed by git, these are something that GitHub implemented as a value-add. However, git does integrate pull requests as part of its distributed design, it simply does not care what mechanism is used to implement the pull request. As far as git is concerned, a pull request could simply be an email from you to some third party that informs them about your change and gives them the option to pull the change into their repository. On top of a line of communication, GitHub adds on things like a formal framework for providing review comments on the proposed changes.</p>
 <p>Pull requests are (or can be) applicable under both the <em>fork and pull</em> workflow processes and the <em>shared repository</em> workflow. In the shared repository workflow, pull requests could be useful as a means to initiate code review prior to development branches being merged into the main branch. Here, we will only cover pull requests for the <em>fork and pull</em> workflow, but the process for a share repository is very similar.</p>
 <p>In brief, the steps are:</p>
@@ -445,8 +468,8 @@ Note
 <li>Push request is approved and merged</li>
 </ol>
 </section>
-<section id="pull-request-demo" class="level3 page-columns page-full" data-number="13.0.3">
-<h3 data-number="13.0.3" class="anchored" data-anchor-id="pull-request-demo"><span class="header-section-number">13.0.3</span> Pull request demo</h3>
+<section id="pull-request-demo" class="level3 page-columns page-full" data-number="12.0.3">
+<h3 data-number="12.0.3" class="anchored" data-anchor-id="pull-request-demo"><span class="header-section-number">12.0.3</span> Pull request demo</h3>
 <p>Again, doing will make this more concrete. In order that we have do all the steps, I created the <a href="https://github.com/t-student/aliasr">aliasr</a> repository under the GitHub user <a href="https://github.com/t-student">t-student</a>.</p>
 <div class="quarto-figure quarto-figure-center page-columns page-full">
 <figure class="figure page-columns page-full">
@@ -455,8 +478,8 @@ Note
 </figure>
 </div>
 <p>Just listen to this first and then you can have a go.</p>
-<section id="fork-and-clone-repo" class="level4 page-columns page-full" data-number="13.0.3.1">
-<h4 data-number="13.0.3.1" class="anchored" data-anchor-id="fork-and-clone-repo"><span class="header-section-number">13.0.3.1</span> Fork and clone repo</h4>
+<section id="fork-and-clone-repo" class="level4 page-columns page-full" data-number="12.0.3.1">
+<h4 data-number="12.0.3.1" class="anchored" data-anchor-id="fork-and-clone-repo"><span class="header-section-number">12.0.3.1</span> Fork and clone repo</h4>
 <p>From my <a href="https://github.com/maj-biostat">maj-biostat</a> work account, I navigate to the <a href="https://github.com/t-student/aliasr">aliasr</a> repo and click the fork button. Note that I changed to dark theme so that you can distinguish the two different accounts.</p>
 <div class="quarto-figure quarto-figure-center page-columns page-full">
 <figure class="figure page-columns page-full">
@@ -532,8 +555,8 @@ Note
 <span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a><span class="co">## branch 'main' set up to track 'upstream/main'.</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
-<section id="feature-branch-and-feature-development" class="level4" data-number="13.0.3.2">
-<h4 data-number="13.0.3.2" class="anchored" data-anchor-id="feature-branch-and-feature-development"><span class="header-section-number">13.0.3.2</span> Feature branch and feature development</h4>
+<section id="feature-branch-and-feature-development" class="level4" data-number="12.0.3.2">
+<h4 data-number="12.0.3.2" class="anchored" data-anchor-id="feature-branch-and-feature-development"><span class="header-section-number">12.0.3.2</span> Feature branch and feature development</h4>
 <p>Remembering best practice, I create a new branch in my local repo for my feature development and switch to that branch.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb8"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> branch feat-csum</span>
@@ -613,8 +636,8 @@ Note
 <span id="cb14-14"><a href="#cb14-14" aria-hidden="true" tabindex="-1"></a><span class="co">##  * [new branch]      feat-csum -&gt; feat-csum</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
-<section id="sync-with-upstream-and-merge-conflicts" class="level4 page-columns page-full" data-number="13.0.3.3">
-<h4 data-number="13.0.3.3" class="anchored" data-anchor-id="sync-with-upstream-and-merge-conflicts"><span class="header-section-number">13.0.3.3</span> Sync with upstream (and merge conflicts)</h4>
+<section id="sync-with-upstream-and-merge-conflicts" class="level4 page-columns page-full" data-number="12.0.3.3">
+<h4 data-number="12.0.3.3" class="anchored" data-anchor-id="sync-with-upstream-and-merge-conflicts"><span class="header-section-number">12.0.3.3</span> Sync with upstream (and merge conflicts)</h4>
 <p>I am all ready and excited to create a pull request, but reviewing my fork on GitHub, I see that there has been a covert change to the upstream repository while I have been developing the <code>csum</code> feature. Specifically, I appear to be 2 commits behind the upstream repo.</p>
 <div class="quarto-figure quarto-figure-center page-columns page-full">
 <figure class="figure page-columns page-full">
@@ -756,8 +779,8 @@ Note
 </div>
 </div>
 </section>
-<section id="create-pr" class="level4 page-columns page-full" data-number="13.0.3.4">
-<h4 data-number="13.0.3.4" class="anchored" data-anchor-id="create-pr"><span class="header-section-number">13.0.3.4</span> Create PR</h4>
+<section id="create-pr" class="level4 page-columns page-full" data-number="12.0.3.4">
+<h4 data-number="12.0.3.4" class="anchored" data-anchor-id="create-pr"><span class="header-section-number">12.0.3.4</span> Create PR</h4>
 <p>With all that done, your fork should look something like the following.</p>
 <div class="quarto-figure quarto-figure-center page-columns page-full">
 <figure class="figure page-columns page-full">
@@ -787,8 +810,8 @@ Note
 </figure>
 </div>
 </section>
-<section id="incorporating-pr-into-upstream-repo" class="level4 page-columns page-full" data-number="13.0.3.5">
-<h4 data-number="13.0.3.5" class="anchored" data-anchor-id="incorporating-pr-into-upstream-repo"><span class="header-section-number">13.0.3.5</span> Incorporating PR into upstream repo</h4>
+<section id="incorporating-pr-into-upstream-repo" class="level4 page-columns page-full" data-number="12.0.3.5">
+<h4 data-number="12.0.3.5" class="anchored" data-anchor-id="incorporating-pr-into-upstream-repo"><span class="header-section-number">12.0.3.5</span> Incorporating PR into upstream repo</h4>
 <p>Heading back to the upstream repo (and importantly under my <code>t-student</code> account) I can see that a pull request has been created. Three options are available to do the merge</p>
 <ol type="1">
 <li>Merge</li>
@@ -1129,12 +1152,12 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
       <a href="../notebooks/git-collab-fileserver.html" class="pagination-link">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Collaboration 101</span></span>
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Collaboration 101</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="../notebooks/about.html" class="pagination-link">
-        <span class="nav-page-text">About</span> <i class="bi bi-arrow-right-short"></i>
+      <a href="../notebooks/git-doc-github.html" class="pagination-link">
+        <span class="nav-page-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Documentation via GitHub</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>

@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Get going with git - 2&nbsp; What is (this thing) called revision control</title>
+<title>Get going with git - 1&nbsp; What is (this thing) called revision/version control?</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -31,7 +31,7 @@ ul.task-list li input[type="checkbox"] {
 <script src="../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../">
 <link href="../notebooks/git-install.html" rel="next">
-<link href="../notebooks/resources.html" rel="prev">
+<link href="../notebooks/part-01.html" rel="prev">
 <script src="../site_libs/quarto-html/quarto.js"></script>
 <script src="../site_libs/quarto-html/popper.min.js"></script>
 <script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
@@ -61,10 +61,26 @@ ul.task-list li input[type="checkbox"] {
   }
 }</script>
 
+  <script>window.backupDefine = window.define; window.define = undefined;</script><script src="https://cdn.jsdelivr.net/npm/katex@0.15.1/dist/katex.min.js"></script>
+  <script>document.addEventListener("DOMContentLoaded", function () {
+ var mathElements = document.getElementsByClassName("math");
+ var macros = [];
+ for (var i = 0; i < mathElements.length; i++) {
+  var texText = mathElements[i].firstChild;
+  if (mathElements[i].tagName == "SPAN") {
+   katex.render(texText.data, mathElements[i], {
+    displayMode: mathElements[i].classList.contains('display'),
+    throwOnError: false,
+    macros: macros,
+    fleqn: false
+   });
+}}});
+  </script>
+  <script>window.define = window.backupDefine; window.backupDefine = undefined;</script><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.1/dist/katex.min.css">
 
 </head>
 
-<body class="nav-sidebar floating">
+<body class="nav-sidebar floating slimcontent">
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
@@ -73,7 +89,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../notebooks/part-01.html">Part 1 - Logistical elements</a></li><li class="breadcrumb-item"><a href="../notebooks/what-is-revision-control.html"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">What is (this thing) called revision control</span></a></li></ol></nav>
+      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../notebooks/part-01.html">Part 1 - Logistical elements</a></li><li class="breadcrumb-item"><a href="../notebooks/what-is-revision-control.html"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">What is (this thing) called revision/version control?</span></a></li></ol></nav>
       <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
       </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -110,7 +126,7 @@ ul.task-list li input[type="checkbox"] {
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../notebooks/preamble.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Pre-requisites</span></a>
+ <span class="menu-text">Preamble (don’t skip)</span></a>
   </div>
 </li>
         <li class="sidebar-item sidebar-item-section">
@@ -124,32 +140,26 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../notebooks/resources.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Resources</span></span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
   <a href="../notebooks/what-is-revision-control.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">What is (this thing) called revision control</span></span></a>
+ <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">What is (this thing) called revision/version control?</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../notebooks/git-install.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Git install</span></span></a>
+ <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Git install</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../notebooks/git-setup.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Git setup</span></span></a>
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Git setup</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../notebooks/github-setup.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Github setup</span></span></a>
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">GitHub setup</span></span></a>
   </div>
 </li>
       </ul>
@@ -166,37 +176,37 @@ ul.task-list li input[type="checkbox"] {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../notebooks/git-repository.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Repositories</span></span></a>
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Repositories</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../notebooks/git-commit.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Stage and Commit</span></span></a>
+ <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Stage and Commit</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../notebooks/git-diffs.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Reviewing differences</span></span></a>
+ <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Reviewing differences</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../notebooks/git-branch.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Branches</span></span></a>
+ <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Branches</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../notebooks/git-merge.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Merge</span></span></a>
+ <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Merge</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../notebooks/github-101.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">GitHub introduction</span></span></a>
+ <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">GitHub introduction</span></span></a>
   </div>
 </li>
       </ul>
@@ -213,13 +223,42 @@ ul.task-list li input[type="checkbox"] {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../notebooks/git-collab-fileserver.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Collaboration 101</span></span></a>
+ <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Collaboration 101</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../notebooks/git-collab-github.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Collaboration with GitHub</span></span></a>
+ <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Collaboration with GitHub</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../notebooks/git-doc-github.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Documentation via GitHub</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../notebooks/part-04.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Part 4 - Other bits</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../notebooks/resources.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Resources</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../notebooks/common-commands.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">Common commands</span></span></a>
   </div>
 </li>
       </ul>
@@ -240,17 +279,17 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">Contents</h2>
    
   <ul>
-  <li><a href="#sec-what-is-big-pic" id="toc-sec-what-is-big-pic" class="nav-link active" data-scroll-target="#sec-what-is-big-pic"><span class="header-section-number">2.1</span> The big picture</a></li>
-  <li><a href="#why-commandline" id="toc-why-commandline" class="nav-link" data-scroll-target="#why-commandline"><span class="header-section-number">2.2</span> Why commandline</a></li>
+  <li><a href="#sec-what-is-big-pic" id="toc-sec-what-is-big-pic" class="nav-link active" data-scroll-target="#sec-what-is-big-pic"><span class="header-section-number">1.1</span> The big picture</a></li>
+  <li><a href="#why-commandline" id="toc-why-commandline" class="nav-link" data-scroll-target="#why-commandline"><span class="header-section-number">1.2</span> Why commandline</a></li>
   </ul>
 <div class="toc-actions"><div><i class="bi bi-git"></i></div><div class="action-links"><p><a href="https://github.sydney.edu.au/mjon7053/get-going-with-git/blob/main/notebooks/what-is-revision-control.qmd" class="toc-action">View source</a></p><p><a href="https://github.sydney.edu.au/mjon7053/get-going-with-git/issues/new" class="toc-action">Report an issue</a></p></div></div></nav>
     </div>
 <!-- main -->
-<main class="content" id="quarto-document-content">
+<main class="content page-columns page-full" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">What is (this thing) called revision control</span></h1>
+<h1 class="title"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">What is (this thing) called revision/version control?</span></h1>
 </div>
 
 
@@ -268,37 +307,21 @@ ul.task-list li input[type="checkbox"] {
 <div class="cell">
 
 </div>
-<section id="sec-what-is-big-pic" class="level2" data-number="2.1">
-<h2 data-number="2.1" class="anchored" data-anchor-id="sec-what-is-big-pic"><span class="header-section-number">2.1</span> The big picture</h2>
-<p>First, let’s briefly introduce some minimal terminology and context.</p>
-<div class="callout callout-style-default callout-note callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
+<section id="sec-what-is-big-pic" class="level2 page-columns page-full" data-number="1.1">
+<h2 data-number="1.1" class="anchored" data-anchor-id="sec-what-is-big-pic"><span class="header-section-number">1.1</span> The big picture</h2>
+<p>Version control is any practice that allows you to track and manage the evolution of a project.</p>
+<p>Remember filenames like <code>document_v3.docx</code>, <code>document_v3_20230101.docx</code>, <code>document_v3_20230101_ts.docx</code>? That is a manual, informal and unstructure approached to version control. You can tighten up the filenaming standards, but this approach is still very limited. For example, simultaneous changes and merges are tedious, can involve double handling and are error prone.</p>
+<p>A software implementation of revision control is a mechanism to understand a project/file history without having to used <span class="math inline">N^q</span> distinct filenames to identify the different versions. Git is one of many revision control systems. In data science, IT and tech fields, it is the de-facto standard. If you ever aspire to working in a technical role in one of those fields, you would need to learn git.</p>
+<p>Irrespective, arguably, if you are collaborating, you should probably be using git.</p>
+<p>When you get started with git, you will need to think about repositories, not to be confused with suppositories. Repositories are where you project code is held.</p>
+<p>Broadly, there are two types - <em>local</em> and <em>remote</em>. The local ones are those that reside on your own machine. The remotes ones are off in the void somewhere, but they are linked and interact via <code>git</code> like this:</p>
+<div class="quarto-figure quarto-figure-center page-columns page-full">
+<figure class="figure page-columns page-full">
+<p><img src="../fig/git-big-pic.jpg" class="img-fluid figure-img"></p>
+<figcaption class="figure-caption margin-caption">Big picture</figcaption>
+</figure>
 </div>
-<div class="callout-title-container flex-fill">
-Note
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>TODO - Timelines</p>
-</div>
-</div>
-<p>A <strong>repository</strong> is the mechanism that is used to implement version control by git.</p>
-<div class="callout callout-style-default callout-note callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Note
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>The repository is implemented by a hidden directory called <code>.git</code> that exists within the project directory and contains all the data on the changes that have been made to the files in the project. You should never touch this directory nor its contents.</p>
-</div>
-</div>
-<p>There are two types of repositories, <em>local</em> and <em>remote</em>. <img src="../fig/git-big-pic.jpg" class="img-fluid" alt="Big picture"> The local repositories reside on your machine. Remote repositories are hosted by service providers, the most common being GitHub, GitLab and Bitbucket. We only deal with GitHub here. GitHub comes in a few varieties:</p>
+<p>Remote repositories are hosted by service providers, the most common being GitHub, GitLab and Bitbucket. We only deal with GitHub here. GitHub comes in a few varieties:</p>
 <ul>
 <li>GitHub Enterprise is hosted by the company called GitHub, see <a href="https://github.com/">github.com</a>. It is a commercial platform, but parts of it are made freely available.</li>
 <li>GitHub Enterprise Server is self-hosted; this is what USyd provides via <a href="https://github.sydney.edu.au/">https://github.sydney.edu.au/</a></li>
@@ -307,8 +330,8 @@ Note
 <p>Again, I cannot sum it up better than Jenny, so please take the time to read it.</p>
 <p><a href="https://www.tandfonline.com/doi/full/10.1080/00031305.2017.1399928?needAccess=true">Excuse Me, Do You Have a Moment to Talk About Version Control?</a></p>
 </section>
-<section id="why-commandline" class="level2" data-number="2.2">
-<h2 data-number="2.2" class="anchored" data-anchor-id="why-commandline"><span class="header-section-number">2.2</span> Why commandline</h2>
+<section id="why-commandline" class="level2" data-number="1.2">
+<h2 data-number="1.2" class="anchored" data-anchor-id="why-commandline"><span class="header-section-number">1.2</span> Why commandline</h2>
 <p>Because every other approach fundamentally rests on the workings of git. While other approaches might abstract away from some of gits complexity, they also make some of the workings opaque. By learning the commandline functions, you focus on what you actually need and when you use another approach, you will understand what it is trying to achieve.</p>
 
 
@@ -566,13 +589,13 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="../notebooks/resources.html" class="pagination-link">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Resources</span></span>
+      <a href="../notebooks/part-01.html" class="pagination-link">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Part 1 - Logistical elements</span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
       <a href="../notebooks/git-install.html" class="pagination-link">
-        <span class="nav-page-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Git install</span></span> <i class="bi bi-arrow-right-short"></i>
+        <span class="nav-page-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Git install</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>
