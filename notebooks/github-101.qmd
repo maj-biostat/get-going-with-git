@@ -235,7 +235,7 @@ git commit -m "Development for demo-01 project"
 ## 2 files changed, 12 insertions(+), 1 deletion(-)
 ```
 
-Switch back to the main branch and get ready to merge your piece of work^[I know this is a bit artificial, but it is just for practice].
+Switch back to the main branch and get ready to merge your piece of work into the local `main` branch^[I know this is a bit artificial, but it is just for practice].
 
 ```{bash, eval = F, engine = "sh"}
 git checkout main
@@ -292,7 +292,9 @@ git log --oneline --decorate --graph --all
 ## * 809fe51 (origin/main, origin/HEAD) Initial commit
 ```
 
-Finally, push these updates to the remote, remembering to use the `-u` flag on this first occasion.
+In this case, we know there have been no changes to the remote during the time where we were doing our development.
+However, in most collaborative projects, you cannot guarantee this, so we would run a `git fetch` followed by a `git merge` to merge any changes that had been pushed to the remote by our collaborators.
+Finally, we push our updates to the remote, remembering to use the `-u` flag on this first occasion.
 
 ```{bash, eval = F, engine = "sh"}
 git push -u origin main
@@ -351,8 +353,11 @@ When you review the blame view, you can see determine who did what and when.
 
 Issues can be managed directly within GitHub, although they are repository specific.
 Currently, our team mostly uses Jira to track and manage issues and therefore I will not cover the GitHub functionality beyond mentioning that it is very straight forward to use.
-In my opinion, there is merit in division of labour.
-GitHub serves well as a hosting service for git and continuous integrations.
+
+One instance where you may be required to use GitHub issue functionality is when you find a bug in a CRAN package, e.g. [https://github.com/rstudio/gt/issues/1415](https://github.com/rstudio/gt/issues/1415).
+When doing so, you will find that they require a particular protocol to be followed that include the development of a minimal working example.
+This is standard practice in software development, it makes a developers life much easier and it is more likely that the problem you are reporting will actually get fixed.
+
 
 ## Exercises
 

@@ -12,11 +12,11 @@ log_info("Called what-is-revision-control notebook")
 
 As noted in the pre-requisites for using this knowledge base, you will need to have [GitHub](www.github.com) account.
 
-While there are multiple ways to interact with GitHub from your local machine, here we will use the commandline.
-There are two protocols that can be used, HTTPS and SSH.
-We will use HTTPS.
+The two ways to interact with GitHub are HTTPS and SSH.
+They are both secure protocols with the goal of protecting your credentials and your work.
+SSH can be a little harder to set up and has some advantages over HTTPS, but it also less commonly used and can be problematic when firewalls are involved so we will stick to HTTPS.
 
-First we need to set up a Personal access token.
+But first we need to set up a Personal access token.
 
 ### Personal access token
 
@@ -30,6 +30,10 @@ Personal access tokens are basically a password with some bells and whistles.
 
 ## Git Credential manager
 
+While SSH uses keys (along with a key agent) HTTPS relies on you having a mechanism to retain your credentials.
+Neither having to type in your personal access token each time you want to push a change to a remote repository or retaining your credentials within the git config are viable nor recommended approaches.
+
+Enter the Git Credential Manager (GCM).
 The [GCM](https://github.com/git-ecosystem/git-credential-manager/blob/main/README.md) is a platform agnostic credential manager (in English, that translates loosely to a *password manager*).
 Once it's installed and configured, Git Credential Manager is called by git and you shouldn't need to do anything special.
 
@@ -47,7 +51,7 @@ For Windows users it can be installed by selecting this option during the instal
 
 For macOS, use `homebrew` again, specifically:
 
-```
+```{bash, eval = FALSE, engine = "sh"}
 brew install --cask git-credential-manager
 ## ==> Downloading https://formulae.brew.sh/api/cask.jws.json
 ## ############################################################################################################################################## 100.0%
@@ -67,7 +71,7 @@ brew install --cask git-credential-manager
 
 Below I demo the process by cloning a private repository from my GitHub account.
 
-```
+```{bash, eval = FALSE, engine = "sh"}
 192-168-1-100:tmp mark$ git clone https://github.com/maj-biostat/wisca_2.git
 Cloning into 'wisca_2'...
 info: please complete authentication in your browser...
@@ -91,7 +95,7 @@ at which point you use the 2-factor authenticator tool (I use google authenticat
 
 Looking back at the terminal, the following output can be observed, which details the repository being cloned.
 
-```
+```{bash, eval = FALSE, engine = "sh"}
 remote: Enumerating objects: 297, done.
 remote: Counting objects: 100% (297/297), done.
 remote: Compressing objects: 100% (156/156), done.
@@ -102,7 +106,7 @@ Resolving deltas: 100% (148/148), done.
 
 Finally, you will receive an email of this sort:
 
-```
+```{bash, eval = FALSE, engine = "sh"}
 Hey maj-biostat!
 
 A first-party GitHub OAuth application (Git Credential Manager) with gist, repo, and workflow scopes was recently authorized to access your account.
@@ -129,7 +133,7 @@ It will be interesting to see what happens for the Windows platform.
 
 You can view the current credential manager by running the following commands:
 
-```
+```{bash, eval = FALSE, engine = "sh"}
 git config --local credential.helper
 git config --global credential.helper
 # /usr/local/share/gcm-core/git-credential-manager
@@ -142,7 +146,7 @@ Note that only one credential help is configured in the above example.
 In some circumstances you may need to reconfigure things.
 If you have to start from scratch, the following may be useful:
 
-```
+```{bash, eval = FALSE, engine = "sh"}
 git config --local --unset credential.helper
 git config --global --unset credential.helper
 git config --system --unset credential.helper
@@ -166,7 +170,7 @@ For Windows users, you can pick up the latest Signed MSI executables from the [r
 
 For macOS, use `homebrew`:
 
-```
+```{bash, eval = FALSE, engine = "sh"}
 brew install gh
 ## ==> Downloading https://formulae.brew.sh/api/formula.jws.json
 ## #################################################################################################################################### 100.0%
@@ -193,7 +197,7 @@ brew install gh
 In order to make use of `gh` we need to go through another round of authentication setup.
 To do this, go to the terminal and run:
 
-```
+```{bash, eval = FALSE, engine = "sh"}
 gh auth login
 ## ? What account do you want to log into? GitHub Enterprise Server
 ## ? GHE hostname: github.sydney.edu.au
@@ -207,7 +211,7 @@ For additional information, see [gh auth --help](https://cli.github.com/manual/g
 In order to use `gh` with github.com directly you need to authenticate for that platform too.
 Repeat the above, but now the responses look like this:
 
-```
+```{bash, eval = FALSE, engine = "sh"}
 gh auth login
 ## ? What account do you want to log into? GitHub.com
 ## ? What is your preferred protocol for Git operations? HTTPS
@@ -218,7 +222,7 @@ gh auth login
 You are nearly set.
 You can verify that what you have configured worked via:
 
-```
+```{bash, eval = FALSE, engine = "sh"}
 gh auth status
 ## github.sydney.edu.au
 ##   ✓ Logged in to github.sydney.edu.au as mjon7053 (keyring)
@@ -236,7 +240,7 @@ gh auth status
 However, for `gh` to work with the desired host you need to set an environment variable to tell `gh` which platform to use.
 On macOS, you can set this up easily with the following entries in the `.profile` shell initialisation script (or `.bash_profile` for those inclined).
 
-```
+```{bash, eval = FALSE, engine = "sh"}
 gh-ent() {
   export GH_HOST=github.sydney.edu.au
 }
@@ -249,13 +253,13 @@ gh-std() {
 On Windows, I have no idea how you are supposed to do the above in an easy manner.
 You may just have to resort to running
 
-```
+```{bash, eval = FALSE, engine = "sh"}
 set GH_HOST=github.sydney.edu.au
 ```
 
 or 
 
-```
+```{bash, eval = FALSE, engine = "sh"}
 set GH_HOST=github.com
 ```
 
@@ -267,7 +271,7 @@ Now (on macOS) when you want to interrogate github.com repositories we can use t
 Do not worry about the meaning of the commands, this is just to establish that we have configured things correctly.
 :::
 
-```
+```{bash, eval = FALSE, engine = "sh"}
 gh-std
 gh repo list
 
@@ -285,7 +289,7 @@ gh repo list
 
 and for the USyd Enterprise GitHub Server, use:
 
-```
+```{bash, eval = FALSE, engine = "sh"}
 gh-ent
 gh repo list
 

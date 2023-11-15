@@ -36,19 +36,19 @@ First, do you have git installed already?
 Launch the `terminal` app (see the pre-requisites on the landing page if you do not know how to do this).
 In the terminal, type:
 
-```
+```{bash, eval = F, engine = "sh"}
 which git
 ```
 
 which should show the location of the version of git in use:
 
-```
+```{bash, eval = F, engine = "sh"}
 ## /opt/homebrew/bin/git
 ```
 
 If you have homebrew (see below) installed, you can just type:
 
-```
+```{bash, eval = F, engine = "sh"}
 brew install git
 ```
 
@@ -56,7 +56,7 @@ and git will be installed, otherwise, follow the instructions below and then com
 
 Once git is installed run the `which git` command again and then run `git --version` which is shown (along with the output) below:
 
-```
+```{bash, eval = F, engine = "sh"}
 git --version
 ## git version 2.42.0
 ```
@@ -77,21 +77,21 @@ Please go and read the landing page for homebrew before you proceed any further.
 
 The first command ensures that pre-requisites are met, see [here](https://docs.brew.sh/Installation):
 
-```
+```{bash, eval = F, engine = "sh"}
  xcode-select --install
 ```
 
 if this has already been doing you will get an error, or be asked to run Software Update.
 Generally, you can just move on to the next command:
 
-```
+```{bash, eval = F, engine = "sh"}
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 ```
 
 `curl` is a tool for transferring data from a url.
 It is usually stored under `/usr/bin` but if you are having issues then exporting the following might assist:
 
-```
+```{bash, eval = F, engine = "sh"}
 export HOMEBREW_FORCE_BREWED_CURL=1
 ```
 
@@ -99,7 +99,7 @@ which basically tells homebrew to use its own version of curl.
 After the above is complete, homebrew should be installed.
 Now you can run 
 
-```
+```{bash, eval = F, engine = "sh"}
 brew install git
 ```
 
@@ -109,7 +109,7 @@ For reference, here are a minimal set of commands for using homebrew (additional
 
 Basic information on homebrew:
 
-```
+```{bash, eval = F, engine = "sh"}
 # Display the version of Homebrew.
 $ brew --version
 # Print Help Information
@@ -122,7 +122,7 @@ $ brew doctor
 
 Keep your homebrew applications up to date:
 
-```
+```{bash, eval = F, engine = "sh"}
 # Fetch latest version of homebrew and formula
 $ brew update
 # Show formulae with an updated version available
@@ -139,7 +139,7 @@ $ brew unpin <formula>
 
 The core commands for managing commandline applications are:
 
-```
+```{bash, eval = F, engine = "sh"}
 # List all the installed formulae.
 $ brew list
 # Display all locally available formulae for brewing.
@@ -159,7 +159,7 @@ $ brew cleanup
 Homebrew casks allow you to install GUI applications.
 Unless you are an advanced user, you will rarely need to use these, but for completeness:
 
-```
+```{bash, eval = F, engine = "sh"}
 # Tap the Cask repository from Github.
 $ brew tap homebrew/cask
 # List all the installed casks .
@@ -205,7 +205,7 @@ To keep git up to date, you will need to go to the above site and download and r
 
 Open the command prompt and type:
 
-```
+```{bash, eval = F, engine = "sh"}
 git --version
 ## git version 2.42.0
 ```

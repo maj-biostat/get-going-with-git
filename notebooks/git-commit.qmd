@@ -18,7 +18,7 @@ Open a text editor, enter the following contents (or download the readme.md file
 #| echo: true
 #| eval: false 
 #| output : asis
-#| file: resources/fundamentals-readme.md
+#| file: resources/fundamentals/readme.md
 ```
 
 Ditto for the following and save the file as `hello.R` in the `first-repo` directory.
@@ -27,7 +27,7 @@ Ditto for the following and save the file as `hello.R` in the `first-repo` direc
 #| echo: true
 #| eval: false 
 #| output : asis
-#| file: resources/fundamentals-hello.R
+#| file: resources/fundamentals/hello.R
 ```
 
 Run the R script from the terminal by entering this text:
@@ -74,7 +74,7 @@ If you missed the `.` or mistakenly added a `.txt` extension then the `.gitignor
 #| echo: true
 #| eval: false 
 #| output : asis
-#| file: resources/fundamentals-gitignore
+#| file: resources/fundamentals/.gitignore
 ```
 
 If you list (`ls - la`) the files in the `first-repo` directory, you should see the following (or something very similar):

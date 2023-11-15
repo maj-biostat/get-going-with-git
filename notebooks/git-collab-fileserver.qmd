@@ -203,6 +203,10 @@ git push
 ##    7eee4b5..49225cc  main -> main
 ```
 
+:::callout-note
+The examples under the `git push` [man page](https://git-scm.com/docs/git-push#_examples) are helpful and informative for further detail on the interpretation of `git push`.
+:::
+
 Looking at the logs we see the following
 
 ```{bash, eval = F, engine = "sh"}

@@ -26,6 +26,11 @@ We want to bring the changes from the fix into our present work.
 
 ## Merge processes
 
+There are two related approaches for combining your changes into a shared repository; rebase and merge.
+Personally, I never use `git rebase` and always use `git merge`.
+Mainly this is because the complexity of the repositories that I work on never justifies the rebase approach.
+Rebasing rewrites commits from one branch to another whereas merge retains the full repository history.
+
 Merging is usually a fairly automated process.
 Run the following.
 
