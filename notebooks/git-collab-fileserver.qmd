@@ -16,7 +16,7 @@ This is fairly easy to understand and is simple to set up for small teams.
 
 The concept of *remotes* is introduced as is an associated workflow.
 
-## No github?
+## No github? {#sec-no-github}
 
 GitHub is a hosting service for git repositories. 
 It also extends some of the git functionality.
@@ -341,10 +341,8 @@ git merge
 
 :::callout-note
 Git offers another command `git pull` that effectively combines `git fetch` with `git merge`.
-The benefit of using `git fetch` is that it will update your local repository but will not make any changes to your XXX.
+The benefit of using `git fetch` is that it will update your local repository but will not make any changes to your working directory (see @sec-working-dir for a reminder).
 :::
-
-\nameref{sec-no-github}
 
 And in this case, the merge appears to have worked correctly.
 
