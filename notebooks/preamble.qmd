@@ -4,7 +4,7 @@ source("./R/init.R")
 log_info("Called preamble notebook")
 ```
 
-# Preamble {.unnumbered}
+# Preamble (don't skip) {.unnumbered}
 
 ## Background reading
 
