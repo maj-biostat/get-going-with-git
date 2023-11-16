@@ -17,3 +17,7 @@ These files are used in **Part 2 - Fundamentals** from the text:
 These files are used in **Part 3 - Collaboration** from the text:
 
 + None currently required.
+
+These files are used in **Part 4 - Other bits** from the text:
+
++ None currently required.
