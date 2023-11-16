@@ -1,1 +1,1 @@
-Sitemap: https://pages.github.sydney.edu.au/mjon7053/get-going-with-git/sitemap.xml
+Sitemap: https://maj-biostat.github.io/get-going-with-git/sitemap.xml
