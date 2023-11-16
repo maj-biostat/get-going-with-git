@@ -14,20 +14,20 @@ Inevitably there are some installation tasks that we need to take care of before
 
 ::: callout-warning
 The following steps can be a bit of a pain.
-Don't be disheartened, it gets less tiresome.
+Don't be disheartened, it will get better.
 :::
 
 
 ## RStudio
 
-Developers - is your instance of RStudio up to date?
+Aside - is your instance of RStudio up to date?
 If not, update it.
 Ditto for R.
 Keep them both updated.
 
 ## Install git 
 
-I am going to break this down into Mac and Windows because they are the two systems that most of AHI seem to use and the installation is somewhat different for each.
+I am going to break this down into Mac and Windows because they are the two systems that most people use and the installation is somewhat different for each.
 If you are using Linux, you probably have no need to be reading this.
 
 ### Mac OSX
@@ -40,13 +40,14 @@ In the terminal, type:
 which git
 ```
 
-which should show the location of the version of git in use:
+which should show the location of the version of git in use.
+For me, its:
 
 ```{bash, eval = F, engine = "sh"}
 ## /opt/homebrew/bin/git
 ```
 
-If you have homebrew (see below) installed, you can just type:
+If you have homebrew (see @sec-homebrew below) installed, you can just type:
 
 ```{bash, eval = F, engine = "sh"}
 brew install git
@@ -64,7 +65,7 @@ git --version
 If you got here, then you have git installed.
 You can close down terminal, open it up again and then run the `git --version` command again to make certain that everything is ok.
 
-### Homebrew
+### Homebrew {#sec-homebrew}
 
 In the previous section, you can see that the path output from the `which git` command includes `homebrew`.
 For macOS, `homebrew` is a package manager.
@@ -81,7 +82,7 @@ The first command ensures that pre-requisites are met, see [here](https://docs.b
  xcode-select --install
 ```
 
-if this has already been doing you will get an error, or be asked to run Software Update.
+if this has already been done you will get an error, or be asked to run Software Update.
 Generally, you can just move on to the next command:
 
 ```{bash, eval = F, engine = "sh"}

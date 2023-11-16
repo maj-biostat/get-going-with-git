@@ -1,13 +1,14 @@
 # Introduction {.unnumbered}
 
-When you are getting into the nitty gritty, version control is a large topic.
-The git, github, github cli and github pages ... technologies can be daunting to set up and use.
-However, once you have things installed and configured and you understand how things fit together at a high level, then you can go a long way with a minimal set of commands.
+The topic of version control is quite broad and ranging.
+Additionally, the git, github, github cli and github pages etc version control technologies can be daunting for newcomers to set up and apply.
+However, once you have things installed (and configured) and you have a basic grip on how it all fits together at a high level, then you can go a long way with some introductory knowledge.
 
 I know, it is true that a little knowledge can be a dangerous thing, but it probably isn't quite as bad as complete ignorance.
 
-**Get going with git** - aims to provide a minimal knowledge base, sufficient to get you started with the core functionality and hopefully without having to wade through reams of documentation that is distributed all over the internet.
+This text, **Get going with git**, aims to provide introductory knowledge that is sufficient to get you up and running with git as a means for version control.
+The primary focus is on the core sets of functionality.
 
-It can be browsed online or downloaded as a word document for your reference.
+The text can be browsed online or downloaded as a word document for your reference and will be used as a companion for a training workshop.
 
 

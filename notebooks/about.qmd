@@ -14,3 +14,16 @@ Details on github repository files, tags, commits follow:
 repo <- git2r::repository(path = ".")
 summary(repo)
 ```
+
+
+
+Todo:
+
+tracked
+common commands
+doco link overleaf
+
+prep notes 
+
+
+

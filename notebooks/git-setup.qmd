@@ -28,12 +28,24 @@ You can list your configuration with
 git config --global --list
 ```
 
+The config is usually retained in a file in your home directory.
+It will be under `~/.git/config` or simply `~/.gitconfig`.
+If you look at this file, you will probably see that it is broken up into sections corresponding to `user`, `global` and so on.
+Don't worry overly about that right now, it is just something to be aware of.
+
+:::callout-note
+The tilde is just an abbreviation for the path to your home directory.
+If your home directory is `/Users/mark` then:
+
+`~/Documents = /Users/mark/Documents == TRUE`
+:::
+
 We will get into the why later, but basically any interaction you have with git will be tied to your username and email address.
 This has obvious benefits if we want to be able to figure out who has done what, when and why.
 
 Another tweak we will make is to the default branch name.
-Git always used to use `master` by default.
-GitHub, in its infinite wisdom, appeared to make some judgement on the connotations of that default and so changed it to `main`.
+Git always used to call this `master` by default.
+GitHub, in its infinite wisdom, appeared to make some judgement on the connotations of that default name and so changed it to `main`.
 This piece of config just makes Git consistent with GitHub.
 
 ```{bash, eval = F, engine = "sh"}

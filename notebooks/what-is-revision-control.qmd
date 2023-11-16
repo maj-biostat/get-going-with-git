@@ -10,12 +10,13 @@ log_info("Called what-is-revision-control notebook")
 
 ## The big picture {#sec-what-is-big-pic}
 
+Before we do any setup, let's start with a big-picture.
 Version control is any practice that allows you to track and manage the evolution of a project.
 
 Remember filenames like `document_v3.docx`, `document_v3_20230101.docx`, `document_v3_20230101_ts.docx`?
 That is a manual, informal and unstructure approached to version control.
 You can tighten up the filenaming standards, but this approach is still very limited.
-For example, simultaneous changes and merges are tedious, can involve double handling and are error prone.
+For example, the approach is case by case, simultaneous changes and merges are tedious, can involve double handling and are error prone.
 
 A software implementation of revision control is a mechanism to understand a project/file history without having to used $N^q$ distinct filenames to identify the different versions.
 Git is one of many revision control systems. 
@@ -24,12 +25,13 @@ If you ever aspire to working in a technical role in one of those fields, you wo
 
 Irrespective, arguably, if you are collaborating, you should probably be using git.
 
-When you get started with git, you will need to think about repositories, not to be confused with suppositories.
+When you *get going with git* you will need to think in terms of repositories, not to be confused with suppositories.
 Repositories are where you project code is held.
 
-Broadly, there are two types - *local* and *remote*.
+git is by design a distributed system, but do not worry about that right now.
+Basically, there are two types of repository - *local* and *remote*.
 The local ones are those that reside on your own machine. 
-The remotes ones are off in the void somewhere, but they are linked and interact via `git` like this:
+The remotes ones are off in the void somewhere, but they can be linked and interact via `git` like this:
 
 ![Big picture](../fig/git-big-pic.jpg)
 
@@ -48,11 +50,6 @@ Again, I cannot sum it up better than Jenny, so please take the time to read it.
 
 
 
-## Why commandline
-
-Because every other approach fundamentally rests on the workings of git.
-While other approaches might abstract away from some of gits complexity, they also make some of the workings opaque.
-By learning the commandline functions, you focus on what you actually need and when you use another approach, you will understand what it is trying to achieve.
 
 
 

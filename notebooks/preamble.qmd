@@ -14,16 +14,17 @@ There is no point reinventing the wheel, Jenny Bryant motivates the use of versi
 
 :::callout-note
 There is no getting around it.
-You are likely^[Actually with very high probability. Sorry.] going to find some^[Possibly a lot.] of this knowledge base hard and/or frustrating and a bit painful.
-Your knowledge will progress in a stepwise fashion - setup, core concepts, collaboration.
-Each of these will give you pain, but once you have practice them, they become an intuitive and comforting safety net.
+You are likely^[Actually with very high probability. Sorry.] going to find some^[Probably a lot.] of this text hard and/or frustrating and/or/also painful.
+
+Your knowledge will progress in a stepwise fashion^[Monotonically, I am sure. Ideally strictly positively.] through setup, core concepts and collaboration.
+Each of these will give you pain, but once you have practice them, they will become an intuitive, integrated and a comforting safety net.
 :::
 
 The approach I have taken is purposefully (and unapologetically) applied and a fairly low level perspective on git.
 The rationale stems from experience of this being the best way to build a clear and coherent understanding.
-Once you have the fundamentals practiced, it is much easier to pick up any git client of your choosing safe in the knowledge that you have some insight into what is going on under the hood and if things go horribly wrong, you have some chance of being able to fix them.
+Once you have the fundamentals practiced, it is much easier to pick up any git client of your choosing (from the long list of clients) safe in the knowledge that you have some insight into what is going on under the hood and that if things do go horribly wrong (as they invariably do) you have some chance of being able to fix them.
 
-The goal here is for you to gain understanding into the fundamental aspects of revision control and git in particular.
+The goal here is for you to gain understanding into the fundamental aspects of revision control and [`git`](https://git-scm.com/) in particular.
 Once you have that base, extending from there will be much easier for you.
 
 The pace of the workshop will be based on the abilities of the audience but there is an expectation that the audience practices the skills in their own time.
@@ -32,30 +33,38 @@ It is mainly targeted at analysts that are new to revision control but with some
 
 ## Command line interfaces
 
-A CLI is software, supplied with the operating system, that you use to interact with your operating system via your keyboard rather than a mouse.
+A command line interface (CLI) is a piece of software, supplied with the operating system, that you use to interact with your operating system via your keyboard rather than a mouse.
 Software that implements such a text interface is often called a command-line interpreter, command processor or a shell.
 You enter in commands as text and the system will do something, e.g. create a file, delete a file.
 Each of these commands is a piece of software that performs some function.
 `git` is one such command that facilitates access to a wide range of functions.
 
-People outside of software development and (some) analysts find the command line arcane, but it provides an extremely useful set of tools that pay dividends if you make the effort to learn.
+People outside of software development and (some) analysts find the command line esoteric and redundant.
+They are wrong on both counts.
+At one stage, the CLI was the only way to interact with a computer.
+The approach provides an extremely useful set of tools that pay dividends if you make the effort to learn even a small set of them.
 
-Nearly universally, if I use the word *terminal* I am referring to the operating system command line interface.
-
-Windows refers to its CLI as the *command prompt*, and in macOS we have the *terminal*.
+Nearly universally, if I use the word *terminal* or *shell* I am referring to the operating system command line interface.
+Windows refers to its CLI as the *command prompt*, and in macOS they use *terminal*.
+For the purposes here, you can treat all these terms as synonomous.
 
 If you do not know how to operate your operating system CLI then you need to address that to make the most out of this text.
+
+### Why command line?
+
+Because every other approach fundamentally rests on the git functionality that is exposed through the command line.
+While other approaches might abstract away from some of gits complexity, they also make some of the workings opaque.
+By learning the commandline functions, you focus on what you actually need and when you use another approach, you will understand what it is trying to achieve.
+
 
 ### Windows
 
 You can do these tutorials to familiarise yourselves:
 
-+ [How to use Windows 10's Command Prompt](https://www.youtube.com/watch?v=AF2q81CxYFI)
-+ [Learning Windows Terminal](https://www.linkedin.com/learning/learning-windows-terminal/windows-terminal?u=2196204)
++ Old, but with applicable coverage of the basics - [Windows Command Line Tutorials](https://www.youtube.com/watch?v=MBBWVgE0ewk&list=PL6gx4Cwl9DGDV6SnbINlVUd0o2xT4JbMu)
++ LinkedIn course - [Learning Windows Terminal](https://www.linkedin.com/learning/learning-windows-terminal/windows-terminal?u=2196204)
 
-The following link needs admin rights (TKI people probably won't have nor will be able to obtain these rights) and is not strictly necessary here, but it gives a lot of useful commands and an opportunity to gain a bit more familiarity with the commandline.
-
-+ [40 Windows Commands you NEED to know ](https://www.youtube.com/watch?v=Jfvg3CS1X3A)
+Please do at least one of the above.
 
 ### macOS
 
@@ -74,13 +83,9 @@ The reason I haven't mentioned Linux is simply because for Linux oriented people
 
 ## Operating system management - environment variables etc
 
-You will need to have some minimal technical competence in driving your computer.
+You will need to have some minimal technical competence in navigating and driving your computer.
 For example, you need to know how to set an environment variable under your operating system of choice.
-If you do not know how to set an environment variable, then you need to address that.
-
-Other items that are important to be familiar with are file and directory concepts.
-For example, if you do not know what the command `tree` does, then it might be useful for you to find out.
-Similarly, if you do not know what file permissions are then, again, it would be useful to find out.
+If you do not know how to set an environment variable, then you will need to figure it out otherwise you won't be able to use the tools that are going to be introduced here.
 
 ### Windows
 

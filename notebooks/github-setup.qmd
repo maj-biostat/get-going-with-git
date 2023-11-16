@@ -14,9 +14,10 @@ As noted in the pre-requisites for using this knowledge base, you will need to h
 
 The two ways to interact with GitHub are HTTPS and SSH.
 They are both secure protocols with the goal of protecting your credentials and your work.
-SSH can be a little harder to set up and has some advantages over HTTPS, but it less commonly used and can be problematic when firewalls are involved so we will stick to HTTPS.
+SSH can be a little harder to set up but has some advantages over HTTPS
+It is also less commonly used and can be problematic when firewalls are involved, so we will stick to HTTPS.
 
-But first we need to set up a Personal access token.
+A pre-requisite is to set up a Personal access token.
 
 ### Personal access token
 
@@ -28,21 +29,33 @@ Personal access tokens are basically a password with some bells and whistles.
 3. Set the expiry to at least several months into the future.
 
 
+### Create a private repo
+
+This will just help us (you) with the subsequent steps.
+From your GitHub account, go up to the top right corner and select New -> Repository
+You should get a page that looks like this:
+
+![Create private repo](../fig/github-setup-01.png){width=90%}
+
+You can call it whatever you want (temp is fine because we will delete it at some point in the future) but make sure to (1) select the **Private** radio button and (2) initialise a **readme.md** file.
+
 ## Git Credential manager
 
-While SSH uses keys (along with a key agent which will normally already be on your machine) HTTPS relies on you having a mechanism to retain your credentials.
-Neither having to type in your personal access token each time you want to push a change to a remote repository or retaining your credentials within the git config are viable nor recommended approaches.
+While SSH uses keys (along with a key agent which will normally already be on your machine) HTTPS relies on you to have some way to retain your credentials.
+That is, if you want to avoid having to enter your user name and token for every transaction you have with your GitHub repository, which is something you want to avoid.
+There is another alternative and that is to keep your credentials in a plain text file, but again that is strongly discouraged.
 
 Enter the Git Credential Manager (GCM).
+
 The [GCM](https://github.com/git-ecosystem/git-credential-manager/blob/main/README.md) is a platform agnostic credential manager (in English, that translates loosely to a *password manager*).
-Once it's installed and configured, the Git Credential Manager is called by git and you shouldn't need to do anything special.
+Once it's installed and configured, the Git Credential Manager is called by git and your interactions with GitHub become much more seamless.
 
 The next time you clone an HTTPS URL that requires authentication, Git will prompt you to log in using a browser window. 
 You may first be asked to authorize an OAuth app. 
 If your account or organization requires two-factor auth, you'll also need to complete the 2FA challenge.
 
 Once you've authenticated successfully, your credentials are stored in the macOS keychain (or Windows equivalent) and will be used every time you clone an HTTPS URL. 
-Git will not require you to type your credentials in the command line again unless you change your credentials.
+From there on in, git should not require you to type your credentials in the command line again (unless you change your credentials).
 
 
 ### GCM install
@@ -87,6 +100,7 @@ to confirm it was installed and is accessible.
 ### GCM demo
 
 Below I demo the process by cloning a private repository from my GitHub account.
+You can use the `temp` repo that you just created, the URL will be something like `https://github.com/<your username>/temp.git` where you need to replace `<your username>`.
 
 ```{bash, eval = FALSE, engine = "sh"}
 192-168-1-100:tmp mark$ git clone https://github.com/maj-biostat/wisca_2.git
@@ -121,7 +135,7 @@ Receiving objects: 100% (297/297), 7.85 MiB | 2.13 MiB/s, done.
 Resolving deltas: 100% (148/148), done.
 ```
 
-Finally, you will receive an email of this sort:
+Finally, you will receive an email of this sort to the email account that you have linked through GitHub.
 
 ```{bash, eval = FALSE, engine = "sh"}
 Hey maj-biostat!
@@ -157,8 +171,10 @@ git config --global credential.helper
 git config --system credential.helper
 ```
 
+:::callout-note
 Of the local, global and system, the first one checks the local repository config, the second is your ~/.gitconfig, and the third is based on where git is installed. 
-Note that only one credential help is configured in the above example.
+Note that only one of the `git config` commands returns a credential helper in the above example.
+:::
 
 In some circumstances you may need to reconfigure things.
 If you have to start from scratch, the following may be useful:
@@ -170,7 +186,7 @@ git config --system --unset credential.helper
 ```
 
 For windows uses check the contents of the credential manager.
-This can be accessed via Control Panel >> All Control Panel Items >> Credential Manager or by simply typing Credential Manager in the Windows task bar.
+I believe that this can be accessed via Control Panel >> All Control Panel Items >> Credential Manager or by simply typing Credential Manager in the Windows task bar.
 Under generic credentials you should see the git entries.
 
 
@@ -180,7 +196,7 @@ For now, we can probably leave GitHub CLI setup, because I don't think we will g
 It will be used in a more advanced introduction.
 
 In the day to day grind, having to deal with GitHub through its Web interface can be a little cumbersome.
-You can obviate having to interact with GitHub through the browser by using the [GitHub CLI](https://docs.github.com/en/github-cli).
+You can avoid having to regularly interact with GitHub through the browser by using the [GitHub CLI](https://docs.github.com/en/github-cli).
 This tooling allows you to review, create and manage your repositories from the comfort of your commandline.
 You can think of it as an extension of git that allows you to invoke the GitHub specific functionality.
 
@@ -313,13 +329,13 @@ and for the USyd Enterprise GitHub Server, use:
 gh-ent
 gh repo list
 
-Showing 12 of 12 repositories in @mjon7053
-
-mjon7053/motc-mgt            Monitoring statistics for Motivate-C study                       private  1d
-mjon7053/fluvid.analyses     Analyses for fluvid coadministration study (COVID19 + FLU) vacc  private  17d
-mjon7053/motc.sap                                                                             public   Sep 14, 2023
-mjon7053/motc-sim-report     Motivate-C simulation report                                     private  Sep 12, 2023
-mjon7053/roadmap-notes       Notes relating to the ROADMAP project.                           private  Sep  2, 2023
-mjon7053/mjon7053.github.io                                                                   private  Aug 27, 2023
+## Showing 12 of 12 repositories in @mjon7053
+## 
+## mjon7053/motc-mgt            Monitoring statistics for Motivate-C study                       private  1d
+## mjon7053/fluvid.analyses     Analyses for fluvid coadministration study (COVID19 + FLU) vacc  private  17d
+## mjon7053/motc.sap                                                                             public   Sep ## 14, 2023
+## mjon7053/motc-sim-report     Motivate-C simulation report                                     private  Sep ## 12, 2023
+## mjon7053/roadmap-notes       Notes relating to the ROADMAP project.                           private  Sep ##  2, 2023
+## mjon7053/mjon7053.github.io                                                                   private  Aug 27, 2023
 ```
 
