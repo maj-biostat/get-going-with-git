@@ -301,7 +301,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#install-git" id="toc-install-git" class="nav-link" data-scroll-target="#install-git"><span class="header-section-number">2.2</span> Install git</a>
   <ul>
   <li><a href="#mac-osx" id="toc-mac-osx" class="nav-link" data-scroll-target="#mac-osx"><span class="header-section-number">2.2.1</span> Mac OSX</a></li>
-  <li><a href="#homebrew" id="toc-homebrew" class="nav-link" data-scroll-target="#homebrew"><span class="header-section-number">2.2.2</span> Homebrew</a></li>
+  <li><a href="#sec-homebrew" id="toc-sec-homebrew" class="nav-link" data-scroll-target="#sec-homebrew"><span class="header-section-number">2.2.2</span> Homebrew</a></li>
   <li><a href="#sec-git-install-win" id="toc-sec-git-install-win" class="nav-link" data-scroll-target="#sec-git-install-win"><span class="header-section-number">2.2.3</span> Windows</a></li>
   </ul></li>
   </ul>
@@ -341,27 +341,27 @@ Warning
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>The following steps can be a bit of a pain. Don’t be disheartened, it gets less tiresome.</p>
+<p>The following steps can be a bit of a pain. Don’t be disheartened, it will get better.</p>
 </div>
 </div>
 <section id="rstudio" class="level2" data-number="2.1">
 <h2 data-number="2.1" class="anchored" data-anchor-id="rstudio"><span class="header-section-number">2.1</span> RStudio</h2>
-<p>Developers - is your instance of RStudio up to date? If not, update it. Ditto for R. Keep them both updated.</p>
+<p>Aside - is your instance of RStudio up to date? If not, update it. Ditto for R. Keep them both updated.</p>
 </section>
 <section id="install-git" class="level2" data-number="2.2">
 <h2 data-number="2.2" class="anchored" data-anchor-id="install-git"><span class="header-section-number">2.2</span> Install git</h2>
-<p>I am going to break this down into Mac and Windows because they are the two systems that most of AHI seem to use and the installation is somewhat different for each. If you are using Linux, you probably have no need to be reading this.</p>
+<p>I am going to break this down into Mac and Windows because they are the two systems that most people use and the installation is somewhat different for each. If you are using Linux, you probably have no need to be reading this.</p>
 <section id="mac-osx" class="level3" data-number="2.2.1">
 <h3 data-number="2.2.1" class="anchored" data-anchor-id="mac-osx"><span class="header-section-number">2.2.1</span> Mac OSX</h3>
 <p>First, do you have git installed already? Launch the <code>terminal</code> app (see the pre-requisites on the landing page if you do not know how to do this). In the terminal, type:</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">which</span> git</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p>which should show the location of the version of git in use:</p>
+<p>which should show the location of the version of git in use. For me, its:</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co">## /opt/homebrew/bin/git</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p>If you have homebrew (see below) installed, you can just type:</p>
+<p>If you have homebrew (see <a href="#sec-homebrew"><span>Section&nbsp;2.2.2</span></a> below) installed, you can just type:</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="ex">brew</span> install git</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
@@ -373,8 +373,8 @@ Warning
 </div>
 <p>If you got here, then you have git installed. You can close down terminal, open it up again and then run the <code>git --version</code> command again to make certain that everything is ok.</p>
 </section>
-<section id="homebrew" class="level3" data-number="2.2.2">
-<h3 data-number="2.2.2" class="anchored" data-anchor-id="homebrew"><span class="header-section-number">2.2.2</span> Homebrew</h3>
+<section id="sec-homebrew" class="level3" data-number="2.2.2">
+<h3 data-number="2.2.2" class="anchored" data-anchor-id="sec-homebrew"><span class="header-section-number">2.2.2</span> Homebrew</h3>
 <p>In the previous section, you can see that the path output from the <code>which git</code> command includes <code>homebrew</code>. For macOS, <code>homebrew</code> is a package manager. This basically just lets you install and manage packages (applications) on your mac.</p>
 <p>To use homebrew, you need to install it first. To do that, go <a href="https://brew.sh/">here</a>, then follow the instructions, which amount to going to the terminal and running the commands listed below.</p>
 <p>Please go and read the landing page for homebrew before you proceed any further.</p>
@@ -382,7 +382,7 @@ Warning
 <div class="cell">
 <div class="sourceCode cell-code" id="cb5"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a> <span class="ex">xcode-select</span> <span class="at">--install</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p>if this has already been doing you will get an error, or be asked to run Software Update. Generally, you can just move on to the next command:</p>
+<p>if this has already been done you will get an error, or be asked to run Software Update. Generally, you can just move on to the next command:</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb6"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="ex">/bin/bash</span> <span class="at">-c</span> <span class="st">"</span><span class="va">$(</span><span class="ex">curl</span> <span class="at">-fsSL</span> https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh<span class="va">)</span><span class="st">"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>

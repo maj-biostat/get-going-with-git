@@ -280,7 +280,6 @@ ul.task-list li input[type="checkbox"] {
    
   <ul>
   <li><a href="#sec-what-is-big-pic" id="toc-sec-what-is-big-pic" class="nav-link active" data-scroll-target="#sec-what-is-big-pic"><span class="header-section-number">1.1</span> The big picture</a></li>
-  <li><a href="#why-commandline" id="toc-why-commandline" class="nav-link" data-scroll-target="#why-commandline"><span class="header-section-number">1.2</span> Why commandline</a></li>
   </ul>
 <div class="toc-actions"><div><i class="bi bi-git"></i></div><div class="action-links"><p><a href="https://github.sydney.edu.au/mjon7053/get-going-with-git/blob/main/notebooks/what-is-revision-control.qmd" class="toc-action">View source</a></p><p><a href="https://github.sydney.edu.au/mjon7053/get-going-with-git/issues/new" class="toc-action">Report an issue</a></p></div></div></nav>
     </div>
@@ -309,12 +308,12 @@ ul.task-list li input[type="checkbox"] {
 </div>
 <section id="sec-what-is-big-pic" class="level2 page-columns page-full" data-number="1.1">
 <h2 data-number="1.1" class="anchored" data-anchor-id="sec-what-is-big-pic"><span class="header-section-number">1.1</span> The big picture</h2>
-<p>Version control is any practice that allows you to track and manage the evolution of a project.</p>
-<p>Remember filenames like <code>document_v3.docx</code>, <code>document_v3_20230101.docx</code>, <code>document_v3_20230101_ts.docx</code>? That is a manual, informal and unstructure approached to version control. You can tighten up the filenaming standards, but this approach is still very limited. For example, simultaneous changes and merges are tedious, can involve double handling and are error prone.</p>
+<p>Before we do any setup, let’s start with a big-picture. Version control is any practice that allows you to track and manage the evolution of a project.</p>
+<p>Remember filenames like <code>document_v3.docx</code>, <code>document_v3_20230101.docx</code>, <code>document_v3_20230101_ts.docx</code>? That is a manual, informal and unstructure approached to version control. You can tighten up the filenaming standards, but this approach is still very limited. For example, the approach is case by case, simultaneous changes and merges are tedious, can involve double handling and are error prone.</p>
 <p>A software implementation of revision control is a mechanism to understand a project/file history without having to used <span class="math inline">N^q</span> distinct filenames to identify the different versions. Git is one of many revision control systems. In data science, IT and tech fields, it is the de-facto standard. If you ever aspire to working in a technical role in one of those fields, you would need to learn git.</p>
 <p>Irrespective, arguably, if you are collaborating, you should probably be using git.</p>
-<p>When you get started with git, you will need to think about repositories, not to be confused with suppositories. Repositories are where you project code is held.</p>
-<p>Broadly, there are two types - <em>local</em> and <em>remote</em>. The local ones are those that reside on your own machine. The remotes ones are off in the void somewhere, but they are linked and interact via <code>git</code> like this:</p>
+<p>When you <em>get going with git</em> you will need to think in terms of repositories, not to be confused with suppositories. Repositories are where you project code is held.</p>
+<p>git is by design a distributed system, but do not worry about that right now. Basically, there are two types of repository - <em>local</em> and <em>remote</em>. The local ones are those that reside on your own machine. The remotes ones are off in the void somewhere, but they can be linked and interact via <code>git</code> like this:</p>
 <div class="quarto-figure quarto-figure-center page-columns page-full">
 <figure class="figure page-columns page-full">
 <p><img src="../fig/git-big-pic.jpg" class="img-fluid figure-img"></p>
@@ -329,10 +328,6 @@ ul.task-list li input[type="checkbox"] {
 <p>In a nutshell, git provides a set of commands that allow you to manage the files that are retained in these local and remote repositories.</p>
 <p>Again, I cannot sum it up better than Jenny, so please take the time to read it.</p>
 <p><a href="https://www.tandfonline.com/doi/full/10.1080/00031305.2017.1399928?needAccess=true">Excuse Me, Do You Have a Moment to Talk About Version Control?</a></p>
-</section>
-<section id="why-commandline" class="level2" data-number="1.2">
-<h2 data-number="1.2" class="anchored" data-anchor-id="why-commandline"><span class="header-section-number">1.2</span> Why commandline</h2>
-<p>Because every other approach fundamentally rests on the workings of git. While other approaches might abstract away from some of gits complexity, they also make some of the workings opaque. By learning the commandline functions, you focus on what you actually need and when you use another approach, you will understand what it is trying to achieve.</p>
 
 
 </section>

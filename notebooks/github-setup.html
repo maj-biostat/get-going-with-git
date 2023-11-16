@@ -300,6 +300,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#sec-github-setup" id="toc-sec-github-setup" class="nav-link active" data-scroll-target="#sec-github-setup"><span class="header-section-number">4.1</span> GitHub account</a>
   <ul>
   <li><a href="#personal-access-token" id="toc-personal-access-token" class="nav-link" data-scroll-target="#personal-access-token"><span class="header-section-number">4.1.1</span> Personal access token</a></li>
+  <li><a href="#create-a-private-repo" id="toc-create-a-private-repo" class="nav-link" data-scroll-target="#create-a-private-repo"><span class="header-section-number">4.1.2</span> Create a private repo</a></li>
   </ul></li>
   <li><a href="#git-credential-manager" id="toc-git-credential-manager" class="nav-link" data-scroll-target="#git-credential-manager"><span class="header-section-number">4.2</span> Git Credential manager</a>
   <ul>
@@ -337,11 +338,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div class="cell">
 
 </div>
-<section id="sec-github-setup" class="level2" data-number="4.1">
+<section id="sec-github-setup" class="level2 page-columns page-full" data-number="4.1">
 <h2 data-number="4.1" class="anchored" data-anchor-id="sec-github-setup"><span class="header-section-number">4.1</span> GitHub account</h2>
 <p>As noted in the pre-requisites for using this knowledge base, you will need to have <a href="www.github.com">GitHub</a> account.</p>
-<p>The two ways to interact with GitHub are HTTPS and SSH. They are both secure protocols with the goal of protecting your credentials and your work. SSH can be a little harder to set up and has some advantages over HTTPS, but it less commonly used and can be problematic when firewalls are involved so we will stick to HTTPS.</p>
-<p>But first we need to set up a Personal access token.</p>
+<p>The two ways to interact with GitHub are HTTPS and SSH. They are both secure protocols with the goal of protecting your credentials and your work. SSH can be a little harder to set up but has some advantages over HTTPS It is also less commonly used and can be problematic when firewalls are involved, so we will stick to HTTPS.</p>
+<p>A pre-requisite is to set up a Personal access token.</p>
 <section id="personal-access-token" class="level3" data-number="4.1.1">
 <h3 data-number="4.1.1" class="anchored" data-anchor-id="personal-access-token"><span class="header-section-number">4.1.1</span> Personal access token</h3>
 <p>GitHub introduced personal access tokens a short while ago. Personal access tokens are basically a password with some bells and whistles.</p>
@@ -351,13 +352,25 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <li>Set the expiry to at least several months into the future.</li>
 </ol>
 </section>
+<section id="create-a-private-repo" class="level3 page-columns page-full" data-number="4.1.2">
+<h3 data-number="4.1.2" class="anchored" data-anchor-id="create-a-private-repo"><span class="header-section-number">4.1.2</span> Create a private repo</h3>
+<p>This will just help us (you) with the subsequent steps. From your GitHub account, go up to the top right corner and select New -&gt; Repository You should get a page that looks like this:</p>
+<div class="quarto-figure quarto-figure-center page-columns page-full">
+<figure class="figure page-columns page-full">
+<p><img src="../fig/github-setup-01.png" class="img-fluid figure-img" style="width:90.0%"></p>
+<figcaption class="figure-caption margin-caption">Create private repo</figcaption>
+</figure>
+</div>
+<p>You can call it whatever you want (temp is fine because we will delete it at some point in the future) but make sure to (1) select the <strong>Private</strong> radio button and (2) initialise a <strong>readme.md</strong> file.</p>
+</section>
 </section>
 <section id="git-credential-manager" class="level2 page-columns page-full" data-number="4.2">
 <h2 data-number="4.2" class="anchored" data-anchor-id="git-credential-manager"><span class="header-section-number">4.2</span> Git Credential manager</h2>
-<p>While SSH uses keys (along with a key agent which will normally already be on your machine) HTTPS relies on you having a mechanism to retain your credentials. Neither having to type in your personal access token each time you want to push a change to a remote repository or retaining your credentials within the git config are viable nor recommended approaches.</p>
-<p>Enter the Git Credential Manager (GCM). The <a href="https://github.com/git-ecosystem/git-credential-manager/blob/main/README.md">GCM</a> is a platform agnostic credential manager (in English, that translates loosely to a <em>password manager</em>). Once it’s installed and configured, the Git Credential Manager is called by git and you shouldn’t need to do anything special.</p>
+<p>While SSH uses keys (along with a key agent which will normally already be on your machine) HTTPS relies on you to have some way to retain your credentials. That is, if you want to avoid having to enter your user name and token for every transaction you have with your GitHub repository, which is something you want to avoid. There is another alternative and that is to keep your credentials in a plain text file, but again that is strongly discouraged.</p>
+<p>Enter the Git Credential Manager (GCM).</p>
+<p>The <a href="https://github.com/git-ecosystem/git-credential-manager/blob/main/README.md">GCM</a> is a platform agnostic credential manager (in English, that translates loosely to a <em>password manager</em>). Once it’s installed and configured, the Git Credential Manager is called by git and your interactions with GitHub become much more seamless.</p>
 <p>The next time you clone an HTTPS URL that requires authentication, Git will prompt you to log in using a browser window. You may first be asked to authorize an OAuth app. If your account or organization requires two-factor auth, you’ll also need to complete the 2FA challenge.</p>
-<p>Once you’ve authenticated successfully, your credentials are stored in the macOS keychain (or Windows equivalent) and will be used every time you clone an HTTPS URL. Git will not require you to type your credentials in the command line again unless you change your credentials.</p>
+<p>Once you’ve authenticated successfully, your credentials are stored in the macOS keychain (or Windows equivalent) and will be used every time you clone an HTTPS URL. From there on in, git should not require you to type your credentials in the command line again (unless you change your credentials).</p>
 <section id="gcm-install" class="level3" data-number="4.2.1">
 <h3 data-number="4.2.1" class="anchored" data-anchor-id="gcm-install"><span class="header-section-number">4.2.1</span> GCM install</h3>
 <p>For Windows users it can be installed by selecting this option during the installation wizard, see <a href="git-install.html#sec-git-install-win"><span>Section&nbsp;2.2.3</span></a>, step 6. To display the current version, one of the following should help depending on which version of git you have:</p>
@@ -391,7 +404,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </section>
 <section id="gcm-demo" class="level3 page-columns page-full" data-number="4.2.2">
 <h3 data-number="4.2.2" class="anchored" data-anchor-id="gcm-demo"><span class="header-section-number">4.2.2</span> GCM demo</h3>
-<p>Below I demo the process by cloning a private repository from my GitHub account.</p>
+<p>Below I demo the process by cloning a private repository from my GitHub account. You can use the <code>temp</code> repo that you just created, the URL will be something like <code>https://github.com/&lt;your username&gt;/temp.git</code> where you need to replace <code>&lt;your username&gt;</code>.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb5"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="ex">192-168-1-100:tmp</span> mark$ git clone https://github.com/maj-biostat/wisca_2.git</span>
 <span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="ex">Cloning</span> into <span class="st">'wisca_2'</span>...</span>
@@ -434,7 +447,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a><span class="ex">Receiving</span> objects: 100% <span class="er">(</span><span class="ex">297/297</span><span class="kw">)</span><span class="ex">,</span> 7.85 MiB <span class="kw">|</span> <span class="ex">2.13</span> MiB/s, done.</span>
 <span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a><span class="ex">Resolving</span> deltas: 100% <span class="er">(</span><span class="ex">148/148</span><span class="kw">)</span><span class="ex">,</span> done.</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p>Finally, you will receive an email of this sort:</p>
+<p>Finally, you will receive an email of this sort to the email account that you have linked through GitHub.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb7"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="ex">Hey</span> maj-biostat!</span>
 <span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a></span>
@@ -461,20 +474,32 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a><span class="co"># /usr/local/share/gcm-core/git-credential-manager</span></span>
 <span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> config <span class="at">--system</span> credential.helper</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p>Of the local, global and system, the first one checks the local repository config, the second is your ~/.gitconfig, and the third is based on where git is installed. Note that only one credential help is configured in the above example.</p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Of the local, global and system, the first one checks the local repository config, the second is your ~/.gitconfig, and the third is based on where git is installed. Note that only one of the <code>git config</code> commands returns a credential helper in the above example.</p>
+</div>
+</div>
 <p>In some circumstances you may need to reconfigure things. If you have to start from scratch, the following may be useful:</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb9"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> config <span class="at">--local</span> <span class="at">--unset</span> credential.helper</span>
 <span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> config <span class="at">--global</span> <span class="at">--unset</span> credential.helper</span>
 <span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> config <span class="at">--system</span> <span class="at">--unset</span> credential.helper</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p>For windows uses check the contents of the credential manager. This can be accessed via Control Panel &gt;&gt; All Control Panel Items &gt;&gt; Credential Manager or by simply typing Credential Manager in the Windows task bar. Under generic credentials you should see the git entries.</p>
+<p>For windows uses check the contents of the credential manager. I believe that this can be accessed via Control Panel &gt;&gt; All Control Panel Items &gt;&gt; Credential Manager or by simply typing Credential Manager in the Windows task bar. Under generic credentials you should see the git entries.</p>
 </section>
 </section>
 <section id="github-cli" class="level2" data-number="4.3">
 <h2 data-number="4.3" class="anchored" data-anchor-id="github-cli"><span class="header-section-number">4.3</span> GitHub CLI</h2>
 <p>For now, we can probably leave GitHub CLI setup, because I don’t think we will get to use it. It will be used in a more advanced introduction.</p>
-<p>In the day to day grind, having to deal with GitHub through its Web interface can be a little cumbersome. You can obviate having to interact with GitHub through the browser by using the <a href="https://docs.github.com/en/github-cli">GitHub CLI</a>. This tooling allows you to review, create and manage your repositories from the comfort of your commandline. You can think of it as an extension of git that allows you to invoke the GitHub specific functionality.</p>
+<p>In the day to day grind, having to deal with GitHub through its Web interface can be a little cumbersome. You can avoid having to regularly interact with GitHub through the browser by using the <a href="https://docs.github.com/en/github-cli">GitHub CLI</a>. This tooling allows you to review, create and manage your repositories from the comfort of your commandline. You can think of it as an extension of git that allows you to invoke the GitHub specific functionality.</p>
 <p>The extremely terse <code>gh</code> CLI manual can be found <a href="https://cli.github.com/manual/">here</a>.</p>
 <p>For Windows users, you can pick up the latest Signed MSI executables from the <a href="https://github.com/cli/cli/releases/">release page</a>.</p>
 <p>For macOS, use <code>homebrew</code>:</p>
@@ -587,14 +612,14 @@ Note
 <div class="sourceCode cell-code" id="cb18"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="ex">gh-ent</span></span>
 <span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a><span class="ex">gh</span> repo list</span>
 <span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb18-4"><a href="#cb18-4" aria-hidden="true" tabindex="-1"></a><span class="ex">Showing</span> 12 of 12 repositories in @mjon7053</span>
-<span id="cb18-5"><a href="#cb18-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb18-6"><a href="#cb18-6" aria-hidden="true" tabindex="-1"></a><span class="ex">mjon7053/motc-mgt</span>            Monitoring statistics for Motivate-C study                       private  1d</span>
-<span id="cb18-7"><a href="#cb18-7" aria-hidden="true" tabindex="-1"></a><span class="ex">mjon7053/fluvid.analyses</span>     Analyses for fluvid coadministration study <span class="er">(</span><span class="ex">COVID19</span> + FLU<span class="kw">)</span> <span class="ex">vacc</span>  private  17d</span>
-<span id="cb18-8"><a href="#cb18-8" aria-hidden="true" tabindex="-1"></a><span class="ex">mjon7053/motc.sap</span>                                                                             public   Sep 14, 2023</span>
-<span id="cb18-9"><a href="#cb18-9" aria-hidden="true" tabindex="-1"></a><span class="ex">mjon7053/motc-sim-report</span>     Motivate-C simulation report                                     private  Sep 12, 2023</span>
-<span id="cb18-10"><a href="#cb18-10" aria-hidden="true" tabindex="-1"></a><span class="ex">mjon7053/roadmap-notes</span>       Notes relating to the ROADMAP project.                           private  Sep  2, 2023</span>
-<span id="cb18-11"><a href="#cb18-11" aria-hidden="true" tabindex="-1"></a><span class="ex">mjon7053/mjon7053.github.io</span>                                                                   private  Aug 27, 2023</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb18-4"><a href="#cb18-4" aria-hidden="true" tabindex="-1"></a><span class="co">## Showing 12 of 12 repositories in @mjon7053</span></span>
+<span id="cb18-5"><a href="#cb18-5" aria-hidden="true" tabindex="-1"></a><span class="co">## </span></span>
+<span id="cb18-6"><a href="#cb18-6" aria-hidden="true" tabindex="-1"></a><span class="co">## mjon7053/motc-mgt            Monitoring statistics for Motivate-C study                       private  1d</span></span>
+<span id="cb18-7"><a href="#cb18-7" aria-hidden="true" tabindex="-1"></a><span class="co">## mjon7053/fluvid.analyses     Analyses for fluvid coadministration study (COVID19 + FLU) vacc  private  17d</span></span>
+<span id="cb18-8"><a href="#cb18-8" aria-hidden="true" tabindex="-1"></a><span class="co">## mjon7053/motc.sap                                                                             public   Sep ## 14, 2023</span></span>
+<span id="cb18-9"><a href="#cb18-9" aria-hidden="true" tabindex="-1"></a><span class="co">## mjon7053/motc-sim-report     Motivate-C simulation report                                     private  Sep ## 12, 2023</span></span>
+<span id="cb18-10"><a href="#cb18-10" aria-hidden="true" tabindex="-1"></a><span class="co">## mjon7053/roadmap-notes       Notes relating to the ROADMAP project.                           private  Sep ##  2, 2023</span></span>
+<span id="cb18-11"><a href="#cb18-11" aria-hidden="true" tabindex="-1"></a><span class="co">## mjon7053/mjon7053.github.io                                                                   private  Aug 27, 2023</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 
 

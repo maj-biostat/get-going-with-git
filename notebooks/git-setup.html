@@ -342,8 +342,23 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div class="cell">
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> config <span class="at">--global</span> <span class="at">--list</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
+<p>The config is usually retained in a file in your home directory. It will be under <code>~/.git/config</code> or simply <code>~/.gitconfig</code>. If you look at this file, you will probably see that it is broken up into sections corresponding to <code>user</code>, <code>global</code> and so on. Don’t worry overly about that right now, it is just something to be aware of.</p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>The tilde is just an abbreviation for the path to your home directory. If your home directory is <code>/Users/mark</code> then:</p>
+<p><code>~/Documents = /Users/mark/Documents == TRUE</code></p>
+</div>
+</div>
 <p>We will get into the why later, but basically any interaction you have with git will be tied to your username and email address. This has obvious benefits if we want to be able to figure out who has done what, when and why.</p>
-<p>Another tweak we will make is to the default branch name. Git always used to use <code>master</code> by default. GitHub, in its infinite wisdom, appeared to make some judgement on the connotations of that default and so changed it to <code>main</code>. This piece of config just makes Git consistent with GitHub.</p>
+<p>Another tweak we will make is to the default branch name. Git always used to call this <code>master</code> by default. GitHub, in its infinite wisdom, appeared to make some judgement on the connotations of that default name and so changed it to <code>main</code>. This piece of config just makes Git consistent with GitHub.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> config <span class="at">--global</span> init.defaultBranch <span class="st">"main"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>

@@ -267,6 +267,7 @@ ul.task-list li input[type="checkbox"] {
   <li><a href="#objectives" id="toc-objectives" class="nav-link" data-scroll-target="#objectives">Objectives</a></li>
   <li><a href="#command-line-interfaces" id="toc-command-line-interfaces" class="nav-link" data-scroll-target="#command-line-interfaces">Command line interfaces</a>
   <ul>
+  <li><a href="#why-command-line" id="toc-why-command-line" class="nav-link" data-scroll-target="#why-command-line">Why command line?</a></li>
   <li><a href="#windows" id="toc-windows" class="nav-link" data-scroll-target="#windows">Windows</a></li>
   <li><a href="#macos" id="toc-macos" class="nav-link" data-scroll-target="#macos">macOS</a></li>
   <li><a href="#extra-credit" id="toc-extra-credit" class="nav-link" data-scroll-target="#extra-credit">Extra credit</a></li>
@@ -321,31 +322,32 @@ Note
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>There is no getting around it. You are likely<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a> going to find some<a href="#fn2" class="footnote-ref" id="fnref2" role="doc-noteref"><sup>2</sup></a> of this knowledge base hard and/or frustrating and a bit painful. Your knowledge will progress in a stepwise fashion - setup, core concepts, collaboration. Each of these will give you pain, but once you have practice them, they become an intuitive and comforting safety net.</p>
+<p>There is no getting around it. You are likely<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a> going to find some<a href="#fn2" class="footnote-ref" id="fnref2" role="doc-noteref"><sup>2</sup></a> of this text hard and/or frustrating and/or/also painful.</p>
+<p>Your knowledge will progress in a stepwise fashion<a href="#fn3" class="footnote-ref" id="fnref3" role="doc-noteref"><sup>3</sup></a> through setup, core concepts and collaboration. Each of these will give you pain, but once you have practice them, they will become an intuitive, integrated and a comforting safety net.</p>
 </div>
 </div>
-<p>The approach I have taken is purposefully (and unapologetically) applied and a fairly low level perspective on git. The rationale stems from experience of this being the best way to build a clear and coherent understanding. Once you have the fundamentals practiced, it is much easier to pick up any git client of your choosing safe in the knowledge that you have some insight into what is going on under the hood and if things go horribly wrong, you have some chance of being able to fix them.</p>
-<p>The goal here is for you to gain understanding into the fundamental aspects of revision control and git in particular. Once you have that base, extending from there will be much easier for you.</p>
+<p>The approach I have taken is purposefully (and unapologetically) applied and a fairly low level perspective on git. The rationale stems from experience of this being the best way to build a clear and coherent understanding. Once you have the fundamentals practiced, it is much easier to pick up any git client of your choosing (from the long list of clients) safe in the knowledge that you have some insight into what is going on under the hood and that if things do go horribly wrong (as they invariably do) you have some chance of being able to fix them.</p>
+<p>The goal here is for you to gain understanding into the fundamental aspects of revision control and <a href="https://git-scm.com/"><code>git</code></a> in particular. Once you have that base, extending from there will be much easier for you.</p>
 <p>The pace of the workshop will be based on the abilities of the audience but there is an expectation that the audience practices the skills in their own time. The workshop is likely to be run over a few sessions but the exact length is yet to be determined. It is mainly targeted at analysts that are new to revision control but with some effort is accessible to anyone.</p>
 </section>
 <section id="command-line-interfaces" class="level2">
 <h2 class="anchored" data-anchor-id="command-line-interfaces">Command line interfaces</h2>
-<p>A CLI is software, supplied with the operating system, that you use to interact with your operating system via your keyboard rather than a mouse. Software that implements such a text interface is often called a command-line interpreter, command processor or a shell. You enter in commands as text and the system will do something, e.g.&nbsp;create a file, delete a file. Each of these commands is a piece of software that performs some function. <code>git</code> is one such command that facilitates access to a wide range of functions.</p>
-<p>People outside of software development and (some) analysts find the command line arcane, but it provides an extremely useful set of tools that pay dividends if you make the effort to learn.</p>
-<p>Nearly universally, if I use the word <em>terminal</em> I am referring to the operating system command line interface.</p>
-<p>Windows refers to its CLI as the <em>command prompt</em>, and in macOS we have the <em>terminal</em>.</p>
+<p>A command line interface (CLI) is a piece of software, supplied with the operating system, that you use to interact with your operating system via your keyboard rather than a mouse. Software that implements such a text interface is often called a command-line interpreter, command processor or a shell. You enter in commands as text and the system will do something, e.g.&nbsp;create a file, delete a file. Each of these commands is a piece of software that performs some function. <code>git</code> is one such command that facilitates access to a wide range of functions.</p>
+<p>People outside of software development and (some) analysts find the command line esoteric and redundant. They are wrong on both counts. At one stage, the CLI was the only way to interact with a computer. The approach provides an extremely useful set of tools that pay dividends if you make the effort to learn even a small set of them.</p>
+<p>Nearly universally, if I use the word <em>terminal</em> or <em>shell</em> I am referring to the operating system command line interface. Windows refers to its CLI as the <em>command prompt</em>, and in macOS they use <em>terminal</em>. For the purposes here, you can treat all these terms as synonomous.</p>
 <p>If you do not know how to operate your operating system CLI then you need to address that to make the most out of this text.</p>
+<section id="why-command-line" class="level3">
+<h3 class="anchored" data-anchor-id="why-command-line">Why command line?</h3>
+<p>Because every other approach fundamentally rests on the git functionality that is exposed through the command line. While other approaches might abstract away from some of gits complexity, they also make some of the workings opaque. By learning the commandline functions, you focus on what you actually need and when you use another approach, you will understand what it is trying to achieve.</p>
+</section>
 <section id="windows" class="level3">
 <h3 class="anchored" data-anchor-id="windows">Windows</h3>
 <p>You can do these tutorials to familiarise yourselves:</p>
 <ul>
-<li><a href="https://www.youtube.com/watch?v=AF2q81CxYFI">How to use Windows 10’s Command Prompt</a></li>
-<li><a href="https://www.linkedin.com/learning/learning-windows-terminal/windows-terminal?u=2196204">Learning Windows Terminal</a></li>
+<li>Old, but with applicable coverage of the basics - <a href="https://www.youtube.com/watch?v=MBBWVgE0ewk&amp;list=PL6gx4Cwl9DGDV6SnbINlVUd0o2xT4JbMu">Windows Command Line Tutorials</a></li>
+<li>LinkedIn course - <a href="https://www.linkedin.com/learning/learning-windows-terminal/windows-terminal?u=2196204">Learning Windows Terminal</a></li>
 </ul>
-<p>The following link needs admin rights (TKI people probably won’t have nor will be able to obtain these rights) and is not strictly necessary here, but it gives a lot of useful commands and an opportunity to gain a bit more familiarity with the commandline.</p>
-<ul>
-<li><a href="https://www.youtube.com/watch?v=Jfvg3CS1X3A">40 Windows Commands you NEED to know</a></li>
-</ul>
+<p>Please do at least one of the above.</p>
 </section>
 <section id="macos" class="level3">
 <h3 class="anchored" data-anchor-id="macos">macOS</h3>
@@ -377,8 +379,7 @@ Note
 </section>
 <section id="operating-system-management---environment-variables-etc" class="level2">
 <h2 class="anchored" data-anchor-id="operating-system-management---environment-variables-etc">Operating system management - environment variables etc</h2>
-<p>You will need to have some minimal technical competence in driving your computer. For example, you need to know how to set an environment variable under your operating system of choice. If you do not know how to set an environment variable, then you need to address that.</p>
-<p>Other items that are important to be familiar with are file and directory concepts. For example, if you do not know what the command <code>tree</code> does, then it might be useful for you to find out. Similarly, if you do not know what file permissions are then, again, it would be useful to find out.</p>
+<p>You will need to have some minimal technical competence in navigating and driving your computer. For example, you need to know how to set an environment variable under your operating system of choice. If you do not know how to set an environment variable, then you will need to figure it out otherwise you won’t be able to use the tools that are going to be introduced here.</p>
 <section id="windows-1" class="level3">
 <h3 class="anchored" data-anchor-id="windows-1">Windows</h3>
 <p>You can do these tutorials to familiarise yourselves:</p>
@@ -432,7 +433,8 @@ Warning
 <hr>
 <ol>
 <li id="fn1"><p>Actually with very high probability. Sorry.<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
-<li id="fn2"><p>Possibly a lot.<a href="#fnref2" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn2"><p>Probably a lot.<a href="#fnref2" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn3"><p>Monotonically, I am sure. Ideally strictly positively.<a href="#fnref3" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
 </ol>
 </section>
 
