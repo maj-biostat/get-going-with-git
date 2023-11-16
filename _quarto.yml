@@ -43,8 +43,8 @@ book:
         - notebooks/git-clients.qmd
         - notebooks/common-commands.qmd
     - notebooks/about.qmd
-  site-url: https://pages.github.sydney.edu.au/mjon7053/get-going-with-git/
-  repo-url: https://github.sydney.edu.au/mjon7053/get-going-with-git
+  site-url: https://maj-biostat.github.io/get-going-with-git/
+  repo-url: https://github.com/maj-biostat/get-going-with-git
   repo-actions: [source, issue]
 
 
