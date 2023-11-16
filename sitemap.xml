@@ -2,106 +2,106 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://maj-biostat.github.io/get-going-with-git/index.html</loc>
-    <lastmod>2023-11-16T06:59:06.119Z</lastmod>
+    <lastmod>2023-11-16T08:38:21.697Z</lastmod>
   </url>
   <url>
     <loc>https://maj-biostat.github.io/get-going-with-git/notebooks/preamble.html</loc>
-    <lastmod>2023-11-16T06:59:06.126Z</lastmod>
+    <lastmod>2023-11-16T08:38:21.702Z</lastmod>
   </url>
   <url>
     <loc>https://maj-biostat.github.io/get-going-with-git/notebooks/part-01.html</loc>
-    <lastmod>2023-11-16T06:59:06.132Z</lastmod>
+    <lastmod>2023-11-16T08:38:21.706Z</lastmod>
   </url>
   <url>
     <loc>https://maj-biostat.github.io/get-going-with-git/notebooks/what-is-revision-control.html</loc>
-    <lastmod>2023-11-16T06:59:06.135Z</lastmod>
+    <lastmod>2023-11-16T08:38:21.713Z</lastmod>
   </url>
   <url>
     <loc>https://maj-biostat.github.io/get-going-with-git/notebooks/git-install.html</loc>
-    <lastmod>2023-11-16T06:59:06.141Z</lastmod>
+    <lastmod>2023-11-16T08:38:21.718Z</lastmod>
   </url>
   <url>
     <loc>https://maj-biostat.github.io/get-going-with-git/notebooks/git-setup.html</loc>
-    <lastmod>2023-11-16T06:59:06.145Z</lastmod>
+    <lastmod>2023-11-16T08:38:21.721Z</lastmod>
   </url>
   <url>
     <loc>https://maj-biostat.github.io/get-going-with-git/notebooks/github-setup.html</loc>
-    <lastmod>2023-11-16T06:59:06.156Z</lastmod>
+    <lastmod>2023-11-16T08:38:21.731Z</lastmod>
   </url>
   <url>
     <loc>https://maj-biostat.github.io/get-going-with-git/notebooks/part-02.html</loc>
-    <lastmod>2023-11-16T06:59:06.157Z</lastmod>
+    <lastmod>2023-11-16T08:38:21.733Z</lastmod>
   </url>
   <url>
     <loc>https://maj-biostat.github.io/get-going-with-git/notebooks/git-repository.html</loc>
-    <lastmod>2023-11-16T06:59:06.168Z</lastmod>
+    <lastmod>2023-11-16T08:38:21.738Z</lastmod>
   </url>
   <url>
     <loc>https://maj-biostat.github.io/get-going-with-git/notebooks/git-commit.html</loc>
-    <lastmod>2023-11-16T06:59:06.175Z</lastmod>
+    <lastmod>2023-11-16T08:38:21.749Z</lastmod>
   </url>
   <url>
     <loc>https://maj-biostat.github.io/get-going-with-git/notebooks/git-diffs.html</loc>
-    <lastmod>2023-11-16T06:59:06.184Z</lastmod>
+    <lastmod>2023-11-16T08:38:21.759Z</lastmod>
   </url>
   <url>
     <loc>https://maj-biostat.github.io/get-going-with-git/notebooks/git-branch.html</loc>
-    <lastmod>2023-11-16T06:59:06.200Z</lastmod>
+    <lastmod>2023-11-16T08:38:21.773Z</lastmod>
   </url>
   <url>
     <loc>https://maj-biostat.github.io/get-going-with-git/notebooks/git-merge.html</loc>
-    <lastmod>2023-11-16T06:59:06.213Z</lastmod>
+    <lastmod>2023-11-16T08:38:21.785Z</lastmod>
   </url>
   <url>
     <loc>https://maj-biostat.github.io/get-going-with-git/notebooks/part-03.html</loc>
-    <lastmod>2023-11-16T06:59:06.217Z</lastmod>
+    <lastmod>2023-11-16T08:38:21.789Z</lastmod>
   </url>
   <url>
     <loc>https://maj-biostat.github.io/get-going-with-git/notebooks/git-collab-fileserver.html</loc>
-    <lastmod>2023-11-16T06:59:06.228Z</lastmod>
+    <lastmod>2023-11-16T08:38:21.802Z</lastmod>
   </url>
   <url>
     <loc>https://maj-biostat.github.io/get-going-with-git/notebooks/github-101.html</loc>
-    <lastmod>2023-11-16T06:59:06.237Z</lastmod>
+    <lastmod>2023-11-16T08:38:21.813Z</lastmod>
   </url>
   <url>
     <loc>https://maj-biostat.github.io/get-going-with-git/notebooks/git-collab-github.html</loc>
-    <lastmod>2023-11-16T06:59:06.250Z</lastmod>
+    <lastmod>2023-11-16T08:38:21.825Z</lastmod>
   </url>
   <url>
     <loc>https://maj-biostat.github.io/get-going-with-git/notebooks/git-doc-github.html</loc>
-    <lastmod>2023-11-16T06:59:06.253Z</lastmod>
+    <lastmod>2023-11-16T08:38:21.828Z</lastmod>
   </url>
   <url>
     <loc>https://maj-biostat.github.io/get-going-with-git/notebooks/part-04.html</loc>
-    <lastmod>2023-11-16T06:59:06.256Z</lastmod>
+    <lastmod>2023-11-16T08:38:21.831Z</lastmod>
   </url>
   <url>
     <loc>https://maj-biostat.github.io/get-going-with-git/notebooks/resources.html</loc>
-    <lastmod>2023-11-16T06:59:06.259Z</lastmod>
+    <lastmod>2023-11-16T08:38:21.833Z</lastmod>
   </url>
   <url>
     <loc>https://maj-biostat.github.io/get-going-with-git/notebooks/rstudio-integration.html</loc>
-    <lastmod>2023-11-16T06:59:06.264Z</lastmod>
+    <lastmod>2023-11-16T08:38:21.836Z</lastmod>
   </url>
   <url>
     <loc>https://maj-biostat.github.io/get-going-with-git/notebooks/git-clients.html</loc>
-    <lastmod>2023-11-16T06:59:06.267Z</lastmod>
+    <lastmod>2023-11-16T08:38:21.838Z</lastmod>
   </url>
   <url>
     <loc>https://maj-biostat.github.io/get-going-with-git/notebooks/common-commands.html</loc>
-    <lastmod>2023-11-16T06:59:06.270Z</lastmod>
+    <lastmod>2023-11-16T08:38:21.842Z</lastmod>
   </url>
   <url>
     <loc>https://maj-biostat.github.io/get-going-with-git/notebooks/about.html</loc>
-    <lastmod>2023-11-16T06:59:06.273Z</lastmod>
+    <lastmod>2023-11-16T08:38:21.846Z</lastmod>
   </url>
   <url>
     <loc>https://maj-biostat.github.io/get-going-with-git/Get-going-with-git.pdf</loc>
-    <lastmod>2023-11-16T06:58:55.480Z</lastmod>
+    <lastmod>2023-11-16T08:38:10.891Z</lastmod>
   </url>
   <url>
     <loc>https://maj-biostat.github.io/get-going-with-git/Get-going-with-git.docx</loc>
-    <lastmod>2023-11-16T06:59:06.040Z</lastmod>
+    <lastmod>2023-11-16T08:38:21.619Z</lastmod>
   </url>
 </urlset>

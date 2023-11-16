@@ -315,6 +315,10 @@ ul.task-list li input[type="checkbox"] {
 </div>
 <table class="table-striped table-hover table">
 <caption>Common git commands</caption>
+<colgroup>
+<col style="width: 50%">
+<col style="width: 50%">
+</colgroup>
 <thead>
 <tr class="header">
 <th>Command</th>
@@ -323,68 +327,112 @@ ul.task-list li input[type="checkbox"] {
 </thead>
 <tbody>
 <tr class="odd">
-<td>git init</td>
-<td></td>
+<td><code>git init</code></td>
+<td>Create a new git repository.</td>
 </tr>
 <tr class="even">
-<td>git clone</td>
-<td></td>
+<td><code>git init --bare</code></td>
+<td>Create a new bare (no working directory) git repository for deployement as a remote on a fileserver.</td>
 </tr>
 <tr class="odd">
-<td>git add <file></file></td>
-<td></td>
+<td><code>git init --template = &lt;dir&gt;</code></td>
+<td>Create a repository from a specified template.</td>
 </tr>
 <tr class="even">
-<td>git reset</td>
-<td></td>
+<td><code>git clone &lt;https://name-repos.git&gt;</code></td>
+<td>Clone a remote by https (typically used via GitHub).</td>
 </tr>
 <tr class="odd">
-<td>git status</td>
-<td></td>
+<td><code>git add &lt;name1&gt; &lt;name2&gt;</code></td>
+<td>Add one or more files.</td>
 </tr>
 <tr class="even">
-<td>git diff</td>
-<td></td>
+<td><code>git reset --hard &lt;SOME-COMMIT&gt;</code></td>
+<td>V. dangerous. Know what you are doing. Reverse your branch back to the commit point.</td>
 </tr>
 <tr class="odd">
-<td>git log</td>
-<td></td>
+<td><code>git status</code></td>
+<td>Retrieve the status of a repo, whether there are things to commit, untracked etc.</td>
 </tr>
 <tr class="even">
-<td>git commit</td>
-<td></td>
+<td><code>git diff</code></td>
+<td>Difference between HEAD and current state of working dir</td>
 </tr>
 <tr class="odd">
-<td>git push</td>
-<td></td>
+<td><code>git diff &lt;name&gt;</code></td>
+<td>As above for a specific file.</td>
 </tr>
 <tr class="even">
-<td>git branch</td>
-<td></td>
+<td><code>git diff &lt;bname1&gt; &lt;bname2&gt; &lt;name&gt;</code></td>
+<td>As above for a specific file but between two branches.</td>
 </tr>
 <tr class="odd">
-<td>git fetch</td>
-<td></td>
+<td><code>git log --oneline --graph --decorate --all</code></td>
+<td>Give me full history</td>
 </tr>
 <tr class="even">
-<td>git merge</td>
-<td></td>
+<td><code>git commit -m "message"</code></td>
+<td>Create a new commit in the repository (tracking any untracked files) with reason for commit.</td>
 </tr>
 <tr class="odd">
-<td>git revert</td>
-<td></td>
+<td><code>git branch &lt;bname&gt;</code></td>
+<td>Create a new branch, a divergence from the main development branch.</td>
 </tr>
 <tr class="even">
-<td>git checkout</td>
-<td></td>
+<td><code>git push -u &lt;remote&gt; &lt;bname&gt;</code></td>
+<td>Push a local branch (commits) up to a remote repo. Remote is e.g.&nbsp;origin.</td>
 </tr>
 <tr class="odd">
-<td>git remote</td>
-<td>repos</td>
+<td><code>git push &lt;remote&gt; &lt;bname&gt;</code></td>
+<td>Push a local branch (commits) up to a remote repo.</td>
 </tr>
 <tr class="even">
-<td>git branch upstr</td>
-<td>branch</td>
+<td><code>git branch -d &lt;bname&gt;</code></td>
+<td>Delete a local branch being careful.</td>
+</tr>
+<tr class="odd">
+<td><code>git fetch</code></td>
+<td>Fetches the most recent state of repo, leaves working directory files alone.</td>
+</tr>
+<tr class="even">
+<td><code>git fetch &lt;remote&gt;</code></td>
+<td>Fetches from a specified remote, e.g.&nbsp;upstream</td>
+</tr>
+<tr class="odd">
+<td><code>git fetch &lt;remote/bname&gt;</code></td>
+<td>Fetches from a specified remote and branch, e.g.&nbsp;upstream/main</td>
+</tr>
+<tr class="even">
+<td><code>git merge &lt;bname&gt;</code></td>
+<td>Merges changes into working dir for current branch.</td>
+</tr>
+<tr class="odd">
+<td><code>git pull</code></td>
+<td>Combines fetch and pull into one operation.</td>
+</tr>
+<tr class="even">
+<td><code>git revert &lt;12345677&gt;</code></td>
+<td>Reverts back to a commit point maintaining full history (safe).</td>
+</tr>
+<tr class="odd">
+<td><code>git checkout &lt;bname&gt;</code></td>
+<td>Switch to a branch.</td>
+</tr>
+<tr class="even">
+<td><code>git checkout -b &lt;bname&gt;</code></td>
+<td>Shortcut to create and then switch to a branch.</td>
+</tr>
+<tr class="odd">
+<td><code>git remote -v</code></td>
+<td>List the remotes that the local repo is currently aware of.</td>
+</tr>
+<tr class="even">
+<td><code>git remote add upstream &lt;https://name-repos.git&gt;</code></td>
+<td>Add an upstream repo to the local repo.</td>
+</tr>
+<tr class="odd">
+<td><code>git branch --set-upstream-to &lt;remote/bname&gt;</code></td>
+<td>Track the upstream main branch wrt keeping sync</td>
 </tr>
 </tbody>
 </table>
@@ -624,7 +672,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     }
   }
     var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
-      var filterRegex = new RegExp("^(?:http:|https:)\/\/github\.sydney\.edu\.au");
+      var filterRegex = new RegExp("^(?:http:|https:)\/\/github\.com");
     var isInternal = (href) => {
         return filterRegex.test(href) || localhostRegex.test(href);
     }
