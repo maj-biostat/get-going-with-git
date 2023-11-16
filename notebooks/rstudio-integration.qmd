@@ -1,0 +1,18 @@
+---
+title: "RStudio integration"
+editor: source
+---
+
+```{r, echo = FALSE}
+source("./R/init.R")
+log_info("Called rstudio-integration notebook")
+```
+
+
+When you create a new project in RStudio, you are given the option to create a git repository.
+This appear to effectively just run `git init` after creating the default project files.
+
+If you select to create a git repository or open an exisiting project where you have initialised a git repository independently, then the user interface will have a series of new panels.
+These new panels comprise a git client (they are entirely dependent on git being installed on your machine).
+However, they give you an easy alternative to using the command line interface.
+The concepts that we have introduced here are directly transferable to the RStudio context.

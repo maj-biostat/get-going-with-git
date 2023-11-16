@@ -56,7 +56,7 @@ git status
 ## no changes added to commit (use "git add" and/or "git commit -a")
 ```
 
-If we want to know what changes were made, we can run `git diff` but let's looks at the differences on a file by file basis, comparing the old with the new.
+If we want to know all the changes that were made, we can run `git diff` but let's look at the differences on a file by file basis, comparing the old with the new.
 
 ```{bash}
 #| eval: false
@@ -100,15 +100,15 @@ git diff --word-diff hello.R
 ## cat(a, file = "log.txt")
 ```
 
-The diffs can take a bit of getting used to and some alternative tools are available that we will put to use in due course. 
+The diffs can take a bit of getting used to and some alternative tools are available that we will put to use in due course (see @sec-diff-tools). 
 For now, we will just deal with the commandline output.
 
-Once satisfied that the changes are benign, stage and commit the edits in the usual way:
+Once satisfied that the changes are (at the very least) benign, stage and commit the edits in the usual way:
 
 ```{bash}
 #| eval: false
 git add hello.R readme.md
-git commit -m "Revised approach in capturing user input"
+git commit -m "Revise approach in capturing user input"
 ```
 
 ## Comparisons with staged files
@@ -161,6 +161,8 @@ git diff HEAD 327170a readme.md
 ## -
 ```
 
-
+:::{#exr-1}
+Can you remember what the command to show what the contents of a commit was?
+:::
 
 

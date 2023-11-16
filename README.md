@@ -1,6 +1,6 @@
 # get-going-with-git
 
-Introduction to git, github, github cli and github pages.
+Introduction to git, GitHub, GitHub cli and GitHub pages.
 
 ## Updating site
 
@@ -39,7 +39,7 @@ quarto publish gh-pages
 
 ## gh-pages Setup
 
-As noted above, to publish to github pages, first review the instructions here: https://quarto.org/docs/publishing/github-pages.html
+As noted above, to publish to GitHub pages, first review the instructions here: https://quarto.org/docs/publishing/github-pages.html
 
 The main points are as follows. Once they have been completed, they do not need to be run again. They assume that you have your repository setup and that all you changes have be committed and pushed to the remote.
 

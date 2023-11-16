@@ -1,0 +1,17 @@
+---
+title: "Git client tools"
+editor: source
+---
+
+```{r, echo = FALSE}
+source("./R/init.R")
+log_info("Called common-commands notebook")
+```
+
+
+## Diff tools {#sec-diff-tools}
+
+Instead of parsing the online diff, you can opt to configure a specialised difftool.
+[Delta](https://github.com/dandavison/delta) is one such example.
+The documentation is good so I will not rehash it here.
+I mostly use the command line and if necessary GitHub, so I cannot really comment on how good Delta is.

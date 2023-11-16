@@ -6,7 +6,7 @@ project:
     - resources/my-first-repo/hello.R
 
 book:
-  # downloads: [pdf,docx]
+  downloads: [pdf,docx]
   title: "Get going with git"
   author:
   - name: "Mark Jones"
@@ -30,15 +30,17 @@ book:
         - notebooks/git-diffs.qmd
         - notebooks/git-branch.qmd
         - notebooks/git-merge.qmd
-        - notebooks/github-101.qmd
     - part: notebooks/part-03.qmd
       chapters:
         - notebooks/git-collab-fileserver.qmd
+        - notebooks/github-101.qmd
         - notebooks/git-collab-github.qmd
         - notebooks/git-doc-github.qmd
     - part: notebooks/part-04.qmd
       chapters:
         - notebooks/resources.qmd
+        - notebooks/rstudio-integration.qmd
+        - notebooks/git-clients.qmd
         - notebooks/common-commands.qmd
     - notebooks/about.qmd
   site-url: https://pages.github.sydney.edu.au/mjon7053/get-going-with-git/

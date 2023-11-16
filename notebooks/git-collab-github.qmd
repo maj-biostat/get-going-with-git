@@ -1,5 +1,5 @@
 ---
-title: "Collaboration with GitHub"
+title: "GitHub - forks and pull requests"
 editor: source
 ---
 

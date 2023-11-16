@@ -24,14 +24,25 @@ From the previous branching example -
 Ok, so now we have a fix to the error in the original analysis in one branch `fix-01` and a partially completed secondary analysis on the `main` branch.
 We want to bring the changes from the fix into our present work.
 
+Bascially, we want to do something like this:
+
+![Bringing our fix from the past into the present...](../fig/branch-05.jpg){width=70%}
+
 ## Merge processes
 
 There are two related approaches for combining your changes into a shared repository; rebase and merge.
-Personally, I never use `git rebase` and always use `git merge`.
-Mainly this is because the complexity of the repositories that I work on never justifies the rebase approach.
-Rebasing rewrites commits from one branch to another whereas merge retains the full repository history.
+Personally, I tend not to use `git rebase` and prefer `git merge` and that hasn't caused me any problems.
 
-Merging is usually a fairly automated process.
+:::callout-note
+The distinction between a rebase and a merge is that the merge takes all the changes in one branch and merges them in a single commit whereas a rebase rewrites commits from one branch to another.
+It might not mean a great deal, but here are what the two look like:
+
+![Bringing our fix from the past into the present...](../fig/rebase-01.jpg){width=50%}
+
+There is also `git squash` that is used on GitHub, but I won't discuss that.
+:::
+
+Often, merging is a fairly automated process.
 Run the following.
 
 ```{bash, eval = FALSE, engine = "sh"}
@@ -39,7 +50,7 @@ git checkout main
 git merge fix-01
 ```
 
-You may be prompted to enter a commit message (alternatively just provide the -m flag).
+You will be prompted to enter a commit message
 
 ```{bash, eval = FALSE, engine = "sh"}
 Merge branch 'fix-01'
@@ -50,7 +61,7 @@ Merge branch 'fix-01'
 # the commit.
 ```
 
-and then the following output.
+save and then you will get the following output.
 
 ```{bash, eval = FALSE, engine = "sh"}
 ## Auto-merging branching.R
@@ -116,10 +127,11 @@ Here is what you need to do:
 
 
 :::{#exr-2} 
-
 Usually it makes sense to create a new branch for each piece of development we undertake.
 This ensures that the main branch continues to reflect a working version at all times.
-Create a new branch from the current state and call it `analysis-03`.
+The goal of this exercise is to simply give you more familiarity with switching between branches.
+
+Create a new branch from the current state and call it `analysis-03`
 Run the following code:
 
 ```{bash, eval = F, engine = "sh"}
@@ -138,7 +150,7 @@ summary(lm3)
 
 Run the script to make sure it works then stage and commit along with an updated `.gitignore` files that excludes all `png` files.
 
-Checkout main:
+Checkout (switch to) main in order to emulate progression in the main branch:
 
 ```{bash, eval = F, engine = "sh"}
 git checkout main
@@ -157,7 +169,7 @@ p1 <- ggplot(d_fit, aes(x = arm, y  = pr_z)) +
 
 Run the script, then stage and commit.
 
-Checkout `analysis-03` branch:
+Re-checkout `analysis-03` branch:
 
 ```{bash, eval = F, engine = "sh"}
 git checkout analysis-03
@@ -207,8 +219,8 @@ git log --oneline --decorate --graph --all
 ```
 :::
 
-At this point, you have the fundamentals.
-However, there are things that are going to catch you out.
+At this point, you have been introduced to the fundamentals of git.
+But there are things that are going to catch you out.
 For example, in the above work, we used three-way merges.
 These are convenient but can also get messy when your branching structure gets complex.
 In most of our daily work merges will probably suffice, but know that there is another way.

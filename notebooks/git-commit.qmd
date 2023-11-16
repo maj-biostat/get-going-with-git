@@ -1,5 +1,5 @@
 ---
-title: "Stage and Commit"
+title: "Stage, commit and history"
 editor: source
 ---
 
@@ -11,7 +11,7 @@ log_info("Called git-commit notebook")
 
 ## Adding files to projects
 
-Let's start to introduce files for the project.
+Let's go through the motions of introducing files for a project.
 Open a text editor, enter the following contents (or download the readme.md file from the applicable section under @sec-resources-page) and save the file as `readme.md` in the `first-repo` directory.
 
 ```{r}
@@ -77,7 +77,7 @@ If you missed the `.` or mistakenly added a `.txt` extension then the `.gitignor
 #| file: resources/fundamentals/.gitignore
 ```
 
-If you list (`ls - la`) the files in the `first-repo` directory, you should see the following (or something very similar):
+If you list (`ls -la`) the files in the `first-repo` directory, you should see the following (or something very similar):
 
 ```{bash, eval = FALSE, engine = "sh"}
 192-168-1-100:first-repo mark$ ls -la
@@ -112,21 +112,22 @@ git status
 ## Commit process
 
 Now we want to add the new file to the repository.
-The steps are 
+The steps are simple:
 
 1. Add the file (or files) that we want to include in the repository to the staging area
 2. Commit the staged files
 
 ### Staging {#sec-staging}
 
-To add the files into the staging area run the commands:
+To stage files (put them into the staging area) run the commands:
 
 ```{bash}
 #| eval: false
 git add hello.R readme.md .gitignore
 ```
 
-Note that the `.gitignore` file was added as well as the `hello.R` and `readme.md` files.
+Note that we added the `.gitignore` file as well as the `hello.R` and `readme.md` files at the same time.
+We did not add the `log.txt` file.
 Now run 
 
 ```{bash}
@@ -160,7 +161,7 @@ To remove `log.txt` from the staged area:
 git reset log.txt
 ```
 
-Now the picture looks like this.
+The picture now looks like this.
 
 ![Add file to staging area](../fig/repos-stage-file.jpg)
 
@@ -179,7 +180,7 @@ git commit -m "First commit"
 ##  create mode 100644 readme.md
 ```
 
-the `-m` flag is necessary.
+the `-m` flag is necessary or you will be prompted to provide a message.
 When you make a commit, you need to provide a message that describes the nature of the changes.
 
 What is the weird stuff that is output prior to the commit message ([main (root-commit) 728d107]) in the commit history?
@@ -215,7 +216,7 @@ and save it as `myscript.R`.
 :::
 
 :::{#exr-2} 
-Add the new script to the staging area by following @sec-staging ensuring that you review the status.
+Add the new script to the staging area by following the approach introduced in @sec-staging, ensuring that you review the status.
 :::
 
 :::{#exr-3}
@@ -295,6 +296,27 @@ Obviously, this has less utility when you are working on a repository in isolati
 For example, you might simply want to review when specific changes were made to the files or you might want to pick up some update that has been removed from the code and reintroduce it.
 
 When you are working on a repository in collaboration (see later) the value of the logs increases many fold as a way to be able to understand the evolution of the project and to work out who you need to contact if you think a problem has been introduced.
+
+A particularly useful log command is, which gives you a visual depiction of the repository structure.
+Here is an example from a small repo that we will look at later.
+
+```{bash}
+#| eval: false
+git log --oneline --graph --all
+
+*   a904f44 (HEAD -> main, origin/main) Merge branch 'feat001'
+|\
+| *   9c949d0 (feat001) Resolved merge conflict by retaining majbiostat implementation.
+| |\
+| |/
+|/|
+* | 14b1c35 Csum implementation
+* | cc35ec0 Readme for landing page
+| * c615c0c Implementation of cumsum alias
+|/
+* 8e9007a Initiall commit
+
+```
 
 To establish what files were included in any given commit, you can use `git show`:
 

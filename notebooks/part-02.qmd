@@ -5,21 +5,19 @@ editor: source
 
 ```{r, echo = FALSE}
 source("./R/init.R")
-log_info("Called part 1 notebook")
+log_info("Called part 2 notebook")
 ```
 
 Now we will make a start with git.
 Initially we will focus on using git within the confines of your local machine.
-Yes, that's right, for the moment, we won't be using github at all.
+Yes, that's right, we won't be using GitHub until the very end of this part.
 The point of this is to give you a chance to get to grips with the basic ideas.
-After the main concepts are bedded in, we will move to thinking about github, which is a whole new beast.
+After the main concepts are bedded in, we will move to thinking about GitHub, which is a whole new beast.
 
-We will talk about the following;
+We will talk about;
 
-+ Repositories, how to set them up and some concepts.
-+ How to interact with the repositories on a basic level.
++ Repositories, concepts and how to set them up and configure.
++ How to interact with repositories on a basic level.
 + How to compare and assess the present state of our repository
 + Branches, what they are and what the are used for as well as setting them up
 + Merging, what it is and how to do it
-+ GitHub, an overview
-

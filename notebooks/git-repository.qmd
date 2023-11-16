@@ -14,7 +14,7 @@ log_info("Called git-repository notebook")
 A repository is the most basic component of git. 
 It is where the history is retained in terms of commits (it's not correct but for the time being you can think of these as versions or snapshots of the files/repository).
 
-Repositories can be public or private, can involve single people or multiple collaborators and can be stored locally (on your personal computer), be located/stored in the cloud (in the cloud as in hosted by a service provider like github), or on a physical server (a basic file server will suffice in most cases), or just on your local machine.
+Repositories can be public or private, can involve single people or multiple collaborators and can be stored locally (on your personal computer), be located/stored in the cloud (in the cloud as in hosted by a service provider like GitHub), or on a physical server (a basic file server will suffice in most cases), or just on your local machine.
 
 Using the functions provided through git, you can create and configure repositories, add or remove files, review history of the files in the repository and much more.
 
@@ -49,9 +49,9 @@ You should never touch this directory nor its contents.
 If you received the output detailed above (or something very similar to it) then congratulations, you initialised a git repository.
 
 If you have configured your file explorer to show hidden files, you will notice that the `first-repo` directory now contains a `.git` sub-directory.
-If you are running a Windows OS, then depending on what version you have, you may be able to run `ls -la` to list all files (i.e. including hidden files) within a directory.
+If you are running Windows, then depending on what version you have, you may be able to run `ls -la` or `dir /a` to list all files (i.e. including hidden files) within a directory.
 
-This (`.git`) directory contains everything related to the repository.
+Again, the `.git` directory contains everything related to the repository.
 
 :::callout-warning
 **If you delete the `.git` directory, you will erase all of your commits. So, do not delete it unless you are absolutely certain this is what you want.**
@@ -68,7 +68,7 @@ Underneath the covers, RStudio is simply invoking `git init`.
 
 Before we start adding files to the new repository, you need to be aware of a few concepts.
 
-There are three main structures within the repository:
+There are three main structures within the context of a repository:
 
 1. Working directory
 2. Staging area
@@ -79,19 +79,19 @@ There are three main structures within the repository:
 #### Working directory {#sec-working-dir}
 
 Is the usual files and sub-directories within your project directory.
-You add, update, rename, delete files and direcotries in this area.
+You introduce, update, rename, delete files and direcotries in this area and they form your project (an analysis, a set of documentation etc).
 When you first create a file or directory within the working directory, it is not yet under version control.
-Such files are referred to as *untracked files*.
+Such files are referred to as **untracked files**.
 
 #### Staging area
 
-Is a special space to where you list the files that are added to be committed as a new version under version control.
+Is a special space to where you **stage** (aka list or identify) the files that are to be committed as a new version under version control.
 
 #### Commit history
 
-After staging files, they are committed to the repository.
-Once committed, files (and directories) are under version control and are referred to as *tracked files*.
-A commit is simply a version, but you could also think of it as a transaction with the repository.
+After staging files, they are **committed** to the repository.
+Once committed, files (and directories) are under version control and are referred to as **tracked files**.
+A commit is simply a version, but you could also think of it as a transaction with the repository if it helps your mental model.
 Changes to committed files are monitored and new updates to files can be committed to the repository as work on the project progresses.
-Every time you commit files, the *commit history* is saved.
+Every time you commit files, the **commit history** is saved.
 

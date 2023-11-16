@@ -3,11 +3,9 @@ title: "Git install"
 editor: source
 ---
 
-
-
 ```{r, echo = FALSE}
 source("./R/init.R")
-log_info("Called what-is-revision-control notebook")
+log_info("Called git-install notebook")
 ```
 
 Inevitably there are some installation tasks that we need to take care of before we proceed.
@@ -161,7 +159,7 @@ Homebrew casks allow you to install GUI applications.
 Unless you are an advanced user, you will rarely need to use these, but for completeness:
 
 ```{bash, eval = F, engine = "sh"}
-# Tap the Cask repository from Github.
+# Tap the Cask repository from GitHub
 $ brew tap homebrew/cask
 # List all the installed casks .
 $ brew cask list
@@ -197,7 +195,7 @@ With the exception of the following, for any of the other prompts, just accept t
 1. You will need to nominate a text file editor for editing commit messages and so on.
 Unless, you know what you are doing, I would advise just select the Windows Notepad application, you can reconfigure this later if you want to.
 2. You should select to override the default branch name as `main`.
-The reason to do this is so that git aligns with github (which uses `main` as its default branch).
+The reason to do this is so that git aligns with GitHub (which uses `main` as its default branch).
 3. For adjusting the PATH environment variable, ensure that you select `Git from the command line and also from 3rd-party software` which is the default.
 4. Ensure that line ending conversion is set to `Checkout as-is, commit as-is`. 
 5. For the terminal emulator, select `Use Windows default console window`. 

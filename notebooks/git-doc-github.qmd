@@ -1,5 +1,5 @@
 ---
-title: "Documentation via GitHub"
+title: "GitHub and documentation"
 editor: source
 ---
 
@@ -10,5 +10,10 @@ log_info("Called git-doc-github notebook")
 ```
 
 
+## Overleaf
 
+If you are a Latex fan then [Overleaf](https://www.overleaf.com) (depending on the version you have) provides some integration with GitHub.
+
+For now, I am just providing a link to the [instructions](https://www.overleaf.com/learn/how-to/GitHub_Synchronization) to set this up.
+I have used it in the past and it works OK, but I think that GitHub pages and Quarto provides a better alternative for project documentation.
 

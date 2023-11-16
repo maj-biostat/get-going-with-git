@@ -8,7 +8,7 @@ log_info("Called about notebook")
 
 ## Repository status {.unnumbered}
 
-Details on github repository files, tags, commits follow:
+Details on GitHub repository files, tags, commits follow:
 
 ```{r, echo = is_html}
 repo <- git2r::repository(path = ".")

@@ -12,21 +12,50 @@ log_info("Called git-branch notebook")
 ## What is a branch?
 
 :::callout-warning
-We are going to step it up a notch.
-The topic of branching can be challenging for beginners.
-Practice and repitition is key to understanding.
+Time to step it up a notch.
+With branching, practice and repitition is key to understanding.
 Try not to panic.
-At a basic level, it is actually straight forward once you get familiar with the processes.
 :::
 
-Branching is simply a mechanism that allows you to diverge from the main line of development and continue to do work without messing with that main line. 
-They allow multiple pieces of work to be progressed independently within the same project.
-Ideally, you want to introduce each homogenous change within the context of its own branch.
+Branching is a mechanism that allows you to undertake work independently from the main (or base) content of a project while allowing you to keep in sync and also giving you the option of bringing your work back into the main content.
+The process allows multiple pieces of work by multiple people to be progressed independently within the same project.
+You might diverge because you have want to take the project in a new direction altogether or because you are working on a bug that is going to break things more before the fix is realised.
+Ideally, the work on your branch will be homogenous - it will, more or less, relate to one thing, one feature, one bug etc.
 
 When you run `git status` you saw the text - *On branch main* as part of the output.
-You can think of `main` as your default branch.
-Similarly, when you ran `git log` the last commit reported is suffixed with *(HEAD -> main)*.
+
+```{bash}
+#| eval: false
+
+pwd
+# /Users/mark/Documents/project/misc-stats/first-repo
+git status
+## On branch main
+## Your branch is up to date with 'origin/main'.
+## 
+## nothing to commit, working tree clean
+```
+
+There are a range of strategies for the way that a group uses branching, but for our purposes, you can think of `main` as your default branch.
+
+Similarly, when you ran `git log` the current commit reported is suffixed with *(HEAD -> main)*.
 Both of these were a reference to the version on the branch that is currently linked to the working directory.
+It is where you presently are in the commit history.
+
+```{bash}
+#| eval: false
+
+git log --oneline
+## 516ad1a (HEAD -> main, tag: v4.0, origin/main, rm, analysis-04) Code review comments
+## a286918 Analysis 4
+## 538330d Merge remote-tracking branch 'refs/remotes/origin/main'
+## 49c68c2 Mark has also added detail to the readme.md
+## 3a3dd8d Testing Sylvie
+## 2829471 Merge branch 'analysis-03'
+## be09457 (tag: v3.0, analysis-03) Finished surv
+## 53115b6 minor
+```
+
 
 For example, initially there is a singular progression of the project, but at some point you will want to create a release for a software product, or a piece of documentation or an analysis.
 Later you may want to revise the release due to changes in project direction, new data, bugs etc.
@@ -34,7 +63,8 @@ You use branches to facilitate this process in a logical and coherent way.
 Typically, you branch off from the default branch of a repository, but you can branch from any branch that exists.
 
 In the examples encountered so far, the branching we have encountered is just a stem (specifically, the *main* branch).
-Here is a common type of representation of the kind of branch that we have dealth with so far.
+Below is a common type of representation of the kind of branch that we have dealth with so far.
+
 The circles represent each commit, which would refer to changes in one or more files.
 The repository has gone through a series of commits (1, 2, 3, 4 etc.) and the working directory is currently looking at the repository version 4. 
 
@@ -105,8 +135,8 @@ In contrast to the minor change above, in real life we might be much further alo
 For example, we may have introduced new files, restructured the original analysis, added functionality etc.
 
 While we could go through the process of winding back all the changes, with revision control we do not have to because we can rewind to any point.
-
-Next we go over the processes involved.
+We'll go over one approach to this using git.
+It isn't the ideal process to tackle the problem^[The start of an alternative could be `git revert --no-commit <hash>..HEAD; git commit`.] but it was chosen to highlight a few points.
 
 ### Commit
 
@@ -121,8 +151,8 @@ git commit -m "Commit of files part way through development"
 
 ### Rewind
 
-Now we want to rewind our repository back to the time at which the deliverable was made.
-We can do this by using `git log` to find the commit hash or we can just use the tag that we set for the release.
+We can rewind the state of our working directory to the time at which the deliverable was made.
+We do this by first using `git log` to find the commit hash or we can just use the tag that we set for the release.
 Using the tag is more convenient so let's do that.
 
 ```{bash, eval = FALSE, engine = "sh"}
@@ -156,6 +186,9 @@ We have move the HEAD such that our working versions now point to the files that
 
 :::callout-note
 Don't panic overly about the warning about being in the *detached HEAD* state.
+
+What it means is that you are no longer on a branch.
+You have checked out a single commit in the history.
 :::
 
 If you look at `branching.R` you will see that the starts of the secondary analysis has disappeared.
@@ -214,6 +247,9 @@ Now that we have fixed the code, we want to make the change permanent.
 That is, we want to formally tell git that our alternative history should be maintained.
 The way to do that is to create a new branch out of the recent changes (which already look like a branch).
 
+Arguably, it would probably have been better to do this first given that we had to make the change.
+On the other hand, if we were just experimenting, then perhaps there was never any intention to make the change permanent and a new branch would not be required.
+
 ```{bash, eval = FALSE, engine = "sh"}
 git branch fix-01
 # Switch to new branch
@@ -248,17 +284,30 @@ git tag -a v1.1 -m "Analysis 1 (re-issue)"
 
 ### Switching back to the secondary
 
-Switching back to our partially complete secondary analysis is as simple as.
+Switching back to our partially complete secondary analysis is simple:
 
 ```{bash, eval = FALSE, engine = "sh"}
 git checkout main
 ```
 
 If you look at the `branching.R` script you will be able to see the secondary analysis we started some time ago.
-However, if you look closely you will see that the changes we just made in the `fix-01` branch have not yet been propagated to the `main` branch.
+That is, if you look closely, you will see that the changes we just made in the `fix-01` branch have not yet been propagated to the `main` branch.
 It is important that we pick up this fix.
 
-This process is known as *merging* and it will be tackled later.
+This process is known as *merging* and it will be tackled shortly.
+
+
+### Clean up
+
+When you are done with a branch as in you have finished all the work, merged (see next) and released, you might want to remove the branch.
+
+You can do this with 
+
+```{bash, eval = FALSE, engine = "sh"}
+git branch -d <branch name>
+```
+
+noting that you can use a capital `-D` to force the delete irrespective of the merge status (unsafe).
 
 
 

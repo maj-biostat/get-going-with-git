@@ -12,35 +12,35 @@ log_info("Called git-collab-fileserver notebook")
 What is covered here simply scratches the surface.
 Git is extremely flexible in the workflows that can be set up.
 A basic approach is that of a centralised repository.
-This is fairly easy to understand and is simple to set up for small teams.
+This is easy to understand and is simple to set up for small teams.
 
 The concept of *remotes* is introduced as is an associated workflow.
 
-## No github? {#sec-no-github}
+## No GitHub? {#sec-no-github}
 
 GitHub is a hosting service for git repositories. 
 It also extends some of the git functionality.
-They have captured the market, mainly because we are all a bit dim.
+They have captured the market.
 
 Before 2005 (ish), GitHub did not exist, and it wasn't a catastrophe.
 What did we do?
 Git has the functionality built into it to allow collaboration via hosting git repositories directly on fileservers.
-This is a reasonable solution for small teams with access to a common network, but it has its limitations.
+This is a reasonable solution for small teams with access to a common network, but it has its limits and you are probably not going to go down this path unless the infrastructure is formally managed by your IT support.
 Nevertheless, most bluechip organisations used this approach during the 2000's.
 
 Repositories that are retained outside of your local machine are referred to as *remotes*.
-It doesn't matter whether they are hosted on LIQUID, or a random file server or GitHub or BitBucket or Timbuktu.
+It doesn't matter whether they are hosted on LIQ, or a random file server or GitHub or BitBucket or Timbuktu.
 They are still known as remotes.
 
 Remotes allow you to work on a repository collaboratively with your colleagues.
-This has been standard practice in software development since circa 1760.
+This has been standard practice in software development since about 300 B.C.
 
 We will talk about hosting remotes on fileservers here and then move on to GitHub next.
 
 ## So remote
 
-What remote (or remotes) are associated with the example repository that we have been working on?
-Let's look.
+What remote (or remotes) are associated with the `first-repo` repository that we have been working on?
+You can use `git remote` to find out:
 
 ```{bash, eval = F, engine = "sh"}
 git remote -v
@@ -54,15 +54,13 @@ If at any time you want to review the remotes associated with your repository (y
 
 Let's set up a remote on OneDrive.
 OneDrive is a cloud file-server, but technically we could replace OneDrive with any file-server.
-For example, we used to have the LIQUID drive at TKI mounted as a network drive and we could use that.
+For example, we used to have the LIQ drive mounted as a network drive and we could use that.
 
 Anyway, just follow along.
 
 ```{bash, eval = F, engine = "sh"}
 git clone --bare first-repo /Users/mark/Library/CloudStorage/OneDrive-TheUniversityofSydney\(Staff\)/first-repo.git
 ```
-
-Why USyd (or Microsoft) uses such ludicrous names for their software is beyond me.
 
 The above takes the repository that we have been working on and moves the git database to OneDrive.
 If we look at OneDrive then we see:
@@ -87,7 +85,7 @@ ls -lrta
 
 The first thing to note is that there is no working directory.
 
-Now let's imagine that I Sylvie has just joined the team as naive Bayesian statistician.
+Now let's imagine that Sylvie has just joined the team as naive Bayesian statistician.
 Sylvie needs to start work on the `first-repo` project.
 First, we need to get the repository onto her local machine.
 
@@ -96,10 +94,10 @@ The process is as follows.
 1. Go to you Documents folder (or wherever you intend to store your projects)
 2. Clone the remote
 
-Obviously, I am working off a single laptop clone the repo to some alternative name.
+Obviously, I am working off a single laptop so I will clone the repo to some name other than `first-repo`.
 I will refer to this location as *Sylvie's repo* vs *Mark's repo* which is the one that I have been referencing when demonstrating examples.
 
-In contrast to the bare repository remote, we (Sylvie) now has the example files that we have been developing to date.
+In contrast to the bare repository remote, Sylvie now has the example files that we have been developing to date.
 
 :::callout-note
 Note that I called the repo `sylvie-first-repo`.
@@ -138,26 +136,26 @@ Over on the left we have the remote git database.
 On the right we have Mark who created the remote from his local repository and Sylvie who cloned the remote repository to her local machine.
 Git isn't restricted to this centralised architecture (it is possible to have multiple remotes and other variations) but it is a common paradigm.
 
-GitHub uses a different workflow that commonly relies on a project owner pulling a developers updates into a main project repository rather than the developer pushing their work directly to the project repository.
+GitHub uses a different workflow that commonly (though not exclusively) relies on a project owner pulling a developers updates into a main project repository rather than the developer pushing their work directly to the project repository.
 We will see more about this later.
 
 ## Keeping remotes up to date
 
 For now, you can think of a remote as the hub around which collaboration revolves.
-As a project progresses, the local files are updated and we need to get these files into the remote so that our colleagues can keep their work in sync.
-However, someone else may send their files to the remote prior to you completing your work.
+As a project progresses, the local files are updated and we need to get these updates to the remote.
+However, others may beat us to the post in this process and thus we may be out of sync with the remote.
 
-**This would mean that the state of the remote is ahead of your local repository.**
+**Again, this would mean that the state of the remote is ahead of your local repository.**
 
-git (and GitHub) will not allow you to send your updates to the repository unless you are sync'd.
+In this scenario, git (and GitHub) will not allow you to send your updates to the repository unless you are sync'd.
 In other words, you have to be up to date in order to send your changes to the remote.
 
 To be able to push your work up to the remote, the steps are:
 
 1. ensure that all your changes are committed to the local repository
-2. run `git fetch` to establish whether you are up to date with the remote 
+2. run `git fetch` to bring down the latest changes from the remote
 3. if necessary, merge any changes into your local repository to get up to date
-4. ensure that all your changes are committed to the local repository
+4. ensure (again) that all your changes are committed to the local repository
 5. `git push` you modifications up to the remote
 
 Here is another picture.
@@ -188,7 +186,7 @@ git status
 git add readme.md; git commit -m "Minor change for testing fetch"
 ```
 
-No changes have been made to the remote by anyone else so when we run `git fetch` there is no response.
+No changes have been made to the remote by anyone else (Silvie has not pushed her changes) so when we run `git fetch` there are no updates to be had.
 Therefore we can go and push the changes.
 
 ```{bash, eval = F, engine = "sh"}
@@ -240,10 +238,8 @@ git remote -v
 ## nothing
 ```
 
-
 To fix this we use `git remote add` which, predictably tells git to configure a link between a local and remote version of the repository.
 This is a one time process and once we have set the remote, we do not need to do it again until we need to add a new remote.
-
 
 ```{bash, eval = F, engine = "sh"}
 git remote add origin /Users/mark/Library/CloudStorage/OneDrive-TheUniversityofSydney\(Staff\)/first-repo.git
@@ -275,8 +271,6 @@ Before we use these, we need to make an existing local branch track a specific r
 git fetch  # pulls down information on the branches in the remote
 git branch --set-upstream-to=origin/main main # links a local with remote branch
 ```
-
-
 
 Checking the status we see that the change that Sylvie pushed has left us out of sync.
 
@@ -326,9 +320,8 @@ git diff main origin/main
 
 You can see the line that I introduced and also the change that Sylvie added and committed to the remote.
 There are a few options to resolve this.
-Most people use `git pull` which runs a two-step process.
-In my opinion, while this is convenient, it can get you in to trouble.
-It is generally safer to split the process up into a `fetch` and then a `merge`.
+Most people use `git pull` which runs the two steps as one.
+I prefer to be explicit and feel like it might be a bit safer to split the process up into a `fetch` and then a `merge`, although I think I am in the minority.
 
 ```{bash, eval = F, engine = "sh"}
 git fetch
@@ -404,8 +397,8 @@ and then pushes the change up to the remote repository.
 git push
 ```
 
-Unfortunately, this does not establish the `analysis-04` branch within the remote.
-This may or may not be a problem (usually not) but it is worth being aware of, because other users will not be able to get access to the evolution of the files that occurred on the development branch.
+This does not establish the `analysis-04` branch within the remote, which may or may not be a problem (usually not) but it is worth being aware of.
+Other users will not be able to get access to the evolution of the files that occurred on the development branch.
 To push the `analysis-04` branch we use:
 
 ```{bash, eval = F, engine = "sh"}
@@ -417,7 +410,3 @@ git push --set-upstream origin analysis-04
 ```
 
 And now uses can fetch and review this branch within the context of their local repositories.
-
-## Comparing differences
-
-TODO - Using the .. notation.

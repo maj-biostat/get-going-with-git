@@ -1,7 +1,7 @@
 
 ```{r, echo = FALSE}
 source("./R/init.R")
-log_info("Called downloads notebook")
+log_info("Called resources notebook")
 ```
 
 # Resources {#sec-resources-page}

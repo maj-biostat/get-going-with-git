@@ -9,9 +9,9 @@ source("./R/init.R")
 log_info("Called github-101 notebook")
 ```
 
-Rightly or wrongly, GitHub has become the defacto tool for storing and sharing work.
-GitHub is a hosting service for git repositories. 
-It is not part of the git software and unfortunately, it is owned by Microsoft.
+Rightly or wrongly, GitHub has become the de-facto tool for sharing tech work.
+GitHub is simply a hosting service for git repositories. 
+It is not part of the git software and (unfortunately in my opinion) it is owned by Microsoft.
 
 Around 10,000 companies (3M, Dell, Airbnb, Netflix ...) use GitHub as part of their development stack.
 It sources literally 100's of millions of projects with billions of contributions to these projects per year.
@@ -19,7 +19,7 @@ Around 95% of developers use git as the version control system of choice.
 
 Alternatives that aim to serve similar goals include [GitLab](https://about.gitlab.com/) and [Bitbucket](https://bitbucket.org/product).
 
-You should have set up an account, configured 2FA and created a personal token per the pre-requisite notes so that isn't going to be covered here.
+From earlier, you should have set up an account, configured 2FA and created a personal token so that isn't going to be covered again.
 We will use `https` to access GitHub, which is the default, so you do not need to set up any other protocols.
 
 ## Walk around the interface
@@ -41,18 +41,18 @@ From there you can edit various details pertaining to yourself, review your stat
 Select the repository link to see a list of all your repositories.
 You can also get here directly from your landing page via the 'Your repositories' link.
 I have highlighted the `get-going-with-git` repo. 
-You won't have this repository at this stage (you might not have any) but that's ok, just follow along.
+You won't have this repository at this stage but that's ok, just follow along.
 
 ![GitHub repository listing](../fig/github-04.png){width=90%}
 
-Selecting a specific repository brings up its landing page which includes the repository files, a description file, stats on the repository, settings and various other items.
-The page that is shown below corresponds to the git repository used to manage this knowledge base and website.
+Selecting a specific repository brings up its landing page which includes the repository files, a description file (if one has been created), stats on the repository, settings and various other items.
+The page that is shown below corresponds to the git repository used to manage this text and website.
 
 ![GitHub repository landing page](../fig/github-05.png){width=90%}
 
 ## Common functions via GitHub
 
-Some (if not all) of the functionality that git implements has been integrated into the GitHub platform.
+Some^[Probably all, but I am guessing.] of the functionality that git implements has been integrated into the GitHub platform.
 Let's go over some of them briefly.
 
 ### Initialise repository
@@ -78,9 +78,9 @@ And then you are taken to your new shiny repository page.
 :::callout-note
 The easiest (but not necessarily the best) way to collaborate via GitHub is to add collaborators to your repository.
 By adding collaborators, you are giving people read/write access to your repository.
-It is your responsibility to make sure you are confident that they know what they are doing.
+It is therefore your responsibility to make sure you are confident that they know what they are doing.
 
-The topic of pull requests (see later) introduce a mechanism that in part mitigates some of the risks associated with collaborative repositories.
+The topic of pull requests (see later) introduce a mechanism that in part mitigates the risks associated with collaborative repositories.
 :::
 
 
@@ -88,7 +88,7 @@ The topic of pull requests (see later) introduce a mechanism that in part mitiga
 
 ![Enter collaborator details](../fig/github-10.png){width=90%}
 
-And if you want to change the visibility (public/private) of the repository it is down at the bottom of the general settings under the Dange Zone section.
+And if you want to change the visibility (public/private) of the repository, the functions to do this are down at the bottom of general settings under the Dange Zone section.
 
 #### Initialise from existing repository
 

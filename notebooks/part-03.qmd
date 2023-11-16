@@ -5,14 +5,14 @@ editor: source
 
 ```{r, echo = FALSE}
 source("./R/init.R")
-log_info("Called part 1 notebook")
+log_info("Called part 3 notebook")
 ```
 
-This part is about how we use `git` to collaborate.
+This part is about how git is used in a collaborative context.
 It is probably the toughest part and so we will just cover the basics.
-I will
 
 + Introduce fileserver backed git remotes
++ Introduction to GitHub
 + GitHub collaboration processes
 + Documentation backed by GitHub
 

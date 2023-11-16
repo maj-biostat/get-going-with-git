@@ -1,9 +1,33 @@
+---
+title: "Common commands"
+editor: source
+tbl-cap-location: top
+---
 
 ```{r, echo = FALSE}
 source("./R/init.R")
 log_info("Called common-commands notebook")
 ```
 
-# Common commands {#sec-common-commands}
 
-todo
+| Command  | Description of common use  |
+|--------|--------|
+| git init  |    |
+| git clone  |    |
+| git add <file>  |    |
+| git reset  |    |
+| git status  |    |
+| git diff  |    |
+| git log  |    |
+| git commit  |    |
+| git push  |    |
+| git branch  |    |
+| git fetch  |    |
+| git merge  |    |
+| git revert  |    |
+| git checkout  |    |
+| git remote  |   repos |
+| git branch upstr  |   branch |
+
+: Common git commands {.striped .hover}
+
