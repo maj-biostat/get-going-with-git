@@ -2,98 +2,106 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://pages.github.sydney.edu.au/mjon7053/get-going-with-git/index.html</loc>
-    <lastmod>2023-11-16T01:55:15.783Z</lastmod>
+    <lastmod>2023-11-16T06:51:38.246Z</lastmod>
   </url>
   <url>
     <loc>https://pages.github.sydney.edu.au/mjon7053/get-going-with-git/notebooks/preamble.html</loc>
-    <lastmod>2023-11-16T01:55:15.789Z</lastmod>
+    <lastmod>2023-11-16T06:51:38.253Z</lastmod>
   </url>
   <url>
     <loc>https://pages.github.sydney.edu.au/mjon7053/get-going-with-git/notebooks/part-01.html</loc>
-    <lastmod>2023-11-16T01:55:15.792Z</lastmod>
+    <lastmod>2023-11-16T06:51:38.260Z</lastmod>
   </url>
   <url>
     <loc>https://pages.github.sydney.edu.au/mjon7053/get-going-with-git/notebooks/what-is-revision-control.html</loc>
-    <lastmod>2023-11-16T01:55:15.799Z</lastmod>
+    <lastmod>2023-11-16T06:51:38.263Z</lastmod>
   </url>
   <url>
     <loc>https://pages.github.sydney.edu.au/mjon7053/get-going-with-git/notebooks/git-install.html</loc>
-    <lastmod>2023-11-16T01:55:15.806Z</lastmod>
+    <lastmod>2023-11-16T06:51:38.269Z</lastmod>
   </url>
   <url>
     <loc>https://pages.github.sydney.edu.au/mjon7053/get-going-with-git/notebooks/git-setup.html</loc>
-    <lastmod>2023-11-16T01:55:15.809Z</lastmod>
+    <lastmod>2023-11-16T06:51:38.272Z</lastmod>
   </url>
   <url>
     <loc>https://pages.github.sydney.edu.au/mjon7053/get-going-with-git/notebooks/github-setup.html</loc>
-    <lastmod>2023-11-16T01:55:15.819Z</lastmod>
+    <lastmod>2023-11-16T06:51:38.282Z</lastmod>
   </url>
   <url>
     <loc>https://pages.github.sydney.edu.au/mjon7053/get-going-with-git/notebooks/part-02.html</loc>
-    <lastmod>2023-11-16T01:55:15.822Z</lastmod>
+    <lastmod>2023-11-16T06:51:38.284Z</lastmod>
   </url>
   <url>
     <loc>https://pages.github.sydney.edu.au/mjon7053/get-going-with-git/notebooks/git-repository.html</loc>
-    <lastmod>2023-11-16T01:55:15.827Z</lastmod>
+    <lastmod>2023-11-16T06:51:38.290Z</lastmod>
   </url>
   <url>
     <loc>https://pages.github.sydney.edu.au/mjon7053/get-going-with-git/notebooks/git-commit.html</loc>
-    <lastmod>2023-11-16T01:55:15.837Z</lastmod>
+    <lastmod>2023-11-16T06:51:38.303Z</lastmod>
   </url>
   <url>
     <loc>https://pages.github.sydney.edu.au/mjon7053/get-going-with-git/notebooks/git-diffs.html</loc>
-    <lastmod>2023-11-16T01:55:15.846Z</lastmod>
+    <lastmod>2023-11-16T06:51:38.313Z</lastmod>
   </url>
   <url>
     <loc>https://pages.github.sydney.edu.au/mjon7053/get-going-with-git/notebooks/git-branch.html</loc>
-    <lastmod>2023-11-16T01:55:15.862Z</lastmod>
+    <lastmod>2023-11-16T06:51:38.327Z</lastmod>
   </url>
   <url>
     <loc>https://pages.github.sydney.edu.au/mjon7053/get-going-with-git/notebooks/git-merge.html</loc>
-    <lastmod>2023-11-16T01:55:15.872Z</lastmod>
-  </url>
-  <url>
-    <loc>https://pages.github.sydney.edu.au/mjon7053/get-going-with-git/notebooks/github-101.html</loc>
-    <lastmod>2023-11-16T01:55:15.884Z</lastmod>
+    <lastmod>2023-11-16T06:51:38.339Z</lastmod>
   </url>
   <url>
     <loc>https://pages.github.sydney.edu.au/mjon7053/get-going-with-git/notebooks/part-03.html</loc>
-    <lastmod>2023-11-16T01:55:15.887Z</lastmod>
+    <lastmod>2023-11-16T06:51:38.343Z</lastmod>
   </url>
   <url>
     <loc>https://pages.github.sydney.edu.au/mjon7053/get-going-with-git/notebooks/git-collab-fileserver.html</loc>
-    <lastmod>2023-11-16T01:55:15.900Z</lastmod>
+    <lastmod>2023-11-16T06:51:38.353Z</lastmod>
+  </url>
+  <url>
+    <loc>https://pages.github.sydney.edu.au/mjon7053/get-going-with-git/notebooks/github-101.html</loc>
+    <lastmod>2023-11-16T06:51:38.361Z</lastmod>
   </url>
   <url>
     <loc>https://pages.github.sydney.edu.au/mjon7053/get-going-with-git/notebooks/git-collab-github.html</loc>
-    <lastmod>2023-11-16T01:55:15.911Z</lastmod>
+    <lastmod>2023-11-16T06:51:38.374Z</lastmod>
   </url>
   <url>
     <loc>https://pages.github.sydney.edu.au/mjon7053/get-going-with-git/notebooks/git-doc-github.html</loc>
-    <lastmod>2023-11-16T01:55:15.913Z</lastmod>
+    <lastmod>2023-11-16T06:51:38.377Z</lastmod>
   </url>
   <url>
     <loc>https://pages.github.sydney.edu.au/mjon7053/get-going-with-git/notebooks/part-04.html</loc>
-    <lastmod>2023-11-16T01:55:15.917Z</lastmod>
+    <lastmod>2023-11-16T06:51:38.380Z</lastmod>
   </url>
   <url>
     <loc>https://pages.github.sydney.edu.au/mjon7053/get-going-with-git/notebooks/resources.html</loc>
-    <lastmod>2023-11-16T01:55:15.920Z</lastmod>
+    <lastmod>2023-11-16T06:51:38.383Z</lastmod>
+  </url>
+  <url>
+    <loc>https://pages.github.sydney.edu.au/mjon7053/get-going-with-git/notebooks/rstudio-integration.html</loc>
+    <lastmod>2023-11-16T06:51:38.388Z</lastmod>
+  </url>
+  <url>
+    <loc>https://pages.github.sydney.edu.au/mjon7053/get-going-with-git/notebooks/git-clients.html</loc>
+    <lastmod>2023-11-16T06:51:38.390Z</lastmod>
   </url>
   <url>
     <loc>https://pages.github.sydney.edu.au/mjon7053/get-going-with-git/notebooks/common-commands.html</loc>
-    <lastmod>2023-11-16T01:55:15.922Z</lastmod>
+    <lastmod>2023-11-16T06:51:38.393Z</lastmod>
   </url>
   <url>
     <loc>https://pages.github.sydney.edu.au/mjon7053/get-going-with-git/notebooks/about.html</loc>
-    <lastmod>2023-11-16T01:55:15.925Z</lastmod>
+    <lastmod>2023-11-16T06:51:38.396Z</lastmod>
   </url>
   <url>
     <loc>https://pages.github.sydney.edu.au/mjon7053/get-going-with-git/Get-going-with-git.pdf</loc>
-    <lastmod>2023-11-16T01:55:06.725Z</lastmod>
+    <lastmod>2023-11-16T06:51:28.380Z</lastmod>
   </url>
   <url>
     <loc>https://pages.github.sydney.edu.au/mjon7053/get-going-with-git/Get-going-with-git.docx</loc>
-    <lastmod>2023-11-16T01:55:15.679Z</lastmod>
+    <lastmod>2023-11-16T06:51:38.161Z</lastmod>
   </url>
 </urlset>
