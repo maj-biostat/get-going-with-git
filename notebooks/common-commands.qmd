@@ -25,6 +25,7 @@ log_info("Called common-commands notebook")
 | `git diff <bname1> <bname2> <name>` | As above for a specific file but between two branches.   |
 | `git log --oneline --graph --decorate --all` | Give me full history    |
 | `git commit -m "message"` | Create a new commit in the repository (tracking any untracked files) with reason for commit.   |
+| `git tag -a v1.0 -m "Analysis 1"` | Create an annotated tag   |
 | `git branch <bname>` | Create a new branch, a divergence from the main development branch.   |
 | `git push -u <remote> <bname>` | Push a local branch (commits) up to a remote repo. Remote is e.g. origin.   |
 | `git push <remote> <bname>` | Push a local branch (commits) up to a remote repo.    |

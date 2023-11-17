@@ -17,13 +17,6 @@ summary(repo)
 
 
 
-Todo:
-
-tracked
-common commands
-doco link overleaf
-
-prep notes 
 
 
 
