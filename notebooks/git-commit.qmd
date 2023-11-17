@@ -109,6 +109,49 @@ git status
 ## nothing added to commit but untracked files present (use "git add" to track)
 ```
 
+You can use a variety of wildcards in the `.gitignore` file.
+
+```{=html}
+<table>
+  <caption>Patterns applicable to .gitignore.</caption>
+  <thead>
+    <tr>
+      <th>Pattern</th>
+      <th>Match</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+    <td><code>access.log</code></td>
+    <td><code>access.log</code> <br> <code>logs/access.log</code> <br> <code>var/logs/access.log</code></td>
+    </tr>
+    <tr>
+    <td><code>*.log</code></td>
+    <td><code>error.log</code> <br> <code>logs/debug.log</code> <br> <code>build/logs/error.log</code></td>
+    </tr>
+    <tr>
+    <td><code>/dist</code></td>
+    <td>Ignore <code>dist</code> dir</td>
+    </tr>
+    <tr>
+    <td><code>logs/**</code></td>
+    <td>Anything inside logs directory</td>
+    </tr>
+    <tr>
+    <td><code>**/build</code></td>
+    <td><code>var/build</code> <br> <code>pub/build</code> <br> <code>build</code></td>
+    </tr>
+    <tr>
+    <td><code>access?.log</code></td>
+    <td><code>access0.log</code> <br> <code>access1.log</code> <br> <code>accessA.log</code></td>
+    </tr>
+  </tbody>
+</table>
+```
+
+
+
+
 ## Commit process
 
 Now we want to add the new file to the repository.
@@ -297,7 +340,7 @@ For example, you might simply want to review when specific changes were made to 
 
 When you are working on a repository in collaboration (see later) the value of the logs increases many fold as a way to be able to understand the evolution of the project and to work out who you need to contact if you think a problem has been introduced.
 
-A particularly useful log command is, which gives you a visual depiction of the repository structure.
+A particularly useful log command gives you a visual depiction of the repository structure.
 Here is an example from a small repo that we will look at later.
 
 ```{bash}

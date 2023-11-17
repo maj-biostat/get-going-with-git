@@ -24,14 +24,14 @@ From the previous branching example -
 Ok, so now we have a fix to the error in the original analysis in one branch `fix-01` and a partially completed secondary analysis on the `main` branch.
 We want to bring the changes from the fix into our present work.
 
-Bascially, we want to do something like this:
+To give a rough mental model, we want to do something like this:
 
 ![Bringing our fix from the past into the present...](../fig/branch-05.jpg){width=70%}
 
 ## Merge processes
 
 There are two related approaches for combining your changes into a shared repository; rebase and merge.
-Personally, I tend not to use `git rebase` and prefer `git merge` and that hasn't caused me any problems.
+I tend not to use `git rebase` and stick with `git merge` which hasn't caused me any major problems.
 
 :::callout-note
 The distinction between a rebase and a merge is that the merge takes all the changes in one branch and merges them in a single commit whereas a rebase rewrites commits from one branch to another.
@@ -119,6 +119,7 @@ ggsave("fig-sec.png", p1, width = 10, height = 10, units = "cm")
 
 Here is what you need to do:
 
+- Add the above code to the `branching.R` script.
 - Run the updated script `Rscript branching.R` to make sure it works.
 - Edit the `.gitignore` file so that the figure does not get committed to the repository.
 - Stage and commit the files and then review the commit history.
@@ -223,5 +224,3 @@ At this point, you have been introduced to the fundamentals of git.
 But there are things that are going to catch you out.
 For example, in the above work, we used three-way merges.
 These are convenient but can also get messy when your branching structure gets complex.
-In most of our daily work merges will probably suffice, but know that there is another way.
-The other way is rebasing, but we will not deal with it here.

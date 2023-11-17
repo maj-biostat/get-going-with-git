@@ -7,7 +7,7 @@ However, once you have things installed (and configured) and you have a basic gr
 I know, it is true that a little knowledge can be a dangerous thing, but it probably isn't quite as bad as complete ignorance.
 
 This text, **Get going with git**, aims to provide introductory knowledge that is sufficient to get you up and running with git as a means for version control.
-The primary focus is on developing knowledge on a core set of functionality.
+The primary focus is on developing knowledge on a core set of functionalities.
 
 The text can be browsed online or downloaded as a word document for your reference and will be used as a companion for a training workshop.
 

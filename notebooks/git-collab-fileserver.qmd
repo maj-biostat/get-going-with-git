@@ -167,8 +167,8 @@ We will go over the steps below.
 
 ### Fetch and push (simple case)
 
+Silvie updates the readme.md.
 First Silvie ensures that all her local changes are committed to the repository.
-It looks like Silvie made a change to the `readme.md` when we were not looking.
 
 ```{bash, eval = F, engine = "sh"}
 cd sylvie-first-repo
@@ -186,8 +186,8 @@ git status
 git add readme.md; git commit -m "Minor change for testing fetch"
 ```
 
-No changes have been made to the remote by anyone else (Silvie has not pushed her changes) so when we run `git fetch` there are no updates to be had.
-Therefore we can go and push the changes.
+No changes have been made to the remote by anyone else (Silvie has not pushed her changes yet) and so when we run `git fetch` there are no updates to be had.
+Therefore she can go and push the changes.
 
 ```{bash, eval = F, engine = "sh"}
 git push

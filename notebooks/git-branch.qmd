@@ -13,7 +13,7 @@ log_info("Called git-branch notebook")
 
 :::callout-warning
 Time to step it up a notch.
-With branching, practice and repitition is key to understanding.
+Practice and repitition is key to understanding.
 Try not to panic.
 :::
 
@@ -36,7 +36,7 @@ git status
 ## nothing to commit, working tree clean
 ```
 
-There are a range of strategies for the way that a group uses branching, but for our purposes, you can think of `main` as your default branch.
+There are a range of strategies for the way that a team applies branching, but for our purposes we won't get into that and you can just think of `main` as the main line of progression for the project.
 
 Similarly, when you ran `git log` the current commit reported is suffixed with *(HEAD -> main)*.
 Both of these were a reference to the version on the branch that is currently linked to the working directory.
@@ -101,7 +101,7 @@ Rscript branching.R
 ```
 
 Imagine this was the first analysis for a project and will be sent to the clients. 
-The completed work represents a milestone for the project so we stage and commit the file and then create a tag for it.
+The completed work represents a milestone for the project so we stage and commit the file and then create a tag for it[^1].
 
 ```{bash, eval = FALSE, engine = "sh"}
 git tag -a v1.0 -m "Analysis 1"
@@ -136,7 +136,7 @@ For example, we may have introduced new files, restructured the original analysi
 
 While we could go through the process of winding back all the changes, with revision control we do not have to because we can rewind to any point.
 We'll go over one approach to this using git.
-It isn't the ideal process to tackle the problem^[The start of an alternative could be `git revert --no-commit <hash>..HEAD; git commit`.] but it was chosen to highlight a few points.
+It isn't the ideal process to tackle the problem[^2] but it was chosen to highlight a few points.
 
 ### Commit
 
@@ -276,7 +276,7 @@ And now the picture is
 
 ![Looking at the HEAD of our new branch](../fig/branch-04.jpg){width=70%}
 
-If this is the version that we re-issue to the client, we might as well tag it.
+If this is the version that we re-issue to the client, we might as well tag it[^3].
 
 ```{bash, eval = FALSE, engine = "sh"}
 git tag -a v1.1 -m "Analysis 1 (re-issue)"
@@ -301,7 +301,7 @@ This process is known as *merging* and it will be tackled shortly.
 
 When you are done with a branch as in you have finished all the work, merged (see next) and released, you might want to remove the branch.
 
-You can do this with 
+You can do this (**but just leave it for now**) with 
 
 ```{bash, eval = FALSE, engine = "sh"}
 git branch -d <branch name>
@@ -309,9 +309,23 @@ git branch -d <branch name>
 
 noting that you can use a capital `-D` to force the delete irrespective of the merge status (unsafe).
 
+## Real world branch strategies (optional)
 
+I mentioned a few times that while the above was to demonstrate some concepts, it probably wouldn't be what you do in routine practice.
+So what would you do?
 
+One approach (the simplest) is called **trunk based development**.
 
+![Trunk based development](../fig/commit-trunk-based.jpg){width=70%}
 
+In this approach, developers create short-lived branches from the main branch to do their feature development work and bug fixing.
+They then merge their work into the main branch.
+Release branches are created from the main branch.
+No commits are made on the release branches.
 
+More information can be found [here](https://trunkbaseddevelopment.com/).
+An alternative to trunk based development is [git flow](https://datasift.github.io/gitflow/IntroducingGitFlow.html).
 
+[^1]: I am not advocating that this is how releases should be handled, it is purely an artificial example for the purposes of this text. A more appropriate way to do this would be via a **trunk based development** strategy/continuous integration whereby release branches are spawned off the main branch at the time of release.
+[^2]: The start of an alternative could be `git revert --no-commit <hash>..HEAD; git commit`.
+[^3]: Again, I am not saying this is the way to go about this in practice, it is just for the purposes of the example here.

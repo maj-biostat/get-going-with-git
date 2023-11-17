@@ -10,8 +10,8 @@ log_info("Called part 2 notebook")
 
 Now we will make a start with git.
 Initially we will focus on using git within the confines of your local machine.
-Yes, that's right, we won't be using GitHub until the very end of this part.
-The point of this is to give you a chance to get to grips with the basic ideas.
+We won't be using GitHub until the next part.
+The reason for this is to give you a chance to get to grips with the basic ideas.
 After the main concepts are bedded in, we will move to thinking about GitHub, which is a whole new beast.
 
 We will talk about;

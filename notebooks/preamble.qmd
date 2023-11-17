@@ -14,9 +14,9 @@ There is no point reinventing the wheel, Jenny Bryant motivates the use of versi
 
 :::callout-note
 There is no getting around it.
-You are likely^[Actually with very high probability. Sorry.] going to find some^[Probably a lot.] of this text hard and/or frustrating and/or/also painful.
+You are likely[^1] going to find some[^2] of this text hard and/or frustrating and/or/also painful.
 
-Your knowledge will progress in a stepwise fashion^[Monotonically, I am sure. Ideally strictly positively.] through setup, core concepts and collaboration.
+Your knowledge will progress in a stepwise fashion[^3] through setup, core concepts and collaboration.
 Each of these will give you pain, but once you have practice them, they will become an intuitive, integrated and a comforting safety net.
 :::
 
@@ -24,11 +24,11 @@ The approach I have taken is purposefully (and unapologetically) applied and a f
 The rationale stems from experience of this being the best way to build a clear and coherent understanding.
 Once you have the fundamentals practiced, it is much easier to pick up any git client of your choosing (from the long list of clients) safe in the knowledge that you have some insight into what is going on under the hood and that if things do go horribly wrong (as they invariably do) you have some chance of being able to fix them.
 
-The goal here is for you to gain understanding into the fundamental aspects of revision control and [`git`](https://git-scm.com/) in particular.
+The goal here is for you to gain understanding into the fundamental aspects of revision control in general and [`git`](https://git-scm.com/) in particular.
 Once you have that base, extending from there will be much easier for you.
 
 The pace of the workshop will be based on the abilities of the audience but there is an expectation that the audience practices the skills in their own time.
-The workshop is likely to be run over a few sessions but the exact length is yet to be determined.
+The workshop is likely to be run over a few sessions, but the exact length is yet to be determined.
 It is mainly targeted at analysts that are new to revision control but with some effort is accessible to anyone.
 
 ## Command line interfaces
@@ -46,7 +46,7 @@ The approach provides an extremely useful set of tools that pay dividends if you
 
 Nearly universally, if I use the word *terminal* or *shell* I am referring to the operating system command line interface.
 Windows refers to its CLI as the *command prompt*, and in macOS they use *terminal*.
-For the purposes here, you can treat all these terms as synonomous.
+For the purposes here, you can treat all these terms as synonymous.
 
 If you do not know how to operate your operating system CLI then you need to address that to make the most out of this text.
 
@@ -54,7 +54,7 @@ If you do not know how to operate your operating system CLI then you need to add
 
 Because every other approach fundamentally rests on the git functionality that is exposed through the command line.
 While other approaches might abstract away from some of gits complexity, they also make some of the workings opaque.
-By learning the commandline functions, you focus on what you actually need and when you use another approach, you will understand what it is trying to achieve.
+By learning the command line functions, you focus on the areas you truly need and when you use another approach, you will understand what it is trying to achieve.
 
 
 ### Windows
@@ -107,7 +107,7 @@ you should be able to set a user variable even if you do not have admin priviled
 
 Create a directory on your machine where we will store all the files for this workshop.
 
-Simply go to the your `Documents` directory and create a sub-dir called `get-going-with-git` (you can call it what you want, but this is going to be the location of our scratchpad and temp work).
+Simply go to your `Documents` directory and create a sub-dir called `get-going-with-git` (you can call it what you want, but this is going to be the location of our scratchpad and temp work).
 
 Throughout this text, if I say go to your local workshop directory, this is the location I want you to go to.
 
@@ -134,3 +134,6 @@ You may need to go to IT Support to get them to install OneDrive for you, but it
 
 
 
+[^1]: Actually with very high probability. Sorry.
+[^2]: Probably a lot.
+[^3]: Monotonically, I am sure. Ideally strictly positively.

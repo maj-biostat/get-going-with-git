@@ -47,7 +47,7 @@ There is another alternative and that is to keep your credentials in a plain tex
 
 Enter the Git Credential Manager (GCM).
 
-The [GCM](https://github.com/git-ecosystem/git-credential-manager/blob/main/README.md) is a platform agnostic credential manager (in English, that translates loosely to a *password manager*).
+The [GCM](https://github.com/git-ecosystem/git-credential-manager/blob/main/README.md) is a platform agnostic credential manager (in English, that translates loosely to a cross platform *password manager*).
 Once it's installed and configured, the Git Credential Manager is called by git and your interactions with GitHub become much more seamless.
 
 The next time you clone an HTTPS URL that requires authentication, Git will prompt you to log in using a browser window. 
@@ -100,7 +100,10 @@ to confirm it was installed and is accessible.
 ### GCM demo
 
 Below I demo the process by cloning a private repository from my GitHub account.
+
+:::callout-note
 You can use the `temp` repo that you just created, the URL will be something like `https://github.com/<your username>/temp.git` where you need to replace `<your username>`.
+:::
 
 ```{bash, eval = FALSE, engine = "sh"}
 192-168-1-100:tmp mark$ git clone https://github.com/maj-biostat/wisca_2.git
@@ -165,9 +168,10 @@ It will be interesting to see what happens for the Windows platform.
 You can view the current credential manager by running the following commands:
 
 ```{bash, eval = FALSE, engine = "sh"}
-git config --local credential.helper
+# NOTE - local flag only applicable from within a repo
+git config --local credential.helper 
 git config --global credential.helper
-# /usr/local/share/gcm-core/git-credential-manager
+## /usr/local/share/gcm-core/git-credential-manager
 git config --system credential.helper
 ```
 
@@ -180,6 +184,7 @@ In some circumstances you may need to reconfigure things.
 If you have to start from scratch, the following may be useful:
 
 ```{bash, eval = FALSE, engine = "sh"}
+# NOTE - local flag only applicable from within a repo
 git config --local --unset credential.helper
 git config --global --unset credential.helper
 git config --system --unset credential.helper

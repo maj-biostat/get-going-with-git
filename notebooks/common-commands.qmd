@@ -20,6 +20,7 @@ log_info("Called common-commands notebook")
 | `git reset --hard <SOME-COMMIT>`  | V. dangerous. Know what you are doing. Reverse your branch back to the commit point.  |
 | `git status`  | Retrieve the status of a repo, whether there are things to commit, untracked etc.   |
 | `git diff`  | Difference between HEAD and current state of working dir   |
+| `git diff HEAD~1` | Difference between HEAD and previous commit |
 | `git diff <name>` | As above for a specific file.   |
 | `git diff <bname1> <bname2> <name>` | As above for a specific file but between two branches.   |
 | `git log --oneline --graph --decorate --all` | Give me full history    |

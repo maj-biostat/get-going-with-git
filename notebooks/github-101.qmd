@@ -52,7 +52,7 @@ The page that is shown below corresponds to the git repository used to manage th
 
 ## Common functions via GitHub
 
-Some^[Probably all, but I am guessing.] of the functionality that git implements has been integrated into the GitHub platform.
+Some[^1] of the functionality that git implements has been integrated into the GitHub platform.
 Let's go over some of them briefly.
 
 ### Initialise repository
@@ -242,7 +242,7 @@ git commit -m "Development for demo-01 project"
 ## 2 files changed, 12 insertions(+), 1 deletion(-)
 ```
 
-Switch back to the main branch and get ready to merge your piece of work into the local `main` branch^[I know this is a bit artificial, but it is just for practice].
+Switch back to the main branch and get ready to merge your piece of work into the local `main` branch[^2].
 
 ```{bash, eval = F, engine = "sh"}
 git checkout main
@@ -374,3 +374,7 @@ First, we created the branch and then we checked it out.
 Is there a way this can be done with one command? Hint - Yes
 What is that command?
 :::
+
+
+[^1]: Probably all, but I am guessing.
+[^2]: I know this is a bit artificial, but it is just for practice
