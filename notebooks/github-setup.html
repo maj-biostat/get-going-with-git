@@ -397,7 +397,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <h2 data-number="4.2" class="anchored" data-anchor-id="git-credential-manager"><span class="header-section-number">4.2</span> Git Credential manager</h2>
 <p>While SSH uses keys (along with a key agent which will normally already be on your machine) HTTPS relies on you to have some way to retain your credentials. That is, if you want to avoid having to enter your user name and token for every transaction you have with your GitHub repository, which is something you want to avoid. There is another alternative and that is to keep your credentials in a plain text file, but again that is strongly discouraged.</p>
 <p>Enter the Git Credential Manager (GCM).</p>
-<p>The <a href="https://github.com/git-ecosystem/git-credential-manager/blob/main/README.md">GCM</a> is a platform agnostic credential manager (in English, that translates loosely to a <em>password manager</em>). Once it’s installed and configured, the Git Credential Manager is called by git and your interactions with GitHub become much more seamless.</p>
+<p>The <a href="https://github.com/git-ecosystem/git-credential-manager/blob/main/README.md">GCM</a> is a platform agnostic credential manager (in English, that translates loosely to a cross platform <em>password manager</em>). Once it’s installed and configured, the Git Credential Manager is called by git and your interactions with GitHub become much more seamless.</p>
 <p>The next time you clone an HTTPS URL that requires authentication, Git will prompt you to log in using a browser window. You may first be asked to authorize an OAuth app. If your account or organization requires two-factor auth, you’ll also need to complete the 2FA challenge.</p>
 <p>Once you’ve authenticated successfully, your credentials are stored in the macOS keychain (or Windows equivalent) and will be used every time you clone an HTTPS URL. From there on in, git should not require you to type your credentials in the command line again (unless you change your credentials).</p>
 <section id="gcm-install" class="level3" data-number="4.2.1">
@@ -433,7 +433,20 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </section>
 <section id="gcm-demo" class="level3 page-columns page-full" data-number="4.2.2">
 <h3 data-number="4.2.2" class="anchored" data-anchor-id="gcm-demo"><span class="header-section-number">4.2.2</span> GCM demo</h3>
-<p>Below I demo the process by cloning a private repository from my GitHub account. You can use the <code>temp</code> repo that you just created, the URL will be something like <code>https://github.com/&lt;your username&gt;/temp.git</code> where you need to replace <code>&lt;your username&gt;</code>.</p>
+<p>Below I demo the process by cloning a private repository from my GitHub account.</p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>You can use the <code>temp</code> repo that you just created, the URL will be something like <code>https://github.com/&lt;your username&gt;/temp.git</code> where you need to replace <code>&lt;your username&gt;</code>.</p>
+</div>
+</div>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb5"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="ex">192-168-1-100:tmp</span> mark$ git clone https://github.com/maj-biostat/wisca_2.git</span>
 <span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="ex">Cloning</span> into <span class="st">'wisca_2'</span>...</span>
@@ -498,10 +511,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <h3 data-number="4.2.3" class="anchored" data-anchor-id="gcm-configuration-advanced-only"><span class="header-section-number">4.2.3</span> GCM configuration (advanced only)</h3>
 <p>You can view the current credential manager by running the following commands:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> config <span class="at">--local</span> credential.helper</span>
-<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> config <span class="at">--global</span> credential.helper</span>
-<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a><span class="co"># /usr/local/share/gcm-core/git-credential-manager</span></span>
-<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> config <span class="at">--system</span> credential.helper</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="co"># </span><span class="al">NOTE</span><span class="co"> - local flag only applicable from within a repo</span></span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> config <span class="at">--local</span> credential.helper </span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> config <span class="at">--global</span> credential.helper</span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a><span class="co">## /usr/local/share/gcm-core/git-credential-manager</span></span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> config <span class="at">--system</span> credential.helper</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center">
@@ -518,9 +532,10 @@ Note
 </div>
 <p>In some circumstances you may need to reconfigure things. If you have to start from scratch, the following may be useful:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> config <span class="at">--local</span> <span class="at">--unset</span> credential.helper</span>
-<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> config <span class="at">--global</span> <span class="at">--unset</span> credential.helper</span>
-<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> config <span class="at">--system</span> <span class="at">--unset</span> credential.helper</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="co"># </span><span class="al">NOTE</span><span class="co"> - local flag only applicable from within a repo</span></span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> config <span class="at">--local</span> <span class="at">--unset</span> credential.helper</span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> config <span class="at">--global</span> <span class="at">--unset</span> credential.helper</span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> config <span class="at">--system</span> <span class="at">--unset</span> credential.helper</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>For windows uses check the contents of the credential manager. I believe that this can be accessed via Control Panel &gt;&gt; All Control Panel Items &gt;&gt; Credential Manager or by simply typing Credential Manager in the Windows task bar. Under generic credentials you should see the git entries.</p>
 </section>

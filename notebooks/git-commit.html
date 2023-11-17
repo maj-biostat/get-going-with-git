@@ -440,6 +440,54 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb7-11"><a href="#cb7-11" aria-hidden="true" tabindex="-1"></a><span class="co">## </span></span>
 <span id="cb7-12"><a href="#cb7-12" aria-hidden="true" tabindex="-1"></a><span class="co">## nothing added to commit but untracked files present (use "git add" to track)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
+<p>You can use a variety of wildcards in the <code>.gitignore</code> file.</p>
+<table data-quarto-postprocess="true" class="table">
+<caption>Patterns applicable to .gitignore.</caption>
+<colgroup>
+<col style="width: 50%">
+<col style="width: 50%">
+</colgroup>
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th">Pattern</th>
+<th data-quarto-table-cell-role="th">Match</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>access.log</code></td>
+<td><code>access.log</code><br>
+<code>logs/access.log</code><br>
+<code>var/logs/access.log</code></td>
+</tr>
+<tr class="even">
+<td><code>*.log</code></td>
+<td><code>error.log</code><br>
+<code>logs/debug.log</code><br>
+<code>build/logs/error.log</code></td>
+</tr>
+<tr class="odd">
+<td><code>/dist</code></td>
+<td>Ignore <code>dist</code> dir</td>
+</tr>
+<tr class="even">
+<td><code>logs/**</code></td>
+<td>Anything inside logs directory</td>
+</tr>
+<tr class="odd">
+<td><code>**/build</code></td>
+<td><code>var/build</code><br>
+<code>pub/build</code><br>
+<code>build</code></td>
+</tr>
+<tr class="even">
+<td><code>access?.log</code></td>
+<td><code>access0.log</code><br>
+<code>access1.log</code><br>
+<code>accessA.log</code></td>
+</tr>
+</tbody>
+</table>
 </section>
 <section id="commit-process" class="level2 page-columns page-full" data-number="6.2">
 <h2 data-number="6.2" class="anchored" data-anchor-id="commit-process"><span class="header-section-number">6.2</span> Commit process</h2>
@@ -583,7 +631,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>The first restricts to the last two commits, the second returns commits between mid Oct and the start of Nov, the second returns commits made by Mark or Fred and the third returns any commits where the word first was included in the message text (ignoring case).</p>
 <p>The log command is powerful and it lets you see who updated the files, when they made the update and why they did it. Obviously, this has less utility when you are working on a repository in isolation but it still does have value (especially to your future self). For example, you might simply want to review when specific changes were made to the files or you might want to pick up some update that has been removed from the code and reintroduce it.</p>
 <p>When you are working on a repository in collaboration (see later) the value of the logs increases many fold as a way to be able to understand the evolution of the project and to work out who you need to contact if you think a problem has been introduced.</p>
-<p>A particularly useful log command is, which gives you a visual depiction of the repository structure. Here is an example from a small repo that we will look at later.</p>
+<p>A particularly useful log command gives you a visual depiction of the repository structure. Here is an example from a small repo that we will look at later.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb18"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> log <span class="at">--oneline</span> <span class="at">--graph</span> <span class="at">--all</span></span>
 <span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a></span>
