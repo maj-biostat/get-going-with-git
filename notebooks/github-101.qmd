@@ -52,7 +52,7 @@ The page that is shown below corresponds to the git repository used to manage th
 
 ## Common functions via GitHub
 
-Some[^1] of the functionality that git implements has been integrated into the GitHub platform.
+Some[^proball] of the functionality that git implements has been integrated into the GitHub platform.
 Let's go over some of them briefly.
 
 ### Initialise repository
@@ -242,7 +242,7 @@ git commit -m "Development for demo-01 project"
 ## 2 files changed, 12 insertions(+), 1 deletion(-)
 ```
 
-Switch back to the main branch and get ready to merge your piece of work into the local `main` branch[^2].
+Switch back to the main branch and get ready to merge your piece of work into the local `main` branch[^artificial1].
 
 ```{bash, eval = F, engine = "sh"}
 git checkout main
@@ -376,5 +376,5 @@ What is that command?
 :::
 
 
-[^1]: Probably all, but I am guessing.
-[^2]: I know this is a bit artificial, but it is just for practice
+[^proball]: Probably all, but I am guessing.
+[^artificial1]: I know this is a bit artificial, but it is just for practice

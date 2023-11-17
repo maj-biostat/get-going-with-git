@@ -59,6 +59,9 @@ For example, we used to have the LIQ drive mounted as a network drive and we cou
 Anyway, just follow along.
 
 ```{bash, eval = F, engine = "sh"}
+# back out of first-repo
+cd ..
+# clone
 git clone --bare first-repo /Users/mark/Library/CloudStorage/OneDrive-TheUniversityofSydney\(Staff\)/first-repo.git
 ```
 
@@ -66,26 +69,26 @@ The above takes the repository that we have been working on and moves the git da
 If we look at OneDrive then we see:
 
 ```{bash, eval = F, engine = "sh"}
+cd cd '/Users/mark/Library/CloudStorage/OneDrive-TheUniversityofSydney(Staff)/first-repo.git'
 pwd
 ## /Users/mark/Library/CloudStorage/OneDrive-TheUniversityofSydney(Staff)/first-repo.git
 ls -lrta
-## total 48
-## drwx------@  20 mark  staff   640  8 Nov 08:36 ..
-## -rw-r--r--    1 mark  staff    73  8 Nov 08:36 description
-## -rw-r--r--    1 mark  staff   188  8 Nov 08:36 config
-## -rw-r--r--    1 mark  staff   618  8 Nov 08:36 packed-refs
-## -rw-r--r--    1 mark  staff    21  8 Nov 08:36 HEAD
-## drwxr-xr-x@  11 mark  staff   352  8 Nov 08:36 .
-## drwxr-xr-x    3 mark  staff    96  8 Nov 08:36 info
-## drwxr-xr-x   16 mark  staff   512  8 Nov 08:36 hooks
-## drwxr-xr-x  105 mark  staff  3360  8 Nov 08:36 objects
-## drwxr-xr-x    5 mark  staff   160  8 Nov 08:36 refs
-## -rw-r--r--@   1 mark  staff  6148  8 Nov 08:36 .DS_Store
+## total 32
+## drwx------@ 18 mark  staff   576 17 Nov 10:52 ..
+## -rw-r--r--   1 mark  staff    73 17 Nov 10:52 description
+## -rw-r--r--   1 mark  staff   188 17 Nov 10:52 config
+## -rw-r--r--   1 mark  staff   520 17 Nov 10:52 packed-refs
+## -rw-r--r--   1 mark  staff    21 17 Nov 10:52 HEAD
+## drwxr-xr-x   4 mark  staff   128 17 Nov 10:52 refs
+## drwxr-xr-x  36 mark  staff  1152 17 Nov 10:52 objects
+## drwxr-xr-x   3 mark  staff    96 17 Nov 10:52 info
+## drwxr-xr-x  16 mark  staff   512 17 Nov 10:52 hooks
+## drwxr-xr-x@ 10 mark  staff   320 17 Nov 10:52 .
 ```
 
 The first thing to note is that there is no working directory.
 
-Now let's imagine that Sylvie has just joined the team as naive Bayesian statistician.
+Now let's imagine that Sylvie has just joined the team as new Bayesian statistician.
 Sylvie needs to start work on the `first-repo` project.
 First, we need to get the repository onto her local machine.
 
@@ -167,8 +170,8 @@ We will go over the steps below.
 
 ### Fetch and push (simple case)
 
-Silvie updates the readme.md.
-First Silvie ensures that all her local changes are committed to the repository.
+Sylvie updates the readme.md.
+First Sylvie ensures that all her local changes are committed to the repository.
 
 ```{bash, eval = F, engine = "sh"}
 cd sylvie-first-repo
@@ -184,58 +187,56 @@ git status
 ## no changes added to commit (use "git add" and/or "git commit -a")
 
 git add readme.md; git commit -m "Minor change for testing fetch"
+## [main b606660] Minor change for testing fetch
+##  1 file changed, 1 insertion(+)
 ```
 
-No changes have been made to the remote by anyone else (Silvie has not pushed her changes yet) and so when we run `git fetch` there are no updates to be had.
+No changes have been made to the remote by anyone else (Sylvie has not pushed her changes yet) and so when we run `git fetch` there are no updates to be had.
 Therefore she can go and push the changes.
 
 ```{bash, eval = F, engine = "sh"}
+git fetch
 git push
 ## Enumerating objects: 5, done.
 ## Counting objects: 100% (5/5), done.
 ## Delta compression using up to 8 threads
 ## Compressing objects: 100% (3/3), done.
-## Writing objects: 100% (3/3), 342 bytes | 342.00 KiB/s, done.
+## Writing objects: 100% (3/3), 322 bytes | 322.00 KiB/s, done.
 ## Total 3 (delta 2), reused 0 (delta 0), pack-reused 0
 ## To /Users/mark/Library/CloudStorage/OneDrive-TheUniversityofSydney(Staff)/first-repo.git
-##    7eee4b5..49225cc  main -> main
+##    b88a312..b606660  main -> main
 ```
 
 :::callout-note
 The examples under the `git push` [man page](https://git-scm.com/docs/git-push#_examples) are helpful and informative for further detail on the interpretation of `git push`.
 :::
 
-Looking at the logs we see the following
+Looking at the logs from Sylvie's repo we see the following
 
 ```{bash, eval = F, engine = "sh"}
 git log --oneline
-## 3a3dd8d (HEAD -> main, origin/main, origin/HEAD) Testing Sylvie
-## 2829471 Merge branch 'analysis-03'
-## be09457 (tag: v3.0, origin/analysis-03) Finished surv
-## 53115b6 minor
-## 7a5e7b9 Surv analysis
-## 1a9dfeb (tag: v2.0) Edits from code review
-## d1586df Completion of secondary analysis
-## bf34b9c Merge from fix-01
-## b8de16c (tag: v1.1, origin/fix-01) Edits from code review
-## 12561d9 Emergency fix
-## d88f9e5 WIP
-## a2cc6f7 (tag: v1.0) Comments from code review
-## fa24778 branching.R
-## 3bdac46 Revised approach to capturing input
-## 327170a Minor edit
-## b078716 New file
-## 0cd2d52 First commit
+## b606660 (HEAD -> main, origin/main, origin/HEAD) Minor change for testing fetch
+## b88a312 (tag: v3.0, origin/analysis-03) Add survival analysis
+## 0f5a8df Add visualisation of results
+## 3c9d4a3 Merge branch 'fix-01'
+## 10297de (tag: v1.1, origin/fix-01) Add emergency fix
+## 30c3a10 WIP
+## 93edb00 (tag: v1.0) Add analysis stage 1
+## 3257d03 Revise approach in capturing user input
+## 02446ff Add newline
+## 8678072 Add myscript
+## b9255b8 First commit
 ```
+
+
 
 ### Fetch and push (merge required)
 
-In the interim Mark has been working on the `first-repo` and will want to get these changes into the remote.
-However, Mark hasn't yet linked his local repository with the remote.
+Heading back to our original `first-repo` we need to link the local with the remote.
 
 ```{bash, eval = F, engine = "sh"}
 git remote -v
-## nothing
+## nothing (yet)
 ```
 
 To fix this we use `git remote add` which, predictably tells git to configure a link between a local and remote version of the repository.
@@ -255,20 +256,71 @@ You  can call the remote anything you want but most people stick with the conven
 If you were to add a second remote, you would call it something other than *origin*.
 :::
 
-Next, we need to tell the local repository to reference this remote.
+We see that the remote has been added for both push and fetch.
+However, if we run log, we do not see Sylvies changes.
 
 ```{bash, eval = F, engine = "sh"}
-git remote add origin /Users/mark/Library/CloudStorage/OneDrive-TheUniversityofSydney\(Staff\)/first-repo.git
-git remote -v
-## origin	/Users/mark/Library/CloudStorage/OneDrive-TheUniversityofSydney(Staff)/first-repo.git (fetch)
-## origin	/Users/mark/Library/CloudStorage/OneDrive-TheUniversityofSydney(Staff)/first-repo.git (push)
+git log --oneline --all
+## b88a312 (HEAD -> main, tag: v3.0, analysis-03) Add survival analysis
+## 0f5a8df Add visualisation of results
+## 3c9d4a3 Merge branch 'fix-01'
+## 10297de (tag: v1.1, fix-01) Add emergency fix
+## 30c3a10 WIP
+## 93edb00 (tag: v1.0) Add analysis stage 1
+## 3257d03 Revise approach in capturing user input
+## 02446ff Add newline
+## 8678072 Add myscript
+## b9255b8 First commit
 ```
 
-We see that the remote has been added for both push and fetch.
-Before we use these, we need to make an existing local branch track a specific remote branch which is achieved with
+Equally, our `readme.md` file is as it was.
+
+```{bash, eval = F, engine = "sh"}
+cat readme.md
+## # first-repo
+## 
+## A demo markdown file for the git workshop.
+## 
+## Arbitrary line of text.
+## 
+## Contains standalone R scripts.
+```
+
+Before we can go any further, we need to make an existing local branch track a specific remote branch which is achieved with
 
 ```{bash, eval = F, engine = "sh"}
 git fetch  # pulls down information on the branches in the remote
+## remote: Enumerating objects: 5, done.
+## remote: Counting objects: 100% (5/5), done.
+## remote: Compressing objects: 100% (3/3), done.
+## remote: Total 3 (delta 2), reused 0 (delta 0), pack-reused 0
+## Unpacking objects: 100% (3/3), 302 bytes | 302.00 KiB/s, done.
+## From /Users/mark/Library/CloudStorage/OneDrive-TheUniversityofSydney(Staff)/first-repo
+##  * [new branch]      analysis-03 -> origin/analysis-03
+##  * [new branch]      fix-01      -> origin/fix-01
+##  * [new branch]      main        -> origin/main
+```
+
+and now we can see Sylvies mod in the repository history.
+
+```{bash, eval = F, engine = "sh"}
+git log --oneline --all
+## b606660 (origin/main) Minor change for testing fetch
+## b88a312 (HEAD -> main, tag: v3.0, origin/analysis-03, analysis-03) Add survival analysis
+## 0f5a8df Add visualisation of results
+## 3c9d4a3 Merge branch 'fix-01'
+## 10297de (tag: v1.1, origin/fix-01, fix-01) Add emergency fix
+## 30c3a10 WIP
+## 93edb00 (tag: v1.0) Add analysis stage 1
+## 3257d03 Revise approach in capturing user input
+## 02446ff Add newline
+## 8678072 Add myscript
+## b9255b8 First commit
+```
+
+We want to stay in sync with the main branch so we tell git via
+
+```{bash, eval = F, engine = "sh"}
 git branch --set-upstream-to=origin/main main # links a local with remote branch
 ```
 
@@ -284,7 +336,28 @@ git status
 ## nothing to commit, working tree clean
 ```
 
-If I try to push my change anyway, git barfs:
+I can still work on the files, e.g. adding a new line to the readme.md:
+
+```{bash, eval = F, engine = "sh"}
+# first-repo
+
+A demo markdown file for the git workshop.
+
+Arbitrary line of text.
+
+Contains standalone R scripts.
+
+Mark makes a change.
+```
+
+stage and commit:
+
+```{bash, eval = F, engine = "sh"}
+git add readme.md
+git commit -m "Add a change"
+```
+
+However, if I try to push my change anyway, git will barf:
 
 ```{bash, eval = F, engine = "sh"}
 git push
@@ -298,24 +371,22 @@ git push
 ```
 
 This is what I was referring to earlier.
-Git will not allow you to screw up the remote without some strenous effort on your part.
+Git will try to prevent you from screwing up the remote without some strenous effort on your part.
 It would be nice if git had told us what was different, but it forces us to do this via the following:
 
 ```{bash, eval = F, engine = "sh"}
 git fetch # this was done previously, but just to be clear that you need to do a fetch first
 git diff main origin/main
 ## diff --git a/readme.md b/readme.md
-## index 0165627..797358c 100644
+## index ce5b5e9..af3fd05 100644
 ## --- a/readme.md
 ## +++ b/readme.md
-## @@ -4,7 +4,9 @@ A demo markdown file for the git workshop.
+## @@ -6,6 +6,6 @@ Arbitrary line of text.
 ## 
-##  A new line for testing.
+##  Contains standalone R scripts.
 ## 
-## -Contains standalone R scripts for staged deliverables to client.
-## +Contains standalone R scripts.
-## +
-## +Test by Sylvie
+## -Mark makes a change.
+## +Sylvie made a change.
 ```
 
 You can see the line that I introduced and also the change that Sylvie added and committed to the remote.
@@ -327,9 +398,8 @@ I prefer to be explicit and feel like it might be a bit safer to split the proce
 git fetch
 git merge
 ## Auto-merging readme.md
-## Merge made by the 'ort' strategy.
-##  readme.md | 3 +++
-##  1 file changed, 3 insertions(+)
+## CONFLICT (content): Merge conflict in readme.md
+## Automatic merge failed; fix conflicts and then commit the result.
 ```
 
 :::callout-note
@@ -337,20 +407,83 @@ Git offers another command `git pull` that effectively combines `git fetch` with
 The benefit of using `git fetch` is that it will update your local repository but will not make any changes to your working directory (see @sec-working-dir for a reminder).
 :::
 
-And in this case, the merge appears to have worked correctly.
+Git couldn't merge our changes so I am forced to resolve them.
+Git introduces some markers into the problem files so that I know what I need to fix:
+
+```{bash, eval = F, engine = "sh"}
+cat readme.md
+# first-repo
+
+A demo markdown file for the git workshop.
+
+Arbitrary line of text.
+
+Contains standalone R scripts.
+
+<<<<<<< HEAD
+Mark makes a change.
+=======
+Sylvie made a change.
+>>>>>>> refs/remotes/origin/main
+```
+
+In this case I decide to keep both modifications so I amend the `readme.md` file as follows:
 
 ```{bash, eval = F, engine = "sh"}
 # first-repo
 
 A demo markdown file for the git workshop.
 
-A new line for testing.
+Arbitrary line of text.
 
-Contains standalone R scripts for staged deliverables to client.
+Contains standalone R scripts.
 
-Test by Sylvie
+Mark makes a change.
+
+Sylvie made a change.
 ```
 
+Then I can stage and commit the files and the remote will allow me to push them.
+
+```{bash, eval = F, engine = "sh"}
+git add readme.md
+git commit -m "resolve merge issue"
+# [main d53028e] resolve merge issue
+git push
+## Enumerating objects: 10, done.
+## Counting objects: 100% (10/10), done.
+## Delta compression using up to 8 threads
+## Compressing objects: 100% (6/6), done.
+## Writing objects: 100% (6/6), 577 bytes | 577.00 KiB/s, done.
+## Total 6 (delta 4), reused 0 (delta 0), pack-reused 0
+## To /Users/mark/Library/CloudStorage/OneDrive-TheUniversityofSydney(Staff)/first-repo.git
+##    b606660..d53028e  main -> main
+```
+
+Going back to `sylvie-first-repo`, Sylvie can simply fetch and then merge and we will both be up to date.
+
+The final history will look something like:
+
+```{bash, eval = F, engine = "sh"}
+git log --oneline --all
+## *   d53028e (HEAD -> main, origin/main, origin/HEAD) resolve merge issue
+## |\
+## | * b606660 Minor change for testing fetch
+## * | 8e2d711 Add a change
+## |/
+## * b88a312 (tag: v3.0, origin/analysis-03) Add survival analysis
+## * 0f5a8df Add visualisation of results
+## *   3c9d4a3 Merge branch 'fix-01'
+## |\
+## | * 10297de (tag: v1.1, origin/fix-01) Add emergency fix
+## * | 30c3a10 WIP
+## |/
+## * 93edb00 (tag: v1.0) Add analysis stage 1
+## * 3257d03 Revise approach in capturing user input
+## * 02446ff Add newline
+## * 8678072 Add myscript
+## * b9255b8 First commit
+```
 
 ## Remotes and branches
 
@@ -368,7 +501,7 @@ git branch -a
 ##   remotes/origin/main
 ```
 
-Let's say that Mark is asked to develop a new analysis.
+Let's say that I am asked to develop a new analysis.
 Learning from past mistakes, he creates an `analysis-04` branch and adds the following content to run a non-parameteric surivival analysis.
 
 ```{bash, eval = F, engine = "sh"}
@@ -389,12 +522,24 @@ Following the earlier process, Mark then switches back to main and merges in the
 ```{bash, eval = F, engine = "sh"}
 git checkout main
 git merge analysis-04
+## Updating d53028e..0576ed9
+## Fast-forward
+##  branching.R | 5 +++++
+##  1 file changed, 5 insertions(+)
 ```
 
 and then pushes the change up to the remote repository.
 
 ```{bash, eval = F, engine = "sh"}
 git push
+## Enumerating objects: 5, done.
+## Counting objects: 100% (5/5), done.
+## Delta compression using up to 8 threads
+## Compressing objects: 100% (3/3), done.
+## Writing objects: 100% (3/3), 352 bytes | 352.00 KiB/s, done.
+## Total 3 (delta 2), reused 0 (delta 0), pack-reused 0
+## To /Users/mark/Library/CloudStorage/OneDrive-TheUniversityofSydney(Staff)/first-repo.git
+##    d53028e..0576ed9  main -> main
 ```
 
 This does not establish the `analysis-04` branch within the remote, which may or may not be a problem (usually not) but it is worth being aware of.

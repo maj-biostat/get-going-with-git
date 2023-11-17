@@ -109,6 +109,8 @@ Once satisfied that the changes are (at the very least) benign, stage and commit
 #| eval: false
 git add hello.R readme.md
 git commit -m "Revise approach in capturing user input"
+## [main 3257d03] Revise approach in capturing user input
+##  2 files changed, 7 insertions(+), 5 deletions(-)
 ```
 
 ## Comparisons with staged files

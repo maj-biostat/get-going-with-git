@@ -14,9 +14,9 @@ There is no point reinventing the wheel, Jenny Bryant motivates the use of versi
 
 :::callout-note
 There is no getting around it.
-You are likely[^1] going to find some[^2] of this text hard and/or frustrating and/or/also painful.
+You are likely[^likely1] going to find some[^noproball] of this text hard and/or frustrating and/or/also painful.
 
-Your knowledge will progress in a stepwise fashion[^3] through setup, core concepts and collaboration.
+Your knowledge will progress in a stepwise fashion[^mono1] through setup, core concepts and collaboration.
 Each of these will give you pain, but once you have practice them, they will become an intuitive, integrated and a comforting safety net.
 :::
 
@@ -134,6 +134,6 @@ You may need to go to IT Support to get them to install OneDrive for you, but it
 
 
 
-[^1]: Actually with very high probability. Sorry.
-[^2]: Probably a lot.
-[^3]: Monotonically, I am sure. Ideally strictly positively.
+[^likely1]: Actually with very high probability. Sorry.
+[^noproball]: Probably a lot.
+[^mono1]: Monotonically, I am sure. Ideally strictly positively.

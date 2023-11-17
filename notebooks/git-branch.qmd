@@ -46,21 +46,17 @@ It is where you presently are in the commit history.
 #| eval: false
 
 git log --oneline
-## 516ad1a (HEAD -> main, tag: v4.0, origin/main, rm, analysis-04) Code review comments
-## a286918 Analysis 4
-## 538330d Merge remote-tracking branch 'refs/remotes/origin/main'
-## 49c68c2 Mark has also added detail to the readme.md
-## 3a3dd8d Testing Sylvie
-## 2829471 Merge branch 'analysis-03'
-## be09457 (tag: v3.0, analysis-03) Finished surv
-## 53115b6 minor
+## 3257d03 (HEAD -> main) Revise approach in capturing user input
+## 02446ff Add newline
+## 8678072 Add myscript
+## b9255b8 First commit
 ```
 
 
 For example, initially there is a singular progression of the project, but at some point you will want to create a release for a software product, or a piece of documentation or an analysis.
 Later you may want to revise the release due to changes in project direction, new data, bugs etc.
 You use branches to facilitate this process in a logical and coherent way.
-Typically, you branch off from the default branch of a repository, but you can branch from any branch that exists.
+Typically, you branch off from the default branch of a repository, but you can branch from any point.
 
 In the examples encountered so far, the branching we have encountered is just a stem (specifically, the *main* branch).
 Below is a common type of representation of the kind of branch that we have dealth with so far.
@@ -100,12 +96,18 @@ Run the script:
 Rscript branching.R
 ```
 
-Imagine this was the first analysis for a project and will be sent to the clients. 
-The completed work represents a milestone for the project so we stage and commit the file and then create a tag for it[^1].
+Imagine this was the first analysis for a project and will be sent to the client. 
+The completed work represents a milestone for the project so we stage and commit (`git add branching.R; git commit -m "Add analysis stage 1"`) the file and then create a tag for it[^tag1].
+
+:::callout-note
+A tag is just a reference that is used to capture a point in history and give it a meaningful name, e.g. v1.01.1
+:::
 
 ```{bash, eval = FALSE, engine = "sh"}
 git tag -a v1.0 -m "Analysis 1"
 ```
+
+The `-a` indicates the tag name follows, the `-m` is an annotation, or description associated with the tag name.
 
 We continue with the work for the next deliverable completing a secondary analysis on the binary outcome `z`.
 Add the following code to the end of the `branching.R` script, re-run with `Rscript branching.R` and then commit the file to the repository.
@@ -136,7 +138,7 @@ For example, we may have introduced new files, restructured the original analysi
 
 While we could go through the process of winding back all the changes, with revision control we do not have to because we can rewind to any point.
 We'll go over one approach to this using git.
-It isn't the ideal process to tackle the problem[^2] but it was chosen to highlight a few points.
+It isn't the ideal process to tackle the problem[^notideal1] but it was chosen to highlight a few points.
 
 ### Commit
 
@@ -145,8 +147,22 @@ Not doing so will cause you some major headaches, so best advice is to not forge
 
 ```{bash, eval = FALSE, engine = "sh"}
 git status
-git add braching.R
-git commit -m "Commit of files part way through development"
+## On branch main
+## Changes not staged for commit:
+##   (use "git add <file>..." to update what will be committed)
+##   (use "git restore <file>..." to discard changes in working directory)
+## 	modified:   branching.R
+## 
+## no changes added to commit (use "git add" and/or "git commit -a")
+git add branching.R
+git commit -m "WIP"
+git log --oneline --graph
+## * 30c3a10 (HEAD -> main) WIP
+## * 93edb00 (tag: v1.0) Add analysis stage 1
+## * 3257d03 Revise approach in capturing user input
+## * 02446ff Add newline
+## * 8678072 Add myscript
+## * b9255b8 First commit
 ```
 
 ### Rewind
@@ -156,7 +172,6 @@ We do this by first using `git log` to find the commit hash or we can just use t
 Using the tag is more convenient so let's do that.
 
 ```{bash, eval = FALSE, engine = "sh"}
-git log --oneline
 git checkout v1.0
 ## Note: switching to 'v1.0'.
 ## 
@@ -212,29 +227,37 @@ lyt <- basic_table() %>%
 build_table(lyt, d)
 ```
 
-and then to the analysis make these corrections and finally re-run the script to confirm that it produces what we expect.
+and then to the analysis make these corrections
 
 ```{r, eval = FALSE}
 lm1 <- lm(y ~ x * u, data = d)
 summary(lm1)
 ```
 
+Finally re-run the script (`Rscript branching.R`) to confirm that it produces what we expect.
+
 Stage and then commit these changes.
+
+```{bash, eval = FALSE, engine = "sh"}
+git add branching.R
+git commit -m "Add emergency fix"
+## [detached HEAD 10297de] Add emergency fix
+##  1 file changed, 2 insertions(+), 1 deletion(-)
+```
+
 We can get some insight into the state of the tree now.
 Below I have added one more commit so that you can get a sense of how things are progressing.
 
 ```{bash, eval = FALSE, engine = "sh"}
 git log --oneline --decorate --graph --all
-## * 7ab12b3 (HEAD) Code review correction
-## * 4cca810 Added emergency fix
-## | * c82a48d (main) Started on secondary analyses
+## * 10297de (HEAD) Add emergency fix
+## | * 30c3a10 (main) WIP
 ## |/
-## * a2cc6f7 (tag: v1.0) Comments from code review
-## * fa24778 branching.R
-## * 3bdac46 Revised approach to capturing input
-## * 327170a Minor edit
-## * b078716 New file
-## * 0cd2d52 First commit
+## * 93edb00 (tag: v1.0) Add analysis stage 1
+## * 3257d03 Revise approach in capturing user input
+## * 02446ff Add newline
+## * 8678072 Add myscript
+## * b9255b8 First commit
 ```
 
 The equivalent illustration would look something like this:
@@ -259,27 +282,29 @@ git checkout fix-01
 When we look at the tree we see both HEAD and the branch (note the first line text which says *HEAD, fix-01*).
 
 ```{bash, eval = FALSE, engine = "sh"}
-git log --oneline --decorate --graph --all
-## * 7ab12b3 (HEAD, fix-01) Code review correction
-## * 4cca810 Added emergency fix
-## | * c82a48d (main) Started on secondary analyses
+git log --oneline --graph --all
+## * 10297de (HEAD -> fix-01) Add emergency fix
+## | * 30c3a10 (main) WIP
 ## |/
-## * a2cc6f7 (tag: v1.0) Comments from code review
-## * fa24778 branching.R
-## * 3bdac46 Revised approach to capturing input
-## * 327170a Minor edit
-## * b078716 New file
-## * 0cd2d52 First commit
+## * 93edb00 (tag: v1.0) Add analysis stage 1
+## * 3257d03 Revise approach in capturing user input
+## * 02446ff Add newline
+## * 8678072 Add myscript
+## * b9255b8 First commit
 ```
 
 And now the picture is
 
 ![Looking at the HEAD of our new branch](../fig/branch-04.jpg){width=70%}
 
-If this is the version that we re-issue to the client, we might as well tag it[^3].
+If this is the version that we re-issue to the client, we might as well tag it[^notideal2].
 
 ```{bash, eval = FALSE, engine = "sh"}
 git tag -a v1.1 -m "Analysis 1 (re-issue)"
+# NOTE - we now have two tags:
+git tag
+## v1.0
+## v1.1
 ```
 
 ### Switching back to the secondary
@@ -288,6 +313,15 @@ Switching back to our partially complete secondary analysis is simple:
 
 ```{bash, eval = FALSE, engine = "sh"}
 git checkout main
+git log --oneline --graph --all
+## * 10297de (tag: v1.1, fix-01) Add emergency fix
+## | * 30c3a10 (HEAD -> main) WIP
+## |/
+## * 93edb00 (tag: v1.0) Add analysis stage 1
+## * 3257d03 Revise approach in capturing user input
+## * 02446ff Add newline
+## * 8678072 Add myscript
+## * b9255b8 First commit
 ```
 
 If you look at the `branching.R` script you will be able to see the secondary analysis we started some time ago.
@@ -326,6 +360,6 @@ No commits are made on the release branches.
 More information can be found [here](https://trunkbaseddevelopment.com/).
 An alternative to trunk based development is [git flow](https://datasift.github.io/gitflow/IntroducingGitFlow.html).
 
-[^1]: I am not advocating that this is how releases should be handled, it is purely an artificial example for the purposes of this text. A more appropriate way to do this would be via a **trunk based development** strategy/continuous integration whereby release branches are spawned off the main branch at the time of release.
-[^2]: The start of an alternative could be `git revert --no-commit <hash>..HEAD; git commit`.
-[^3]: Again, I am not saying this is the way to go about this in practice, it is just for the purposes of the example here.
+[^tag1]: I am not advocating that this is how releases should be handled, it is purely an artificial example for the purposes of this text. A more appropriate way to do this would be via a **trunk based development** strategy/continuous integration whereby release branches are spawned off the main branch at the time of release.
+[^notideal1]: The start of an alternative could be `git revert --no-commit <hash>..HEAD; git commit`.
+[^notideal2]: Again, I am not saying this is the way to go about this in practice, it is just for the purposes of the example here.

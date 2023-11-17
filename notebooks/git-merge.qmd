@@ -47,6 +47,7 @@ Run the following.
 
 ```{bash, eval = FALSE, engine = "sh"}
 git checkout main
+## Already on 'main'
 git merge fix-01
 ```
 
@@ -121,9 +122,10 @@ Here is what you need to do:
 
 - Add the above code to the `branching.R` script.
 - Run the updated script `Rscript branching.R` to make sure it works.
+- Check that a figure `fig-sec.png` was produced.
 - Edit the `.gitignore` file so that the figure does not get committed to the repository.
 - Stage and commit the files and then review the commit history.
-- Create a v2.0 tag with an meaningful message.
+- Create a v2.0 tag with an meaningful message (`git tag -a <tag name> -m "<desc>"`).
 :::
 
 
@@ -151,31 +153,6 @@ summary(lm3)
 
 Run the script to make sure it works then stage and commit along with an updated `.gitignore` files that excludes all `png` files.
 
-Checkout (switch to) main in order to emulate progression in the main branch:
-
-```{bash, eval = F, engine = "sh"}
-git checkout main
-```
-
-Add the following change to the `branching.R` code (just adding a new theme to the ggplot figure)
-
-```{r, eval = FALSE}
-p1 <- ggplot(d_fit, aes(x = arm, y  = pr_z)) +
-  geom_point() +
-  geom_linerange(aes(ymin = pr_z_lb, ymax = pr_z_ub)) +
-  scale_x_discrete("") +
-  scale_y_continuous("Probability of response") +
-  theme_bw()
-```
-
-Run the script, then stage and commit.
-
-Re-checkout `analysis-03` branch:
-
-```{bash, eval = F, engine = "sh"}
-git checkout analysis-03
-```
-
 Add the following code:
 
 ```{r, eval = FALSE}
@@ -185,40 +162,58 @@ dev.off()
 ```
 
 Run the script to make sure it works then stage and commit.
+
+```{bash, eval = F, engine = "sh"}
+git add branching.R
+git commit -m "Add survival analysis"
+## [analysis-03 b88a312] Add survival analysis
+##  1 file changed, 8 insertions(+)
+```
+
 Treat this as the release by tagging it as `v3.0`.
+
+```{bash, eval = F, engine = "sh"}
+git tag -a v3.0 -m "Stage 3 analysis"
+```
+
 Checkout the `main` branch and merge the analysis into main.
 
 ```{bash, eval = F, engine = "sh"}
 git checkout main
 git merge analysis-03
+## Updating 0f5a8df..b88a312
+## Fast-forward
+##  branching.R | 8 ++++++++
+##  1 file changed, 8 insertions(+)
 ```
 
 Review the commit history:
 
 ```{bash, eval = F, engine = "sh"}
-git log --oneline --decorate --graph --all
-## *   2829471 (HEAD -> main) Merge branch 'analysis-03'
+git log --oneline --graph --all
+## * b88a312 (HEAD -> main, tag: v3.0, analysis-03) Add survival analysis
+## * 0f5a8df Add visualisation of results
+## *   3c9d4a3 Merge branch 'fix-01'
 ## |\
-## | * be09457 (tag: v3.0, analysis-03) Finished surv
-## | * 7a5e7b9 Surv analysis
-## * | 53115b6 minor
+## | * 10297de (tag: v1.1, fix-01) Add emergency fix
+## * | 30c3a10 WIP
 ## |/
-## * 1a9dfeb (tag: v2.0) Edits from code review
-## * d1586df Completion of secondary analysis
-## *   bf34b9c Merge from fix-01
-## |\
-## | * b8de16c (tag: v1.1, fix-01) Edits from code review
-## | * 12561d9 Emergency fix
-## * | d88f9e5 WIP
-## |/
-## * a2cc6f7 (tag: v1.0) Comments from code review
-## * fa24778 branching.R
-## * 3bdac46 Revised approach to capturing input
-## * 327170a Minor edit
-## * b078716 New file
-## * 0cd2d52 First commit
+## * 93edb00 (tag: v1.0) Add analysis stage 1
+## * 3257d03 Revise approach in capturing user input
+## * 02446ff Add newline
+## * 8678072 Add myscript
+## * b9255b8 First commit
 ```
 :::
+
+Even though we cannot see the merge here, we can confirm it happened with the following command that lists all branches that have been merged to main.
+
+```{bash, eval = F, engine = "sh"}
+git branch --merged main
+##   analysis-03
+##   fix-01
+## * main
+```
 
 At this point, you have been introduced to the fundamentals of git.
 But there are things that are going to catch you out.
