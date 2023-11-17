@@ -379,62 +379,66 @@ ul.task-list li input[type="checkbox"] {
 <td>Create a new commit in the repository (tracking any untracked files) with reason for commit.</td>
 </tr>
 <tr class="even">
+<td><code>git tag -a v1.0 -m "Analysis 1"</code></td>
+<td>Create an annotated tag</td>
+</tr>
+<tr class="odd">
 <td><code>git branch &lt;bname&gt;</code></td>
 <td>Create a new branch, a divergence from the main development branch.</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td><code>git push -u &lt;remote&gt; &lt;bname&gt;</code></td>
 <td>Push a local branch (commits) up to a remote repo. Remote is e.g.&nbsp;origin.</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td><code>git push &lt;remote&gt; &lt;bname&gt;</code></td>
 <td>Push a local branch (commits) up to a remote repo.</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td><code>git branch -d &lt;bname&gt;</code></td>
 <td>Delete a local branch being careful.</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td><code>git fetch</code></td>
 <td>Fetches the most recent state of repo, leaves working directory files alone.</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td><code>git fetch &lt;remote&gt;</code></td>
 <td>Fetches from a specified remote, e.g.&nbsp;upstream</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td><code>git fetch &lt;remote/bname&gt;</code></td>
 <td>Fetches from a specified remote and branch, e.g.&nbsp;upstream/main</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td><code>git merge &lt;bname&gt;</code></td>
 <td>Merges changes into working dir for current branch.</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td><code>git pull</code></td>
 <td>Combines fetch and pull into one operation.</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td><code>git revert &lt;12345677&gt;</code></td>
 <td>Reverts back to a commit point maintaining full history (safe).</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td><code>git checkout &lt;bname&gt;</code></td>
 <td>Switch to a branch.</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td><code>git checkout -b &lt;bname&gt;</code></td>
 <td>Shortcut to create and then switch to a branch.</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td><code>git remote -v</code></td>
 <td>List the remotes that the local repo is currently aware of.</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td><code>git remote add upstream &lt;https://name-repos.git&gt;</code></td>
 <td>Add an upstream repo to the local repo.</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td><code>git branch --set-upstream-to &lt;remote/bname&gt;</code></td>
 <td>Track the upstream main branch wrt keeping sync</td>
 </tr>
